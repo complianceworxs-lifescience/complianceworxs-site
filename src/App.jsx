@@ -1,80 +1,199 @@
-import React, { useState } from 'react';
-import './index.css';
+import { useMemo, useState } from "react";
 
 export default function App() {
-  const [authState, setAuthState] = useState('blocked');
+  // Authorization state management
+  // "blocked" | "review" | "authorized"
+  const [authState, setAuthState] = useState("blocked");
 
-  // Hardcoded signals for a perfect, error-free demo
-  const staticSignals = [
-    { id: 'SIG-2026-01', name: 'Autonomous Risk Assessment', status: 'Authorized', latency: 12 },
-    { id: 'SIG-2026-02', name: 'DDR Logic Validation', status: 'Review', latency: 24 },
-    { id: 'SIG-2026-03', name: 'Regulatory Signal Bridge', status: 'Blocked', latency: 8 }
-  ];
+  // Dynamic configuration based on authorization state
+  const stateConfig = useMemo(() => {
+    if (authState === "authorized") {
+      return {
+        badgeClass: "badge badge-authorized",
+        badgeTitle: "Authorized",
+        badgeSubtitle: "Proof generation enabled",
+        panelClass: "panel panel-authorized",
+        panelTitle: "Proof Authorized",
+        panelBody:
+          "You may generate a defensible record. Decisions will be logged with rationale and evidence.",
+        ctaText: "Generate Proof",
+        ctaClass: "button-primary",
+      };
+    }
 
-  const getPanelData = () => {
-    const panels = {
-      authorized: { title: 'Proof Authorized', class: 'panel-authorized', text: 'Thresholds met. Proof generated.' },
-      review: { title: 'Under Review', class: 'panel-review', text: 'Rationale captured. Pending verification.' },
-      blocked: { title: 'Proof Blocked', class: 'panel-blocked', text: 'No defensible proof generated.' }
+    if (authState === "review") {
+      return {
+        badgeClass: "badge badge-review",
+        badgeTitle: "Review Required",
+        badgeSubtitle: "Additional signal needed",
+        panelClass: "panel panel-review",
+        panelTitle: "Authorization Pending",
+        panelBody:
+          "Your decision requires one more validation signal before proof can be generated.",
+        ctaText: "Continue Assessment",
+        ctaClass: "button-primary",
+      };
+    }
+
+    // Default: blocked
+    return {
+      badgeClass: "badge badge-blocked",
+      badgeTitle: "Not Authorized",
+      badgeSubtitle: "Proof blocked by design",
+      panelClass: "panel panel-blocked",
+      panelTitle: "Proof Blocked",
+      panelBody:
+        "No defensible proof may be generated until authorization thresholds are met.",
+      ctaText: "Start Assessment",
+      ctaClass: "button-primary",
     };
-    return panels[authState] || panels.blocked;
-  };
-
-  const panel = getPanelData();
+  }, [authState]);
 
   return (
-    <div className="app-wrapper">
+    <>
+      {/* TOP AUTHORITY BAR */}
       <div className="topbar">
         <div className="topbar-inner">
           <div className="topbar-left">COMPLIANCEWORXS AUTHORIZATION ENGINE™</div>
-          <div className="badge badge-blocked">Proof {authState} by design</div>
+          <div className="topbar-right">
+            <span className={stateConfig.badgeClass}>
+              <span className="badge-title">{stateConfig.badgeTitle}</span>
+              <span className="badge-sub">{stateConfig.badgeSubtitle}</span>
+            </span>
+          </div>
         </div>
       </div>
 
+      {/* HEADER */}
       <header className="header">
         <div className="header-inner">
           <div className="brand">
             <div className="brand-name">COMPLIANCEWORXS</div>
             <div className="brand-tag">Defensible decisions, before inspection.</div>
           </div>
+
           <nav className="nav">
-            <a href="#stream" className="navlink">Intelligence Stream</a>
+            <a className="navlink" href="#overview">
+              Overview
+            </a>
+            <a className="navlink" href="#pricing">
+              Pricing
+            </a>
+            <a className="navlink" href="#intelligence">
+              Intelligence Stream
+            </a>
+            <a className="navlink" href="#authority">
+              Authority
+            </a>
+            <a className="navlink" href="#access">
+              Access
+            </a>
           </nav>
+
           <div className="header-actions">
-            <button className="button-primary">Start Assessment</button>
+            <button className="button-secondary" type="button">
+              Sign In
+            </button>
+            <button className="button-primary" type="button">
+              Start Assessment
+            </button>
           </div>
         </div>
       </header>
 
-      <section className="hero">
+      {/* HERO + STATE PANEL */}
+      <main className="hero">
         <div className="hero-inner">
           <div className="hero-copy">
             <h1>Decision-Grade Compliance Intelligence</h1>
-            <p className="lead">Proof is generated only after defensibility thresholds are met.</p>
-            
-            <div className="demo-toggle" id="stream">
-              <div className="demo-label">Intelligence Stream (Demo Mode)</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '12px' }}>
-                {staticSignals.map((signal, i) => (
-                  <div key={i} className="pill" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span>{signal.name}</span>
-                    <span style={{ opacity: 0.5 }}>{signal.latency}ms</span>
-                  </div>
-                ))}
+            <p className="lead">
+              ComplianceWorxs evaluates regulatory decisions before documentation
+              exists. Proof is generated only after defensibility thresholds are met.
+            </p>
+
+            <div className="cta-row">
+              <a className={stateConfig.ctaClass} href="#start">
+                {stateConfig.ctaText}
+              </a>
+
+              <button className="link-button" type="button">
+                How Authorization Works →
+              </button>
+            </div>
+
+            {/* DEMO TOGGLE */}
+            <div className="demo-toggle">
+              <div className="demo-label">Demo: authorization state</div>
+              <div className="demo-buttons">
+                <button
+                  className={authState === "blocked" ? "pill active" : "pill"}
+                  onClick={() => setAuthState("blocked")}
+                  type="button"
+                >
+                  Blocked
+                </button>
+                <button
+                  className={authState === "review" ? "pill active" : "pill"}
+                  onClick={() => setAuthState("review")}
+                  type="button"
+                >
+                  Review
+                </button>
+                <button
+                  className={authState === "authorized" ? "pill active" : "pill"}
+                  onClick={() => setAuthState("authorized")}
+                  type="button"
+                >
+                  Authorized
+                </button>
               </div>
             </div>
           </div>
 
-          <div className={`panel ${panel.class}`}>
-            <div className="panel-title">{panel.title}</div>
-            <p className="panel-body">{panel.text}</p>
+          <aside className={stateConfig.panelClass}>
+            <div className="panel-title">{stateConfig.panelTitle}</div>
+            <div className="panel-body">{stateConfig.panelBody}</div>
+          </aside>
+        </div>
+      </main>
+
+      {/* SYSTEM SECTION */}
+      <section className="section-muted">
+        <div className="container">
+          <h2>Deterministic Decision Review (DDR)</h2>
+          <p>
+            DDR captures the signal, the decision, the rationale, and the evidence.
+            If the decision cannot be defended, proof is blocked by design.
+          </p>
+
+          <div className="grid">
+            <div className="card">
+              <h3>Documentation Does Not Equal Defensibility</h3>
+              <ul>
+                <li>Inspectors assess decisions, not document volume</li>
+                <li>Proof without defensibility increases inspection risk</li>
+                <li>Most compliance failures begin with the wrong decision</li>
+              </ul>
+            </div>
+
+            <div className="card">
+              <h3>How the System Works</h3>
+              <ol>
+                <li>Assess the decision</li>
+                <li>Authorize proof</li>
+                <li>Block risk</li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
 
-      <div className="authority-band">
-        <p>Proof generation is governed. Indefensible proof is blocked by design.</p>
-      </div>
-    </div>
+      {/* FOOTER AUTHORITY BAND */}
+      <footer className="authority-band">
+        <p>
+          Proof generation is governed. Indefensible proof is blocked by design.
+        </p>
+      </footer>
+    </>
   );
 }
