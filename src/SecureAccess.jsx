@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function SecureAccess() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Secure access link sent to ${email}`);
-    setEmail(''); // Clear the form after submission
+    alert("Secure access link sent to " + email);
+    setEmail("");
   };
 
   return (
@@ -56,9 +55,7 @@ export default function SecureAccess() {
             </li>
           </ul>
           <p className="important-notes">
-            <strong>Important Notes:</strong> This process ensures that your access is secure, and your personal information remains confidential. By accessing this system, you agree to our{" "}
-            <Link to="/terms">Terms of Service</Link> and{" "}
-            <Link to="/privacy">Privacy Policy</Link>.
+            <strong>Important Notes:</strong> This process ensures that your access is secure, and your personal information remains confidential.
           </p>
         </div>
       </div>
