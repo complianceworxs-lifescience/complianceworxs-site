@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import './SecureAccess.css';
 
 const SecureAccess = () => {
@@ -9,6 +9,9 @@ const SecureAccess = () => {
     // Handle secure access link sending logic
     alert(`Secure access link sent to ${email}`);
   };
+
+  // Add the console.log to check if the component is rendering
+  console.log("SecureAccess component is rendering!"); // This log will appear in the browser console
 
   return (
     <div className="secure-access-page">
