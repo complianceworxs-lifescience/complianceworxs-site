@@ -1729,98 +1729,166 @@ p {
 
 /* Existing styles for other pages */
 
-/* Secure Access Page Styling */
+/* ========================================
+   SECURE ACCESS PAGE STYLES
+   ======================================== */
+
 .secure-access-page {
-  max-width: 600px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 80px 24px;
+}
+
+.secure-access-inner {
+  max-width: 700px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 12px;
+  padding: 48px 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .secure-access-page h1 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  color: #2C3E50;
-}
-
-.secure-access-page p {
-  font-size: 16px;
-  color: #34495E;
+  font-size: 2.25rem;
+  color: var(--cw-navy);
+  margin-bottom: 16px;
   text-align: center;
 }
 
-.secure-access-page form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+.secure-access-lead {
+  font-size: 1.05rem;
+  color: var(--cw-text-secondary);
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.secure-access-page label {
-  font-weight: 500;
-  color: #2C3E50;
+/* Form Styles */
+.secure-access-form {
+  margin-bottom: 24px;
 }
 
-.secure-access-page input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #BDC3C7;
-  border-radius: 5px;
+.secure-access-form label {
+  display: block;
+  font-weight: 600;
+  color: var(--cw-text-primary);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
-.secure-access-page button {
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
+.secure-access-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.secure-access-input:focus {
+  outline: none;
+  border-color: var(--cw-navy);
+  box-shadow: 0 0 0 3px rgba(11, 42, 63, 0.1);
+}
+
+.secure-access-submit {
+  width: 100%;
+  background: var(--cw-amber);
+  color: #000;
   border: none;
-  border-radius: 5px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.secure-access-page button:hover {
-  background-color: #0056b3;
+.secure-access-submit:hover {
+  background: #d4963a;
+  transform: translateY(-1px);
 }
 
-.secure-access-page .note {
+.secure-access-note {
+  font-size: 0.9rem;
+  color: var(--cw-text-muted);
   text-align: center;
-  font-size: 14px;
-  margin-top: 10px;
-  color: #7F8C8D;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 32px;
 }
 
-.secure-access-page .how-it-works {
-  margin-top: 30px;
+/* How It Works Section */
+.how-it-works {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 32px;
 }
 
-.secure-access-page .how-it-works h2 {
-  font-size: 20px;
-  color: #2C3E50;
+.how-it-works h2 {
+  font-size: 1.5rem;
+  color: var(--cw-navy);
+  margin-bottom: 20px;
+}
+
+.how-it-works ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.how-it-works li {
+  padding: 12px 0;
+  color: var(--cw-text-secondary);
+  line-height: 1.6;
+}
+
+.how-it-works li strong {
+  color: var(--cw-text-primary);
+  font-weight: 700;
+}
+
+.important-notes {
+  font-size: 0.9rem;
+  color: var(--cw-text-secondary);
+  line-height: 1.6;
+  padding: 16px;
+  background: #f0fdf4;
+  border-left: 4px solid #22c55e;
+  border-radius: 4px;
+}
+
+.important-notes strong {
+  color: var(--cw-text-primary);
+}
+
+.important-notes a {
+  color: var(--cw-navy);
   font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.secure-access-page .how-it-works ul {
-  list-style-type: disc;
-  margin-left: 20px;
-}
-
-.secure-access-page .how-it-works li {
-  font-size: 16px;
-  color: #34495E;
-}
-
-.secure-access-page .how-it-works a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.secure-access-page .how-it-works a:hover {
   text-decoration: underline;
 }
 
-/* Add any other page-specific styles here */
+.important-notes a:hover {
+  color: var(--cw-amber);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .secure-access-page {
+    padding: 40px 24px;
+  }
+
+  .secure-access-inner {
+    padding: 32px 24px;
+  }
+
+  .secure-access-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .how-it-works h2 {
+    font-size: 1.25rem;
+  }
+}
+
