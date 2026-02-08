@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 
 export default function App() {
@@ -73,22 +74,22 @@ export default function App() {
           </div>
 
           <nav className="nav">
-            <a className="navlink" href="#overview">
-              Overview
-            </a>
-            <a className="navlink" href="#pricing">
-              Pricing
-            </a>
-            <a className="navlink" href="#intelligence">
-              Intelligence Stream
-            </a>
-            <a className="navlink" href="#authority">
-              Authority
-            </a>
-            <a className="navlink" href="#access">
-              Access
-            </a>
-          </nav>
+  <Link className="navlink" to="/">
+    Overview
+  </Link>
+  <Link className="navlink" to="/pricing">
+    Pricing
+  </Link>
+  <a className="navlink" href="#intelligence">
+    Intelligence Stream
+  </a>
+  <a className="navlink" href="#authority">
+    Authority
+  </a>
+  <a className="navlink" href="#access">
+    Access
+  </a>
+</nav>
 
           <div className="header-actions">
             <button className="button-secondary" type="button">
