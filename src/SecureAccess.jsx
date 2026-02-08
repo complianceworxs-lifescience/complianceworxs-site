@@ -1,16 +1,17 @@
 import React, { useState } from 'react'; 
-import './SecureAccess.css';  // This CSS will be scoped for this component
+import './SecureAccess.css';
 
 const SecureAccess = () => {
   const [email, setEmail] = useState('');
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Corrected the alert line with a proper template literal
     alert(`Secure access link sent to ${email}`);
   };
 
-  // Here is the console.log to check if the component is rendering
-  console.log("SecureAccess component is rendering!");  // This log will appear in the browser console
+  // Console log to check if the component is rendering
+  console.log("SecureAccess component is rendering!"); // This log will appear in the browser console
 
   return (
     <div className="secure-access-page">
@@ -45,4 +46,3 @@ const SecureAccess = () => {
 };
 
 export default SecureAccess;
-
