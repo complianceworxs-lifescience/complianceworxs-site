@@ -1,140 +1,123 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import "./intelligence.css";
+
+const CARDS = [
+  {
+    id: 1,
+    title: "Regulatory Change Impact",
+    summary:
+      "See what changed, why it matters, and which decisions are affected. Signals are prioritized by risk and scope.",
+    miniCta: "Get Free Change Impact Report →",
+    button: "Get Free Change Impact Report →",
+    category: "featured",
+  },
+  {
+    id: 2,
+    title: "Inspection & Enforcement Signals",
+    summary:
+      "Identify enforcement patterns before they become findings and understand what inspectors are targeting.",
+    miniCta: "Start Inspection Signal Check →",
+    button: "Start Inspection Signal Check →",
+    category: "featured",
+  },
+  {
+    id: 3,
+    title: "Risk Management",
+    summary:
+      "Prioritize compliance risks by severity, urgency, and business impact.",
+    miniCta: "Start Risk Assessment →",
+    button: "Start Risk Assessment →",
+    category: "risk",
+  },
+  {
+    id: 4,
+    title: "Decision Ownership",
+    summary:
+      "Clarify who owns regulated decisions and where accountability is undefined.",
+    miniCta: "Start Decision Ownership Mapping →",
+    button: "Start Decision Ownership Mapping →",
+    category: "risk",
+  },
+  {
+    id: 5,
+    title: "Defensibility & Evidence",
+    summary:
+      "Identify evidence gaps inspectors will question and map corrective actions.",
+    miniCta: "Start Defensibility Assessment →",
+    button: "Start Audit Readiness Assessment →",
+    category: "inspection",
+  },
+  {
+    id: 6,
+    title: "Audit Readiness",
+    summary:
+      "See what will fail first when an inspector asks for proof.",
+    miniCta: "Start Audit Readiness Assessment →",
+    button: "Start Audit Readiness Assessment →",
+    category: "inspection",
+  },
+];
 
 export default function Intelligence() {
-  const [activeFilter, setActiveFilter] = useState("featured");
+  const [activeTab, setActiveTab] = useState("featured");
 
-  const hubs = [
-    {
-      id: "reg-change",
-      category: "featured",
-      title: "Regulatory Change Impact",
-      description:
-        "See what changed, why it matters, and which decisions are affected. Signals are prioritized by risk and scope.",
-      cta: "Get Free Change Impact Report",
-    },
-    {
-      id: "inspection",
-      category: "inspection",
-      title: "Inspection & Enforcement Signals",
-      description:
-        "Identify enforcement patterns before they become findings and understand what inspectors are targeting.",
-      cta: "Start Inspection Signal Check",
-    },
-    {
-      id: "risk",
-      category: "risk",
-      title: "Risk Management",
-      description:
-        "Prioritize compliance risks by severity, urgency, and business impact.",
-      cta: "Start Risk Assessment",
-    },
-    {
-      id: "ownership",
-      category: "risk",
-      title: "Decision Ownership",
-      description:
-        "Clarify who owns regulated decisions and where accountability is undefined.",
-      cta: "Start Decision Ownership Mapping",
-    },
-    {
-      id: "evidence",
-      category: "featured",
-      title: "Defensibility & Evidence",
-      description:
-        "Identify evidence gaps inspectors will question and map corrective actions.",
-      cta: "Start Defensibility Assessment",
-    },
-    {
-      id: "audit",
-      category: "inspection",
-      title: "Audit Readiness",
-      description:
-        "See what will fail first when an inspector asks for proof.",
-      cta: "Start Audit Readiness Assessment",
-    },
-  ];
-
-  const filteredHubs =
-    activeFilter === "featured"
-      ? hubs
-      : hubs.filter((hub) => hub.category === activeFilter);
+  const visibleCards = CARDS.filter(
+    (c) => c.category === activeTab
+  );
 
   return (
-    <div className="intelligence-page">
+    <main className="intelligence-page">
       {/* HERO */}
-      <section className="intelligence-hero">
-        <div className="intelligence-hero-inner">
-          <h1>
-            Topic Intelligence Hubs turn regulatory change into actions that
-            protect revenue, prevent inspection surprises, and show you exactly
-            what to do next.
-          </h1>
-          <p>
-            Each hub maps regulatory signals to a defensible compliance action.
-            Nothing is generic. Everything leads to a decision.
-          </p>
-        </div>
-      </section>
+      <section className="intelligence-hero" role="banner">
+        <h1>
+          Topic Intelligence Hubs turn regulatory change into actions that
+          protect revenue, prevent inspection surprises, and show you exactly
+          what to do next →
+        </h1>
+        <p>
+          Each hub maps regulatory signals to a defensible compliance action.
+          Nothing is generic. Everything leads to a decision.
+        </p>
 
-      {/* FILTERS */}
-      <section className="intelligence-filters">
-        <div className="filters-inner">
-          <button
-            type="button"
-            className={activeFilter === "featured" ? "filter active" : "filter"}
-            onClick={() => setActiveFilter("featured")}
-          >
-            Featured
-          </button>
-          <button
-            type="button"
-            className={activeFilter === "risk" ? "filter active" : "filter"}
-            onClick={() => setActiveFilter("risk")}
-          >
-            Risk
-          </button>
-          <button
-            type="button"
-            className={
-              activeFilter === "inspection" ? "filter active" : "filter"
-            }
-            onClick={() => setActiveFilter("inspection")}
-          >
-            Inspection
-          </button>
+        {/* TABS */}
+        <div className="intelligence-tabs">
+          {["featured", "risk", "inspection"].map((tab) => (
+            <button
+              key={tab}
+              className={`tab ${activeTab === tab ? "active" : ""}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          ))}
         </div>
       </section>
 
       {/* GRID */}
-      <section className="intelligence-grid-section">
+      <section className="intelligence-grid-wrapper">
+        <h2>Intelligence Stream</h2>
+
         <div className="intelligence-grid">
-          {filteredHubs.map((hub) => (
-            <div className="intelligence-card" key={hub.id}>
-              <h3>{hub.title}</h3>
-              <p>{hub.description}</p>
-              <Link className="intelligence-cta" to="/assessment">
-                {hub.cta} →
-              </Link>
+          {visibleCards.map((card) => (
+            <div key={card.id} className="intelligence-card">
+              <h3>{card.title}</h3>
+              <p>{card.summary}</p>
+              <span className="mini-cta">{card.miniCta}</span>
+              <button className="card-button">
+                {card.button}
+              </button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* FOOTER */}
-      <section className="intelligence-footer">
-        <div className="intelligence-footer-inner">
-          <h2>Turn regulatory intelligence into defensible action</h2>
-          <p>
-            Start with an assessment to determine which decisions can be proven
-            and which must be blocked by design.
-          </p>
-          <Link className="primary-action" to="/assessment">
-            Start Assessment
-          </Link>
-        </div>
+      {/* GLOBAL CTA */}
+      <section className="intelligence-bottom-cta">
+        <button className="bottom-cta-button">
+          Start Assessment
+        </button>
       </section>
-    </div>
+    </main>
   );
 }
 
