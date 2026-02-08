@@ -80,9 +80,10 @@ export default function App() {
   <Link className="navlink" to="/pricing">
     Pricing
   </Link>
-  <a className="navlink" href="#intelligence">
-    Intelligence Stream
-  </a>
+  <Link className="navlink" to="/intelligence">
+  Intelligence Stream
+</Link>
+
   <a className="navlink" href="#authority">
     Authority
   </a>
