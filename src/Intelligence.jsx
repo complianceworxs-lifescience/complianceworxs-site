@@ -2,129 +2,110 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Intelligence() {
-  const [activeTab, setActiveTab] = useState("Featured");
+  const [activeTab, setActiveTab] = useState("featured");
 
-  const hubs = {
-    Featured: [
-      {
-        id: 1,
-        title: "Regulatory Change Impact",
-        description: "See what changed, why it matters, and which decisions are affected. Signals are prioritized by risk and scope.",
-        linkText: "Get Free Change Impact Report",
-        ctaText: "Get Free Change Impact Report"
-      },
-      {
-        id: 2,
-        title: "Inspection & Enforcement Signals",
-        description: "Identify enforcement patterns before they become findings and understand what inspectors are targeting.",
-        linkText: "Start Inspection Signal Check",
-        ctaText: "Start Inspection Signal Check"
-      },
-      {
-        id: 3,
-        title: "Risk Management",
-        description: "Prioritize compliance risks by severity, urgency, and business impact.",
-        linkText: "Start Risk Assessment",
-        ctaText: "Start Risk Assessment"
-      },
-      {
-        id: 4,
-        title: "Decision Ownership",
-        description: "Clarify who owns regulated decisions and where accountability is undefined.",
-        linkText: "Start Decision Ownership Mapping",
-        ctaText: "Start Decision Ownership Mapping"
-      },
-      {
-        id: 5,
-        title: "Defensibility & Evidence",
-        description: "Identify evidence gaps inspectors will question and map corrective actions.",
-        linkText: "Start Defensibility Assessment",
-        ctaText: "Start Audit Readiness Assessment"
-      },
-      {
-        id: 6,
-        title: "Audit Readiness",
-        description: "See what will fail first when an inspector asks for proof.",
-        linkText: "Start Audit Readiness Assessment",
-        ctaText: "Start Audit Readiness Assessment"
-      }
-    ],
-    Risk: [
-      {
-        id: 3,
-        title: "Risk Management",
-        description: "Prioritize compliance risks by severity, urgency, and business impact.",
-        linkText: "Start Risk Assessment",
-        ctaText: "Start Risk Assessment"
-      },
-      {
-        id: 4,
-        title: "Decision Ownership",
-        description: "Clarify who owns regulated decisions and where accountability is undefined.",
-        linkText: "Start Decision Ownership Mapping",
-        ctaText: "Start Decision Ownership Mapping"
-      }
-    ],
-    Inspection: [
-      {
-        id: 2,
-        title: "Inspection & Enforcement Signals",
-        description: "Identify enforcement patterns before they become findings and understand what inspectors are targeting.",
-        linkText: "Start Inspection Signal Check",
-        ctaText: "Start Inspection Signal Check"
-      },
-      {
-        id: 5,
-        title: "Defensibility & Evidence",
-        description: "Identify evidence gaps inspectors will question and map corrective actions.",
-        linkText: "Start Defensibility Assessment",
-        ctaText: "Start Audit Readiness Assessment"
-      },
-      {
-        id: 6,
-        title: "Audit Readiness",
-        description: "See what will fail first when an inspector asks for proof.",
-        linkText: "Start Audit Readiness Assessment",
-        ctaText: "Start Audit Readiness Assessment"
-      }
-    ]
-  };
+  const hubs = [
+    {
+      id: "reg-change",
+      title: "Regulatory Change Impact",
+      description:
+        "See what changed, why it matters, and which decisions are affected. Signals are prioritized by risk and scope.",
+      category: "featured",
+      linkText: "Get Free Change Impact Report →",
+      ctaText: "Get Free Change Impact Report →",
+      to: "/assessment"
+    },
+    {
+      id: "inspection-signals",
+      title: "Inspection & Enforcement Signals",
+      description:
+        "Identify enforcement patterns before they become findings and understand what inspectors are targeting.",
+      category: "inspection",
+      linkText: "Start Inspection Signal Check →",
+      ctaText: "Start Inspection Signal Check →",
+      to: "/assessment"
+    },
+    {
+      id: "risk-management",
+      title: "Risk Management",
+      description:
+        "Prioritize compliance risks by severity, urgency, and business impact.",
+      category: "risk",
+      linkText: "Start Risk Assessment →",
+      ctaText: "Start Risk Assessment →",
+      to: "/assessment"
+    },
+    {
+      id: "decision-ownership",
+      title: "Decision Ownership",
+      description:
+        "Clarify who owns regulated decisions and where accountability is undefined.",
+      category: "risk",
+      linkText: "Start Decision Ownership Mapping →",
+      ctaText: "Start Decision Ownership Mapping →",
+      to: "/assessment"
+    },
+    {
+      id: "defensibility",
+      title: "Defensibility & Evidence",
+      description:
+        "Identify evidence gaps inspectors will question and map corrective actions.",
+      category: "featured",
+      linkText: "Start Defensibility Assessment →",
+      ctaText: "Start Audit Readiness Assessment →",
+      to: "/assessment"
+    },
+    {
+      id: "audit-readiness",
+      title: "Audit Readiness",
+      description:
+        "See what will fail first when an inspector asks for proof.",
+      category: "inspection",
+      linkText: "Start Audit Readiness Assessment →",
+      ctaText: "Start Audit Readiness Assessment →",
+      to: "/assessment"
+    }
+  ];
 
-  const currentHubs = hubs[activeTab] || hubs.Featured;
+  const visibleHubs =
+    activeTab === "featured"
+      ? hubs
+      : hubs.filter(hub => hub.category === activeTab);
 
   return (
     <div className="intelligence-stream-page">
-      {/* Hero Section */}
+      {/* HERO */}
       <section className="intelligence-stream-hero">
         <div className="intelligence-stream-hero-inner">
           <h1>
-            <span className="hero-highlight">Topic Intelligence Hubs</span> turn regulatory change into 
-            actions that protect revenue, prevent inspection surprises, and show you{" "}
-            <span className="hero-emphasis">exactly what to do next.</span> →
+            Topic Intelligence Hubs turn regulatory change into{" "}
+            <span className="hero-highlight">
+              actions that protect revenue, prevent inspection surprises,
+            </span>{" "}
+            and show you <span className="hero-emphasis">exactly what to do next.</span>
           </h1>
-          
+
           <p className="hero-subtext">
-            Each hub maps regulatory signals to a defensible compliance action.<br />
+            Each hub maps regulatory signals to a defensible compliance action.
             Nothing is generic. Everything leads to a decision.
           </p>
 
-          {/* Tab Navigation */}
           <div className="intelligence-tabs">
             <button
-              className={activeTab === "Featured" ? "tab-btn active" : "tab-btn"}
-              onClick={() => setActiveTab("Featured")}
+              className={`tab-btn ${activeTab === "featured" ? "active" : ""}`}
+              onClick={() => setActiveTab("featured")}
             >
               Featured
             </button>
             <button
-              className={activeTab === "Risk" ? "tab-btn active" : "tab-btn"}
-              onClick={() => setActiveTab("Risk")}
+              className={`tab-btn ${activeTab === "risk" ? "active" : ""}`}
+              onClick={() => setActiveTab("risk")}
             >
               Risk
             </button>
             <button
-              className={activeTab === "Inspection" ? "tab-btn active" : "tab-btn"}
-              onClick={() => setActiveTab("Inspection")}
+              className={`tab-btn ${activeTab === "inspection" ? "active" : ""}`}
+              onClick={() => setActiveTab("inspection")}
             >
               Inspection
             </button>
@@ -132,29 +113,31 @@ export default function Intelligence() {
         </div>
       </section>
 
-      {/* Intelligence Stream Content */}
+      {/* CONTENT */}
       <section className="intelligence-stream-content">
         <div className="intelligence-stream-inner">
           <h2 className="stream-title">Intelligence Stream</h2>
-          
+
           <div className="intelligence-hub-grid">
-            {currentHubs.map((hub) => (
-              <div key={hub.id} className="intelligence-hub-card">
+            {visibleHubs.map(hub => (
+              <div className="intelligence-hub-card" key={hub.id}>
                 <h3 className="hub-card-title">{hub.title}</h3>
                 <p className="hub-card-description">{hub.description}</p>
+
                 <div className="hub-card-link">
-                  <Link to="/assessment">{hub.linkText} →</Link>
+                  <Link to={hub.to}>{hub.linkText}</Link>
                 </div>
-                <button className="hub-card-cta">
-                  {hub.ctaText} →
-                </button>
+
+                <Link to={hub.to} className="hub-card-cta">
+                  {hub.ctaText}
+                </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* BOTTOM CTA */}
       <section className="intelligence-bottom-cta">
         <Link to="/assessment" className="bottom-cta-button">
           Start Assessment
@@ -163,5 +146,6 @@ export default function Intelligence() {
     </div>
   );
 }
+
 
 
