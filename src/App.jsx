@@ -73,25 +73,24 @@ export default function App() {
             <div className="brand-tag">Defensible decisions, before inspection.</div>
           </div>
 
-<nav className="nav">
-  <Link className="navlink" to="/">
-    Overview
-  </Link>
-  <Link className="navlink" to="/pricing">
-    Pricing
-  </Link>
-  <Link className="navlink" to="/intelligence">
-    Intelligence Stream
-  </Link>
-  <a className="navlink" href="#authority">
-    Authority
-  </a>
-  <a className="navlink" href="#access">
-    Access
-  </a>
-</nav>
-
-
+          <nav className="nav">
+            <Link className="navlink" to="/">
+              Overview
+            </Link>
+            <Link className="navlink" to="/pricing">
+              Pricing
+            </Link>
+            <Link className="navlink" to="/intelligence">
+              Intelligence Stream
+            </Link>
+            {/* Replaced anchor with Link component */}
+            <Link className="navlink" to="/authority">
+              Authority
+            </Link>
+            <Link className="navlink" to="/access">
+              Access
+            </Link>
+          </nav>
 
           <div className="header-actions">
             <button className="button-secondary" type="button">
