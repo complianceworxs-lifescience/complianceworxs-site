@@ -1,93 +1,222 @@
-/* src/index.css */
+/* ========================================
+   SECURE ACCESS (HONEST VERSION) STYLES
+   ======================================== */
 
-/* Secure Access Page Styling */
-.secure-access-page {
-  max-width: 600px;
+.secure-access-honest-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 80px 24px;
+}
+
+.secure-access-honest-inner {
+  max-width: 900px;
   margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 48px 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.secure-access-honest-page h1 {
+  font-size: 2.5rem;
+  color: var(--cw-navy);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.intro-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--cw-text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Instructions Box */
+.instructions-box {
+  background: #f0f9ff;
+  border: 2px solid #0ea5e9;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.instructions-box h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--cw-navy);
+  font-size: 1.5rem;
+}
+
+.instructions-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.8;
+  color: var(--cw-text-primary);
+}
+
+.instructions-box li {
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.instructions-box strong {
+  color: #0369a1;
+}
+
+/* Why Section */
+.why-section {
+  margin-bottom: 40px;
+}
+
+.why-section h3 {
+  color: var(--cw-navy);
+  font-size: 1.35rem;
+  margin-bottom: 16px;
+}
+
+.why-section p {
+  color: var(--cw-text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.why-section ul {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.8;
+  color: var(--cw-text-primary);
+}
+
+.why-section li {
+  margin-bottom: 10px;
+}
+
+/* Security Standards */
+.security-standards {
+  margin-bottom: 40px;
+  padding: 32px;
+  background: #fafbfc;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.security-standards h3 {
+  color: var(--cw-navy);
+  font-size: 1.35rem;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.standard-item {
   padding: 20px;
-  background-color: white;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
 }
 
-.secure-access-page h1 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  color: #2C3E50;
+.standard-item strong {
+  display: block;
+  color: var(--cw-navy);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
 }
 
-.secure-access-page p {
-  font-size: 16px;
-  color: #34495E;
-  text-align: center;
+.standard-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--cw-text-secondary);
+  line-height: 1.6;
 }
 
-.secure-access-page form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+/* Contact Box */
+.contact-box {
+  padding: 24px;
+  background: #fef3c7;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  border-left: 4px solid #f59e0b;
 }
 
-.secure-access-page label {
-  font-weight: 500;
-  color: #2C3E50;
+.contact-box strong {
+  display: block;
+  color: var(--cw-text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
-.secure-access-page input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #BDC3C7;
-  border-radius: 5px;
+.contact-box p {
+  margin: 0;
+  color: var(--cw-text-primary);
 }
 
-.secure-access-page button {
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.secure-access-page button:hover {
-  background-color: #0056b3;
-}
-
-.secure-access-page .note {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 10px;
-  color: #7F8C8D;
-}
-
-.secure-access-page .how-it-works {
-  margin-top: 30px;
-}
-
-.secure-access-page .how-it-works h2 {
-  font-size: 20px;
-  color: #2C3E50;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.secure-access-page .how-it-works ul {
-  list-style-type: disc;
-  margin-left: 20px;
-}
-
-.secure-access-page .how-it-works li {
-  font-size: 16px;
-  color: #34495E;
-}
-
-.secure-access-page .how-it-works a {
-  color: #007bff;
+.contact-box a {
+  color: #0369a1;
+  font-weight: 700;
   text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+/* Back Button */
+.back-home-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--cw-navy);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background: #081f30;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .secure-access-honest-page {
+    padding: 40px 24px;
+  }
+
+  .secure-access-honest-inner {
+    padding: 32px 24px;
+  }
+
+  .secure-access-honest-page h1 {
+    font-size: 2rem;
+  }
+
+  .instructions-box {
+    padding: 24px;
+  }
+
+  .standards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .security-standards {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secure-access-honest-page h1 {
+    font-size: 1.75rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
 }
 
 .secure-access-page .how-it-works a:hover {
