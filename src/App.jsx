@@ -73,7 +73,7 @@ export default function App() {
             <div className="brand-tag">Defensible decisions, before inspection.</div>
           </div>
 
-          <nav className="nav">
+<nav className="nav">
   <Link className="navlink" to="/">
     Overview
   </Link>
@@ -81,9 +81,8 @@ export default function App() {
     Pricing
   </Link>
   <Link className="navlink" to="/intelligence">
-  Intelligence Stream
-</Link>
-
+    Intelligence Stream
+  </Link>
   <a className="navlink" href="#authority">
     Authority
   </a>
@@ -91,6 +90,8 @@ export default function App() {
     Access
   </a>
 </nav>
+
+
 
           <div className="header-actions">
             <button className="button-secondary" type="button">
