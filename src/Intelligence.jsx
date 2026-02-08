@@ -64,7 +64,7 @@ export default function Intelligence() {
     <div className="intelligence-page">
       {/* HERO */}
       <section className="intelligence-hero">
-        <div className="container">
+        <div className="intelligence-hero-inner">
           <h1>
             Topic Intelligence Hubs turn regulatory change into actions that
             protect revenue, prevent inspection surprises, and show you exactly
@@ -78,7 +78,63 @@ export default function Intelligence() {
       </section>
 
       {/* FILTERS */}
-      <section className="intelligence-section">
-        <div className="container intelligence-filters">
+      <section className="intelligence-filters">
+        <div className="filters-inner">
           <button
-            type
+            type="button"
+            className={activeFilter === "featured" ? "filter active" : "filter"}
+            onClick={() => setActiveFilter("featured")}
+          >
+            Featured
+          </button>
+          <button
+            type="button"
+            className={activeFilter === "risk" ? "filter active" : "filter"}
+            onClick={() => setActiveFilter("risk")}
+          >
+            Risk
+          </button>
+          <button
+            type="button"
+            className={
+              activeFilter === "inspection" ? "filter active" : "filter"
+            }
+            onClick={() => setActiveFilter("inspection")}
+          >
+            Inspection
+          </button>
+        </div>
+      </section>
+
+      {/* GRID */}
+      <section className="intelligence-grid-section">
+        <div className="intelligence-grid">
+          {filteredHubs.map((hub) => (
+            <div className="intelligence-card" key={hub.id}>
+              <h3>{hub.title}</h3>
+              <p>{hub.description}</p>
+              <Link className="intelligence-cta" to="/assessment">
+                {hub.cta} →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <section className="intelligence-footer">
+        <div className="intelligence-footer-inner">
+          <h2>Turn regulatory intelligence into defensible action</h2>
+          <p>
+            Start with an assessment to determine which decisions can be proven
+            and which must be blocked by design.
+          </p>
+          <Link className="primary-action" to="/assessment">
+            Start Assessment
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
+
