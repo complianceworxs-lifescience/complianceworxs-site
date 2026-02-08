@@ -6,12 +6,12 @@ const SecureAccess = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Corrected the alert line with a proper template literal
+    // Corrected alert syntax
     alert(`Secure access link sent to ${email}`);
   };
 
   // Console log to check if the component is rendering
-  console.log("SecureAccess component is rendering!"); // This log will appear in the browser console
+  console.log("SecureAccess component is rendering!");
 
   return (
     <div className="secure-access-page">
@@ -37,9 +37,11 @@ const SecureAccess = () => {
           <li><strong>Enter Your Email:</strong> Provide your email address to receive a secure access link.</li>
           <li><strong>Receive the Link:</strong> We will send a secure link to your email address. This link will expire in 1 hour and can only be used once.</li>
           <li><strong>Click to Access:</strong> Click the link in your email to securely access your content. No password is required.</li>
-          <li><strong>Confidential and One-Time Use:</strong> For your security, the link will expire after 1 hour and cannot be used again. Please ensure you do not share this link.</li>
+          <li><strong>Confidential and One-Time Use:</strong> The link will expire after 1 hour and cannot be used again.</li>
         </ul>
-        <p>Important Notes: This process ensures that your access is secure, and your personal information remains confidential. By accessing this system, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        <p>
+          Important Notes: This process ensures that your access is secure, and your personal information remains confidential. By accessing this system, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </p>
       </div>
     </div>
   );
