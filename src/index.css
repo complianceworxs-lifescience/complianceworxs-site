@@ -1891,4 +1891,92 @@ p {
     font-size: 1.25rem;
   }
 }
+/* ========================================
+   DDR PAGE – EGNYTE COLOR TEST (SCOPED)
+   NO GLOBAL IMPACT
+   ======================================== */
+
+.ddr-page {
+  background: #ffffff;
+}
+
+/* ===== HERO (Egnyte Navy) ===== */
+.ddr-page .ddr-hero {
+  background-color: #1B2A4E; /* Egnyte navy */
+  color: #ffffff;
+  padding: 80px 24px 64px;
+}
+
+.ddr-page .ddr-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ddr-page .ddr-headline {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.ddr-page .ddr-subhead {
+  font-size: 1.05rem;
+  max-width: 720px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== BASE SECTIONS ===== */
+.ddr-page .ddr-section {
+  padding: 56px 24px;
+}
+
+.ddr-page .ddr-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ddr-page .ddr-section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #1B2A4E; /* Egnyte navy */
+}
+
+.ddr-page .ddr-section-body {
+  font-size: 0.95rem;
+  max-width: 760px;
+  line-height: 1.7;
+  color: #4A5D73;
+}
+
+/* ===== PANEL FEEL (Egnyte light surfaces) ===== */
+.ddr-page .ddr-context,
+.ddr-page .ddr-signal,
+.ddr-page .ddr-evidence,
+.ddr-page .ddr-risk,
+.ddr-page .ddr-rationale,
+.ddr-page .ddr-outcome,
+.ddr-page .ddr-traceability {
+  background: #F8F9FA;
+  border-top: 1px solid rgba(27, 42, 78, 0.08);
+}
+
+/* ===== EVOLUTION (Reserved / Dashed) ===== */
+.ddr-page .ddr-evolution {
+  background: #ffffff;
+  border-top: 2px dashed rgba(27, 42, 78, 0.25);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .ddr-page .ddr-headline {
+    font-size: 1.9rem;
+  }
+
+  .ddr-page .ddr-section {
+    padding: 44px 24px;
+  }
+}
 
