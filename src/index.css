@@ -1979,4 +1979,160 @@ p {
     padding: 44px 24px;
   }
 }
+/* =========================================================
+   DDR PAGE — EGNYTE-INSPIRED (STRICTLY SCOPED)
+   Append-only. No global impact.
+   ========================================================= */
+
+.ddr-page {
+  background: var(--cw-bg-primary, #ffffff);
+  color: var(--cw-text-primary, #1B2A4E);
+}
+
+/* ---------- Band spacing ---------- */
+.ddr-page section {
+  padding: 80px 24px;
+}
+
+/* ---------- HERO / HUMAN CONTEXT ---------- */
+.ddr-page .ddr-hero {
+  background: linear-gradient(
+    135deg,
+    #1B2A4E 0%,
+    #2A3F6E 100%
+  );
+  color: #ffffff;
+}
+
+.ddr-page .ddr-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ddr-page .ddr-breadcrumb {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 16px;
+}
+
+.ddr-page .ddr-breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ddr-page .ddr-headline {
+  font-size: 2.6rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.ddr-page .ddr-subhead {
+  font-size: 1.15rem;
+  max-width: 720px;
+  opacity: 0.9;
+}
+
+/* ---------- INTRO / ORIENTATION ---------- */
+.ddr-page .ddr-intro {
+  background: #F6F9FB;
+}
+
+.ddr-page .ddr-intro-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ddr-page .ddr-intro-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--cw-text-secondary, #4A5D73);
+}
+
+/* ---------- ENGINE LOGIC & COMPONENTS ---------- */
+.ddr-page .ddr-components {
+  background: #ffffff;
+}
+
+.ddr-page .ddr-components-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ddr-page .ddr-component {
+  display: flex;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid #E9EFF3;
+}
+
+.ddr-page .ddr-component:last-child {
+  border-bottom: none;
+}
+
+.ddr-page .ddr-component-number {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #00C9A7;
+  min-width: 48px;
+}
+
+.ddr-page .ddr-component-title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: var(--cw-text-primary, #1B2A4E);
+}
+
+.ddr-page .ddr-component-body {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--cw-text-secondary, #4A5D73);
+}
+
+/* ---------- RESERVED / FUTURE STATE ---------- */
+.ddr-page .ddr-component-reserved {
+  background: #F8FBFD;
+  border-radius: 12px;
+  padding: 32px 24px;
+}
+
+/* ---------- FINAL CTA / COMMITMENT ---------- */
+.ddr-page .ddr-cta {
+  background: linear-gradient(
+    135deg,
+    #1B2A4E 0%,
+    #223B64 100%
+  );
+  color: #ffffff;
+}
+
+.ddr-page .ddr-cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ddr-page .ddr-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.ddr-page .ddr-cta p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+
+.ddr-page .ddr-cta-button {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 10px;
+  background: #00C9A7;
+  color: #0F1F3D;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ddr-page .ddr-cta-button:hover {
+  background: #00B396;
+}
 
