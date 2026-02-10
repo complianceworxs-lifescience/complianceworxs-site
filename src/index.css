@@ -1892,352 +1892,192 @@ p {
   }
 }
 /* ========================================
-   DDR VISUAL PAGE STYLES (MATCHES SCREENSHOT)
+   DDR PAGE STYLES (EGNYTE PALETTE)
    ======================================== */
 
-.ddr-visual-page {
-  background: #fff;
+/* ===== CSS Variables ===== */
+:root {
+  /* Egnyte Brand Colors */
+  --cw-navy: #1B2A4E;              /* Dark navy */
+  --cw-teal: #00C9A7;              /* Primary teal accent */
+  --cw-teal-dark: #00B396;         /* Darker teal for hovers */
+  --cw-slate: #E9EFF3;
+  --cw-slate-dark: #4A5D73;
+  
+  /* Typography Colors */
+  --cw-text-primary: #1B2A4E;      /* Dark navy text */
+  --cw-text-secondary: #4A5D73;
+  --cw-text-muted: #6B7280;
+
+  /* Background Colors */
+  --cw-bg-primary: #FFFFFF;       /* White background */
+  --cw-bg-secondary: #F6F9FB;     /* Light grey background */
+  --cw-bg-ddr: #F0F9FF;           /* DDR section background */
+
+  /* UI Elements */
+  --cw-radius: 10px;
+  --cw-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* HERO SECTION WITH BACKGROUND IMAGE */
-.ddr-visual-hero {
-  position: relative;
-  min-height: 500px;
-  background: linear-gradient(135deg, #2c4a5e 0%, #3d5a6e 50%, #4e6a7e 100%);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
+/* ========================================
+   DDR PAGE MAIN LAYOUT
+   ======================================== */
+
+/* General DDR page layout */
+.ddr-page {
+  font-family: system-ui, sans-serif;
+  background-color: var(--cw-bg-primary);
+  color: var(--cw-text-primary);
+  margin: 0;
+  padding: 0;
 }
 
-/* Optional: If you want to add a real background image later */
-.ddr-visual-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(44, 74, 94, 0.85) 0%, rgba(61, 90, 110, 0.85) 100%);
-  z-index: 1;
+/* ========================================
+   DDR HERO SECTION (FIRST BAND)
+   ======================================== */
+.ddr-hero {
+  background-color: var(--cw-navy);
+  color: var(--cw-bg-primary);
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.ddr-visual-hero-overlay {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-
-.ddr-visual-hero-inner {
-  max-width: 600px;
-  padding: 80px 24px;
-  margin: 0 auto 0 80px;
-  color: #fff;
-}
-
-.ddr-visual-headline {
+.ddr-hero-headline {
   font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 24px;
-  color: #fff;
-}
-
-.ddr-visual-subhead {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  opacity: 0.95;
-}
-
-/* SEPARATOR BAND */
-.ddr-visual-separator {
-  background: #E9EFF3;
-  padding: 24px;
-  text-align: center;
-}
-
-.ddr-visual-separator-inner p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4A5D73;
-  font-weight: 500;
-}
-
-/* AUTHORITY SECTION */
-.ddr-visual-authority {
-  background: linear-gradient(180deg, #2c4a5e 0%, #3d5a6e 100%);
-  background-size: cover;
-  background-position: center;
-  padding: 100px 24px;
-  color: #fff;
-  text-align: center;
-  position: relative;
-}
-
-.ddr-visual-authority::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(44, 74, 94, 0.75);
-  z-index: 1;
-}
-
-.ddr-visual-authority-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.ddr-visual-authority-headline {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 24px;
-  color: #fff;
-}
-
-.ddr-visual-authority-body {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  opacity: 0.95;
-  margin-bottom: 40px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ddr-visual-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.ddr-visual-btn-primary {
-  display: inline-block;
-  padding: 16px 32px;
-  background: #00C9A7;
-  color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.ddr-visual-btn-primary:hover {
-  background: #00B396;
-  transform: translateY(-2px);
-}
-
-.ddr-visual-btn-secondary {
-  display: inline-block;
-  padding: 16px 32px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.ddr-visual-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* ENGINE CARDS SECTION */
-.ddr-visual-engine {
-  padding: 80px 24px;
-  background: #3d5a6e;
-  background-size: cover;
-  background-position: center;
-}
-
-.ddr-visual-engine-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.ddr-visual-engine-header {
-  background: rgba(233, 239, 243, 0.95);
-  padding: 20px 32px;
-  border-radius: 12px 12px 0 0;
-  margin-bottom: 0;
-}
-
-.ddr-visual-engine-header h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1B2A4E;
-}
-
-.ddr-visual-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  background: rgba(233, 239, 243, 0.95);
-  padding: 24px;
-  border-radius: 0 0 12px 12px;
-}
-
-.ddr-visual-card {
-  padding: 24px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  transition: all 0.2s ease;
-}
-
-.ddr-visual-card:hover {
-  background: #f8f9fa;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.ddr-visual-card h4 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #1B2A4E;
-  margin-bottom: 8px;
-}
-
-.ddr-visual-card p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #4A5D73;
-  margin: 0;
-}
-
-.ddr-visual-engine-cta {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.ddr-visual-btn-engine {
-  display: inline-block;
-  padding: 16px 40px;
-  background: #00C9A7;
-  color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.ddr-visual-btn-engine:hover {
-  background: #00B396;
-  transform: scale(1.05);
-}
-
-/* FINAL CTA */
-.ddr-visual-final {
-  padding: 100px 24px;
-  background: #f8f9fa;
-  text-align: center;
-}
-
-.ddr-visual-final-inner {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.ddr-visual-final h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1B2A4E;
+  font-weight: bold;
   margin-bottom: 16px;
-  line-height: 1.2;
 }
 
-.ddr-visual-final p {
-  font-size: 1.15rem;
-  color: #4A5D73;
-  margin-bottom: 40px;
+.ddr-hero-subhead {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
-.ddr-visual-btn-final {
-  display: inline-block;
-  padding: 18px 48px;
-  background: #1B2A4E;
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
-  border-radius: 8px;
+.ddr-hero-description {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+/* ========================================
+   DDR AUTHORITY SECTION (SECOND BAND)
+   ======================================== */
+.ddr-authority {
+  background-color: var(--cw-bg-ddr);
+  padding: 40px 20px;
+}
+
+.ddr-authority-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ddr-authority-headline {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.ddr-authority-body {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.ddr-authority-cta {
+  margin-top: 20px;
+}
+
+.ddr-cta-button {
+  background-color: var(--cw-teal);
+  color: var(--cw-bg-primary);
+  padding: 14px 28px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  border-radius: var(--cw-radius);
+  margin-right: 15px;
 }
 
-.ddr-visual-btn-final:hover {
-  background: #0f1a30;
-  transform: scale(1.05);
+.ddr-cta-button.secondary {
+  background-color: var(--cw-slate-dark);
+  color: var(--cw-bg-primary);
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-  .ddr-visual-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ddr-visual-hero-inner {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
+/* ========================================
+   DDR ENGINE SECTION (THIRD BAND)
+   ======================================== */
+.ddr-engine {
+  padding: 40px 20px;
 }
 
-@media (max-width: 768px) {
-  .ddr-visual-hero {
-    min-height: 400px;
-  }
-
-  .ddr-visual-headline {
-    font-size: 2.25rem;
-  }
-
-  .ddr-visual-authority-headline {
-    font-size: 1.85rem;
-  }
-
-  .ddr-visual-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ddr-visual-buttons {
-    flex-direction: column;
-  }
-
-  .ddr-visual-btn-primary,
-  .ddr-visual-btn-secondary {
-    width: 100%;
-  }
-
-  .ddr-visual-final h2 {
-    font-size: 2rem;
-  }
+.ddr-engine-list {
+  list-style: none;
+  padding: 0;
 }
 
-@media (max-width: 640px) {
-  .ddr-visual-hero-inner {
-    padding: 60px 24px;
-  }
-
-  .ddr-visual-headline {
-    font-size: 1.85rem;
-  }
-
-  .ddr-visual-authority {
-    padding: 60px 24px;
-  }
-
-  .ddr-visual-engine {
-    padding: 60px 24px;
-  }
+.ddr-engine-list li {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 12px;
 }
+
+/* ========================================
+   DDR CAPTURE SECTION (FOURTH BAND)
+   ======================================== */
+.ddr-capture {
+  background-color: var(--cw-slate);
+  padding: 40px 20px;
+}
+
+.ddr-capture-item {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  padding: 20px;
+  margin-right: 2%;
+  margin-bottom: 20px;
+  background-color: var(--cw-bg-primary);
+  border-radius: var(--cw-radius);
+  box-shadow: var(--cw-shadow);
+}
+
+.ddr-capture-item h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.ddr-capture-item p {
+  font-size: 1rem;
+  color: var(--cw-text-muted);
+}
+
+/* ========================================
+   DDR FINAL CTA SECTION (FINAL BAND)
+   ======================================== */
+.ddr-final-cta {
+  background-color: var(--cw-navy);
+  color: var(--cw-bg-primary);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.ddr-final-headline {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.ddr-final-subhead {
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
+
+.ddr-final-button {
+  background-color: var(--cw-teal);
+  padding: 16px 32px;
+  text-decoration: none;
+  color: var(--cw-bg-primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: var(--cw-radius);
+}
+
