@@ -1,30 +1,41 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App.jsx";
-import PricingPage from "./PricingPage.jsx";  // Make sure to create these components
-import IntelligencePage from "./IntelligencePage.jsx";
-import AuthorityPage from "./AuthorityPage.jsx";
-import AccessPage from "./AccessPage.jsx";
-import DDR from "./DDR.jsx";  // DDR route for /ddr
-import "./index.css";  // Your global styles
+import { Link } from "react-router-dom";  // Import Link from react-router-dom
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        {/* Home Route */}
-        <Route path="/" element={<App />} />
+const App = () => {
+  return (
+    <div>
+      <header>
+        <nav>
+          <ul>
+            {/* Correctly linked routes for navigation */}
+            <li>
+              <Link to="/">Home</Link> {/* Link to the homepage */}
+            </li>
+            <li>
+              <Link to="/pricing">Pricing</Link> {/* Link to Pricing page */}
+            </li>
+            <li>
+              <Link to="/intelligence">Intelligence</Link> {/* Link to Intelligence page */}
+            </li>
+            <li>
+              <Link to="/authority">Authority</Link> {/* Link to Authority page */}
+            </li>
+            <li>
+              <Link to="/access">Access</Link> {/* Link to Access page */}
+            </li>
+            <li>
+              <Link to="/ddr">DDR</Link> {/* Link to DDR page */}
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-        {/* Define the missing Routes */}
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/intelligence" element={<IntelligencePage />} />
-        <Route path="/authority" element={<AuthorityPage />} />
-        <Route path="/access" element={<AccessPage />} />
+      <main>
+        <h1>Welcome to ComplianceWorxs!</h1>
+        <p>This is the main page of ComplianceWorxs. Use the links above to navigate through the app.</p>
+      </main>
+    </div>
+  );
+};
 
-        {/* Add DDR Route */}
-        <Route path="/ddr" element={<DDR />} />  {/* DDR page route */}
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
-);
+export default App;
