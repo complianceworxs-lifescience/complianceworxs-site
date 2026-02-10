@@ -1,5 +1,12 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.js",
+      "use": "@vercel/static-build"
+    }
+  ],
   "rewrites": [
-    { "source": "/((?!api/.*).*)", "destination": "/" }
+    { "source": "/:match*", "destination": "/index.html" }
   ]
 }
