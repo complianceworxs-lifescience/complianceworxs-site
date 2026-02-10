@@ -1891,3 +1891,47 @@ p {
     font-size: 1.25rem;
   }
 }
+/* ========================================
+   DDR PHOTO PAGE (FIXED - NO SVG)
+   ======================================== */
+
+.ddr-photo-page {
+  background: #fff;
+}
+
+/* HERO WITH PHOTO BACKGROUND */
+.ddr-photo-hero {
+  position: relative;
+  min-height: 500px;
+  background: linear-gradient(to right, rgba(44, 74, 94, 0.7), rgba(44, 74, 94, 0.5)), #2c4a5e;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.ddr-photo-hero-overlay {
+  width: 100%;
+  z-index: 2;
+}
+
+.ddr-photo-hero-content {
+  max-width: 550px;
+  padding: 80px 24px 80px 80px;
+  color: #fff;
+}
+
+.ddr-photo-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.ddr-photo-hero p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin: 0;
+}
