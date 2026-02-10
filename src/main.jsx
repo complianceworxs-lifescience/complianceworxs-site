@@ -1,41 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";  // Import Link from react-router-dom
+import ReactDOM from "react-dom/client";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import App from "./App";  // Your main landing page component
 
-const App = () => {
-  return (
-    <div>
-      <header>
-        <nav>
-          <ul>
-            {/* Correctly linked routes for navigation */}
-            <li>
-              <Link to="/">Home</Link> {/* Link to the homepage */}
-            </li>
-            <li>
-              <Link to="/pricing">Pricing</Link> {/* Link to Pricing page */}
-            </li>
-            <li>
-              <Link to="/intelligence">Intelligence</Link> {/* Link to Intelligence page */}
-            </li>
-            <li>
-              <Link to="/authority">Authority</Link> {/* Link to Authority page */}
-            </li>
-            <li>
-              <Link to="/access">Access</Link> {/* Link to Access page */}
-            </li>
-            <li>
-              <Link to="/ddr">DDR</Link> {/* Link to DDR page */}
-            </li>
-          </ul>
-        </nav>
-      </header>
+// This is the entry point where the app is rendered
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <HashRouter>
+      <Routes>
+        {/* Home Route */}
+        <Route path="/" element={<App />} />
+        
+        {/* Other Routes (these can be your actual page components) */}
+        <Route path="/pricing" element={<div className="hero"><h1>Pricing Page</h1><a href="#/">Back Home</a></div>} />
+        <Route path="/intelligence" element={<div><h1>Intelligence Page</h1></div>} />
+        <Route path="/authority" element={<div><h1>Authority Page</h1></div>} />
+        <Route path="/access" element={<div><h1>Access Page</h1></div>} />
+        <Route path="/ddr" element={<div><h1>DDR Overview Page</h1></div>} />
+      </Routes>
+    </HashRouter>
+  </React.StrictMode>
+);
 
-      <main>
-        <h1>Welcome to ComplianceWorxs!</h1>
-        <p>This is the main page of ComplianceWorxs. Use the links above to navigate through the app.</p>
-      </main>
-    </div>
-  );
-};
-
-export default App;
