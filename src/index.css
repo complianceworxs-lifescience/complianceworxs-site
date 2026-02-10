@@ -1894,6 +1894,9 @@ p {
 /* ========================================
    DDR PHOTO PAGE (EXACT SCREENSHOT MATCH)
    ======================================== */
+/* ========================================
+   DDR PHOTO PAGE (EXACT SCREENSHOT MATCH)
+   ======================================== */
 
 .ddr-photo-page {
   background: #fff;
@@ -1903,9 +1906,7 @@ p {
 .ddr-photo-hero {
   position: relative;
   min-height: 500px;
-  background: 
-    linear-gradient(to right, rgba(44, 74, 94, 0.7), rgba(44, 74, 94, 0.5)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="500"><rect fill="%232c4a5e" width="1920" height="500"/></svg>');
+  background: linear-gradient(to right, rgba(44, 74, 94, 0.7), rgba(44, 74, 94, 0.5)), #2c4a5e;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1955,9 +1956,7 @@ p {
 /* AUTHORITY SECTION */
 .ddr-photo-authority {
   position: relative;
-  background: 
-    linear-gradient(to bottom, rgba(44, 74, 94, 0.85), rgba(61, 90, 110, 0.85)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="600"><rect fill="%233d5a6e" width="1920" height="600"/></svg>');
+  background: linear-gradient(to bottom, rgba(44, 74, 94, 0.85), rgba(61, 90, 110, 0.85)), #3d5a6e;
   background-size: cover;
   background-position: center;
   padding: 100px 24px;
@@ -2034,9 +2033,7 @@ p {
 /* ENGINE SECTION WITH CARDS */
 .ddr-photo-engine {
   padding: 80px 24px;
-  background: 
-    linear-gradient(to bottom, rgba(44, 74, 94, 0.95), rgba(61, 90, 110, 0.95)),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800"><rect fill="%233d5a6e" width="1920" height="800"/></svg>');
+  background: linear-gradient(to bottom, rgba(44, 74, 94, 0.95), rgba(61, 90, 110, 0.95)), #3d5a6e;
   background-size: cover;
   background-position: center;
 }
