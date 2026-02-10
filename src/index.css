@@ -1892,15 +1892,11 @@ p {
   }
 }
 /* ========================================
-   DDR PHOTO PAGE (FIXED - NO SVG)
+   DDR PAGE STYLES (EGNYTE PALETTE)
    ======================================== */
 
-.ddr-photo-page {
-  background: #fff;
-}
-
-/* HERO WITH PHOTO BACKGROUND */
-.ddr-photo-hero {
+/* HERO SECTION */
+.ddr-hero {
   position: relative;
   min-height: 500px;
   background: linear-gradient(to right, rgba(44, 74, 94, 0.7), rgba(44, 74, 94, 0.5)), #2c4a5e;
@@ -1908,30 +1904,176 @@ p {
   background-position: center;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.ddr-photo-hero-overlay {
-  width: 100%;
-  z-index: 2;
-}
-
-.ddr-photo-hero-content {
-  max-width: 550px;
-  padding: 80px 24px 80px 80px;
+.ddr-hero-inner {
+  text-align: center;
   color: #fff;
+  padding: 60px;
 }
 
-.ddr-photo-hero h1 {
+.ddr-hero-headline {
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+.ddr-hero-subhead {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.ddr-hero-description {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* AUTHORITY SECTION */
+.ddr-authority {
+  background: linear-gradient(to bottom, rgba(44, 74, 94, 0.85), rgba(61, 90, 110, 0.85)), #3d5a6e;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.ddr-authority-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ddr-authority-headline {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.ddr-authority-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.ddr-authority-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.ddr-cta-button {
+  background: #00c9a7;
+  color: #fff;
+  padding: 16px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.ddr-cta-button.secondary {
+  border: 2px solid #fff;
+  background: transparent;
   color: #fff;
 }
 
-.ddr-photo-hero p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  opacity: 0.95;
-  margin: 0;
+.ddr-cta-button:hover {
+  background: #00b396;
+  transform: translateY(-2px);
 }
+
+/* ENGINE SECTION */
+.ddr-engine {
+  background: #f8f9fa;
+  padding: 60px 20px;
+}
+
+.ddr-engine-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ddr-engine-list li {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.ddr-engine-list li strong {
+  font-weight: 700;
+}
+
+/* DDR CAPTURE SECTION */
+.ddr-capture {
+  background: #ffffff;
+  padding: 60px 20px;
+}
+
+.ddr-capture-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ddr-capture-item {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.ddr-capture-item h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1b2a4e;
+  margin-bottom: 10px;
+}
+
+.ddr-capture-item p {
+  font-size: 1rem;
+  color: #4a5d73;
+}
+
+/* FINAL CTA */
+.ddr-final-cta {
+  background: #f8f9fa;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.ddr-final-headline {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #1b2a4e;
+  margin-bottom: 20px;
+}
+
+.ddr-final-subhead {
+  font-size: 1.2rem;
+  color: #4a5d73;
+  margin-bottom: 40px;
+}
+
+.ddr-final-button {
+  background: #1b2a4e;
+  color: #fff;
+  font-size: 18px;
+  padding: 20px 48px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.ddr-final-button:hover {
+  background: #0f1a30;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ddr-capture-list {
+    grid-template-columns: 1fr;
+  }
+}
+
