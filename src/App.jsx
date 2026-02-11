@@ -1,295 +1,179 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function App() {
-  return (
-    <div className="cw-page">
-      {/* Top utility bar */}
-      <div className="cw-topbar">
-        <div className="cw-container cw-topbar__inner">
-          <div className="cw-topbar__brand">
-            <span className="cw-dot" aria-hidden="true" />
-            <span className="cw-topbar__brandText">COMPLIANCEWORXS AUTHORIZATION ENGINE™</span>
-          </div>
-          <div className="cw-topbar__links">
-            <a href="#/how" className="cw-topbar__link">How system works</a>
-            <span className="cw-topbar__sep">•</span>
-            <a href="#/stories" className="cw-topbar__link">Case Editions</a>
-            <span className="cw-topbar__sep">•</span>
-            <a href="#/principles" className="cw-topbar__link">Ethos principles</a>
-          </div>
+/**
+ * Institutional Styles - Baked in to ensure exact visual replication
+ */
+const styles = {
+  hero: {
+    position: "relative",
+    width: "100%",
+    minHeight: "450px",
+    backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    alignItems: "center",
+    color: "#fff",
+    fontFamily: "system-ui, sans-serif"
+  },
+  heroOverlay: {
+    position: "absolute",
+    inset: 0,
+    background: "linear-gradient(to right, rgba(10, 26, 54, 0.95), rgba(10, 26, 54, 0.8), rgba(10, 26, 54, 0.4))",
+    zIndex: 1
+  },
+  container: {
+    position: "relative",
+    zIndex: 2,
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "0 40px",
+    width: "100%"
+  },
+  button: {
+    display: "inline-block",
+    padding: "14px 28px",
+    borderRadius: "8px",
+    backgroundColor: "#f6a623",
+    color: "#1b1b1b",
+    textDecoration: "none",
+    fontWeight: "700",
+    fontSize: "15px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+  },
+  section: {
+    padding: "80px 0",
+    width: "100%"
+  },
+  grid2: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "60px",
+    alignItems: "start"
+  }
+};
+
+/**
+ * Global Layout - Navigation and institutional blue footer
+ */
+const SimpleLayout = ({ children }) => (
+  <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <nav style={{ padding: "15px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
+      <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.2rem" }}>COMPLIANCEWORXS</Link>
+      <Link to="/assessment" style={{ border: "1px solid #0a1a36", color: "#0a1a36", padding: "6px 18px", borderRadius: "4px", textDecoration: "none", fontWeight: "600", fontSize: "0.85rem" }}>Launch DDR Assessment</Link>
+    </nav>
+
+    <main style={{ flex: "1" }}>{children}</main>
+
+    <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
+        <div>
+          <h4 style={{ fontWeight: "900", color: "#fff", fontSize: "1.1rem" }}>COMPLIANCEWORXS</h4>
+          <p style={{ fontSize: "0.8rem", color: "#22d3ee", marginBottom: "15px" }}>Defensible decisions, before inspection.</p>
+          <p style={{ fontSize: "0.8rem", opacity: 0.7, lineHeight: "1.6" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
         </div>
-      </div>
-
-      {/* Main nav */}
-      <header className="cw-header">
-        <div className="cw-container cw-header__inner">
-          <div className="cw-logo">COMPLIANCEWORXS</div>
-
-          <nav className="cw-nav" aria-label="Primary">
-            <a className="cw-nav__link" href="#/overview">Overview</a>
-            <a className="cw-nav__link" href="#/pricing">Pricing</a>
-            <a className="cw-nav__link" href="#/intel">Intelligence Stream</a>
-            <a className="cw-nav__link" href="#/security">Security</a>
-            <a className="cw-nav__link" href="#/access">Access</a>
-          </nav>
-
-          <a className="cw-btn cw-btn--small" href="#/assessment">Start Assessment</a>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section className="cw-hero">
-        <div className="cw-hero__bg" aria-hidden="true" />
-        <div className="cw-container cw-hero__inner">
-          <div className="cw-hero__copy">
-            <h1 className="cw-hero__title">
-              Authorize Proof Only
-              <br />
-              When a Decision Can Be
-              <br />
-              Defended.
-            </h1>
-
-            <p className="cw-hero__sub">
-              Make regulatory decisions with confidence—before inspection,
-              before documentation, before risk compounds.
-            </p>
-
-            <a className="cw-btn cw-btn--hero" href="#/assessment/start">
-              Start Decision Defensibility Assessment <span className="cw-arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Statement strip */}
-      <section className="cw-strip">
-        <div className="cw-container">
-          <div className="cw-strip__text">
-            <span className="cw-strong">Inspectors</span> assess decisions, <span className="cw-strong">not</span> document volume.
-          </div>
-        </div>
-      </section>
-
-      {/* Documentation section */}
-      <section className="cw-section">
-        <div className="cw-container cw-section__inner cw-center">
-          <h2 className="cw-h2">Documentation Does Not Equal Defensibility</h2>
-
-          <ul className="cw-list">
-            <li className="cw-list__item">
-              <CheckIcon />
-              <span>Proof without defensibility increases inspection risk</span>
-            </li>
-            <li className="cw-list__item">
-              <CheckIcon />
-              <span>Most findings originate from the wrong decision, not missing files</span>
-            </li>
-            <li className="cw-list__item">
-              <CheckIcon />
-              <span>Teams often document outcomes they cannot justify under scrutiny</span>
-            </li>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "0.9rem", marginBottom: "15px" }}>Governance</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", opacity: 0.7, lineHeight: "2" }}>
+            <li>Inspection Briefs</li>
+            <li>Governance Framework</li>
+            <li>Workflows</li>
           </ul>
         </div>
-      </section>
-
-      {/* Statement strip 2 */}
-      <section className="cw-strip cw-strip--light">
-        <div className="cw-container">
-          <div className="cw-strip__text cw-strip__text--small">
-            <span className="cw-strong">ComplianceWorxs</span> evaluates regulatory decisions <em>before</em> documentation exists.
-          </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "0.9rem", marginBottom: "15px" }}>Intelligence</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", opacity: 0.7, lineHeight: "2" }}>
+            <li>Regulatory Intelligence</li>
+            <li>Authority</li>
+            <li>Operational Questions</li>
+          </ul>
         </div>
-      </section>
-
-      {/* Two column: how it works + what you receive */}
-      <section className="cw-section cw-section--tight">
-        <div className="cw-container">
-          <div className="cw-grid2">
-            <div className="cw-card">
-              <h3 className="cw-h3">How ComplianceWorxs Actually Works</h3>
-
-              <div className="cw-steps">
-                <div className="cw-step">
-                  <div className="cw-step__num">1</div>
-                  <div className="cw-step__body">
-                    <div className="cw-step__title">Assess the decision</div>
-                    <div className="cw-step__text">Determine whether a regulatory decision can be defended.</div>
-                  </div>
-                </div>
-
-                <div className="cw-step__divider" aria-hidden="true" />
-
-                <div className="cw-step">
-                  <div className="cw-step__num">2</div>
-                  <div className="cw-step__body">
-                    <div className="cw-step__title">Authorize proof</div>
-                    <div className="cw-step__text">Proof generation is permitted only when defensibility thresholds are met.</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="cw-pill">
-                <InfoIcon />
-                <span>ComplianceWorxs: evaluates, defensibly works.</span>
-              </div>
-            </div>
-
-            <div className="cw-card">
-              <h3 className="cw-h3">What You Receive If Authorized</h3>
-              <ul className="cw-list cw-list--compact">
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>No automated approvals</span>
-                </li>
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>No remediation advice</span>
-                </li>
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>No proof without accountability</span>
-                </li>
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>No self-deciding AI</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "0.9rem", marginBottom: "15px" }}>Legal</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", opacity: 0.7, lineHeight: "2" }}>
+            <li>Buyer FAQ</li>
+            <li>Procurement Matrix</li>
+            <li>Secure Access</li>
+          </ul>
         </div>
-      </section>
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '60px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px', fontSize: '0.75rem', opacity: 0.5 }}>
+        © 2026 ComplianceWorxs. All rights reserved.
+      </div>
+    </footer>
+  </div>
+);
 
-      {/* Built for professionals + never does */}
-      <section className="cw-section cw-section--tight">
-        <div className="cw-container">
-          <div className="cw-grid2">
-            <div className="cw-card cw-card--flat">
-              <h3 className="cw-h3">
-                Built for Professionals <span className="cw-muted">Accountable at inspection</span>
-              </h3>
+/**
+ * Home Component - Duplicates Screenshot (5)
+ */
+export const Home = () => (
+  <SimpleLayout>
+    {/* Hero Section */}
+    <header style={styles.hero}>
+      <div style={styles.heroOverlay}></div>
+      <div style={styles.container}>
+        <h1 style={{ fontSize: "3.5rem", fontWeight: "800", marginBottom: "20px", lineHeight: "1.1" }}>Authorize Proof Only When a Decision Can Be Defended.</h1>
+        <p style={{ fontSize: "1.2rem", maxWidth: "600px", marginBottom: "30px", opacity: 0.9 }}>Make regulatory decisions with confidence—before inspection, before documentation, before risk compounds.</p>
+        <Link to="/assessment" style={styles.button}>Start Decision Defensibility Assessment →</Link>
+      </div>
+    </header>
 
-              <ul className="cw-list cw-list--compact">
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>QA leaders responsible for inspection outcomes</span>
-                </li>
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>Regulatory professionals accountable for interpretation</span>
-                </li>
-                <li className="cw-list__item">
-                  <CheckIcon />
-                  <span>Validation leaders defending system decisions</span>
-                </li>
-              </ul>
-            </div>
+    {/* Section: Inspectors assess decisions */}
+    <section style={{ ...styles.section, textAlign: "center", borderBottom: "1px solid #f1f5f9" }}>
+      <h2 style={{ fontSize: "1.8rem", fontWeight: "700", color: "#0a1a36" }}>Inspectors assess decisions, <strong>not document volume.</strong></h2>
+    </section>
 
-            <div className="cw-card cw-card--shadow">
-              <h3 className="cw-h3">What ComplianceWorxs Never Does</h3>
-              <ul className="cw-list cw-list--compact cw-list--danger">
-                <li className="cw-list__item">
-                  <XIcon />
-                  <span>No automated approvals</span>
-                </li>
-                <li className="cw-list__item">
-                  <XIcon />
-                  <span>No remediation advice</span>
-                </li>
-                <li className="cw-list__item">
-                  <XIcon />
-                  <span>No proof without accountability</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+    {/* Section: Documentation vs Defensibility */}
+    <section style={styles.section}>
+      <div style={{ ...styles.container, ...styles.grid2 }}>
+        <div>
+          <h3 style={{ fontSize: "1.6rem", fontWeight: "800", marginBottom: "25px" }}>Documentation Does Not Equal Defensibility</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2", fontSize: "1.05rem" }}>
+            <li>✅ Proof without defensibility increases inspection risk</li>
+            <li>✅ Most findings originate from the wrong decision, not missing files</li>
+            <li>✅ Teams often document outcomes they cannot justify under scrutiny</li>
+          </ul>
         </div>
-      </section>
-
-      {/* Dark CTA band */}
-      <section className="cw-cta">
-        <div className="cw-container cw-cta__inner">
-          <h2 className="cw-cta__title">Start Decision Defensibility Assessment</h2>
-          <div className="cw-cta__sub">Free to assess. Proof generation requires authorization.</div>
-          <a className="cw-btn cw-btn--hero" href="#/assessment/start">
-            Start Decision Defensibility Assessment <span className="cw-arrow">→</span>
-          </a>
+        <div style={{ backgroundColor: "#fcfdfe", padding: "30px", borderRadius: "12px", border: "1px solid #eef2f6" }}>
+          <h3 style={{ fontSize: "1.4rem", fontWeight: "800", marginBottom: "20px" }}>How ComplianceWorxs Actually Works</h3>
+          <p><strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.</p>
+          <p><strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.</p>
+          <p style={{ marginTop: "15px", fontSize: "0.85rem", fontStyle: "italic" }}>⚙️ ComplianceWorxs: evaluates, adenatly works.</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Footer */}
-      <footer className="cw-footer">
-        <div className="cw-container">
-          <div className="cw-footer__grid">
-            <div>
-              <div className="cw-footer__logo">COMPLIANCEWORXS</div>
-              <p className="cw-footer__text">
-                A permissioned compliance system that evaluates proof before it enters your record.
-              </p>
-            </div>
-
-            <div>
-              <div className="cw-footer__head">Governance</div>
-              <ul className="cw-footer__links">
-                <li><a href="#/governance">Inspection logic</a></li>
-                <li><a href="#/lineage">Decision lineage</a></li>
-                <li><a href="#/policies">Policies</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="cw-footer__head">Intelligence</div>
-              <ul className="cw-footer__links">
-                <li><a href="#/intel">Regulatory signals</a></li>
-                <li><a href="#/stream">Intelligence stream</a></li>
-                <li><a href="#/alerts">Alerts</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <div className="cw-footer__head">Legal &amp; Procurement</div>
-              <ul className="cw-footer__links">
-                <li><a href="#/security">Security</a></li>
-                <li><a href="#/terms">Terms</a></li>
-                <li><a href="#/privacy">Privacy</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="cw-footer__bottom">
-            <span>© {new Date().getFullYear()} ComplianceWorxs</span>
-            <span className="cw-footer__dot">•</span>
-            <span>Authorization Engine™</span>
-          </div>
+    {/* Section: Professional Context */}
+    <section style={{ ...styles.section, backgroundColor: "#f8fafc" }}>
+      <div style={{ ...styles.container, ...styles.grid2 }}>
+        <div>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "800", marginBottom: "20px" }}>Built for Professionals</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
+            <li>QA leaders responsible for inspection outcomes</li>
+            <li>Regulatory professionals accountable for interpretation</li>
+            <li>Validation leaders defending system decisions</li>
+          </ul>
         </div>
-      </footer>
-    </div>
-  );
-}
+        <div>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "800", marginBottom: "20px" }}>What ComplianceWorxs Never Does</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
+            <li>❌ No automated approvals</li>
+            <li>❌ No remediation advice</li>
+            <li>❌ No proof without accountability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-function CheckIcon() {
-  return (
-    <svg className="cw-ico cw-ico--ok" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M8 12.2l2.6 2.6L16.8 9" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg className="cw-ico cw-ico--bad" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function InfoIcon() {
-  return (
-    <svg className="cw-ico cw-ico--info" viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M12 10.8v6.2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="12" cy="7.6" r="1.2" fill="currentColor" />
-    </svg>
-  );
-}
+    {/* Bottom CTA */}
+    <section style={{ ...styles.section, backgroundColor: "#0a1a36", color: "#fff", textAlign: "center" }}>
+      <div style={styles.container}>
+        <h2 style={{ fontSize: "2rem", fontWeight: "800", marginBottom: "15px" }}>Start Decision Defensibility Assessment</h2>
+        <p style={{ opacity: 0.8, marginBottom: "35px" }}>Free to assess. Proof generation requires authorization.</p>
+        <Link to="/assessment" style={styles.button}>Start Decision Defensibility Assessment →</Link>
+      </div>
+    </section>
+  </SimpleLayout>
+);
