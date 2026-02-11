@@ -6,59 +6,60 @@ import Summary from "./Summary";
 import Success from "./Success";
 import "./index.css";
 
-/**
- * SimpleLayout Component
- * Wraps every page with the navigation and the full-width footer.
- */
 const SimpleLayout = ({ children }) => (
-  <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", fontFamily: "sans-serif", backgroundColor: "#fff" }}>
-    {/* Navigation */}
-    <nav style={{ padding: "20px 40px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
-      <Link to="/" style={{ color: "#0070f3", textDecoration: "none", fontWeight: "bold", fontSize: "1.2rem" }}>COMPLIANCEWORXS</Link>
-      <div style={{ display: "flex", gap: "20px" }}>
-        <Link to="/assessment" style={{ color: "#666", textDecoration: "none", fontSize: "0.9rem", fontWeight: "600" }}>DDR Assessment</Link>
-      </div>
+  <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", fontFamily: "'Inter', sans-serif", backgroundColor: "#fff" }}>
+    {/* Clean Navigation */}
+    <nav style={{ padding: "15px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff", position: "sticky", top: 0, zIndex: 100 }}>
+      <Link to="/" style={{ color: "#0070f3", textDecoration: "none", fontWeight: "800", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
+      <Link to="/assessment" style={{ color: "#1a2b3c", textDecoration: "none", fontSize: "0.9rem", fontWeight: "600", border: "1px solid #1a2b3c", padding: "8px 16px", borderRadius: "4px" }}>DDR Assessment</Link>
     </nav>
 
-    {/* Main Content Area */}
     <main style={{ flex: "1", width: "100%" }}>
       {children}
     </main>
 
-    {/* THE FOOTER - Full width at the bottom of the page */}
-    <footer style={{ backgroundColor: "#1a2b3c", color: "white", padding: "60px 40px" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "40px" }}>
+    {/* Refined Footer based on your screenshot */}
+    <footer style={{ backgroundColor: "#112233", color: "white", padding: "80px 60px 40px" }}>
+      <div style={{ maxWidth: "1400px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "60px" }}>
         <div>
-          <h4 style={{ color: "#0070f3", margin: "0 0 15px 0" }}>COMPLIANCEWORXS</h4>
-          <p style={{ fontSize: "0.8rem", color: "#94a3b8", lineHeight: "1.6" }}>The authorization engine behind every DDR.</p>
+          <h4 style={{ color: "#409eff", margin: "0 0 10px 0", fontSize: "1.2rem" }}>COMPLIANCEWORXS</h4>
+          <p style={{ color: "#6ccfcf", fontSize: "0.85rem", marginBottom: "20px" }}>Defensible decisions, before inspection.</p>
+          <p style={{ fontSize: "0.85rem", color: "#aab", lineHeight: "1.6", maxWidth: "300px" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
+          <div style={{ display: "flex", gap: "20px", marginTop: "20px", fontSize: "0.85rem" }}>
+            <span style={{ cursor: "pointer" }}>Privacy</span>
+            <span style={{ cursor: "pointer" }}>Terms</span>
+            <span style={{ cursor: "pointer" }}>Documents Library</span>
+          </div>
         </div>
         <div>
-          <h4 style={{ fontSize: "0.9rem", marginBottom: "15px", color: "#fff" }}>Governance</h4>
-          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", color: "#94a3b8", lineHeight: "2" }}>
-            <li>Regulatory Intelligence</li>
-            <li>Audit Readiness</li>
-            <li>Decision Logs</li>
+          <h4 style={{ fontSize: "1rem", color: "#6ccfcf", marginBottom: "20px" }}>Governance</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", color: "#aab", lineHeight: "2.2" }}>
+            <li>Inspection Briefs</li>
+            <li>Governance Framework</li>
+            <li>Enterprise Procurement</li>
           </ul>
         </div>
         <div>
-          <h4 style={{ fontSize: "0.9rem", marginBottom: "15px", color: "#fff" }}>Legal & Procurement</h4>
-          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", color: "#94a3b8", lineHeight: "2" }}>
+          <h4 style={{ fontSize: "1rem", color: "#6ccfcf", marginBottom: "20px" }}>Intelligence</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", color: "#aab", lineHeight: "2.2" }}>
+            <li>Regulatory Intelligence</li>
+            <li>Authority</li>
+            <li>Operational Questions</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style={{ fontSize: "1rem", color: "#6ccfcf", marginBottom: "20px" }}>Legal & Procurement</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", color: "#aab", lineHeight: "2.2" }}>
             <li>Buyer FAQ</li>
             <li>Procurement Matrix</li>
-            <li>Secure Access</li>
-          </ul>
-        </div>
-        <div>
-          <h4 style={{ fontSize: "0.9rem", marginBottom: "15px", color: "#fff" }}>Company</h4>
-          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", color: "#94a3b8", lineHeight: "2" }}>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
-            <li>Documents Library</li>
+            <li>Regulatory Positioning</li>
+            <li style={{ marginTop: "10px" }}>Secure Access</li>
           </ul>
         </div>
       </div>
-      <div style={{ maxWidth: "1200px", margin: "40px auto 0", paddingTop: "20px", borderTop: "1px solid #2d3748", fontSize: "0.75rem", color: "#64748b" }}>
-        © 2026 ComplianceWorxs. All rights reserved.
+      <div style={{ textAlign: "center", borderTop: "1px dotted #334455", marginTop: "60px", paddingTop: "30px", fontSize: "0.75rem", color: "#778899", lineHeight: "1.6" }}>
+        <p style={{ maxWidth: "800px", margin: "0 auto" }}>ComplianceWorxs is a governance enforcement system. ComplianceWorxs does not make, approve, or recommend regulatory decisions. All decisions remain the responsibility of the regulated organization.</p>
+        <p style={{ marginTop: "20px" }}>© 2026 ComplianceWorxs. All rights reserved.</p>
       </div>
     </footer>
   </div>
@@ -68,46 +69,37 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* HOME PAGE WITH PREFERRED BANNER */}
         <Route path="/" element={
           <SimpleLayout>
+            {/* High-Impact Hero with Overlay fix */}
             <section style={{ 
               position: "relative",
-              padding: "120px 40px", 
-              backgroundImage: "url('http://googleusercontent.com/image_generation_content/4')",
+              padding: "160px 60px", 
+              background: `linear-gradient(rgba(26, 43, 60, 0.7), rgba(26, 43, 60, 0.7)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               color: "white",
-              minHeight: "500px",
+              minHeight: "650px",
               display: "flex",
               alignItems: "center"
             }}>
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "rgba(0,0,0,0.4)", zIndex: 1 }}></div>
-              <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
-                <h1 style={{ fontSize: "3.5rem", fontWeight: "800", lineHeight: "1.1", marginBottom: "20px", maxWidth: "850px" }}>
+              <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
+                <h1 style={{ fontSize: "4.2rem", fontWeight: "800", lineHeight: "1.05", marginBottom: "25px", maxWidth: "900px", letterSpacing: "-1px" }}>
                   Authorize Proof Only When a Decision Can Be Defended.
                 </h1>
-                <p style={{ fontSize: "1.4rem", marginBottom: "40px", maxWidth: "700px", lineHeight: "1.4" }}>
+                <p style={{ fontSize: "1.4rem", marginBottom: "45px", maxWidth: "650px", lineHeight: "1.5", color: "#ddd" }}>
                   Make regulatory decisions with confidence—before inspection, before documentation, before risk compounds.
                 </p>
-                <Link to="/assessment" style={{ 
-                  backgroundColor: "#f5a623", 
-                  color: "#1a2b3c", 
-                  padding: "18px 36px", 
-                  borderRadius: "6px", 
-                  textDecoration: "none", 
-                  fontWeight: "bold", 
-                  fontSize: "1.1rem", 
-                  display: "inline-block" 
-                }}>
+                <Link to="/assessment" style={{ backgroundColor: "#f5a623", color: "#111", padding: "20px 40px", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "1.1rem", display: "inline-block", boxShadow: "0 4px 15px rgba(245, 166, 35, 0.4)" }}>
                   Start Decision Defensibility Assessment →
                 </Link>
               </div>
             </section>
 
-            <section style={{ backgroundColor: "#f9fafb", padding: "80px 40px" }}>
+            {/* Cleaned Grid with "Glass" styling */}
+            <section style={{ backgroundColor: "#fcfdfe", padding: "100px 60px" }}>
               <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-                <h2 style={{ textAlign: "center", fontSize: "2rem", marginBottom: "50px", color: "#111827" }}>How the engine decides</h2>
+                <h2 style={{ textAlign: "center", fontSize: "2.4rem", marginBottom: "60px", color: "#1a2b3c", fontWeight: "800" }}>How the engine decides</h2>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
                   {[
                     { title: "Fall-closed", text: "If governance is missing, proof cannot proceed." },
@@ -117,9 +109,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                     { title: "Risk & Exposure", text: "Who is accountable under inspection." },
                     { title: "Gate", text: "Authorize, conditional, or blocked." }
                   ].map((item, idx) => (
-                    <div key={idx} style={{ backgroundColor: "#fff", padding: "30px", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)" }}>
-                      <h4 style={{ color: "#0070f3", marginTop: 0, marginBottom: "12px", fontSize: "1.1rem" }}>{item.title}</h4>
-                      <p style={{ color: "#6b7280", fontSize: "0.9rem", lineHeight: "1.5", margin: 0 }}>{item.text}</p>
+                    <div key={idx} style={{ backgroundColor: "#fff", padding: "40px", borderRadius: "12px", border: "1px solid #eee", boxShadow: "0 10px 30px rgba(0,0,0,0.05)", transition: "transform 0.2s" }}>
+                      <h4 style={{ color: "#0070f3", marginTop: 0, marginBottom: "15px", fontSize: "1.2rem", fontWeight: "700" }}>{item.title}</h4>
+                      <p style={{ color: "#556677", fontSize: "1rem", lineHeight: "1.6", margin: 0 }}>{item.text}</p>
                     </div>
                   ))}
                 </div>
@@ -128,7 +120,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </SimpleLayout>
         } />
         
-        {/* Core Routes */}
         <Route path="/assessment" element={<DDR />} />
         <Route path="/assessment/summary" element={<Summary />} />
         <Route path="/success" element={<Success />} />
