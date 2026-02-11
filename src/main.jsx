@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; // Switched to BrowserRouter
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; // ← Changed this line
 
+// Standard UI for your Compliance Professionals
 const SimpleLayout = ({ title, children }) => (
   <div style={{ padding: "40px", fontFamily: "sans-serif", maxWidth: "800px", margin: "0 auto" }}>
     <nav style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "10px" }}>
@@ -15,8 +16,9 @@ const SimpleLayout = ({ title, children }) => (
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter> {/* Switched to BrowserRouter */}
+    <BrowserRouter> {/* ← Changed this line */}
       <Routes>
+        {/* Main Home Page */}
         <Route path="/" element={
           <SimpleLayout title="Decision-Grade Compliance Intelligence">
             <p>Evaluating regulatory decisions before documentation exists.</p>
@@ -25,23 +27,23 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             </Link>
           </SimpleLayout>
         } />
-
+        
+        {/* DDR Overview Page */}
         <Route path="/ddr" element={
           <SimpleLayout title="DDR Overview">
             <p>The authorization engine behind every defensible record.</p>
-            <p><em>[We will rebuild the clean DDR content here next]</em></p>
+            <Link to="/success" style={{ color: "#ccc", fontSize: "10px" }}>[Test Success Link]</Link>
           </SimpleLayout>
         } />
-
-        {/* This route handles complianceworxs.com/success */}
+        
+        {/* THE SUCCESS PAGES (This stops the 404) */}
         <Route path="/success" element={
           <SimpleLayout title="✔ Thank You">
-            <p>Your $199 Assessment is confirmed. Revenue has been logged to your ledger.</p>
+            <p>Your $199 Assessment is confirmed. Revenue has been logged to your Firebase ledger.</p>
             <Link to="/">Return Home</Link>
           </SimpleLayout>
         } />
-
-        {/* This route handles complianceworxs.com/thank-you */}
+        
         <Route path="/thank-you" element={
           <SimpleLayout title="✔ Thank You">
             <p>Your order is complete.</p>
@@ -49,6 +51,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </SimpleLayout>
         } />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> {/* ← Changed this line */}
   </React.StrictMode>
 );
