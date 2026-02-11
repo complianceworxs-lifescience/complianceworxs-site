@@ -4,7 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ComplianceWorxs</title>
-  </head>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-global.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-global.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyC3Dxdd7twwLk0ix2MPZu9-yyNC3z5yxzQ",
+        authDomain: "compliance-dashboard-79b41.firebaseapp.com",
+        projectId: "compliance-dashboard-79b41",
+        storageBucket: "compliance-dashboard-79b41.firebasestorage.app",
+        messagingSenderId: "270255439527",
+        appId: "1:270255439527:web:3d799a9052dac09ef86582",
+        measurementId: "G-PX3GB3K1TC"
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const analytics = firebase.analytics();
+
+      // This logic checks if the user is on the success page to fire the purchase event
+      if (window.location.pathname.includes('/success')) {
+        firebase.analytics().logEvent('purchase');
+      }
+    </script>
+    </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
