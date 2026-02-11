@@ -2,61 +2,54 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
 
-// A simple, stable wrapper for your site
-const Layout = ({ children }) => (
-  <div style={{ fontFamily: 'sans-serif', color: '#1a1a1a', maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
-    <nav style={{ display: 'flex', gap: '20px', marginBottom: '40px', borderBottom: '1px solid #eee', paddingBottom: '20px' }}>
-      <Link to="/" style={{ textDecoration: 'none', fontWeight: 'bold', color: '#0070f3' }}>COMPLIANCEWORXS</Link>
-      <Link to="/ddr" style={{ textDecoration: 'none', color: '#666' }}>DDR Process</Link>
-      <Link to="/intelligence" style={{ textDecoration: 'none', color: '#666' }}>Intelligence</Link>
-      <Link to="/authority" style={{ textDecoration: 'none', color: '#666' }}>Authority</Link>
+// Standard UI for your Compliance Professionals
+const SimpleLayout = ({ title, children }) => (
+  <div style={{ padding: "40px", fontFamily: "sans-serif", maxWidth: "800px", margin: "0 auto" }}>
+    <nav style={{ marginBottom: "30px", borderBottom: "1px solid #eee", paddingBottom: "10px" }}>
+      <Link to="/" style={{ marginRight: "15px", color: "#0070f3", textDecoration: "none", fontWeight: "bold" }}>COMPLIANCEWORXS</Link>
+      <Link to="/ddr" style={{ color: "#666", textDecoration: "none" }}>DDR Process</Link>
     </nav>
+    <h1>{title}</h1>
     {children}
   </div>
-);
-
-// High-level components defined locally to prevent import errors
-const Overview = () => (
-  <Layout>
-    <h1>Decision-Grade Compliance Intelligence</h1>
-    <p style={{ fontSize: '1.2rem', color: '#444' }}>Evaluate regulatory decisions before documentation exists.</p>
-    <Link to="/ddr" style={{ display: 'inline-block', padding: '12px 24px', background: '#0070f3', color: '#fff', borderRadius: '5px', textDecoration: 'none', fontWeight: 'bold' }}>
-      Start DDR Assessment →
-    </Link>
-  </Layout>
-);
-
-const DDRHome = () => (
-  <Layout>
-    <h1>Deterministic Decision Review (DDR)</h1>
-    <p>The authorization engine behind every defensible record.</p>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '30px' }}>
-      <div style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}><h3>Signal</h3><p>Identify what changed.</p></div>
-      <div style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}><h3>Decision</h3><p>The rationale applied.</p></div>
-      <div style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}><h3>Gate</h3><p>Authorize or Block.</p></div>
-    </div>
-  </Layout>
-);
-
-const Success = () => (
-  <Layout>
-    <div style={{ textAlign: 'center', padding: '60px 0' }}>
-      <h1 style={{ color: '#22c55e' }}>Order Confirmed</h1>
-      <p>The $199 assessment has been logged to the ledger.</p>
-      <Link to="/">Return to Dashboard</Link>
-    </div>
-  </Layout>
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Overview />} />
-        <Route path="/ddr" element={<DDRHome />} />
-        <Route path="/intelligence" element={<Layout><h1>Intelligence Stream</h1></Layout>} />
-        <Route path="/authority" element={<Layout><h1>Authority</h1></Layout>} />
-        <Route path="/success" element={<Success />} />
+        {/* Main Home Page */}
+        <Route path="/" element={
+          <SimpleLayout title="Decision-Grade Compliance Intelligence">
+            <p>Evaluating regulatory decisions before documentation exists.</p>
+            <Link to="/ddr" style={{ display: "inline-block", background: "#0070f3", color: "white", padding: "12px 24px", borderRadius: "5px", textDecoration: "none" }}>
+              Start DDR Assessment →
+            </Link>
+          </SimpleLayout>
+        } />
+
+        {/* DDR Overview Page */}
+        <Route path="/ddr" element={
+          <SimpleLayout title="DDR Overview">
+            <p>The authorization engine behind every defensible record.</p>
+            <Link to="/success" style={{ color: "#ccc", fontSize: "10px" }}>[Test Success Link]</Link>
+          </SimpleLayout>
+        } />
+
+        {/* THE SUCCESS PAGES (This stops the 404) */}
+        <Route path="/success" element={
+          <SimpleLayout title="✔ Thank You">
+            <p>Your $199 Assessment is confirmed. Revenue has been logged to your Firebase ledger.</p>
+            <Link to="/">Return Home</Link>
+          </SimpleLayout>
+        } />
+
+        <Route path="/thank-you" element={
+          <SimpleLayout title="✔ Thank You">
+            <p>Your order is complete.</p>
+            <Link to="/">Return Home</Link>
+          </SimpleLayout>
+        } />
       </Routes>
     </HashRouter>
   </React.StrictMode>
