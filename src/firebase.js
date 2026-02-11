@@ -1,46 +1,45 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
 
-// TODO: Replace the placeholder values below with your actual config from the Firebase Console:
-// Project Settings -> General -> Your Apps -> SDK Setup and Configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyC3Dxdd7twwLk0ix2MPZu9-yyNC3z5yxzQ",
+  authDomain: "compliance-dashboard-79b41.firebaseapp.com",
+  projectId: "compliance-dashboard-79b41",
+  storageBucket: "compliance-dashboard-79b41.appspot.com",
+  messagingSenderId: "270255439527",
+  appId: "G-PX3GB3K1TC"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Cloud Firestore (The Ledger)
 export const db = getFirestore(app);
 
 /**
- * Log Revenue to the Firebase Ledger
- * @param {number} amount - The transaction amount (e.g., 199)
- * @returns {string} - The generated Transaction ID
+ * Logs the full DDR assessment details and revenue in one go
  */
-export const logRevenue = async (amount) => {
+export const logAssessmentAndRevenue = async (data) => {
   try {
-    // We create a reference to the 'ledger' collection
-    const ledgerRef = collection(db, "ledger");
-    
-    // We add a new document with the amount and a server-side timestamp
+    // 1. Log to your existing 'assessment_runs' collection
+    const assessmentRef = collection(db, "assessment_runs");
+    await addDoc(assessmentRef, {
+      system: data.system || "Unknown System",
+      lifecycleAreas: data.lifecycle || [],
+      state: data.complianceState || "incomplete",
+      timestamp: serverTimestamp()
+    });
+
+    // 2. Log the $199 to your 'event_ledger' collection
+    const ledgerRef = collection(db, "event_ledger");
     const docRef = await addDoc(ledgerRef, {
-      amount: amount,
-      currency: "USD",
-      status: "Authorized",
-      source: "DDR Assessment",
+      amount: 199,
+      status: "APPROVED",
+      email: "complianceworxs@gmail.com",
+      type: "DDR_FEE",
       createdAt: serverTimestamp()
     });
 
-    console.log("Revenue logged with ID: ", docRef.id);
-    return `CW-${docRef.id.slice(0, 6).toUpperCase()}`; // Returns a clean ID for the UI
+    return `CW-${docRef.id.slice(0, 6).toUpperCase()}`;
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Firebase Logic Error: ", e);
     throw e;
   }
 };
