@@ -7,8 +7,7 @@ const firebaseConfig = {
   projectId: "compliance-dashboard-79b41",
   storageBucket: "compliance-dashboard-79b41.appspot.com",
   messagingSenderId: "270255439527",
-  // IMPORTANT: Go to Firebase Settings and find the long App ID (1:270255439527:web:...)
-  appId: "REPLACE_WITH_YOUR_ACTUAL_APP_ID", 
+  appId: "1:270255439527:web:3d799a9052dac09ef86582", 
   measurementId: "G-PX3GB3K1TC"
 };
 
