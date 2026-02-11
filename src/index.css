@@ -1895,185 +1895,199 @@ p {
    DDR PAGE STYLES (EGNYTE PALETTE)
    ======================================== */
 
-/* HERO SECTION */
-.ddr-hero {
-  position: relative;
-  min-height: 500px;
-  background: linear-gradient(to right, rgba(44, 74, 94, 0.7), rgba(44, 74, 94, 0.5)), #2c4a5e;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* DDR PAGE WRAPPER */
+.ddr-page {
+  background-color: #f8f9fa; /* Light, clean background */
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1a2b3c; /* Dark blue-gray for text */
 }
 
-.ddr-hero-inner {
-  text-align: center;
-  color: #fff;
-  padding: 60px;
-}
-
-.ddr-hero-headline {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.ddr-hero-subhead {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-}
-
-.ddr-hero-description {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* AUTHORITY SECTION */
-.ddr-authority {
-  background: linear-gradient(to bottom, rgba(44, 74, 94, 0.85), rgba(61, 90, 110, 0.85)), #3d5a6e;
-  background-size: cover;
-  background-position: center;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.ddr-authority-inner {
-  max-width: 1000px;
+.container {
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.ddr-authority-headline {
-  font-size: 2.75rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.ddr-authority-body {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #fff;
-  margin-bottom: 30px;
-}
-
-.ddr-authority-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.ddr-cta-button {
-  background: #00c9a7;
-  color: #fff;
-  padding: 16px 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.ddr-cta-button.secondary {
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
-}
-
-.ddr-cta-button:hover {
-  background: #00b396;
-  transform: translateY(-2px);
-}
-
-/* ENGINE SECTION */
-.ddr-engine {
-  background: #f8f9fa;
-  padding: 60px 20px;
-}
-
-.ddr-engine-list {
-  list-style: none;
-  padding: 0;
-}
-
-.ddr-engine-list li {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-}
-
-.ddr-engine-list li strong {
-  font-weight: 700;
-}
-
-/* DDR CAPTURE SECTION */
-.ddr-capture {
-  background: #ffffff;
-  padding: 60px 20px;
-}
-
-.ddr-capture-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.ddr-capture-item {
-  background: #f1f1f1;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.ddr-capture-item h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1b2a4e;
-  margin-bottom: 10px;
-}
-
-.ddr-capture-item p {
-  font-size: 1rem;
-  color: #4a5d73;
-}
-
-/* FINAL CTA */
-.ddr-final-cta {
-  background: #f8f9fa;
-  padding: 80px 20px;
+/* HEADER STYLE */
+.ddr-header {
   text-align: center;
-}
-
-.ddr-final-headline {
-  font-size: 2.75rem;
-  font-weight: 700;
-  color: #1b2a4e;
-  margin-bottom: 20px;
-}
-
-.ddr-final-subhead {
-  font-size: 1.2rem;
-  color: #4a5d73;
   margin-bottom: 40px;
 }
 
-.ddr-final-button {
-  background: #1b2a4e;
-  color: #fff;
-  font-size: 18px;
-  padding: 20px 48px;
+.ddr-header h1 {
+  font-size: 2.5rem;
+  color: #003366; /* Foundation Dark Blue */
+  margin-bottom: 10px;
+}
+
+.ddr-header p {
+  color: #667c89;
+  font-size: 1.1rem;
+}
+
+/* STEPPER UI */
+.ddr-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.ddr-stepper::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e1e8ed;
+  z-index: 1;
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: #f8f9fa;
+  padding: 0 10px;
+}
+
+.step span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #e1e8ed;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.step.active span {
+  background: #008767; /* Compliance Green */
+  color: white;
+  border-color: #008767;
+}
+
+.step p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.step small {
+  font-weight: 400;
+  color: #8898aa;
+}
+
+/* THE ASSESSMENT CARD */
+.assessment-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 51, 102, 0.08); /* Soft blue-tinted shadow */
+  border: 1px solid #e1e8ed;
+}
+
+.assessment-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.subtext {
+  color: #667c89;
+  margin-bottom: 30px;
+}
+
+/* FORM STYLING */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a2b3c;
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #d1d9e0;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #0052cc; /* Structural Blue */
+}
+
+/* CHECKBOX GRID */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  background: #fcfdfe;
+  padding: 15px;
   border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: all 0.2s ease;
+  border: 1px solid #f0f2f5;
 }
 
-.ddr-final-button:hover {
-  background: #0f1a30;
-  transform: scale(1.05);
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .ddr-capture-list {
-    grid-template-columns: 1fr;
-  }
+/* RECOMMENDATION BOX (The Friction Fixer) */
+.recommendation-alert {
+  background-color: #fff9e6; /* Action Amber Tint */
+  border-left: 4px solid #ffcc00; /* Action Amber */
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  animation: fadeIn 0.3s ease-in;
 }
 
+.recommendation-alert p {
+  margin: 0;
+  color: #856404;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* BUTTON */
+.btn-increase-confidence {
+  width: 100%;
+  background-color: #008767; /* Professional Green */
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-increase-confidence:hover {
+  background-color: #007056;
+}
+
+.btn-increase-confidence:active {
+  transform: scale(0.99);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
