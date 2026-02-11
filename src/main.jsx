@@ -68,11 +68,71 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* NEW HIGH-END HOME PAGE WITH BANNER */}
+        {/* HOME PAGE WITH PREFERRED BANNER */}
         <Route path="/" element={
           <SimpleLayout>
-            {/* Hero Section with Decision Defensibility Image */}
             <section style={{ 
               position: "relative",
               padding: "120px 40px", 
-              backgroundImage: "url('http://googleusercontent.com/image_generation_content/4
+              backgroundImage: "url('http://googleusercontent.com/image_generation_content/4')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              color: "white",
+              minHeight: "500px",
+              display: "flex",
+              alignItems: "center"
+            }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "rgba(0,0,0,0.4)", zIndex: 1 }}></div>
+              <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
+                <h1 style={{ fontSize: "3.5rem", fontWeight: "800", lineHeight: "1.1", marginBottom: "20px", maxWidth: "850px" }}>
+                  Authorize Proof Only When a Decision Can Be Defended.
+                </h1>
+                <p style={{ fontSize: "1.4rem", marginBottom: "40px", maxWidth: "700px", lineHeight: "1.4" }}>
+                  Make regulatory decisions with confidence—before inspection, before documentation, before risk compounds.
+                </p>
+                <Link to="/assessment" style={{ 
+                  backgroundColor: "#f5a623", 
+                  color: "#1a2b3c", 
+                  padding: "18px 36px", 
+                  borderRadius: "6px", 
+                  textDecoration: "none", 
+                  fontWeight: "bold", 
+                  fontSize: "1.1rem", 
+                  display: "inline-block" 
+                }}>
+                  Start Decision Defensibility Assessment →
+                </Link>
+              </div>
+            </section>
+
+            <section style={{ backgroundColor: "#f9fafb", padding: "80px 40px" }}>
+              <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                <h2 style={{ textAlign: "center", fontSize: "2rem", marginBottom: "50px", color: "#111827" }}>How the engine decides</h2>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
+                  {[
+                    { title: "Fall-closed", text: "If governance is missing, proof cannot proceed." },
+                    { title: "Decision", text: "What is being approved or executed." },
+                    { title: "Inspection-ready", text: "Decisions are explainable and rely-able as an audit narrative." },
+                    { title: "Signal", text: "Event change is missing proof cannot proceed." },
+                    { title: "Risk & Exposure", text: "Who is accountable under inspection." },
+                    { title: "Gate", text: "Authorize, conditional, or blocked." }
+                  ].map((item, idx) => (
+                    <div key={idx} style={{ backgroundColor: "#fff", padding: "30px", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)" }}>
+                      <h4 style={{ color: "#0070f3", marginTop: 0, marginBottom: "12px", fontSize: "1.1rem" }}>{item.title}</h4>
+                      <p style={{ color: "#6b7280", fontSize: "0.9rem", lineHeight: "1.5", margin: 0 }}>{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </SimpleLayout>
+        } />
+        
+        {/* Core Routes */}
+        <Route path="/assessment" element={<DDR />} />
+        <Route path="/assessment/summary" element={<Summary />} />
+        <Route path="/success" element={<Success />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+);
