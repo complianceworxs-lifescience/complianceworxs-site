@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; // ← Changed this line
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import DDR from "./DDR"; // Your new Assessment Logic
+import Summary from "./Summary"; // Your new Summary/Rationale page
+import "./index.css";
 
 // Standard UI for your Compliance Professionals
 const SimpleLayout = ({ title, children }) => (
@@ -16,27 +19,25 @@ const SimpleLayout = ({ title, children }) => (
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter> {/* ← Changed this line */}
+    <BrowserRouter>
       <Routes>
-        {/* Main Home Page */}
+        {/* Main Home Page - Matches your 2nd Screenshot style */}
         <Route path="/" element={
           <SimpleLayout title="Decision-Grade Compliance Intelligence">
             <p>Evaluating regulatory decisions before documentation exists.</p>
-            <Link to="/ddr" style={{ display: "inline-block", background: "#0070f3", color: "white", padding: "12px 24px", borderRadius: "5px", textDecoration: "none" }}>
+            <Link to="/assessment" style={{ display: "inline-block", background: "#0070f3", color: "white", padding: "12px 24px", borderRadius: "5px", textDecoration: "none" }}>
               Start DDR Assessment →
             </Link>
           </SimpleLayout>
         } />
         
-        {/* DDR Overview Page */}
-        <Route path="/ddr" element={
-          <SimpleLayout title="DDR Overview">
-            <p>The authorization engine behind every defensible record.</p>
-            <Link to="/success" style={{ color: "#ccc", fontSize: "10px" }}>[Test Success Link]</Link>
-          </SimpleLayout>
-        } />
+        {/* Step 1: The Assessment Gate (DDR.jsx) */}
+        <Route path="/assessment" element={<DDR />} />
         
-        {/* THE SUCCESS PAGES (This stops the 404) */}
+        {/* Step 2: The Logic Summary (Summary.jsx) */}
+        <Route path="/assessment/summary" element={<Summary />} />
+        
+        {/* Step 3: THE SUCCESS PAGES (Stops the 404s) */}
         <Route path="/success" element={
           <SimpleLayout title="✔ Thank You">
             <p>Your $199 Assessment is confirmed. Revenue has been logged to your Firebase ledger.</p>
@@ -50,7 +51,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Link to="/">Return Home</Link>
           </SimpleLayout>
         } />
+
+        {/* Catch-all for the DDR Overview */}
+        <Route path="/ddr" element={
+          <SimpleLayout title="DDR Overview">
+            <p>The authorization engine behind every defensible record.</p>
+            <p>Deterministic Decision Review (DDR) captures signal, decision, and rationale.</p>
+            <Link to="/assessment" style={{ color: "#0070f3" }}>Launch Assessment Engine</Link>
+          </SimpleLayout>
+        } />
+        
       </Routes>
-    </BrowserRouter> {/* ← Changed this line */}
+    </BrowserRouter>
   </React.StrictMode>
 );
