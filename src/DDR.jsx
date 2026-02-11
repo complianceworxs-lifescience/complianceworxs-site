@@ -1,102 +1,128 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function DDR() {
+  const navigate = useNavigate();
+  
+  // State for Step 1 Inputs
+  const [system, setSystem] = useState("");
+  const [lifecycle, setLifecycle] = useState([]);
+  const [exposure, setExposure] = useState("");
+  const [complianceState, setComplianceState] = useState("");
+  const [recommendation, setRecommendation] = useState(null);
+
+  // Recommendation Dictionary (The Friction-Fixer)
+  const RECOMMENDATIONS = {
+    "Data Integrity": "DDR Logic Gate: Authorization requires a validated Audit Trail. Ensure ALCOA+ protocols are defined before proceeding.",
+    "Change Control": "DDR Logic Gate: Impact Assessment logic not detected. Regulatory relevance must be established to move to 'Verified'.",
+    "Validation": "DDR Logic Gate: System state is 'Unverified'. Documentation must meet 21 CFR Part 11 requirements for electronic signatures.",
+    "Training": "DDR Logic Gate: Ownership gap. Accountability records must be mapped to specific roles for authorization.",
+    "CAPA": "DDR Logic Gate: Risk high. Root cause logic must be deterministic before proof generation is permitted.",
+    "Document Control": "DDR Logic Gate: Versioning control logic missing. Access rights must be governed by the DDR engine."
+  };
+
+  const handleLifecycleChange = (area) => {
+    if (lifecycle.includes(area)) {
+      setLifecycle(lifecycle.filter(item => item !== area));
+    } else {
+      setLifecycle([...lifecycle, area]);
+    }
+  };
+
+  const handleIncreaseConfidence = () => {
+    // Check for friction point: User hasn't selected enough info or is in a "Blocked" state
+    if (!complianceState || complianceState === "Select current state" || complianceState === "incomplete") {
+      const primaryArea = lifecycle[0] || "Data Integrity";
+      setRecommendation(RECOMMENDATIONS[primaryArea] || "Please select a Lifecycle Area and Compliance State to receive your path to authorization.");
+      return;
+    }
+
+    // Success Path: Move to Step 2 (Summary/Logic)
+    navigate("/assessment/summary");
+  };
+
   return (
     <div className="ddr-page">
+      <div className="container">
+        <header className="ddr-header">
+          <h1>Audit Readiness Assessment</h1>
+          <p>Complete this assessment to identify compliance gaps and get actionable recommendations.</p>
+        </header>
 
-      {/* HERO SECTION */}
-      <section className="ddr-hero">
-        <div className="ddr-hero-inner">
-          <h1 className="ddr-hero-headline">
-            Deterministic Decision Review (DDR)
-          </h1>
-          <p className="ddr-hero-subhead">
-            A structured, auditable way to document, evaluate, and defend regulated decisions.
-          </p>
-          <p className="ddr-hero-description">
-            This is about the decisions you sign—before inspection—not abstract compliance theory.
-          </p>
+        {/* STEPPER UI */}
+        <div className="ddr-stepper">
+          <div className="step active"><span>0</span><p>Free<br/><small>Identify gaps</small></p></div>
+          <div className="step"><span><i className="lock-icon">🔒</i></span><p>Verified<br/><small>Context captured</small></p></div>
+          <div className="step"><span><i className="lock-icon">🔒</i></span><p>Executable<br/><small>Action plan ready</small></p></div>
+          <div className="step"><span><i className="lock-icon">🔒</i></span><p>Authorized<br/><small>Full monitoring</small></p></div>
         </div>
-      </section>
 
-      {/* AUTHORITY SECTION */}
-      <section className="ddr-authority">
-        <div className="ddr-authority-inner">
-          <h2 className="ddr-authority-headline">
-            The authorization engine behind every DDR
-          </h2>
-          <p className="ddr-authority-body">
-            Authority is how ComplianceWorxs decides what proof is allowed to exist—before inspection.
-            A governed system that maps regulatory signals to defensible actions, assigns ownership,
-            and enforces fail-closed controls when evidence or entitlement is missing.
-          </p>
-          <div className="ddr-authority-buttons">
-            <Link to="/assessment" className="ddr-cta-button">Test a Decision →</Link>
-            <Link to="/intelligence" className="ddr-cta-button secondary">View Intelligence Stream →</Link>
+        {/* MAIN ASSESSMENT CARD */}
+        <div className="assessment-card">
+          <h2>Get Started</h2>
+          <p className="subtext">Answer a few questions to receive your personalized compliance assessment.</p>
+
+          <div className="form-group">
+            <label>System/Process Being Assessed</label>
+            <input 
+              type="text" 
+              placeholder="e.g., Quality Management System, LIMS, Manufacturing" 
+              value={system}
+              onChange={(e) => setSystem(e.target.value)}
+            />
           </div>
+
+          <div className="form-group">
+            <label>Lifecycle Areas (select all that apply)</label>
+            <div className="checkbox-grid">
+              {Object.keys(RECOMMENDATIONS).map((area) => (
+                <label key={area} className="checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    checked={lifecycle.includes(area)} 
+                    onChange={() => handleLifecycleChange(area)} 
+                  /> {area}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Exposure Window</label>
+            <select value={exposure} onChange={(e) => setExposure(e.target.value)}>
+              <option>Select exposure timeline</option>
+              <option value="current">Current Ops Only</option>
+              <option value="12">12 Months</option>
+              <option value="24">24 Months</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Current Compliance State</label>
+            <select value={complianceState} onChange={(e) => setComplianceState(e.target.value)}>
+              <option value="">Select current state</option>
+              <option value="incomplete">Incomplete / Manual</option>
+              <option value="digitized">Digitized / Not Verified</option>
+              <option value="verified">Verified / Ready</option>
+            </select>
+          </div>
+
+          {/* RECOMMENDATION ENGINE OUTPUT */}
+          {recommendation && (
+            <div className="recommendation-alert">
+              <p><strong>Recommendation for Advancing:</strong></p>
+              <p>{recommendation}</p>
+            </div>
+          )}
+
+          <button 
+            className="btn-increase-confidence" 
+            onClick={handleIncreaseConfidence}
+          >
+            Increase Confidence →
+          </button>
         </div>
-      </section>
-
-      {/* HOW THE ENGINE DECIDES */}
-      <section className="ddr-engine">
-        <h2 className="ddr-section-headline">How the engine decides</h2>
-        <p className="ddr-section-body">
-          Deterministic checks decide whether a decision can proceed with proof, must be escalated, or must be blocked until governance gaps are resolved.
-        </p>
-        <ul className="ddr-engine-list">
-          <li><strong>Signal</strong> — What changed and why it matters.</li>
-          <li><strong>Decision</strong> — What is being approved or executed.</li>
-          <li><strong>Owner</strong> — Who is accountable under inspection.</li>
-          <li><strong>Evidence</strong> — What supports the rationale, or what is missing.</li>
-          <li><strong>Gate</strong> — Authorize, conditional, or blocked.</li>
-        </ul>
-      </section>
-
-      {/* WHAT DDR CAPTURES */}
-      <section className="ddr-capture">
-        <h2 className="ddr-section-headline">What a DDR captures</h2>
-        <div className="ddr-capture-list">
-          <div className="ddr-capture-item">
-            <h4>Decision Context</h4>
-            <p>Defines scope, timing, and regulatory relevance.</p>
-          </div>
-          <div className="ddr-capture-item">
-            <h4>Decision Signal</h4>
-            <p>Identifies the trigger that made the decision necessary.</p>
-          </div>
-          <div className="ddr-capture-item">
-            <h4>Evidence Set</h4>
-            <p>Documents what was evaluated—and what was excluded.</p>
-          </div>
-          <div className="ddr-capture-item">
-            <h4>Risk & Exposure</h4>
-            <p>Makes inspection and business impact explicit.</p>
-          </div>
-          <div className="ddr-capture-item">
-            <h4>Decision Rationale</h4>
-            <p>Explains why the decision is defensible.</p>
-          </div>
-          <div className="ddr-capture-item">
-            <h4>Decision Outcome</h4>
-            <p>Approved, conditional, or blocked—before proof is generated.</p>
-          </div>
-          <div className="ddr-capture-item">
-            <h4>Review & Traceability</h4>
-            <p>Captures reviewer, authority, and inspection replay data.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="ddr-final-cta">
-        <h2 className="ddr-final-headline">Make proof a controlled outcome.</h2>
-        <p className="ddr-final-subhead">Start with a decision. Get a deterministically governed result.</p>
-        <Link to="/assessment" className="ddr-final-button">
-          Start a Decision Assessment →
-        </Link>
-      </section>
-
+      </div>
     </div>
   );
 }
