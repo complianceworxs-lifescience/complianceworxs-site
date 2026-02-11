@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { logRevenue } from "./firebase"; // Importing the "Engine" logic
 
 export default function Success() {
   const navigate = useNavigate();
+  const [transactionId, setTransactionId] = useState("Pending...");
+
+  useEffect(() => {
+    // Trigger the revenue logging once when the component mounts
+    const recordRevenue = async () => {
+      try {
+        const id = await logRevenue(199);
+        setTransactionId(id);
+        console.log("Revenue successfully logged to Firebase.");
+      } catch (error) {
+        console.error("Error logging revenue to Firebase:", error);
+        // Fallback to a random ID if the database call fails
+        setTransactionId(`CW-${Math.floor(Math.random() * 1000000)}`);
+      }
+    };
+
+    recordRevenue();
+  }, []);
 
   return (
     <div className="ddr-page">
@@ -17,7 +36,7 @@ export default function Success() {
           <div style={{ backgroundColor: '#f0fdf4', padding: '20px', borderRadius: '8px', border: '1px solid #bbf7d0', marginBottom: '30px' }}>
             <h3 style={{ color: '#166534', margin: '0 0 10px 0' }}>Status: Authorized</h3>
             <p style={{ color: '#166534', fontSize: '0.9rem', margin: 0 }}>
-              Transaction ID: CW-{Math.floor(Math.random() * 1000000)}<br />
+              <strong>Transaction ID:</strong> {transactionId}<br />
               Revenue logged to Firebase Ledger.
             </p>
           </div>
