@@ -2,34 +2,61 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
 
-// Standard UI Components to keep the build safe
-const Page = ({ title, subtitle }) => (
-  <div style={{ padding: "50px", fontFamily: "sans-serif", color: "#333", lineHeight: "1.6" }}>
-    <nav style={{ marginBottom: "20px", borderBottom: "1px solid #eee", paddingBottom: "10px" }}>
-      <Link to="/" style={{ marginRight: "15px", fontWeight: "bold", textDecoration: "none", color: "#0070f3" }}>Overview</Link>
-      <Link to="/intelligence" style={{ marginRight: "15px", textDecoration: "none", color: "#666" }}>Intelligence</Link>
-      <Link to="/authority" style={{ marginRight: "15px", textDecoration: "none", color: "#666" }}>Authority</Link>
-      <Link to="/ddr" style={{ textDecoration: "none", color: "#666" }}>DDR Process</Link>
+// A simple, stable wrapper for your site
+const Layout = ({ children }) => (
+  <div style={{ fontFamily: 'sans-serif', color: '#1a1a1a', maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+    <nav style={{ display: 'flex', gap: '20px', marginBottom: '40px', borderBottom: '1px solid #eee', paddingBottom: '20px' }}>
+      <Link to="/" style={{ textDecoration: 'none', fontWeight: 'bold', color: '#0070f3' }}>COMPLIANCEWORXS</Link>
+      <Link to="/ddr" style={{ textDecoration: 'none', color: '#666' }}>DDR Process</Link>
+      <Link to="/intelligence" style={{ textDecoration: 'none', color: '#666' }}>Intelligence</Link>
+      <Link to="/authority" style={{ textDecoration: 'none', color: '#666' }}>Authority</Link>
     </nav>
-    <h1>{title}</h1>
-    <p>{subtitle}</p>
-    {title === "Overview" && (
-      <Link to="/ddr" style={{ display: "inline-block", background: "#0070f3", color: "white", padding: "12px 24px", borderRadius: "5px", textDecoration: "none" }}>
-        Start DDR Assessment
-      </Link>
-    )}
+    {children}
   </div>
+);
+
+// High-level components defined locally to prevent import errors
+const Overview = () => (
+  <Layout>
+    <h1>Decision-Grade Compliance Intelligence</h1>
+    <p style={{ fontSize: '1.2rem', color: '#444' }}>Evaluate regulatory decisions before documentation exists.</p>
+    <Link to="/ddr" style={{ display: 'inline-block', padding: '12px 24px', background: '#0070f3', color: '#fff', borderRadius: '5px', textDecoration: 'none', fontWeight: 'bold' }}>
+      Start DDR Assessment →
+    </Link>
+  </Layout>
+);
+
+const DDRHome = () => (
+  <Layout>
+    <h1>Deterministic Decision Review (DDR)</h1>
+    <p>The authorization engine behind every defensible record.</p>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '30px' }}>
+      <div style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}><h3>Signal</h3><p>Identify what changed.</p></div>
+      <div style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}><h3>Decision</h3><p>The rationale applied.</p></div>
+      <div style={{ padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}><h3>Gate</h3><p>Authorize or Block.</p></div>
+    </div>
+  </Layout>
+);
+
+const Success = () => (
+  <Layout>
+    <div style={{ textAlign: 'center', padding: '60px 0' }}>
+      <h1 style={{ color: '#22c55e' }}>Order Confirmed</h1>
+      <p>The $199 assessment has been logged to the ledger.</p>
+      <Link to="/">Return to Dashboard</Link>
+    </div>
+  </Layout>
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Page title="Overview" subtitle="ComplianceWorxs: Defensible decisions, before inspection." />} />
-        <Route path="/ddr" element={<Page title="DDR Overview" subtitle="Deterministic Decision Review is initializing..." />} />
-        <Route path="/intelligence" element={<Page title="Intelligence" subtitle="Compliance Data Stream" />} />
-        <Route path="/authority" element={<Page title="Authority" subtitle="Regulatory Frameworks" />} />
-        <Route path="/success" element={<Page title="Success" subtitle="Purchase tracked for $199.00." />} />
+        <Route path="/" element={<Overview />} />
+        <Route path="/ddr" element={<DDRHome />} />
+        <Route path="/intelligence" element={<Layout><h1>Intelligence Stream</h1></Layout>} />
+        <Route path="/authority" element={<Layout><h1>Authority</h1></Layout>} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>
