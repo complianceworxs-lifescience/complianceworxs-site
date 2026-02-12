@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 
-// POINTING TO LOWERCASE FILES IN THE SRC FOLDER
+// Fixed imports to match your src folder
 import DDRLayout from "./DDRLayout";
 import Assessment from "./assessment";
 
@@ -88,34 +88,16 @@ const Home = () => (
           <h3 style={{ fontSize: "1.6rem", fontWeight: "800", marginBottom: "25px", color: "#0a1a36" }}>How ComplianceWorxs Actually Works</h3>
           <p style={{ marginBottom: "15px" }}><strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.</p>
           <p style={{ marginBottom: "15px" }}><strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.</p>
-          <p style={{ marginTop: "30px", fontSize: "0.9rem", fontStyle: "italic", color: "#64748b" }}>⚙️ ComplianceWorxs: evaluates, adenatly works.</p>
-        </div>
-      </div>
-    </section>
-    <section style={{ ...styles.section, backgroundColor: "#fcfdfe" }}>
-      <div style={{ ...styles.container, ...styles.grid2 }}>
-        <div>
-          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Built for Professionals</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
-            <li>QA leaders responsible for inspection outcomes</li><li>Regulatory professionals accountable for interpretation</li><li>Validation leaders defending system decisions</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>What ComplianceWorxs Never Does</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
-            <li>❌ No automated approvals</li><li>❌ No remediation advice</li><li>❌ No proof without accountability</li>
-          </ul>
         </div>
       </div>
     </section>
     <section style={{ backgroundColor: "#0a1a36", color: "#fff", textAlign: "center", padding: "120px 0" }}>
       <div style={styles.container}>
         <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Decision Defensibility Assessment</h2>
-        <p style={{ opacity: 0.8, marginBottom: "45px", fontSize: "1.2rem" }}>Free to assess. Proof generation requires authorization.</p>
         <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
       </div>
     </section>
-  </div>
+  </SimpleLayout>
 );
 
 export default function App() {
