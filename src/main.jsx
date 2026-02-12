@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-// FIXED: Removed the folder names because the screenshot shows these are in src/
+// POINTING TO LOWERCASE FILES IN THE SRC FOLDER
 import DDRLayout from './DDRLayout';
-import Assessment from './Assessment'; 
-import Context from './ddr/Context'; // These are inside the ddr folder
+import Assessment from './assessment'; 
+import Context from './ddr/Context'; 
 import Evidence from './ddr/Evidence';
 import Risk from './ddr/Risk';
 import Outcome from './ddr/Outcome';
