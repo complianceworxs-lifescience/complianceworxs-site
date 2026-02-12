@@ -1,89 +1,96 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Assessment = () => {
-  // Mock Data following your Canonical Field List
+  // Canonical JSON Data (DDR-1.0 Implementation)
   const ddrRecord = {
-    metadata: { id: "DDR-9921-X", version: "1.0", generated: "2026-02-12T20:38Z", status: "SEALED" },
-    identity: { type: "System Change", scope: "Production Environment" },
-    risk: { severity: "MEDIUM", nature: "OPERATIONAL", material_flag: true },
-    outcome: { state: "CONDITIONAL", execution_permitted: false },
-    authority: { owner_id: "EXEC-004", basis: "Policy-88-Alpha" },
-    security: { pii_redacted: true, encryption: "AES-256-GCM" }
+    "record_metadata": {
+      "record_id": "ddr-rec-8f3c2b91",
+      "record_version": "DDR-1.0",
+      "generated_at_utc": "2026-02-12T19:42:11Z",
+      "immutability_status": "sealed"
+    },
+    "decision_identity": {
+      "decision_type": "automation_introduction",
+      "decision_scope": "multi_system"
+    },
+    "authorization_outcome": {
+      "authorization_state": "conditional",
+      "execution_permitted": false
+    },
+    "fail_closed_evaluation": {
+      "fail_closed_triggered": false,
+      "fail_closed_reason_code": null
+    }
+    // ... remaining fields map to UI sections
+  };
+
+  const getStatusColor = (state) => {
+    if (state === 'authorized') return '#10b981';
+    if (state === 'conditional') return '#f59e0b';
+    return '#ef4444';
   };
 
   return (
-    <div style={pageContainer}>
-      <div style={securityBanner}>🛡️ MACHINE-GENERATED RECORD | IMMUTABLE | DETERMINISTIC</div>
+    <div style={container}>
+      {/* AUTHENTICATION HEADER */}
+      <div style={authHeader}>
+        <span>RECORD_ID: {ddrRecord.record_metadata.record_id}</span>
+        <span>STATUS: {ddrRecord.record_metadata.immutability_status}</span>
+      </div>
 
-      <header style={header}>
-        <h1 style={title}>Final Decision Record</h1>
-        <p style={subtitle}>This is a system-generated record of control. It requires no human interpretation.</p>
-      </header>
+      <h1 style={{fontSize: '1.5rem', marginBottom: '30px'}}>Deterministic Decision Record (DDR-1.0)</h1>
 
-      {/* SCHEMA SECTION 1: METADATA & IDENTITY */}
-      <section style={schemaSection}>
-        <div style={sectionHeader}>1.0 RECORD METADATA & IDENTITY</div>
-        <div style={grid}>
-          <div style={field}><label>RECORD_ID</label><span>{ddrRecord.metadata.id}</span></div>
-          <div style={field}><label>VERSION</label><span>{ddrRecord.metadata.version}</span></div>
-          <div style={field}><label>GENERATED_AT</label><span>{ddrRecord.metadata.generated}</span></div>
-          <div style={field}><label>STATUS</label><span style={{color: '#10b981'}}>{ddrRecord.metadata.status}</span></div>
+      {/* SECTION 6.0: AUTHORIZATION OUTCOME (THE GATE) */}
+      <section style={outcomeSection(getStatusColor(ddrRecord.authorization_outcome.authorization_state))}>
+        <div style={label}>6.0 AUTHORIZATION OUTCOME</div>
+        <div style={outcomeGrid}>
+          <div>
+            <div style={smallLabel}>STATE</div>
+            <div style={statusValue}>{ddrRecord.authorization_outcome.authorization_state.toUpperCase()}</div>
+          </div>
+          <div>
+            <div style={smallLabel}>EXECUTION_PERMITTED</div>
+            <div style={statusValue}>{ddrRecord.authorization_outcome.execution_permitted ? "TRUE" : "FALSE"}</div>
+          </div>
         </div>
       </section>
 
-      {/* SCHEMA SECTION 4 & 6: RISK & OUTCOME (The "Gate") */}
-      <section style={schemaSection}>
-        <div style={sectionHeader}>4.0 RISK & 6.0 AUTHORIZATION</div>
-        <div style={outcomeCard(ddrRecord.outcome.state)}>
-          <div style={field}><label>AUTHORIZATION_STATE</label><span style={{fontWeight: '900'}}>{ddrRecord.outcome.state}</span></div>
-          <div style={field}><label>RISK_SEVERITY</label><span>{ddrRecord.risk.severity}</span></div>
-          <div style={field}><label>EXECUTION_PERMITTED</label><span>{ddrRecord.outcome.execution_permitted ? "TRUE" : "FALSE"}</span></div>
+      {/* SECTION 2.0: DECISION IDENTITY */}
+      <section style={dataSection}>
+        <div style={label}>2.0 DECISION IDENTITY</div>
+        <div style={fieldGrid}>
+          <div style={field}>
+            <span style={smallLabel}>TYPE</span>
+            <span>{ddrRecord.decision_identity.decision_type}</span>
+          </div>
+          <div style={field}>
+            <span style={smallLabel}>SCOPE</span>
+            <span>{ddrRecord.decision_identity.decision_scope}</span>
+          </div>
         </div>
       </section>
 
       
 
-      {/* SCHEMA SECTION 11: AUDIT REPLAY */}
-      <section style={auditBox}>
-        <h4 style={{margin: '0 0 10px 0', fontSize: '0.8rem'}}>11.0 AUDIT REPLAY & TRACEABILITY</h4>
-        <p style={{fontSize: '0.75rem', fontFamily: 'monospace', color: '#64748b', margin: 0}}>
-          INPUT_SIGNAL_HASH: 8f2d796e941b...<br />
-          REPLAY_CAPABLE: TRUE | MODIFICATION_ALLOWED: FALSE
-        </p>
-      </section>
-
-      <footer style={footer}>
-        <button style={printBtn} onClick={() => window.print()}>Download Inspection-Ready JSON</button>
-        <Link to="/ddr/traceability" style={backBtn}>Return to Traceability</Link>
-      </footer>
+      {/* AUDIT REPLAY ANCHOR */}
+      <div style={replayFooter}>
+        <div style={smallLabel}>11.0 AUDIT REPLAY HASH</div>
+        <code style={{fontSize: '0.7rem'}}>b71c9d4fa22e9c41af83d1e2...</code>
+      </div>
     </div>
   );
 };
 
-// --- STYLES (Aligning with Institutional "Black Box" look) ---
-const pageContainer = { fontFamily: 'Inter, system-ui, sans-serif', color: '#0a1a36' };
-const securityBanner = { backgroundColor: '#0a1a36', color: '#22d3ee', padding: '10px', fontSize: '0.65rem', textAlign: 'center', fontWeight: '900', letterSpacing: '1px', marginBottom: '40px' };
-const header = { marginBottom: '40px', textAlign: 'center' };
-const title = { fontSize: '1.8rem', margin: '0 0 10px 0' };
-const subtitle = { color: '#64748b', fontSize: '0.9rem' };
-
-const schemaSection = { marginBottom: '30px', border: '1px solid #e2e8f0', borderRadius: '8px', overflow: 'hidden' };
-const sectionHeader = { backgroundColor: '#f8fafc', padding: '10px 15px', fontSize: '0.7rem', fontWeight: '800', borderBottom: '1px solid #e2e8f0', color: '#64748b' };
-const grid = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', backgroundColor: '#e2e8f0' };
-const field = { backgroundColor: '#fff', padding: '15px', display: 'flex', flexDirection: 'column' };
-const label = { fontSize: '0.65rem', fontWeight: '800', color: '#94a3b8', marginBottom: '5px' };
-
-const outcomeCard = (state) => ({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  backgroundColor: state === 'CONDITIONAL' ? '#fffbeb' : '#f8fafc',
-  padding: '10px'
-});
-
-const auditBox = { padding: '20px', backgroundColor: '#f1f5f9', borderRadius: '8px', border: '1px solid #cbd5e1' };
-const footer = { marginTop: '50px', display: 'flex', gap: '15px', justifyContent: 'center' };
-const printBtn = { backgroundColor: '#0a1a36', color: '#fff', padding: '12px 24px', border: 'none', borderRadius: '6px', fontWeight: '700', cursor: 'pointer' };
-const backBtn = { color: '#0a1a36', padding: '12px 24px', textDecoration: 'none', fontWeight: '700' };
+// --- STYLES ---
+const container = { padding: '40px', backgroundColor: '#fff', color: '#0a1a36' };
+const authHeader = { display: 'flex', justifyContent: 'space-between', fontSize: '0.6rem', fontWeight: '900', color: '#94a3b8', borderBottom: '1px solid #f1f5f9', paddingBottom: '10px', marginBottom: '30px' };
+const outcomeSection = (color) => ({ border: `2px solid ${color}`, borderRadius: '8px', padding: '20px', marginBottom: '30px' });
+const label = { fontSize: '0.7rem', fontWeight: '900', color: '#64748b', marginBottom: '15px' };
+const smallLabel = { fontSize: '0.6rem', color: '#94a3b8', fontWeight: '800' };
+const statusValue = { fontSize: '1.2rem', fontWeight: '900' };
+const dataSection = { border: '1px solid #e2e8f0', borderRadius: '8px', padding: '20px', marginBottom: '30px' };
+const fieldGrid = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' };
+const field = { display: 'flex', flexDirection: 'column' };
+const replayFooter = { backgroundColor: '#f8fafc', padding: '20px', borderRadius: '8px', border: '1px dashed #cbd5e1' };
 
 export default Assessment;
