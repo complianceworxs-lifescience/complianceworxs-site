@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /**
- * Institutional Styles - Baked in for exact visual replication of Screenshot 5
+ * Institutional Styles - Updated for Screenshot 3 Hero Replication
  */
 const styles = {
   hero: {
     position: "relative",
     width: "100%",
-    minHeight: "520px",
-    backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000')",
+    minHeight: "580px", // Slightly taller to match Screenshot 3
+    /* Updated background image to match the workstation in Screenshot 3 */
+    backgroundImage: "url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=2000')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -20,7 +21,8 @@ const styles = {
   heroOverlay: {
     position: "absolute",
     inset: 0,
-    background: "linear-gradient(to right, rgba(10, 26, 54, 0.95), rgba(10, 26, 54, 0.8), rgba(10, 26, 54, 0.3))",
+    /* Darker overlay to ensure white text pops against the workstation image */
+    background: "linear-gradient(to right, rgba(10, 26, 54, 0.85), rgba(10, 26, 54, 0.4))",
     zIndex: 1
   },
   container: {
@@ -63,7 +65,7 @@ const styles = {
 };
 
 /**
- * Layout Wrapper - Provides the Header and Footer seen in Screenshot 5
+ * Layout Wrapper - Provides the Header and Footer
  */
 const SimpleLayout = ({ children }) => (
   <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#fff" }}>
@@ -71,13 +73,14 @@ const SimpleLayout = ({ children }) => (
     <nav style={{ padding: "20px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
       <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-        <Link to="/assessment" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>DDR Assessment</Link>
+        {/* Updated Nav Link to match Screenshot 3 */}
+        <Link to="/assessment" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>Start DDR Assessment</Link>
       </div>
     </nav>
 
     <main style={{ flex: "1" }}>{children}</main>
 
-    {/* Institutional Footer - Matches Screenshot 2 & 5 */}
+    {/* Institutional Footer */}
     <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
         <div>
@@ -118,21 +121,22 @@ const SimpleLayout = ({ children }) => (
 );
 
 /**
- * Home Component - Duplicates the exact sections of Screenshot 5
+ * Home Component
  */
 export const Home = () => (
   <SimpleLayout>
-    {/* HERO SECTION */}
+    {/* HERO SECTION - Updated to match Screenshot 3 visuals */}
     <header style={styles.hero}>
       <div style={styles.heroOverlay}></div>
       <div style={styles.container}>
-        <h1 style={{ fontSize: "4.2rem", fontWeight: "800", marginBottom: "25px", lineHeight: "1.05", maxWidth: "900px" }}>
-          Authorize Proof Only When a Decision Can Be Defended.
+        {/* Updated Heading to DDR Branding from Screenshot 3 */}
+        <h1 style={{ fontSize: "3.8rem", fontWeight: "800", marginBottom: "25px", lineHeight: "1.1", maxWidth: "850px" }}>
+          Deterministic Decision Review (DDR) for Regulatory Defensibility
         </h1>
         <p style={{ fontSize: "1.4rem", maxWidth: "650px", marginBottom: "40px", opacity: 0.95, lineHeight: "1.5" }}>
-          Make regulatory decisions with confidence—before inspection, before documentation, before risk compounds.
+          Every regulatory decision is evaluated, <strong>authorized</strong>, and logged before proof exists.
         </p>
-        <Link to="/assessment" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+        <Link to="/assessment" style={styles.ctaButton}>Start DDR Assessment →</Link>
       </div>
     </header>
 
@@ -158,29 +162,7 @@ export const Home = () => (
           <h3 style={{ fontSize: "1.6rem", fontWeight: "800", marginBottom: "25px", color: "#0a1a36" }}>How ComplianceWorxs Actually Works</h3>
           <p style={{ marginBottom: "15px" }}><strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.</p>
           <p style={{ marginBottom: "15px" }}><strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.</p>
-          <p style={{ marginTop: "30px", fontSize: "0.9rem", fontStyle: "italic", color: "#64748b" }}>⚙️ ComplianceWorxs: evaluates, adenatly works.</p>
-        </div>
-      </div>
-    </section>
-
-    {/* WHO THIS IS FOR / NEVER DOES */}
-    <section style={{ ...styles.section, backgroundColor: "#fcfdfe" }}>
-      <div style={{ ...styles.container, ...styles.grid2 }}>
-        <div>
-          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Built for Professionals</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
-            <li>QA leaders responsible for inspection outcomes</li>
-            <li>Regulatory professionals accountable for interpretation</li>
-            <li>Validation leaders defending system decisions</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>What ComplianceWorxs Never Does</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
-            <li>❌ No automated approvals</li>
-            <li>❌ No remediation advice</li>
-            <li>❌ No proof without accountability</li>
-          </ul>
+          <p style={{ marginTop: "30px", fontSize: "0.9rem", fontStyle: "italic", color: "#64748b" }}>⚙️ ComplianceWorxs: evaluate decisions, generate proof.</p>
         </div>
       </div>
     </section>
@@ -188,9 +170,9 @@ export const Home = () => (
     {/* BOTTOM CALL TO ACTION */}
     <section style={{ backgroundColor: "#0a1a36", color: "#fff", textAlign: "center", padding: "120px 0" }}>
       <div style={styles.container}>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Decision Defensibility Assessment</h2>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Deterministic Decision Review</h2>
         <p style={{ opacity: 0.8, marginBottom: "45px", fontSize: "1.2rem" }}>Free to assess. Proof generation requires authorization.</p>
-        <Link to="/assessment" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+        <Link to="/assessment" style={styles.ctaButton}>Start DDR Assessment →</Link>
       </div>
     </section>
   </SimpleLayout>
