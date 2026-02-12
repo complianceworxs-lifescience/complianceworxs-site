@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 
-// FIXED PATHS: Pointing exactly to src/ddr
-import DDRLayout from "./ddr/DDRLayout";
-import Assessment from "./ddr/Assessment";
+// ADDRESS FIX: Using uppercase DDR to ensure Vercel can find the files
+import DDRLayout from "./DDR/DDRLayout";
+import Assessment from "./DDR/Assessment";
 
 const styles = {
   hero: {
