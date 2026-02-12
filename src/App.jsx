@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 
-// FIXED: Pointing to the files in the src folder as seen in your screenshot
+// POINTING TO LOWERCASE FILES IN THE SRC FOLDER
 import DDRLayout from "./DDRLayout";
-import Assessment from "./Assessment";
+import Assessment from "./assessment";
 
 const styles = {
   hero: {
