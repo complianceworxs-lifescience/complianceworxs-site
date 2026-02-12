@@ -3,20 +3,22 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-// ADDRESS FIX: Using uppercase DDR to match the folder in your repository
-import DDRLayout from './DDR/DDRLayout';
-import Context from './DDR/Context';
-import Evidence from './DDR/Evidence';
-import Risk from './DDR/Risk';
-import Outcome from './DDR/Outcome';
-import Traceability from './DDR/Traceability';
-import Assessment from './DDR/Assessment';
+// FIXED: Removed the folder names because the screenshot shows these are in src/
+import DDRLayout from './DDRLayout';
+import Assessment from './Assessment'; 
+import Context from './ddr/Context'; // These are inside the ddr folder
+import Evidence from './ddr/Evidence';
+import Risk from './ddr/Risk';
+import Outcome from './ddr/Outcome';
+import Traceability from './ddr/Traceability';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        
+        {/* The DDR Module */}
         <Route path="/ddr" element={<DDRLayout />}>
           <Route index element={<Assessment />} />
           <Route path="context" element={<Context />} />
