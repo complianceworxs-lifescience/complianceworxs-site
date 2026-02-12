@@ -1,136 +1,91 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-/**
- * ComplianceWorxs Unified Executive Interface
- * Incorporating the Perplexity Hero Logic with Institutional Navigation
- */
 const App = () => {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans">
+    <div style={{ minHeight: "100vh", backgroundColor: "#0f172a", color: "#f8fafc", fontFamily: "sans-serif" }}>
       
-      {/* 1. TOP AUTHORIZATION RIBBON */}
-      <div className="w-full bg-[#0a1a36] text-[10px] text-slate-300 px-8 py-2 flex items-center justify-between border-b border-white/10 uppercase tracking-widest">
-        <span>
-          <span className="text-cyan-400 font-bold">● COMPLIANCEWORXS</span> AUTHORIZATION ENGINE™
+      {/* 1. TOP RIBBON */}
+      <div style={{ width: "100%", backgroundColor: "rgba(15, 23, 42, 0.9)", fontSize: "12px", padding: "8px 32px", display: "flex", justifyContent: "space-between", borderBottom: "1px solid #1e293b" }}>
+        <span style={{ letterSpacing: "0.05em" }}>
+          <span style={{ color: "#2dd4bf", fontWeight: "bold" }}>COMPLIANCEWORXS</span> AUTHORIZATION ENGINE™
         </span>
-        <div className="flex gap-6">
-          <span>State: <span className="text-emerald-400">Operational</span></span>
-          <span>Proof blocked until authorized</span>
-        </div>
+        <span style={{ color: "#cbd5e1" }}>Your decisions, your <strong>proof</strong>, your control.</span>
       </div>
 
-      {/* 2. EXECUTIVE NAVIGATION MENU */}
-      <header className="w-full bg-white px-10 py-5 flex items-center justify-between border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-        <div className="flex items-center">
-          <Link to="/" className="text-lg tracking-[0.2em] font-black text-[#0a1a36] no-underline">
-            COMPLIANCEWORXS
-          </Link>
+      {/* 2. MAIN NAV BAR */}
+      <header style={{ width: "100%", backgroundColor: "rgba(15, 23, 42, 0.8)", padding: "16px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #1e293b" }}>
+        <div style={{ fontSize: "14px", letterSpacing: "0.35em", fontWeight: "bold", color: "#f1f5f9" }}>
+          COMPLIANCEWORXS
         </div>
 
-        <nav className="hidden md:flex items-center gap-10 text-[13px] font-bold text-slate-600 uppercase tracking-wider">
-          <Link to="/" className="hover:text-[#0a1a36] transition-colors no-underline">Overview</Link>
-          <Link to="/pricing" className="hover:text-[#0a1a36] transition-colors no-underline">Pricing</Link>
-          <Link to="/intelligence" className="hover:text-[#0a1a36] transition-colors no-underline">Intelligence Stream</Link>
-          <Link to="/authority" className="hover:text-[#0a1a36] transition-colors no-underline">Authority</Link>
+        <nav style={{ display: "flex", gap: "32px", fontSize: "14px" }}>
+          <Link to="/" style={{ color: "#e2e8f0", textDecoration: "none" }}>Overview</Link>
+          <Link to="/pricing" style={{ color: "#e2e8f0", textDecoration: "none" }}>Pricing</Link>
+          <Link to="/intelligence" style={{ color: "#e2e8f0", textDecoration: "none" }}>Intelligence Stream</Link>
+          <Link to="/security" style={{ color: "#e2e8f0", textDecoration: "none" }}>Security</Link>
+          <Link to="/authority" style={{ color: "#e2e8f0", textDecoration: "none" }}>Authority</Link>
         </nav>
 
-        <div className="flex items-center gap-6">
-          <Link 
-            to="/assessment" 
-            className="bg-[#f6a623] text-[#0a1a36] font-extrabold text-[12px] px-6 py-2.5 rounded shadow-md hover:bg-amber-500 transition-all uppercase no-underline"
-          >
-            Start DDR Assessment
-          </Link>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <button style={{ background: "#fbbf24", color: "#0f172a", border: "none", padding: "10px 20px", borderRadius: "6px", fontWeight: "bold", cursor: "pointer" }}>
+            Start Assessment
+          </button>
         </div>
       </header>
 
-      {/* 3. THE HERO SECTION [Replicating Screenshot (1) and Perplexity Logic] */}
-      <main className="relative bg-[#0a1a36] overflow-hidden py-20">
-        {/* Visual Background Layer */}
-        <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2000')] bg-cover bg-center opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1a36] via-[#0a1a36]/80 to-transparent" />
-        </div>
+      {/* 3. HERO SECTION */}
+      <main style={{ position: "relative", padding: "80px 40px", display: "flex", justifyContent: "center" }}>
+        {/* Background Overlay */}
+        <div style={{ position: "absolute", inset: 0, opacity: 0.3, zIndex: 0, backgroundImage: "url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2000')", backgroundSize: "cover" }}></div>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0f172a, rgba(15, 23, 42, 0.7))", zIndex: 1 }}></div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-10 flex flex-col lg:flex-row items-center gap-16">
-          {/* Left Side: Strategic Copy */}
-          <section className="lg:w-1/2 text-white">
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] mb-6">
-              Deterministic Decision Review (DDR) for Regulatory Defensibility
+        <div style={{ position: "relative", zIndex: 10, maxWidth: "1200px", width: "100%", display: "flex", alignItems: "center", gap: "60px" }}>
+          
+          {/* Left Content */}
+          <div style={{ flex: 1 }}>
+            <h1 style={{ fontSize: "48px", fontWeight: "bold", lineHeight: "1.2", marginBottom: "24px" }}>
+              Authorize Proof Only<br />When a Decision Can Be<br />Defended.
             </h1>
-            <p className="text-xl text-slate-300 mb-10 max-w-lg leading-relaxed">
-              Every regulatory decision is evaluated, <span className="text-white font-bold underline decoration-cyan-400">authorized</span>, and logged before proof exists.
+            <p style={{ fontSize: "18px", color: "#e2e8f0", marginBottom: "32px", maxWidth: "500px" }}>
+              Make regulatory decisions with <strong>confidence</strong>—before inspection, before documentation, before risk compounds.
             </p>
-            <Link 
-              to="/assessment" 
-              className="inline-flex items-center justify-center bg-[#f6a623] hover:bg-amber-500 text-[#0a1a36] font-black text-sm px-8 py-4 rounded shadow-2xl transition-all no-underline"
-            >
-              Start DDR Assessment →
-            </Link>
-          </section>
+            <button style={{ background: "#fbbf24", color: "#0f172a", border: "none", padding: "15px 30px", borderRadius: "6px", fontWeight: "bold", fontSize: "16px", cursor: "pointer" }}>
+              Start Decision Defensibility Assessment →
+            </button>
+          </div>
 
-          {/* Right Side: The Mock Dashboard */}
-          <section className="lg:w-1/2 w-full flex justify-end">
-            <div className="bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-full max-w-lg border border-slate-200 overflow-hidden transform hover:scale-[1.02] transition-transform">
-              <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-                <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-widest">DDR Assessment Module</h2>
-                <span className="text-[10px] text-slate-400 font-bold">ID: 11,126-Q1</span>
+          {/* Right Mock Dashboard Card */}
+          <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ backgroundColor: "#fff", color: "#1e293b", borderRadius: "12px", width: "100%", maxWidth: "450px", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)", overflow: "hidden" }}>
+              <div style={{ padding: "12px 20px", background: "#f8fafc", borderBottom: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "10px", fontWeight: "bold", color: "#64748b", textTransform: "uppercase" }}>Decision Defensibility Assessment</span>
+                <span style={{ fontSize: "10px", color: "#94a3b8" }}>Q1 · PRE-INSPECTION</span>
               </div>
-
-              <div className="p-8 space-y-6">
-                <div className="flex gap-6 items-center">
-                  <div className="bg-emerald-600 text-white rounded-lg px-6 py-4 text-center">
-                    <div className="text-[9px] uppercase font-bold text-emerald-100 tracking-tighter">Defensibility Score</div>
-                    <div className="text-4xl font-black leading-none my-1">80</div>
-                    <div className="text-[8px] text-emerald-100/80">Threshold: 72</div>
+              <div style={{ padding: "24px" }}>
+                <div style={{ display: "flex", gap: "20px", alignItems: "center", marginBottom: "20px" }}>
+                  <div style={{ background: "#059669", color: "#fff", padding: "16px", borderRadius: "8px", textAlign: "center", minWidth: "120px" }}>
+                    <div style={{ fontSize: "9px", textTransform: "uppercase", opacity: 0.8 }}>Defensibility Score</div>
+                    <div style={{ fontSize: "32px", fontWeight: "bold" }}>80</div>
+                    <div style={{ fontSize: "9px", marginTop: "4px" }}>Threshold: 72</div>
                   </div>
-                  <div className="flex-1 grid grid-cols-2 gap-4 text-[10px]">
-                    <div><span className="block font-black text-slate-400 uppercase">Ownership</span><span className="text-emerald-600 font-bold">MET</span></div>
-                    <div><span className="block font-black text-slate-400 uppercase">Authority</span><span className="text-emerald-600 font-bold">MET</span></div>
-                    <div><span className="block font-black text-slate-400 uppercase">Context</span><span className="text-amber-500 font-bold">AT RISK</span></div>
-                    <div><span className="block font-black text-slate-400 uppercase">Posture</span><span className="text-emerald-600 font-bold">READY</span></div>
+                  <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", fontSize: "11px" }}>
+                    <div><strong>Ownership</strong><br /><span style={{ color: "#059669" }}>MET</span></div>
+                    <div><strong>Authority</strong><br /><span style={{ color: "#059669" }}>MET</span></div>
+                    <div><strong>Context</strong><br /><span style={{ color: "#d97706" }}>AT RISK</span></div>
+                    <div><strong>Posture</strong><br /><span style={{ color: "#059669" }}>READY</span></div>
                   </div>
                 </div>
-
-                <div className="rounded-lg border-2 border-emerald-500/20 bg-emerald-50/50 p-4 flex items-center justify-between">
-                  <div>
-                    <div className="text-[10px] font-black text-emerald-800 uppercase tracking-widest">Proof Authorization Permitted</div>
-                    <div className="text-[9px] text-emerald-700 italic">Defensible thresholds satisfied.</div>
-                  </div>
-                  <div className="h-8 w-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
+                <div style={{ padding: "12px", background: "#ecfdf5", border: "1px solid #a7f3d0", borderRadius: "8px", color: "#065f46", fontSize: "11px" }}>
+                  <strong>Proof Authorization Permitted</strong><br />
+                  Structural conditions for defensible proof are satisfied.
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+
         </div>
       </main>
-
-      {/* 4. INSTITUTIONAL FOOTER */}
-      <footer className="bg-[#0a1a36] text-white pt-20 pb-10 px-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
-          <div>
-            <h4 className="font-black text-lg mb-4">COMPLIANCEWORXS</h4>
-            <p className="text-cyan-400 text-xs font-bold mb-4">Defensible decisions, before inspection.</p>
-            <p className="text-xs text-slate-400 leading-relaxed">The only governed compliance system that determines whether regulatory proof is allowed to exist.</p>
-          </div>
-          <div className="text-xs text-slate-400 space-y-2">
-            <h4 className="text-white font-bold mb-4 uppercase">Intelligence</h4>
-            <p>Regulatory Intelligence</p><p>Authority</p><p>Operational Questions</p>
-          </div>
-          <div className="text-xs text-slate-400 space-y-2">
-            <h4 className="text-white font-bold mb-4 uppercase">Governance</h4>
-            <p>Inspection Briefs</p><p>Governance Framework</p><p>Workflows</p>
-          </div>
-          <div className="text-xs text-slate-400 space-y-2">
-            <h4 className="text-white font-bold mb-4 uppercase">Legal</h4>
-            <p>Buyer FAQ</p><p>Secure Access</p>
-          </div>
-        </div>
-        <div className="text-center pt-10 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-          © 2026 ComplianceWorxs. All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 };
