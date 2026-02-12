@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 
-// Fixed imports to match your src folder
+// FIXED: Matching the new filename
 import DDRLayout from "./DDRLayout";
-import Assessment from "./assessment";
+import Assessment from "./Assessment";
 
 const styles = {
   hero: {
