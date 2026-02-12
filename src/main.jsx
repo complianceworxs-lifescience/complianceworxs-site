@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-// If your folder is uppercase DDR, change 'ddr' to 'DDR' below
-import DDRLayout from './ddr/DDRLayout';
-import Context from './ddr/Context';
-import Evidence from './ddr/Evidence';
-import Risk from './ddr/Risk';
-import Outcome from './ddr/Outcome';
-import Traceability from './ddr/Traceability';
-import Assessment from './ddr/Assessment';
+// ADDRESS FIX: Using uppercase DDR to match the folder in your repository
+import DDRLayout from './DDR/DDRLayout';
+import Context from './DDR/Context';
+import Evidence from './DDR/Evidence';
+import Risk from './DDR/Risk';
+import Outcome from './DDR/Outcome';
+import Traceability from './DDR/Traceability';
+import Assessment from './DDR/Assessment';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
