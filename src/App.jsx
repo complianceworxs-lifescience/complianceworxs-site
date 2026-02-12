@@ -1,9 +1,9 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
-// Import the DDR components we built
-import DDRLayout from './pages/ddr/DDRLayout';
-import Assessment from './pages/ddr/Assessment';
+// FIXED PATHS: Changed from './pages/ddr/...' to './ddr/...'
+import DDRLayout from './ddr/DDRLayout';
+import Assessment from './ddr/Assessment';
 
 /**
  * Institutional Styles - Locked for exact visual replication
@@ -71,18 +71,15 @@ const styles = {
  */
 const SimpleLayout = ({ children }) => (
   <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#fff" }}>
-    {/* Navigation Bar */}
     <nav style={{ padding: "20px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
       <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-        {/* UPDATED: Entry point points to the locked DDR overview */}
         <Link to="/ddr/overview" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>Start Decision Review</Link>
       </div>
     </nav>
 
     <main style={{ flex: "1" }}>{children}</main>
 
-    {/* Institutional Footer */}
     <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
         <div>
@@ -90,7 +87,6 @@ const SimpleLayout = ({ children }) => (
           <p style={{ fontSize: "0.85rem", color: "#22d3ee", marginBottom: "15px", fontWeight: "600" }}>Defensible decisions, before inspection.</p>
           <p style={{ fontSize: "0.85rem", opacity: 0.7, lineHeight: "1.6" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
         </div>
-        {/* ... Footer links omitted for brevity but preserved in your real file ... */}
       </div>
       <div style={{ textAlign: "center", marginTop: "60px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "30px", fontSize: "0.75rem", opacity: 0.5 }}>
         © 2026 ComplianceWorxs. All rights reserved.
@@ -116,7 +112,6 @@ const Home = () => (
         <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Review →</Link>
       </div>
     </header>
-    {/* ... Documentation sections preserved ... */}
   </SimpleLayout>
 );
 
@@ -127,18 +122,12 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        {/* Home Page */}
         <Route path="/" element={<Home />} />
-
-        {/* DDR FLOW - SEALED UNDER DDRLAYOUT */}
         <Route path="/ddr" element={<DDRLayout />}>
           <Route path="*" element={<Assessment />} />
         </Route>
-
-        {/* Catch-all Redirect */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
 }
-
