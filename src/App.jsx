@@ -1,12 +1,12 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import React from "react";
+import { Link, Routes, Route, Navigate } from "react-router-dom";
 
-// FIXED PATHS: Changed from './pages/ddr/...' to './ddr/...'
-import DDRLayout from './ddr/DDRLayout';
-import Assessment from './ddr/Assessment';
+// ONLY THESE TWO LINES ARE FIXED TO POINT TO YOUR ACTUAL FOLDER
+import DDRLayout from "./ddr/DDRLayout";
+import Assessment from "./ddr/Assessment";
 
 /**
- * Institutional Styles - Locked for exact visual replication
+ * Institutional Styles - Baked in for exact visual replication of Screenshot 5
  */
 const styles = {
   hero: {
@@ -67,10 +67,11 @@ const styles = {
 };
 
 /**
- * Layout Wrapper - Provides the Header and Footer
+ * Layout Wrapper - Provides the Header and Footer seen in Screenshot 5
  */
 const SimpleLayout = ({ children }) => (
   <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#fff" }}>
+    {/* Navigation Bar */}
     <nav style={{ padding: "20px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
       <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
@@ -80,12 +81,37 @@ const SimpleLayout = ({ children }) => (
 
     <main style={{ flex: "1" }}>{children}</main>
 
+    {/* Institutional Footer - Matches Screenshot 2 & 5 */}
     <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
         <div>
           <h4 style={{ fontWeight: "900", color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>COMPLIANCEWORXS</h4>
           <p style={{ fontSize: "0.85rem", color: "#22d3ee", marginBottom: "15px", fontWeight: "600" }}>Defensible decisions, before inspection.</p>
           <p style={{ fontSize: "0.85rem", opacity: 0.7, lineHeight: "1.6" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
+        </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Governance</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+            <li>Inspection Briefs</li>
+            <li>Governance Framework</li>
+            <li>Workflows</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Intelligence</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+            <li>Regulatory Intelligence</li>
+            <li>Authority</li>
+            <li>Operational Questions</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Legal</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+            <li>Buyer FAQ</li>
+            <li>Procurement Matrix</li>
+            <li>Secure Access</li>
+          </ul>
         </div>
       </div>
       <div style={{ textAlign: "center", marginTop: "60px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "30px", fontSize: "0.75rem", opacity: 0.5 }}>
@@ -96,10 +122,11 @@ const SimpleLayout = ({ children }) => (
 );
 
 /**
- * Home Component
+ * Home Component - Duplicates the exact sections of Screenshot 5
  */
 const Home = () => (
   <SimpleLayout>
+    {/* HERO SECTION */}
     <header style={styles.hero}>
       <div style={styles.heroOverlay}></div>
       <div style={styles.container}>
@@ -109,25 +136,78 @@ const Home = () => (
         <p style={{ fontSize: "1.4rem", maxWidth: "650px", marginBottom: "40px", opacity: 0.95, lineHeight: "1.5" }}>
           Make regulatory decisions with confidence—before inspection, before documentation, before risk compounds.
         </p>
-        <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Review →</Link>
+        <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
       </div>
     </header>
+
+    {/* SUB-HERO STATEMENT */}
+    <section style={{ backgroundColor: "#f8fafc", padding: "60px 0", textAlign: "center", borderBottom: "1px solid #f1f5f9" }}>
+      <h2 style={{ fontSize: "2rem", fontWeight: "700", color: "#0a1a36" }}>
+        Inspectors assess decisions, <strong>not document volume.</strong>
+      </h2>
+    </section>
+
+    {/* DOCUMENTATION VS DEFENSIBILITY */}
+    <section style={styles.section}>
+      <div style={{ ...styles.container, ...styles.grid2 }}>
+        <div>
+          <h3 style={{ fontSize: "2rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Documentation Does Not Equal Defensibility</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.5", fontSize: "1.15rem", color: "#334155" }}>
+            <li>✅ Proof without defensibility increases inspection risk</li>
+            <li>✅ Most findings originate from the wrong decision, not missing files</li>
+            <li>✅ Teams often document outcomes they cannot justify under scrutiny</li>
+          </ul>
+        </div>
+        <div style={styles.card}>
+          <h3 style={{ fontSize: "1.6rem", fontWeight: "800", marginBottom: "25px", color: "#0a1a36" }}>How ComplianceWorxs Actually Works</h3>
+          <p style={{ marginBottom: "15px" }}><strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.</p>
+          <p style={{ marginBottom: "15px" }}><strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.</p>
+          <p style={{ marginTop: "30px", fontSize: "0.9rem", fontStyle: "italic", color: "#64748b" }}>⚙️ ComplianceWorxs: evaluates, adenatly works.</p>
+        </div>
+      </div>
+    </section>
+
+    {/* WHO THIS IS FOR / NEVER DOES */}
+    <section style={{ ...styles.section, backgroundColor: "#fcfdfe" }}>
+      <div style={{ ...styles.container, ...styles.grid2 }}>
+        <div>
+          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Built for Professionals</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
+            <li>QA leaders responsible for inspection outcomes</li>
+            <li>Regulatory professionals accountable for interpretation</li>
+            <li>Validation leaders defending system decisions</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>What ComplianceWorxs Never Does</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
+            <li>❌ No automated approvals</li>
+            <li>❌ No remediation advice</li>
+            <li>❌ No proof without accountability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* BOTTOM CALL TO ACTION */}
+    <section style={{ backgroundColor: "#0a1a36", color: "#fff", textAlign: "center", padding: "120px 0" }}>
+      <div style={styles.container}>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Decision Defensibility Assessment</h2>
+        <p style={{ opacity: 0.8, marginBottom: "45px", fontSize: "1.2rem" }}>Free to assess. Proof generation requires authorization.</p>
+        <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+      </div>
+    </section>
   </SimpleLayout>
 );
 
-/**
- * Main App Shell
- */
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ddr" element={<DDRLayout />}>
-          <Route path="*" element={<Assessment />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/ddr" element={<DDRLayout />}>
+        <Route path="*" element={<Assessment />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
