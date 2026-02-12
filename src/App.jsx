@@ -1,104 +1,198 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const App = () => {
-  return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#0f172a", color: "#f8fafc", fontFamily: "sans-serif" }}>
-      
-      {/* 1. TOP RIBBON - Authorization Engine Branding */}
-      <div style={{ width: "100%", backgroundColor: "rgba(15, 23, 42, 0.95)", fontSize: "11px", padding: "8px 40px", display: "flex", justifyContent: "space-between", borderBottom: "1px solid #1e293b", textTransform: "uppercase", letterSpacing: "1px" }}>
-        <span>
-          <span style={{ color: "#2dd4bf", fontWeight: "bold" }}>COMPLIANCEWORXS</span> AUTHORIZATION ENGINE™
-        </span>
-        <span style={{ color: "#94a3b8" }}>State: <span style={{ color: "#2dd4bf" }}>Operational</span> | Your decisions, your proof, your control.</span>
-      </div>
-
-      {/* 2. MAIN NAV BAR - Executive Menus */}
-      <header style={{ width: "100%", backgroundColor: "rgba(15, 23, 42, 0.8)", backdropFilter: "blur(8px)", padding: "16px 40px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid #1e293b", sticky: "top", zIndex: 50 }}>
-        <div style={{ fontSize: "14px", letterSpacing: "0.3em", fontWeight: "bold", color: "#f8fafc" }}>
-          COMPLIANCEWORXS
-        </div>
-
-        <nav style={{ display: "flex", gap: "30px", fontSize: "13px", fontWeight: "500" }}>
-          <Link to="/" style={{ color: "#cbd5e1", textDecoration: "none" }}>Overview</Link>
-          <Link to="/pricing" style={{ color: "#cbd5e1", textDecoration: "none" }}>Pricing</Link>
-          <Link to="/intelligence" style={{ color: "#cbd5e1", textDecoration: "none" }}>Intelligence Stream</Link>
-          <Link to="/security" style={{ color: "#cbd5e1", textDecoration: "none" }}>Security</Link>
-          <Link to="/authority" style={{ color: "#cbd5e1", textDecoration: "none" }}>Authority</Link>
-        </nav>
-
-        <Link to="/assessment" style={{ background: "#fbbf24", color: "#0f172a", textDecoration: "none", padding: "10px 22px", borderRadius: "4px", fontWeight: "700", fontSize: "13px" }}>
-          Start DDR Assessment
-        </Link>
-      </header>
-
-      {/* 3. HERO SECTION - The "Perplexity" Dashboard Layout */}
-      <main style={{ position: "relative", overflow: "hidden", padding: "100px 40px" }}>
-        {/* Visual Background (Replaces the broken local file) */}
-        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-          <div style={{ width: "100%", h: "100%", backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.2 }}></div>
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0f172a, rgba(15, 23, 42, 0.8), transparent)" }}></div>
-        </div>
-
-        <div style={{ position: "relative", zIndex: 10, maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "40px" }}>
-          
-          {/* Left Side: Strategic Value */}
-          <section style={{ flex: "1", minWidth: "300px" }}>
-            <h1 style={{ fontSize: "48px", fontWeight: "800", lineHeight: "1.1", marginBottom: "24px", color: "#ffffff" }}>
-              Authorize Proof Only<br />When a Decision Can Be<br />Defended.
-            </h1>
-            <p style={{ fontSize: "18px", color: "#cbd5e1", marginBottom: "40px", maxWidth: "550px", lineHeight: "1.6" }}>
-              Make regulatory decisions with <strong>confidence</strong>—before inspection, before documentation, before risk compounds.
-            </p>
-            <Link to="/assessment" style={{ display: "inline-block", background: "#fbbf24", color: "#0f172a", textDecoration: "none", padding: "16px 32px", borderRadius: "6px", fontWeight: "800", fontSize: "15px", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.3)" }}>
-              Start Decision Defensibility Assessment →
-            </Link>
-          </section>
-
-          {/* Right Side: The Mock Dashboard */}
-          <section style={{ flex: "1", minWidth: "350px", display: "flex", justifyContent: "flex-end" }}>
-            <div style={{ backgroundColor: "#ffffff", color: "#1e293b", borderRadius: "12px", width: "100%", maxWidth: "460px", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)", overflow: "hidden", border: "1px solid #e2e8f0" }}>
-              <div style={{ padding: "14px 24px", background: "#f8fafc", borderBottom: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <h2 style={{ fontSize: "10px", fontWeight: "900", color: "#64748b", textTransform: "uppercase", letterSpacing: "1px" }}>Decision Defensibility Assessment</h2>
-                <span style={{ fontSize: "10px", color: "#94a3b8", fontWeight: "bold" }}>Q1 · PRE-INSPECTION</span>
-              </div>
-              
-              <div style={{ padding: "24px" }}>
-                <div style={{ display: "flex", gap: "24px", alignItems: "center", marginBottom: "24px" }}>
-                  <div style={{ backgroundColor: "#059669", color: "#ffffff", padding: "18px", borderRadius: "8px", textAlign: "center", minWidth: "130px" }}>
-                    <div style={{ fontSize: "9px", textTransform: "uppercase", opacity: 0.9, fontWeight: "bold" }}>Defensibility Score</div>
-                    <div style={{ fontSize: "36px", fontWeight: "900" }}>80</div>
-                    <div style={{ fontSize: "9px", marginTop: "4px" }}>Threshold: 72</div>
-                  </div>
-                  
-                  <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", fontSize: "11px" }}>
-                    <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "4px" }}><strong>Ownership</strong><br /><span style={{ color: "#059669", fontWeight: "bold" }}>MET</span></div>
-                    <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "4px" }}><strong>Authority</strong><br /><span style={{ color: "#059669", fontWeight: "bold" }}>MET</span></div>
-                    <div><strong>Context</strong><br /><span style={{ color: "#d97706", fontWeight: "bold" }}>AT RISK</span></div>
-                    <div><strong>Posture</strong><br /><span style={{ color: "#059669", fontWeight: "bold" }}>READY</span></div>
-                  </div>
-                </div>
-
-                <div style={{ padding: "14px", backgroundColor: "#ecfdf5", border: "1px solid #a7f3d0", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div>
-                    <div style={{ fontSize: "10px", fontWeight: "900", color: "#065f46", textTransform: "uppercase" }}>Proof Authorization Permitted</div>
-                    <div style={{ fontSize: "10px", color: "#065f46" }}>Defensible thresholds for proof generation satisfied.</div>
-                  </div>
-                  <div style={{ fontSize: "20px", color: "#10b981" }}>✓</div>
-                </div>
-
-                <div style={{ marginTop: "24px", paddingTop: "16px", borderTop: "1px solid #f1f5f9", display: "flex", justifyContent: "space-between", fontSize: "10px", color: "#94a3b8" }}>
-                   <span>Generated by ComplianceWorxs</span>
-                   <span style={{ cursor: "pointer", color: "#059669", fontWeight: "bold" }}>Export proof →</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </main>
-    </div>
-  );
+/**
+ * Institutional Styles - Baked in for exact visual replication of Screenshot 5
+ */
+const styles = {
+  hero: {
+    position: "relative",
+    width: "100%",
+    minHeight: "520px",
+    backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    alignItems: "center",
+    color: "#fff",
+    fontFamily: "system-ui, -apple-system, sans-serif"
+  },
+  heroOverlay: {
+    position: "absolute",
+    inset: 0,
+    background: "linear-gradient(to right, rgba(10, 26, 54, 0.95), rgba(10, 26, 54, 0.8), rgba(10, 26, 54, 0.3))",
+    zIndex: 1
+  },
+  container: {
+    position: "relative",
+    zIndex: 2,
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "0 40px",
+    width: "100%"
+  },
+  ctaButton: {
+    display: "inline-block",
+    padding: "16px 32px",
+    borderRadius: "8px",
+    backgroundColor: "#f6a623",
+    color: "#1b1b1b",
+    textDecoration: "none",
+    fontWeight: "700",
+    fontSize: "16px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+    transition: "background-color 0.2s"
+  },
+  section: {
+    padding: "100px 0",
+    width: "100%"
+  },
+  grid2: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "80px",
+    alignItems: "start"
+  },
+  card: {
+    backgroundColor: "#fff",
+    padding: "40px",
+    borderRadius: "12px",
+    border: "1px solid #eef2f6",
+    boxShadow: "0 4px 6px rgba(0,0,0,0.02)"
+  }
 };
 
-export default App;
+/**
+ * Layout Wrapper - Provides the Header and Footer seen in Screenshot 5
+ */
+const SimpleLayout = ({ children }) => (
+  <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#fff" }}>
+    {/* Navigation Bar */}
+    <nav style={{ padding: "20px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
+      <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
+      <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
+        <Link to="/assessment" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>DDR Assessment</Link>
+      </div>
+    </nav>
+
+    <main style={{ flex: "1" }}>{children}</main>
+
+    {/* Institutional Footer - Matches Screenshot 2 & 5 */}
+    <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
+        <div>
+          <h4 style={{ fontWeight: "900", color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>COMPLIANCEWORXS</h4>
+          <p style={{ fontSize: "0.85rem", color: "#22d3ee", marginBottom: "15px", fontWeight: "600" }}>Defensible decisions, before inspection.</p>
+          <p style={{ fontSize: "0.85rem", opacity: 0.7, lineHeight: "1.6" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
+        </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Governance</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+            <li>Inspection Briefs</li>
+            <li>Governance Framework</li>
+            <li>Workflows</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Intelligence</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+            <li>Regulatory Intelligence</li>
+            <li>Authority</li>
+            <li>Operational Questions</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Legal</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+            <li>Buyer FAQ</li>
+            <li>Procurement Matrix</li>
+            <li>Secure Access</li>
+          </ul>
+        </div>
+      </div>
+      <div style={{ textAlign: "center", marginTop: "60px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "30px", fontSize: "0.75rem", opacity: 0.5 }}>
+        © 2026 ComplianceWorxs. All rights reserved.
+      </div>
+    </footer>
+  </div>
+);
+
+/**
+ * Home Component - Duplicates the exact sections of Screenshot 5
+ */
+export const Home = () => (
+  <SimpleLayout>
+    {/* HERO SECTION */}
+    <header style={styles.hero}>
+      <div style={styles.heroOverlay}></div>
+      <div style={styles.container}>
+        <h1 style={{ fontSize: "4.2rem", fontWeight: "800", marginBottom: "25px", lineHeight: "1.05", maxWidth: "900px" }}>
+          Authorize Proof Only When a Decision Can Be Defended.
+        </h1>
+        <p style={{ fontSize: "1.4rem", maxWidth: "650px", marginBottom: "40px", opacity: 0.95, lineHeight: "1.5" }}>
+          Make regulatory decisions with confidence—before inspection, before documentation, before risk compounds.
+        </p>
+        <Link to="/assessment" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+      </div>
+    </header>
+
+    {/* SUB-HERO STATEMENT */}
+    <section style={{ backgroundColor: "#f8fafc", padding: "60px 0", textAlign: "center", borderBottom: "1px solid #f1f5f9" }}>
+      <h2 style={{ fontSize: "2rem", fontWeight: "700", color: "#0a1a36" }}>
+        Inspectors assess decisions, <strong>not document volume.</strong>
+      </h2>
+    </section>
+
+    {/* DOCUMENTATION VS DEFENSIBILITY */}
+    <section style={styles.section}>
+      <div style={{ ...styles.container, ...styles.grid2 }}>
+        <div>
+          <h3 style={{ fontSize: "2rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Documentation Does Not Equal Defensibility</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.5", fontSize: "1.15rem", color: "#334155" }}>
+            <li>✅ Proof without defensibility increases inspection risk</li>
+            <li>✅ Most findings originate from the wrong decision, not missing files</li>
+            <li>✅ Teams often document outcomes they cannot justify under scrutiny</li>
+          </ul>
+        </div>
+        <div style={styles.card}>
+          <h3 style={{ fontSize: "1.6rem", fontWeight: "800", marginBottom: "25px", color: "#0a1a36" }}>How ComplianceWorxs Actually Works</h3>
+          <p style={{ marginBottom: "15px" }}><strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.</p>
+          <p style={{ marginBottom: "15px" }}><strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.</p>
+          <p style={{ marginTop: "30px", fontSize: "0.9rem", fontStyle: "italic", color: "#64748b" }}>⚙️ ComplianceWorxs: evaluates, adenatly works.</p>
+        </div>
+      </div>
+    </section>
+
+    {/* WHO THIS IS FOR / NEVER DOES */}
+    <section style={{ ...styles.section, backgroundColor: "#fcfdfe" }}>
+      <div style={{ ...styles.container, ...styles.grid2 }}>
+        <div>
+          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Built for Professionals</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
+            <li>QA leaders responsible for inspection outcomes</li>
+            <li>Regulatory professionals accountable for interpretation</li>
+            <li>Validation leaders defending system decisions</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>What ComplianceWorxs Never Does</h3>
+          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
+            <li>❌ No automated approvals</li>
+            <li>❌ No remediation advice</li>
+            <li>❌ No proof without accountability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* BOTTOM CALL TO ACTION */}
+    <section style={{ backgroundColor: "#0a1a36", color: "#fff", textAlign: "center", padding: "120px 0" }}>
+      <div style={styles.container}>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Decision Defensibility Assessment</h2>
+        <p style={{ opacity: 0.8, marginBottom: "45px", fontSize: "1.2rem" }}>Free to assess. Proof generation requires authorization.</p>
+        <Link to="/assessment" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+      </div>
+    </section>
+  </SimpleLayout>
+);
+
