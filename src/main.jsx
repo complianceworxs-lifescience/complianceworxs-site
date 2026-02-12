@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-// These lines tell the app where the DDR files are located
+// If your folder is uppercase DDR, change 'ddr' to 'DDR' below
 import DDRLayout from './ddr/DDRLayout';
 import Context from './ddr/Context';
 import Evidence from './ddr/Evidence';
@@ -17,8 +17,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        
-        {/* The DDR Engine Routes */}
         <Route path="/ddr" element={<DDRLayout />}>
           <Route index element={<Assessment />} />
           <Route path="context" element={<Context />} />
