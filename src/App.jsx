@@ -2,114 +2,86 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /**
- * Institutional Styles - Updated with new hero design
+ * Accurate Styles matching the screenshot
  */
 const styles = {
   // Top status bar
   statusBar: {
     backgroundColor: "#0a1a36",
     color: "#fff",
-    padding: "12px 60px",
+    padding: "10px 60px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    fontSize: "0.85rem"
+    fontSize: "0.75rem"
   },
   statusLeft: {
     display: "flex",
     alignItems: "center",
-    gap: "10px"
+    gap: "8px"
   },
   statusDot: {
-    width: "8px",
-    height: "8px",
+    width: "6px",
+    height: "6px",
     borderRadius: "50%",
     backgroundColor: "#22d3ee"
   },
   // Main navigation
   nav: {
-    padding: "20px 60px",
-    borderBottom: "1px solid #eee",
+    padding: "18px 60px",
+    backgroundColor: "#fff",
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#fff"
+    alignItems: "center"
   },
   navLinks: {
     display: "flex",
-    gap: "40px",
+    gap: "35px",
     alignItems: "center"
   },
   navLink: {
     color: "#334155",
     textDecoration: "none",
     fontWeight: "500",
-    fontSize: "0.95rem"
+    fontSize: "0.9rem"
   },
-  // Hero section with split design
+  // Hero section
   hero: {
-    position: "relative",
-    width: "100%",
-    minHeight: "650px",
-    display: "flex",
+    backgroundColor: "#0f2847",
     backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000')",
     backgroundSize: "cover",
-    backgroundPosition: "center"
-  },
-  heroOverlay: {
-    position: "absolute",
-    inset: 0,
-    background: "linear-gradient(to right, rgba(10, 26, 54, 0.92) 0%, rgba(10, 26, 54, 0.88) 45%, rgba(10, 26, 54, 0.3) 100%)",
-    zIndex: 1
-  },
-  heroContent: {
-    position: "relative",
-    zIndex: 2,
+    backgroundPosition: "center",
+    backgroundBlendMode: "overlay",
+    padding: "80px 60px",
     display: "flex",
-    width: "100%",
-    maxWidth: "1400px",
-    margin: "0 auto",
-    padding: "0 60px",
-    alignItems: "center"
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: "60px"
   },
   heroLeft: {
-    flex: "0 0 50%",
-    paddingRight: "60px"
+    flex: "0 0 45%",
+    color: "#fff"
   },
   heroRight: {
     flex: "0 0 50%",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: "center"
   },
-  // Computer mockup
-  computerMockup: {
-    position: "relative",
-    width: "600px",
-    height: "380px",
-    backgroundColor: "#1e293b",
-    borderRadius: "12px 12px 0 0",
-    border: "12px solid #0f172a",
-    borderBottom: "none",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.5)"
-  },
-  screen: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#f8fafc",
-    borderRadius: "4px 4px 0 0",
-    padding: "30px",
+  // Status cards container
+  statusCardsContainer: {
+    backgroundColor: "#f8f9fa",
+    padding: "50px",
+    borderRadius: "8px",
     display: "flex",
-    gap: "20px",
-    justifyContent: "center",
-    alignItems: "center"
+    gap: "30px",
+    maxWidth: "550px"
   },
   statusCard: {
     backgroundColor: "#fff",
-    padding: "24px 28px",
-    borderRadius: "8px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-    minWidth: "200px"
+    padding: "30px 25px",
+    borderRadius: "6px",
+    flex: 1,
+    boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
   },
   authorizedCard: {
     borderLeft: "4px solid #10b981"
@@ -120,84 +92,78 @@ const styles = {
   cardHeader: {
     display: "flex",
     alignItems: "center",
-    gap: "10px",
-    marginBottom: "16px",
-    fontSize: "1.1rem",
-    fontWeight: "700"
+    gap: "8px",
+    marginBottom: "20px",
+    fontSize: "0.95rem",
+    fontWeight: "600"
   },
-  checkIcon: {
-    width: "24px",
-    height: "24px",
+  checkCircle: {
+    width: "20px",
+    height: "20px",
     borderRadius: "50%",
     backgroundColor: "#10b981",
     color: "#fff",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "0.8rem"
+    fontSize: "0.7rem",
+    fontWeight: "700"
   },
-  blockIcon: {
-    width: "24px",
-    height: "24px",
+  blockCircle: {
+    width: "20px",
+    height: "20px",
     borderRadius: "50%",
     backgroundColor: "#ef4444",
     color: "#fff",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "1.1rem",
+    fontSize: "0.85rem",
     fontWeight: "700"
   },
   cardText: {
     fontSize: "0.8rem",
     color: "#64748b",
-    lineHeight: "1.5"
+    lineHeight: "1.6"
   },
   // CTA Button
   ctaButton: {
     display: "inline-block",
-    padding: "16px 32px",
-    borderRadius: "8px",
+    padding: "14px 28px",
+    borderRadius: "6px",
     backgroundColor: "#f6a623",
-    color: "#1b1b1b",
+    color: "#000",
     textDecoration: "none",
     fontWeight: "700",
-    fontSize: "16px",
-    boxShadow: "0 4px 12px rgba(246, 166, 35, 0.3)",
+    fontSize: "0.9rem",
     transition: "all 0.2s"
   },
-  // Bottom CTA section
+  // Sections
   ctaSection: {
-    backgroundColor: "#f8fafc",
+    backgroundColor: "#f8f9fa",
     textAlign: "center",
-    padding: "100px 60px",
-    borderTop: "1px solid #e2e8f0"
+    padding: "80px 60px"
   },
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto"
-  },
-  section: {
-    padding: "100px 0",
-    width: "100%"
+  contentSection: {
+    padding: "80px 60px",
+    backgroundColor: "#fff"
   },
   grid2: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
-    gap: "80px",
-    alignItems: "start"
+    gap: "60px",
+    maxWidth: "1200px",
+    margin: "0 auto"
   },
   card: {
-    backgroundColor: "#fff",
-    padding: "40px",
-    borderRadius: "12px",
-    border: "1px solid #eef2f6",
-    boxShadow: "0 4px 6px rgba(0,0,0,0.02)"
+    backgroundColor: "#f8f9fa",
+    padding: "35px",
+    borderRadius: "8px"
   }
 };
 
 /**
- * Layout Wrapper with Status Bar
+ * Layout Wrapper
  */
 const SimpleLayout = ({ children }) => (
   <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#fff" }}>
@@ -207,59 +173,61 @@ const SimpleLayout = ({ children }) => (
         <div style={styles.statusDot}></div>
         <span>COMPLIANCEWORXS AUTHORIZATION ENGINE™</span>
       </div>
-      <div style={{ opacity: 0.9 }}>
+      <div>
         <strong>State:</strong> Operational <span style={{ margin: "0 8px" }}>•</span> Proof blocked until authorized
       </div>
     </div>
 
     {/* Navigation Bar */}
     <nav style={styles.nav}>
-      <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
+      <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.3rem", letterSpacing: "-0.5px" }}>
+        COMPLIANCEWORXS
+      </Link>
       <div style={styles.navLinks}>
         <Link to="/overview" style={styles.navLink}>Overview</Link>
         <Link to="/pricing" style={styles.navLink}>Pricing</Link>
         <Link to="/intelligence" style={styles.navLink}>Intelligence Stream</Link>
         <Link to="/authority" style={styles.navLink}>Authority</Link>
-        <Link to="/assessment" style={{ ...styles.ctaButton, padding: "10px 24px", fontSize: "0.9rem" }}>Start DDR Assessment</Link>
+        <Link to="/assessment" style={styles.ctaButton}>Start DDR Assessment</Link>
       </div>
     </nav>
 
     <main style={{ flex: "1" }}>{children}</main>
 
-    {/* Institutional Footer */}
-    <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
+    {/* Footer */}
+    <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "60px 60px 30px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "50px" }}>
         <div>
-          <h4 style={{ fontWeight: "900", color: "#fff", fontSize: "1.2rem", marginBottom: "10px" }}>COMPLIANCEWORXS</h4>
+          <h4 style={{ fontWeight: "900", color: "#fff", fontSize: "1.1rem", marginBottom: "15px" }}>COMPLIANCEWORXS</h4>
           <p style={{ fontSize: "0.85rem", color: "#22d3ee", marginBottom: "15px", fontWeight: "600" }}>Defensible decisions, before inspection.</p>
-          <p style={{ fontSize: "0.85rem", opacity: 0.7, lineHeight: "1.6" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
+          <p style={{ fontSize: "0.8rem", opacity: 0.7, lineHeight: "1.7" }}>A governed compliance system that determines whether regulatory proof is allowed to exist.</p>
         </div>
         <div>
-          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Governance</h4>
-          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+          <h4 style={{ color: "#22d3ee", fontSize: "0.95rem", marginBottom: "20px" }}>Governance</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", opacity: 0.7, lineHeight: "2.2" }}>
             <li>Inspection Briefs</li>
             <li>Governance Framework</li>
             <li>Workflows</li>
           </ul>
         </div>
         <div>
-          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Intelligence</h4>
-          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+          <h4 style={{ color: "#22d3ee", fontSize: "0.95rem", marginBottom: "20px" }}>Intelligence</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", opacity: 0.7, lineHeight: "2.2" }}>
             <li>Regulatory Intelligence</li>
             <li>Authority</li>
             <li>Operational Questions</li>
           </ul>
         </div>
         <div>
-          <h4 style={{ color: "#22d3ee", fontSize: "1rem", marginBottom: "20px" }}>Legal</h4>
-          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.85rem", opacity: 0.7, lineHeight: "2.4" }}>
+          <h4 style={{ color: "#22d3ee", fontSize: "0.95rem", marginBottom: "20px" }}>Legal</h4>
+          <ul style={{ listStyle: "none", padding: 0, fontSize: "0.8rem", opacity: 0.7, lineHeight: "2.2" }}>
             <li>Buyer FAQ</li>
             <li>Procurement Matrix</li>
             <li>Secure Access</li>
           </ul>
         </div>
       </div>
-      <div style={{ textAlign: "center", marginTop: "60px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "30px", fontSize: "0.75rem", opacity: 0.5 }}>
+      <div style={{ textAlign: "center", marginTop: "50px", paddingTop: "25px", borderTop: "1px solid rgba(255,255,255,0.1)", fontSize: "0.7rem", opacity: 0.5 }}>
         © 2026 ComplianceWorxs. All rights reserved.
       </div>
     </footer>
@@ -267,134 +235,159 @@ const SimpleLayout = ({ children }) => (
 );
 
 /**
- * Home Component - New Hero Design
+ * Home Component - Matches Screenshot Exactly
  */
 export const Home = () => (
   <SimpleLayout>
-    {/* HERO SECTION - Split Design */}
-    <header style={styles.hero}>
-      <div style={styles.heroOverlay}></div>
-      <div style={styles.heroContent}>
-        {/* Left Side - Text Content */}
-        <div style={styles.heroLeft}>
-          <h1 style={{ 
-            fontSize: "3.5rem", 
-            fontWeight: "800", 
-            marginBottom: "25px", 
-            lineHeight: "1.1", 
-            color: "#fff" 
-          }}>
-            Deterministic Decision Review (DDR) for Regulatory Defensibility
-          </h1>
-          <p style={{ 
-            fontSize: "1.25rem", 
-            marginBottom: "40px", 
-            opacity: 0.95, 
-            lineHeight: "1.6",
-            color: "#fff" 
-          }}>
-            Every regulatory decision is evaluated, authorized, and logged before proof exists.
-          </p>
-          <Link to="/assessment" style={styles.ctaButton}>
-            Start DDR Assessment →
-          </Link>
-        </div>
-
-        {/* Right Side - Computer Mockup */}
-        <div style={styles.heroRight}>
-          <div style={styles.computerMockup}>
-            <div style={styles.screen}>
-              {/* Authorized Card */}
-              <div style={{ ...styles.statusCard, ...styles.authorizedCard }}>
-                <div style={styles.cardHeader}>
-                  <div style={styles.checkIcon}>✓</div>
-                  <span style={{ color: "#10b981" }}>Authorized</span>
-                </div>
-                <div style={styles.cardText}>
-                  • Sensitive - optionality or<br />
-                  &nbsp;&nbsp;Disease with ERR emerges
-                </div>
-              </div>
-
-              {/* Blocked Card */}
-              <div style={{ ...styles.statusCard, ...styles.blockedCard }}>
-                <div style={styles.cardHeader}>
-                  <div style={styles.blockIcon}>i</div>
-                  <span style={{ color: "#ef4444" }}>Blocked</span>
-                </div>
-                <div style={styles.cardText}>
-                  • Call-out of ACHTreatment<br />
-                  &nbsp;&nbsp;The correction - proof obstructed
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    {/* BOTTOM CTA SECTION */}
-    <section style={styles.ctaSection}>
-      <div style={styles.container}>
-        <h2 style={{ 
-          fontSize: "2.5rem", 
-          fontWeight: "800", 
-          marginBottom: "15px",
-          color: "#0a1a36"
+    {/* HERO SECTION */}
+    <div style={styles.hero}>
+      {/* Left Side - Text */}
+      <div style={styles.heroLeft}>
+        <h1 style={{ 
+          fontSize: "3.2rem", 
+          fontWeight: "700", 
+          marginBottom: "25px", 
+          lineHeight: "1.15"
         }}>
-          Start Deterministic Decision Review
-        </h2>
+          Deterministic Decision Review (DDR) for Regulatory Defensibility
+        </h1>
         <p style={{ 
-          color: "#64748b", 
-          marginBottom: "40px", 
-          fontSize: "1.15rem" 
+          fontSize: "1.05rem", 
+          marginBottom: "35px", 
+          lineHeight: "1.6",
+          opacity: 0.95
         }}>
-          Free to assess. Proof generation requires authorization.
+          Every regulatory decision is evaluated, authorized, and logged before proof exists.
         </p>
         <Link to="/assessment" style={styles.ctaButton}>
           Start DDR Assessment →
         </Link>
       </div>
+
+      {/* Right Side - Status Cards */}
+      <div style={styles.heroRight}>
+        <div style={styles.statusCardsContainer}>
+          {/* Authorized Card */}
+          <div style={{ ...styles.statusCard, ...styles.authorizedCard }}>
+            <div style={styles.cardHeader}>
+              <div style={styles.checkCircle}>✓</div>
+              <span style={{ color: "#10b981" }}>Authorized</span>
+            </div>
+            <div style={styles.cardText}>
+              • Sensitive - optionality or<br />
+              &nbsp;&nbsp;Disease with ERR emerges
+            </div>
+          </div>
+
+          {/* Blocked Card */}
+          <div style={{ ...styles.statusCard, ...styles.blockedCard }}>
+            <div style={styles.cardHeader}>
+              <div style={styles.blockCircle}>⚠</div>
+              <span style={{ color: "#ef4444" }}>Blocked</span>
+            </div>
+            <div style={styles.cardText}>
+              • Call-out of ACHTreatment<br />
+              &nbsp;&nbsp;The correction - proof obstructed
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* CTA SECTION */}
+    <section style={styles.ctaSection}>
+      <h2 style={{ 
+        fontSize: "2.2rem", 
+        fontWeight: "700", 
+        marginBottom: "12px",
+        color: "#0a1a36"
+      }}>
+        Start Deterministic Decision Review
+      </h2>
+      <p style={{ 
+        color: "#64748b", 
+        marginBottom: "35px", 
+        fontSize: "1rem" 
+      }}>
+        Free to assess. Proof generation requires authorization.
+      </p>
+      <Link to="/assessment" style={styles.ctaButton}>
+        Start DDR Assessment →
+      </Link>
     </section>
 
     {/* DOCUMENTATION VS DEFENSIBILITY */}
-    <section style={styles.section}>
-      <div style={{ ...styles.container, ...styles.grid2, padding: "0 60px" }}>
+    <section style={styles.contentSection}>
+      <div style={styles.grid2}>
         <div>
-          <h3 style={{ fontSize: "2rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Documentation Does Not Equal Defensibility</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.5", fontSize: "1.15rem", color: "#334155" }}>
-            <li>✅ Proof without defensibility increases inspection risk</li>
-            <li>✅ Most findings originate from the wrong decision, not missing files</li>
-            <li>✅ Teams often document outcomes they cannot justify under scrutiny</li>
-          </ul>
+          <h3 style={{ fontSize: "1.8rem", fontWeight: "700", marginBottom: "30px", color: "#0a1a36" }}>
+            Documentation Does Not Equal Defensibility
+          </h3>
+          <div style={{ lineHeight: "2.2", fontSize: "1rem", color: "#334155" }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "12px" }}>
+              <span style={{ color: "#10b981", fontWeight: "700" }}>✓</span>
+              <span>Proof without defensibility increases inspection risk</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "12px" }}>
+              <span style={{ color: "#10b981", fontWeight: "700" }}>✓</span>
+              <span>Most findings originate from the wrong decision, not missing files</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+              <span style={{ color: "#10b981", fontWeight: "700" }}>✓</span>
+              <span>Teams often document outcomes they cannot justify under scrutiny</span>
+            </div>
+          </div>
         </div>
+        
         <div style={styles.card}>
-          <h3 style={{ fontSize: "1.6rem", fontWeight: "800", marginBottom: "25px", color: "#0a1a36" }}>How ComplianceWorxs Actually Works</h3>
-          <p style={{ marginBottom: "15px" }}><strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.</p>
-          <p style={{ marginBottom: "15px" }}><strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.</p>
-          <p style={{ marginTop: "30px", fontSize: "0.9rem", fontStyle: "italic", color: "#64748b" }}>⚙️ ComplianceWorxs evaluates, then works.</p>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "25px", color: "#0a1a36" }}>
+            How ComplianceWorxs Actually Works
+          </h3>
+          <p style={{ marginBottom: "15px", fontSize: "0.95rem", lineHeight: "1.7", color: "#334155" }}>
+            <strong>1. Assess the decision:</strong> Determine whether a regulatory decision can be defended.
+          </p>
+          <p style={{ marginBottom: "25px", fontSize: "0.95rem", lineHeight: "1.7", color: "#334155" }}>
+            <strong>2. Authorize proof:</strong> Proof generation is permitted only when defensibility thresholds are met.
+          </p>
+          <p style={{ fontSize: "0.85rem", fontStyle: "italic", color: "#94a3b8" }}>
+            ⚙️ ComplianceWorxs evaluates, then works.
+          </p>
         </div>
       </div>
     </section>
 
     {/* WHO THIS IS FOR / NEVER DOES */}
-    <section style={{ ...styles.section, backgroundColor: "#fcfdfe" }}>
-      <div style={{ ...styles.container, ...styles.grid2, padding: "0 60px" }}>
+    <section style={{ ...styles.contentSection, backgroundColor: "#f8f9fa" }}>
+      <div style={styles.grid2}>
         <div>
-          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>Built for Professionals</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
-            <li>QA leaders responsible for inspection outcomes</li>
-            <li>Regulatory professionals accountable for interpretation</li>
-            <li>Validation leaders defending system decisions</li>
-          </ul>
+          <h3 style={{ fontSize: "1.6rem", fontWeight: "700", marginBottom: "30px", color: "#0a1a36" }}>
+            Built for Professionals
+          </h3>
+          <div style={{ lineHeight: "2", fontSize: "0.95rem", color: "#334155" }}>
+            <div>QA leaders responsible for inspection outcomes</div>
+            <div>Regulatory professionals accountable for interpretation</div>
+            <div>Validation leaders defending system decisions</div>
+          </div>
         </div>
+        
         <div>
-          <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginBottom: "30px", color: "#0a1a36" }}>What ComplianceWorxs Never Does</h3>
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2.4", fontSize: "1.1rem", color: "#334155" }}>
-            <li>❌ No automated approvals</li>
-            <li>❌ No remediation advice</li>
-            <li>❌ No proof without accountability</li>
-          </ul>
+          <h3 style={{ fontSize: "1.6rem", fontWeight: "700", marginBottom: "30px", color: "#0a1a36" }}>
+            What ComplianceWorxs Never Does
+          </h3>
+          <div style={{ lineHeight: "2", fontSize: "0.95rem", color: "#334155" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <span style={{ color: "#ef4444", fontWeight: "700" }}>✕</span>
+              <span>No automated approvals</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <span style={{ color: "#ef4444", fontWeight: "700" }}>✕</span>
+              <span>No remediation advice</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <span style={{ color: "#ef4444", fontWeight: "700" }}>✕</span>
+              <span>No proof without accountability</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
