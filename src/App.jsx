@@ -4,15 +4,11 @@ import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import "./index.css"; 
 
 // Component Imports
-import React from "react";
-import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
-import "./index.css"; 
-
-// Component Imports
 import AuthorizationEntry from "./authorization/AuthorizationEntry";
+import DDRLayout from "./DDRLayout"; 
 
 // DDR Step Components - CLEANED & DEDUPLICATED
-import DDROverview from "./ddr/Overview"; // Line 7 was correct, Line 11 was the duplicate
+import DDROverview from "./ddr/Overview"; 
 import DDRStart from "./ddr/DDRStart"; 
 import DecisionContext from "./ddr/DecisionContext";
 import EvidenceSet from "./ddr/EvidenceSet";
@@ -20,7 +16,9 @@ import RiskExposure from "./ddr/RiskExposure";
 import DecisionOutcome from "./ddr/DecisionOutcome";
 import ReviewTraceability from "./ddr/ReviewTraceability";
 import FinalAssessment from "./ddr/FinalAssessment";
-    {/* These classNames like "topbar" only work if index.css is imported above */}
+
+const MainLayout = () => (
+  <div className="app-wrapper">
     <div className="topbar">
       <div className="topbar-inner">
         <div className="topbar-left">COMPLIANCEWORXS AUTHORIZATION ENGINE™</div>
