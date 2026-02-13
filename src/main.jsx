@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-// Updated imports to match your new file names and ddr folder structure
-import DDRLayout from './ddr/DDRLayout'; // Ensure DDRLayout is inside ddr folder or update path
+// LINE 7 - FIXED: Removed './ddr/' because DDRLayout is in the root src folder
+import DDRLayout from './DDRLayout'; 
+
+// These stay the same because these files ARE in the ddr folder
 import DDROverview from './ddr/Overview'; 
 import DDRStart from './ddr/DDRStart'; 
 import DecisionContext from './ddr/DecisionContext'; 
@@ -20,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         
-        {/* The DDR Module - Updated with your new component names */}
+        {/* The DDR Module */}
         <Route path="/ddr" element={<DDRLayout />}>
           <Route index element={<DDROverview />} />
           <Route path="start" element={<DDRStart />} />
