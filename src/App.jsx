@@ -1,13 +1,21 @@
 import React from "react";
 import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
-
 // CRITICAL CONNECTION: This line pulls in your Navy Blue/Amber design system
 import "./index.css"; 
 
 // Component Imports
 import DDRLayout from "./DDRLayout";
-import Assessment from "./Assessment";
 import AuthorizationEntry from "./authorization/AuthorizationEntry";
+
+// DDR Step Components (you'll need to create these)
+import DDROverview from "./ddr/DDROverview";
+import DDRStart from "./ddr/DDRStart"; // This is your current Assessment component
+import DecisionContext from "./ddr/DecisionContext";
+import EvidenceSet from "./ddr/EvidenceSet";
+import RiskExposure from "./ddr/RiskExposure";
+import DecisionOutcome from "./ddr/DecisionOutcome";
+import ReviewTraceability from "./ddr/ReviewTraceability";
+import FinalAssessment from "./ddr/FinalAssessment"; // This will have the $99 BigQuery activation
 
 const MainLayout = () => (
   <div className="app-wrapper">
@@ -18,7 +26,6 @@ const MainLayout = () => (
         <div className="topbar-right">State: Operational • Proof blocked until authorized</div>
       </div>
     </div>
-
     <header className="header">
       <div className="header-inner">
         <Link to="/" className="brand-name">COMPLIANCEWORXS</Link>
@@ -31,7 +38,6 @@ const MainLayout = () => (
         </div>
       </div>
     </header>
-
     <main>
       <Outlet />
     </main>
@@ -62,8 +68,17 @@ export default function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="authorization" element={<AuthorizationEntry />} />
+        
+        {/* DDR Multi-Step Flow - Each route gets its own component */}
         <Route path="ddr" element={<DDRLayout />}>
-          <Route path="*" element={<Assessment />} />
+          <Route index element={<DDROverview />} />
+          <Route path="start" element={<DDRStart />} />
+          <Route path="context" element={<DecisionContext />} />
+          <Route path="evidence" element={<EvidenceSet />} />
+          <Route path="risk" element={<RiskExposure />} />
+          <Route path="outcome" element={<DecisionOutcome />} />
+          <Route path="traceability" element={<ReviewTraceability />} />
+          <Route path="assessment" element={<FinalAssessment />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
