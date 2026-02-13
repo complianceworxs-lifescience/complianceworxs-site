@@ -1,27 +1,10 @@
-import React from "react";
-import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
-// CRITICAL CONNECTION: This line pulls in your Navy Blue/Amber design system
-import "./index.css"; 
-
-// Component Imports
-import AuthorizationEntry from "./authorization/AuthorizationEntry";
-import DDRLayout from "./DDRLayout"; 
-
-// DDR Step Components - CLEANED & DEDUPLICATED
-import DDROverview from "./ddr/Overview"; 
-import DDRStart from "./ddr/DDRStart"; 
-import DecisionContext from "./ddr/DecisionContext";
-import EvidenceSet from "./ddr/EvidenceSet";
-import RiskExposure from "./ddr/RiskExposure";
-import DecisionOutcome from "./ddr/DecisionOutcome";
-import ReviewTraceability from "./ddr/ReviewTraceability";
-import FinalAssessment from "./ddr/FinalAssessment";
-
 const MainLayout = () => (
   <div className="app-wrapper">
     <div className="topbar">
       <div className="topbar-inner">
-        <div className="topbar-left">COMPLIANCEWORXS AUTHORIZATION ENGINE™</div>
+        <div className="topbar-left">
+          <span className="dot"></span> COMPLIANCEWORXS AUTHORIZATION ENGINE™
+        </div>
         <div className="topbar-right">State: Operational • Proof blocked until authorized</div>
       </div>
     </div>
@@ -30,10 +13,12 @@ const MainLayout = () => (
         <Link to="/" className="brand-name">COMPLIANCEWORXS</Link>
         <nav className="nav">
           <Link to="/" className="navlink">Overview</Link>
+          <Link to="/pricing" className="navlink">Pricing</Link>
+          <Link to="/stream" className="navlink">Intelligence Stream</Link>
           <Link to="/authorization" className="navlink">Authority</Link>
         </nav>
         <div className="header-actions">
-           <Link to="/authorization" className="button-primary">Start Authorization</Link>
+           <Link to="/ddr" className="button-amber">Start DDR Assessment</Link>
         </div>
       </div>
     </header>
@@ -44,43 +29,57 @@ const MainLayout = () => (
 );
 
 const Home = () => (
-  <section className="hero">
-    <div className="hero-inner">
-      <div className="hero-copy">
-        <div className="badge badge-authorized">
-          <span className="badge-title">DECISION DEFENSE REVIEW</span>
-          <span className="badge-sub">v4.2</span>
+  <div className="home-container">
+    {/* Section 1: Hero */}
+    <section className="hero-v2">
+      <div className="hero-content">
+        <h1>Deterministic Decision Review (DDR) for Regulatory Defensibility</h1>
+        <p>Every regulatory decision is evaluated, authorized, and logged before proof exists.</p>
+        <Link to="/ddr" className="button-amber-large">Start DDR Assessment →</Link>
+      </div>
+      <div className="hero-image-overlay">
+        {/* You can replace this with your actual image URL later */}
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="DDR Interface" />
+      </div>
+    </section>
+
+    {/* Section 2: How DDR Works */}
+    <section className="process-section">
+      <h2>How DDR Works</h2>
+      <div className="process-grid">
+        <div className="process-card">
+          <div className="step-num">1</div>
+          <h3>Decision Intake</h3>
+          <p>Submit a regulatory or system decision for review.</p>
         </div>
-        <h1>Authorize Proof Only When a Decision Can Be Defended.</h1>
-        <p className="lead">Make regulatory decisions with confidence—before inspection, before risk compounds.</p>
-        <div className="cta-row">
-          <Link to="/authorization" className="button-primary">Start Authorization Review →</Link>
+        <div className="process-card">
+          <div className="step-num">2</div>
+          <h3>DDR Evaluation</h3>
+          <p>Defensibility thresholds are computed against governance rules.</p>
+        </div>
+        <div className="process-card">
+          <div className="step-num">3</div>
+          <h3>Authorization Verdict</h3>
+          <p><strong>Authorized</strong> — entitlement issued.<br/><strong>Not authorized</strong> — proof blocked.</p>
+        </div>
+        <div className="process-card">
+          <div className="step-num">4</div>
+          <h3>Workflow Enforcement</h3>
+          <p>Verdict propagates into downstream systems & audit records.</p>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
 
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
-        <Route path="authorization" element={<AuthorizationEntry />} />
-        
-        {/* DDR Multi-Step Flow - Each route gets its own component */}
-        <Route path="ddr" element={<DDRLayout />}>
-          <Route index element={<DDROverview />} />
-          <Route path="start" element={<DDRStart />} />
-          <Route path="context" element={<DecisionContext />} />
-          <Route path="evidence" element={<EvidenceSet />} />
-          <Route path="risk" element={<RiskExposure />} />
-          <Route path="outcome" element={<DecisionOutcome />} />
-          <Route path="traceability" element={<ReviewTraceability />} />
-          <Route path="assessment" element={<FinalAssessment />} />
-        </Route>
-      </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  );
-}
+    {/* Section 3: Mid-Page CTA */}
+    <section className="cta-section-v2">
+      <div className="cta-content">
+        <h2>Start Deterministic Decision Review</h2>
+        <p>Free to assess. Proof generation requires authorization.</p>
+        <div className="ui-preview-mockup">
+           <div className="status-box authorized">Authorized</div>
+           <div className="status-box blocked">Blocked</div>
+        </div>
+      </div>
+    </section>
+  </div>
+);
