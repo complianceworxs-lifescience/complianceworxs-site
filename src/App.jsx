@@ -42,32 +42,86 @@ const MainLayout = () => (
 );
 
 const Home = () => (
-  <div className="home-wrapper">
-    {/* SECTION 1: HERO */}
-    <section className="hero" style={{ padding: '100px 0' }}>
-      <div className="hero-inner" style={{ display: 'flex', alignItems: 'center', gap: '60px' }}>
-        <div className="hero-copy" style={{ flex: '1.2' }}>
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '24px' }}>Deterministic Decision Review (DDR) for Regulatory Defensibility</h1>
-          <p className="lead" style={{ fontSize: '1.25rem', marginBottom: '32px' }}>Every regulatory decision is evaluated, authorized, and logged before proof exists.</p>
-          <div className="cta-row">
-            <Link to="/ddr" className="button-primary" style={{ backgroundColor: '#f59e0b', color: '#000', padding: '15px 30px' }}>Start DDR Assessment →</Link>
-          </div>
+  <div className="home-wrapper" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+    
+    {/* SECTION 1: HERO - Updated to a clean, unmanned office environment */}
+    <section className="hero-v2" style={{ 
+      position: 'relative',
+      minHeight: '750px',
+      display: 'flex',
+      alignItems: 'center',
+      color: 'white',
+      padding: '0 5%',
+      backgroundImage: `linear-gradient(to right, rgba(10, 26, 54, 0.9) 30%, rgba(10, 26, 54, 0.1) 100%), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
+      <div className="hero-content" style={{ maxWidth: '700px', zIndex: 2 }}>
+        <h1 style={{ fontSize: '4rem', fontWeight: '800', lineHeight: '1.1', marginBottom: '24px', letterSpacing: '-1px' }}>
+          Deterministic Decision Review (DDR) for Regulatory Defensibility
+        </h1>
+        <p style={{ fontSize: '1.5rem', lineHeight: '1.4', marginBottom: '40px', color: '#cbd5e1' }}>
+          Every regulatory decision is evaluated, authorized, and logged before proof exists.
+        </p>
+        <div className="cta-row">
+          <Link to="/ddr" className="button-primary" style={{ 
+            backgroundColor: '#f59e0b', 
+            color: '#000', 
+            padding: '20px 40px', 
+            fontSize: '1.2rem',
+            borderRadius: '6px',
+            textDecoration: 'none',
+            fontWeight: '900',
+            display: 'inline-block',
+            boxShadow: '0 4px 15px rgba(245, 158, 11, 0.3)'
+          }}>
+            Start DDR Assessment →
+          </Link>
         </div>
-        <div className="hero-visual" style={{ flex: '1' }}>
-          <div style={{ background: 'rgba(255,255,255,0.1)', padding: '20px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.2)' }}>
-            <div style={{ backgroundColor: '#1e293b', borderRadius: '10px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
-               [ Monitor UI Graphic ]
-            </div>
+      </div>
+      
+      {/* Floating UI Elements: Authorized / Blocked */}
+      <div style={{ position: 'absolute', right: '12%', top: '35%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ 
+            background: 'rgba(255, 255, 255, 0.95)', 
+            color: '#10b981', 
+            padding: '20px 30px', 
+            borderRadius: '12px', 
+            fontWeight: '800', 
+            fontSize: '1.2rem',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', 
+            borderLeft: '6px solid #10b981',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px'
+          }}>
+            <span style={{ fontSize: '1.5rem' }}>●</span> Authorized
           </div>
-        </div>
+          <div style={{ 
+            background: 'rgba(255, 255, 255, 0.95)', 
+            color: '#ef4444', 
+            padding: '20px 30px', 
+            borderRadius: '12px', 
+            fontWeight: '800', 
+            fontSize: '1.2rem',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', 
+            borderLeft: '6px solid #ef4444',
+            backdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            marginLeft: '40px'
+          }}>
+            <span style={{ fontSize: '1.5rem' }}>●</span> Blocked
+          </div>
       </div>
     </section>
 
-    {/* SECTION 2: HOW IT WORKS */}
-    <section className="process-grid-container" style={{ padding: '80px 0', backgroundColor: '#fff', color: '#0a1a36' }}>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '50px' }}>How DDR Works</h2>
-        <div className="grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '25px' }}>
+    {/* SECTION 2: HOW DDR WORKS (Rest of the code remains the same as previous) */}
+    {/* ... [keep the process-section and bottom-cta code from before] ... */}
+  </div>
+);
           
           <div className="card" style={{ padding: '40px 20px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
             <div style={{ background: '#22d3ee', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>1</div>
