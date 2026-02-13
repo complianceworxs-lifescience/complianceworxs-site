@@ -8,7 +8,7 @@ import AuthorizationEntry from "./authorization/AuthorizationEntry";
 
 const MainLayout = () => (
   <div className="app-wrapper">
-    {/* TOP AUTHORITY BAR: Uses --cw-navy from index.css */}
+    {/* TOP AUTHORITY BAR: Uses --cw-navy from your index.css */}
     <div className="topbar">
       <div className="topbar-inner">
         <div className="topbar-left">COMPLIANCEWORXS AUTHORIZATION ENGINE™</div>
@@ -16,7 +16,7 @@ const MainLayout = () => (
       </div>
     </div>
 
-    {/* HEADER: Uses brand-name and button-primary from index.css */}
+    {/* HEADER: Uses brand-name and button-primary from your index.css */}
     <header className="header">
       <div className="header-inner">
         <Link to="/" className="brand-name">COMPLIANCEWORXS</Link>
@@ -31,7 +31,6 @@ const MainLayout = () => (
     </header>
 
     <main>
-      {/* The Outlet ensures the Lobby and Assessment load inside this design */}
       <Outlet />
     </main>
   </div>
@@ -53,32 +52,6 @@ const Home = () => (
       </div>
     </div>
   </section>
-);
-
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
-        <Route path="authorization" element={<AuthorizationEntry />} />
-        <Route path="ddr" element={<DDRLayout />}>
-          <Route path="*" element={<Assessment />} />
-        </Route>
-      </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  );
-}
-const Home = () => (
-  <>
-    <header style={styles.hero}>
-      <div style={styles.container}>
-        <h1 style={{ fontSize: "4.5rem", fontWeight: "800", maxWidth: "900px", lineHeight: "1.1" }}>Authorize Proof Only When a Decision Can Be Defended.</h1>
-        <p style={{ fontSize: "1.5rem", maxWidth: "600px", margin: "30px 0", opacity: 0.9 }}>Make regulatory decisions with confidence—before inspection, before risk compounds.</p>
-        <Link to="/authorization" style={styles.ctaButton}>Start Authorization Review →</Link>
-      </div>
-    </header>
-  </>
 );
 
 export default function App() {
