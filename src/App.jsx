@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
 
+// CRITICAL CONNECTION: This line pulls in your Navy Blue/Amber design system
+import "./index.css"; 
+
 // Component Imports
 import DDRLayout from "./DDRLayout";
 import Assessment from "./Assessment";
@@ -8,7 +11,7 @@ import AuthorizationEntry from "./authorization/AuthorizationEntry";
 
 const MainLayout = () => (
   <div className="app-wrapper">
-    {/* TOP AUTHORITY BAR: Uses --cw-navy from your index.css */}
+    {/* These classNames like "topbar" only work if index.css is imported above */}
     <div className="topbar">
       <div className="topbar-inner">
         <div className="topbar-left">COMPLIANCEWORXS AUTHORIZATION ENGINE™</div>
@@ -16,7 +19,6 @@ const MainLayout = () => (
       </div>
     </div>
 
-    {/* HEADER: Uses brand-name and button-primary from your index.css */}
     <header className="header">
       <div className="header-inner">
         <Link to="/" className="brand-name">COMPLIANCEWORXS</Link>
