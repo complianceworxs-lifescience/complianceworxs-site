@@ -4,6 +4,22 @@ const OutcomeAction = ({ ddrResult }) => {
   // Captures the decision_hash and decision_outcome from the sealed engine
   const { decision_hash, decision_outcome } = ddrResult;
 
+  // This function handles the "Gold Standard" intent: 
+  // It prepares the record for the BigQuery ledger once clicked.
+  const handleActivation = async () => {
+    const ledgerRecord = {
+      decision_hash: decision_hash,
+      authorization_artifact: "Authorization Certificate",
+      timestamp: new Date().toISOString(),
+      status: "ACTIVATED"
+    };
+
+    // For now, this alerts you that the record is ready. 
+    // Once your Google Cloud keys are ready, we plug the "wire" here.
+    console.log("Submitting to Ledger:", ledgerRecord);
+    alert(`Authorization Activated.\nRecording Trace ID: ${decision_hash}\nto the permanent ledger.`);
+  };
+
   if (decision_outcome !== 'Authorized') {
     return null; // Logic for non-authorized outcomes is deferred per directive
   }
@@ -49,15 +65,22 @@ const OutcomeAction = ({ ddrResult }) => {
           Authorization is a prerequisite for execution. Until activated, the decision remains 
           non-executable and is not recorded to the permanent authorization ledger.
         </p>
-        <button style={{ 
-          backgroundColor: '#0a1a36', 
-          color: 'white', 
-          padding: '15px 30px', 
-          fontSize: '16px', 
-          fontWeight: 'bold', 
-          cursor: 'pointer',
-          marginTop: '10px'
-        }}>
+        
+        {/* The updated button now triggers the handleActivation function above */}
+        <button 
+          onClick={handleActivation}
+          style={{ 
+            backgroundColor: '#0a1a36', 
+            color: 'white', 
+            padding: '15px 30px', 
+            fontSize: '16px', 
+            fontWeight: 'bold', 
+            cursor: 'pointer',
+            marginTop: '10px',
+            border: 'none',
+            borderRadius: '4px'
+          }}
+        >
           Activate Authorization — Purchase Authorization Certificate — $99
         </button>
       </div>
