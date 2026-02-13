@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Header */}
       <header style={{
-        backgroundColor: '#1e3a4c',
+        backgroundColor: '#0B1F2A',
         color: 'white',
         padding: '12px 0',
         borderBottom: '1px solid rgba(255,255,255,0.1)'
@@ -116,8 +116,8 @@ const MainLayout = ({ children }) => {
               Access
             </a>
             <Link to="/ddr" style={{
-              backgroundColor: '#f59e0b',
-              color: 'white',
+              backgroundColor: '#F2B233',
+              color: '#0B1F2A',
               padding: '10px 24px',
               borderRadius: '6px',
               textDecoration: 'none',
@@ -138,7 +138,7 @@ const MainLayout = ({ children }) => {
 
       {/* Footer */}
       <footer style={{
-        backgroundColor: '#1e3a4c',
+        backgroundColor: '#0B1F2A',
         color: 'white',
         padding: '48px 0 24px'
       }}>
@@ -274,7 +274,7 @@ const Home = () => {
       <section style={{
         position: 'relative',
         minHeight: '600px',
-        background: 'linear-gradient(135deg, rgba(14, 116, 144, 0.85) 0%, rgba(56, 189, 248, 0.65) 50%, rgba(186, 230, 253, 0.45) 100%)',
+        background: 'linear-gradient(90deg, rgba(11,31,42,0.78) 0%, rgba(30,142,138,0.22) 55%, rgba(255,255,255,0) 100%)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden'
@@ -328,8 +328,8 @@ const Home = () => {
             </p>
             <Link to="/ddr" style={{
               display: 'inline-block',
-              backgroundColor: '#f59e0b',
-              color: 'white',
+              backgroundColor: '#F2B233',
+              color: '#0B1F2A',
               padding: '14px 32px',
               borderRadius: '6px',
               textDecoration: 'none',
@@ -356,33 +356,33 @@ const Home = () => {
               maxWidth: '400px'
             }}>
               <div style={{
-                backgroundColor: '#f0fdfa',
-                border: '2px solid #14b8a6',
+                backgroundColor: '#F0FAFA',
+                border: '2px solid #1E8E8A',
                 borderRadius: '8px',
                 padding: '16px',
                 marginBottom: '16px'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <CheckCircle size={24} style={{ color: '#14b8a6' }} />
-                  <span style={{ fontWeight: '600', fontSize: '16px', color: '#0f766e' }}>Authorized</span>
+                  <CheckCircle size={24} style={{ color: '#1E8E8A' }} />
+                  <span style={{ fontWeight: '600', fontSize: '16px', color: '#0B1F2A' }}>Defensibility Review</span>
                 </div>
-                <p style={{ fontSize: '14px', color: '#115e59', margin: 0 }}>
-                  Decision meets defensibility criteria
+                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>
+                  Decision criteria evaluated before proof
                 </p>
               </div>
 
               <div style={{
-                backgroundColor: '#fef2f2',
-                border: '2px solid #ef4444',
+                backgroundColor: '#FEF8F0',
+                border: '2px solid #F2B233',
                 borderRadius: '8px',
                 padding: '16px'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <XCircle size={24} style={{ color: '#ef4444' }} />
-                  <span style={{ fontWeight: '600', fontSize: '16px', color: '#b91c1c' }}>Blocked</span>
+                  <AlertTriangle size={24} style={{ color: '#F2B233' }} />
+                  <span style={{ fontWeight: '600', fontSize: '16px', color: '#0B1F2A' }}>Risk Flag Detected</span>
                 </div>
-                <p style={{ fontSize: '14px', color: '#991b1b', margin: 0 }}>
-                  Indefensible proof prevented
+                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>
+                  Threshold verification required
                 </p>
               </div>
             </div>
@@ -495,7 +495,7 @@ const Home = () => {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#14b8a6', flexShrink: 0, marginTop: '2px' }} />
+                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -507,7 +507,7 @@ const Home = () => {
               </div>
               
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#14b8a6', flexShrink: 0, marginTop: '2px' }} />
+                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -519,7 +519,7 @@ const Home = () => {
               </div>
               
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#14b8a6', flexShrink: 0, marginTop: '2px' }} />
+                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -549,7 +549,7 @@ const Home = () => {
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  backgroundColor: '#0891b2',
+                  backgroundColor: '#1E8E8A',
                   color: 'white',
                   display: 'flex',
                   alignItems: 'center',
@@ -585,8 +585,8 @@ const Home = () => {
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  backgroundColor: '#f59e0b',
-                  color: 'white',
+                  backgroundColor: '#F2B233',
+                  color: '#0B1F2A',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -621,7 +621,7 @@ const Home = () => {
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  backgroundColor: '#ef4444',
+                  backgroundColor: '#64748b',
                   color: 'white',
                   display: 'flex',
                   alignItems: 'center',
@@ -681,7 +681,7 @@ const Home = () => {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#14b8a6', flexShrink: 0, marginTop: '2px' }} />
+                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -693,7 +693,7 @@ const Home = () => {
               </div>
               
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#14b8a6', flexShrink: 0, marginTop: '2px' }} />
+                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -705,7 +705,7 @@ const Home = () => {
               </div>
               
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#14b8a6', flexShrink: 0, marginTop: '2px' }} />
+                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -731,7 +731,7 @@ const Home = () => {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <XCircle size={24} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
+                <XCircle size={24} style={{ color: '#64748b', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -743,7 +743,7 @@ const Home = () => {
               </div>
               
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <XCircle size={24} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
+                <XCircle size={24} style={{ color: '#64748b', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -755,7 +755,7 @@ const Home = () => {
               </div>
               
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <XCircle size={24} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
+                <XCircle size={24} style={{ color: '#64748b', flexShrink: 0, marginTop: '2px' }} />
                 <p style={{
                   fontSize: '15px',
                   color: '#475569',
@@ -809,8 +809,8 @@ const Home = () => {
 
           <Link to="/ddr" style={{
             display: 'inline-block',
-            backgroundColor: '#f59e0b',
-            color: 'white',
+            backgroundColor: '#F2B233',
+            color: '#0B1F2A',
             padding: '14px 32px',
             borderRadius: '6px',
             textDecoration: 'none',
@@ -844,3 +844,4 @@ function App() {
 }
 
 export default App;
+
