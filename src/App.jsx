@@ -4,7 +4,7 @@ import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import "./index.css"; 
 
 // Component Imports
-import DDRLayout from "./DDRLayout";
+import DDROverview from "./ddr/Overview";
 import AuthorizationEntry from "./authorization/AuthorizationEntry";
 
 // DDR Step Components
