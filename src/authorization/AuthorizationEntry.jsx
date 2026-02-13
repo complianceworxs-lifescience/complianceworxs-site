@@ -4,15 +4,16 @@ import { useNavigate } from 'react-router-dom';
 export default function AuthorizationEntry() {
   const navigate = useNavigate();
   return (
-    <div style={{ padding: "100px", textAlign: "center", backgroundColor: "#f8fafc", minHeight: "60vh" }}>
-      <h2 style={{ fontSize: "2.5rem", color: "#0a1a36" }}>Decision Defensibility Review</h2>
-      <p style={{ fontSize: "1.2rem", margin: "20px 0" }}>Initializing secure audit ledger connection...</p>
-      <button 
-        onClick={() => navigate('/ddr/start')}
-        style={{ padding: "15px 40px", backgroundColor: "#0a1a36", color: "#fff", border: "none", fontWeight: "bold", cursor: "pointer" }}
-      >
-        Begin Review
-      </button>
+    <div className="section-muted" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center' }}>
+      <div className="container">
+        <div className="panel panel-review">
+          <h2 className="panel-title">Secure Authorization Intake</h2>
+          <p className="panel-body">Initializing connection to the BigQuery Audit Ledger. All decisions made in this session will be recorded with a permanent Trace ID for regulatory defensibility.</p>
+          <div className="cta-row" style={{ marginTop: '24px' }}>
+            <button onClick={() => navigate('/ddr/start')} className="button-primary">Begin Defensibility Review</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
