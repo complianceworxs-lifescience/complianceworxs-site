@@ -5,6 +5,9 @@ import { Link, Routes, Route, Navigate } from "react-router-dom";
 import DDRLayout from "./DDRLayout";
 import Assessment from "./Assessment";
 
+// WIRE 1: Import the new Authorization Lobby
+import AuthorizationEntry from "./authorization/AuthorizationEntry";
+
 const styles = {
   hero: {
     position: "relative", width: "100%", minHeight: "520px",
@@ -24,7 +27,8 @@ const SimpleLayout = ({ children }) => (
     <nav style={{ padding: "20px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
       <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-        <Link to="/ddr/overview" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>Start Decision Review</Link>
+        {/* UPDATED: Route now points to the Authorization surface, not raw DDR */}
+        <Link to="/authorization" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>Start Authorization</Link>
       </div>
     </nav>
     <main style={{ flex: "1" }}>{children}</main>
@@ -68,7 +72,8 @@ const Home = () => (
       <div style={styles.container}>
         <h1 style={{ fontSize: "4.2rem", fontWeight: "800", marginBottom: "25px", lineHeight: "1.05", maxWidth: "900px" }}>Authorize Proof Only When a Decision Can Be Defended.</h1>
         <p style={{ fontSize: "1.4rem", maxWidth: "650px", marginBottom: "40px", opacity: 0.95, lineHeight: "1.5" }}>Make regulatory decisions with confidence—before inspection, before risk compounds.</p>
-        <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+        {/* UPDATED: CTA now points to Authorization Lobby */}
+        <Link to="/authorization" style={styles.ctaButton}>Start Authorization Review →</Link>
       </div>
     </header>
     <section style={{ backgroundColor: "#f8fafc", padding: "60px 0", textAlign: "center", borderBottom: "1px solid #f1f5f9" }}>
@@ -93,8 +98,9 @@ const Home = () => (
     </section>
     <section style={{ backgroundColor: "#0a1a36", color: "#fff", textAlign: "center", padding: "120px 0" }}>
       <div style={styles.container}>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Decision Defensibility Assessment</h2>
-        <Link to="/ddr/overview" style={styles.ctaButton}>Start Decision Defensibility Assessment →</Link>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Authorization Review</h2>
+        {/* UPDATED: CTA now points to Authorization Lobby */}
+        <Link to="/authorization" style={styles.ctaButton}>Begin Authorization Review →</Link>
       </div>
     </section>
   </SimpleLayout>
@@ -104,9 +110,15 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      
+      {/* WIRE 2: The New Authorization Route */}
+      <Route path="/authorization" element={<AuthorizationEntry />} />
+
+      {/* DDR remains invisible infrastructure */}
       <Route path="/ddr" element={<DDRLayout />}>
         <Route path="*" element={<Assessment />} />
       </Route>
+      
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
