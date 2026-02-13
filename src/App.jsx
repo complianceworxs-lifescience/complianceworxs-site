@@ -1,11 +1,9 @@
 import React from "react";
-import { Link, Routes, Route, Navigate } from "react-router-dom";
+import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
 
-// FIXED: Matching the new filename
+// Components
 import DDRLayout from "./DDRLayout";
 import Assessment from "./Assessment";
-
-// WIRE 1: Import the new Authorization Lobby
 import AuthorizationEntry from "./authorization/AuthorizationEntry";
 
 const styles = {
@@ -22,16 +20,17 @@ const styles = {
   card: { backgroundColor: "#fff", padding: "40px", borderRadius: "12px", border: "1px solid #eef2f6", boxShadow: "0 4px 6px rgba(0,0,0,0.02)" }
 };
 
-const SimpleLayout = ({ children }) => (
+const SimpleLayout = () => (
   <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#fff" }}>
     <nav style={{ padding: "20px 60px", borderBottom: "1px solid #eee", display: "flex", justifyContent: "space-between", alignItems: "center", backgroundColor: "#fff" }}>
       <Link to="/" style={{ color: "#0a1a36", textDecoration: "none", fontWeight: "900", fontSize: "1.4rem", letterSpacing: "-0.5px" }}>COMPLIANCEWORXS</Link>
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-        {/* UPDATED: Route now points to the Authorization surface, not raw DDR */}
         <Link to="/authorization" style={{ border: "1.5px solid #0a1a36", color: "#0a1a36", padding: "8px 24px", borderRadius: "4px", textDecoration: "none", fontWeight: "700", fontSize: "0.9rem" }}>Start Authorization</Link>
       </div>
     </nav>
-    <main style={{ flex: "1" }}>{children}</main>
+    <main style={{ flex: "1" }}>
+      <Outlet /> 
+    </main>
     <footer style={{ backgroundColor: "#0a1a36", color: "#fff", padding: "80px 60px 40px" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "40px" }}>
         <div>
@@ -66,13 +65,12 @@ const SimpleLayout = ({ children }) => (
 );
 
 const Home = () => (
-  <SimpleLayout>
+  <>
     <header style={styles.hero}>
       <div style={styles.heroOverlay}></div>
       <div style={styles.container}>
         <h1 style={{ fontSize: "4.2rem", fontWeight: "800", marginBottom: "25px", lineHeight: "1.05", maxWidth: "900px" }}>Authorize Proof Only When a Decision Can Be Defended.</h1>
         <p style={{ fontSize: "1.4rem", maxWidth: "650px", marginBottom: "40px", opacity: 0.95, lineHeight: "1.5" }}>Make regulatory decisions with confidence—before inspection, before risk compounds.</p>
-        {/* UPDATED: CTA now points to Authorization Lobby */}
         <Link to="/authorization" style={styles.ctaButton}>Start Authorization Review →</Link>
       </div>
     </header>
@@ -99,26 +97,22 @@ const Home = () => (
     <section style={{ backgroundColor: "#0a1a36", color: "#fff", textAlign: "center", padding: "120px 0" }}>
       <div style={styles.container}>
         <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "20px" }}>Start Authorization Review</h2>
-        {/* UPDATED: CTA now points to Authorization Lobby */}
         <Link to="/authorization" style={styles.ctaButton}>Begin Authorization Review →</Link>
       </div>
     </section>
-  </SimpleLayout>
+  </>
 );
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      
-      {/* WIRE 2: The New Authorization Route */}
-      <Route path="/authorization" element={<AuthorizationEntry />} />
-
-      {/* DDR remains invisible infrastructure */}
-      <Route path="/ddr" element={<DDRLayout />}>
-        <Route path="*" element={<Assessment />} />
+      <Route path="/" element={<SimpleLayout />}>
+        <Route index element={<Home />} />
+        <Route path="authorization" element={<AuthorizationEntry />} />
+        <Route path="ddr" element={<DDRLayout />}>
+          <Route path="*" element={<Assessment />} />
+        </Route>
       </Route>
-      
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
