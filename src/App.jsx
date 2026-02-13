@@ -4,21 +4,22 @@ import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import "./index.css"; 
 
 // Component Imports
-import DDROverview from "./ddr/Overview";
+import React from "react";
+import { Link, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import "./index.css"; 
+
+// Component Imports
 import AuthorizationEntry from "./authorization/AuthorizationEntry";
 
-// DDR Step Components
-import DDROverview from "./ddr/DDROverview";
-import DDRStart from "./ddr/DDRStart"; // This is your current Assessment component
+// DDR Step Components - CLEANED & DEDUPLICATED
+import DDROverview from "./ddr/Overview"; // Line 7 was correct, Line 11 was the duplicate
+import DDRStart from "./ddr/DDRStart"; 
 import DecisionContext from "./ddr/DecisionContext";
 import EvidenceSet from "./ddr/EvidenceSet";
 import RiskExposure from "./ddr/RiskExposure";
 import DecisionOutcome from "./ddr/DecisionOutcome";
 import ReviewTraceability from "./ddr/ReviewTraceability";
-import FinalAssessment from "./ddr/FinalAssessment"; // This will have the $99 BigQuery activation
-
-const MainLayout = () => (
-  <div className="app-wrapper">
+import FinalAssessment from "./ddr/FinalAssessment";
     {/* These classNames like "topbar" only work if index.css is imported above */}
     <div className="topbar">
       <div className="topbar-inner">
