@@ -33,7 +33,7 @@ export default async function handler(req, res) {
       // Updated to match the dataset name in Screenshot (6)
       // If the table name is different than 'authorizations', change it here:
       .dataset('compliance_worxs_ledger') 
-      .table('authorizations')
+      .table('authorization_assessments')
       .insert([row]);
 
     return res.status(200).json({
