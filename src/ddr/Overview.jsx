@@ -1,93 +1,62 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const Overview = () => {
-  // Altitude State: Governs the complexity of content sequencing
+export default function DDROverview() {
+  const navigate = useNavigate();
+  // We keep your "Altitude" state logic
   const [role, setRole] = useState('executive'); 
 
   return (
-    <div style={containerStyle}>
-      {/* 1. PERSPECTIVE TOGGLE (The "Altitude" Selector) */}
-      <div style={selectorWrapper}>
-        <p style={selectorLabel}>Tailor your DDR experience:</p>
-        <div style={toggleContainer}>
+    <div className="ddr-container">
+      {/* PERSPECTIVE TOGGLE - Modernized styling */}
+      <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+        <p className="badge-sub" style={{ marginBottom: '10px' }}>Tailor your DDR experience:</p>
+        <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.1)', padding: '5px', borderRadius: '8px' }}>
           <button 
             onClick={() => setRole('operational')}
-            style={role === 'operational' ? activeToggle : inactiveToggle}
+            className={role === 'operational' ? 'button-primary' : 'button-secondary'}
+            style={{ fontSize: '0.8rem', padding: '8px 15px' }}
           >
-            Operational / Frontline
+            Operational
           </button>
           <button 
             onClick={() => setRole('executive')}
-            style={role === 'executive' ? activeToggle : inactiveToggle}
+            className={role === 'executive' ? 'button-primary' : 'button-secondary'}
+            style={{ fontSize: '0.8rem', padding: '8px 15px' }}
           >
-            Strategic / Executive
+            Executive
           </button>
         </div>
       </div>
 
-      {/* 2. ADAPTIVE CONTENT SEQUENCING */}
-      <header style={headerStyle}>
-        {role === 'executive' ? (
-          <>
-            <h1 style={titleStyle}>Decision Authority & Risk Oversight</h1>
-            <p style={subtextStyle}>
-              Identify regulatory exposure and authorize proof generation at scale. 
-              Focus on <strong>market risk</strong> and <strong>decision ownership</strong>.
-            </p>
-          </>
-        ) : (
-          <>
-            <h1 style={titleStyle}>Deterministic Decision Workflow</h1>
-            <p style={subtextStyle}>
-              Execute step-by-step artifact validation. Focus on <strong>data integrity</strong> 
-              and <strong>GxP-compliant evidence sets</strong>.
-            </p>
-          </>
-        )}
-      </header>
+      <div className="card">
+        <h1>{role === 'executive' ? 'Decision Authority & Risk Oversight' : 'Deterministic Decision Workflow'}</h1>
+        <p className="lead">
+          {role === 'executive' 
+            ? 'Identify regulatory exposure and authorize proof generation at scale. Focus on market risk and decision ownership.'
+            : 'Execute step-by-step artifact validation. Focus on data integrity and GxP-compliant evidence sets.'}
+        </p>
 
-      {/* 3. LOGIC GRID (Consistent branding across roles) */}
-      <div style={gridStyle}>
-        <div style={cardStyle}>
-          <h4 style={cardTitle}>Fail-Closed</h4>
-          <p style={cardText}>If governance is missing, proof cannot proceed.</p>
+        <div className="grid-two" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '20px' }}>
+          <div className="inner-card" style={{ padding: '15px', border: '1px solid rgba(255,184,0,0.3)', borderRadius: '8px' }}>
+            <h4 style={{ color: '#FFB800' }}>Fail-Closed</h4>
+            <p style={{ fontSize: '0.9rem' }}>If governance is missing, proof cannot proceed.</p>
+          </div>
+          <div className="inner-card" style={{ padding: '15px', border: '1px solid rgba(255,184,0,0.3)', borderRadius: '8px' }}>
+            <h4 style={{ color: '#FFB800' }}>Gate Logic</h4>
+            <p style={{ fontSize: '0.9rem' }}>Authorize, Conditional, or Blocked outcomes.</p>
+          </div>
         </div>
-        <div style={cardStyle}>
-          <h4 style={cardTitle}>Gate Logic</h4>
-          <p style={cardText}>Authorize, Conditional, or Blocked outcomes.</p>
+
+        <div className="cta-row" style={{ marginTop: '40px', textAlign: 'center' }}>
+          <div style={{ color: '#10b981', fontSize: '0.8rem', marginBottom: '15px' }}>
+            💾 Progress auto-saves to your Google Cloud secure vault.
+          </div>
+          <button onClick={() => navigate('/ddr/start')} className="button-primary">
+            {role === 'executive' ? 'Enter Risk Assessment →' : 'Begin Decision Context →'}
+          </button>
         </div>
       </div>
-
-      {/* 4. PERSISTENCE NOTIFICATION */}
-      <footer style={footerStyle}>
-        <div style={persistenceBadge}>
-          💾 Progress auto-saves to your Google Cloud secure vault.
-        </div>
-        <Link to="/ddr/context" style={ctaStyle}>
-          {role === 'executive' ? 'Enter Risk Assessment →' : 'Begin Decision Context →'}
-        </Link>
-      </footer>
     </div>
   );
-};
-
-// --- STYLES ---
-const containerStyle = { padding: '20px', fontFamily: 'Inter, sans-serif' };
-const selectorWrapper = { marginBottom: '40px', textAlign: 'center' };
-const selectorLabel = { fontSize: '0.8rem', fontWeight: '800', color: '#64748b', textTransform: 'uppercase', marginBottom: '10px' };
-const toggleContainer = { display: 'inline-flex', background: '#f1f5f9', padding: '4px', borderRadius: '8px' };
-const activeToggle = { padding: '8px 20px', background: '#0a1a36', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: '700', cursor: 'pointer' };
-const inactiveToggle = { padding: '8px 20px', background: 'transparent', color: '#64748b', border: 'none', fontWeight: '600', cursor: 'pointer' };
-const headerStyle = { marginBottom: '40px' };
-const titleStyle = { fontSize: '2.2rem', color: '#0a1a36', marginBottom: '15px' };
-const subtextStyle = { fontSize: '1.1rem', color: '#475569', lineHeight: '1.6', maxWidth: '700px' };
-const gridStyle = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '60px' };
-const cardStyle = { padding: '25px', borderRadius: '12px', border: '1px solid #e2e8f0', backgroundColor: '#fff' };
-const cardTitle = { margin: '0 0 10px 0', fontSize: '1rem', fontWeight: '800' };
-const cardText = { margin: 0, fontSize: '0.9rem', color: '#64748b' };
-const footerStyle = { textAlign: 'center', borderTop: '1px solid #f1f5f9', paddingTop: '40px' };
-const persistenceBadge = { fontSize: '0.75rem', color: '#10b981', marginBottom: '20px', fontWeight: 'bold' };
-const ctaStyle = { display: 'inline-block', padding: '16px 32px', backgroundColor: '#f6a623', color: '#0a1a36', textDecoration: 'none', borderRadius: '6px', fontWeight: '900', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' };
-
-export default Overview;
+}
