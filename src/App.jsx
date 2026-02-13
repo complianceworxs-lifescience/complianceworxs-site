@@ -44,7 +44,7 @@ const MainLayout = () => (
 const Home = () => (
   <div className="home-wrapper" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
     
-    {/* SECTION 1: HERO - Updated to a clean, unmanned office environment */}
+    {/* SECTION 1: HERO - No hand, clean tech environment */}
     <section className="hero-v2" style={{ 
       position: 'relative',
       minHeight: '750px',
@@ -57,10 +57,10 @@ const Home = () => (
       backgroundPosition: 'center'
     }}>
       <div className="hero-content" style={{ maxWidth: '700px', zIndex: 2 }}>
-        <h1 style={{ fontSize: '4rem', fontWeight: '800', lineHeight: '1.1', marginBottom: '24px', letterSpacing: '-1px' }}>
+        <h1 style={{ fontSize: '3.8rem', fontWeight: '800', lineHeight: '1.1', marginBottom: '24px', letterSpacing: '-1px' }}>
           Deterministic Decision Review (DDR) for Regulatory Defensibility
         </h1>
-        <p style={{ fontSize: '1.5rem', lineHeight: '1.4', marginBottom: '40px', color: '#cbd5e1' }}>
+        <p style={{ fontSize: '1.4rem', lineHeight: '1.4', marginBottom: '40px', color: '#cbd5e1' }}>
           Every regulatory decision is evaluated, authorized, and logged before proof exists.
         </p>
         <div className="cta-row">
@@ -82,80 +82,43 @@ const Home = () => (
       
       {/* Floating UI Elements: Authorized / Blocked */}
       <div style={{ position: 'absolute', right: '12%', top: '35%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ 
-            background: 'rgba(255, 255, 255, 0.95)', 
-            color: '#10b981', 
-            padding: '20px 30px', 
-            borderRadius: '12px', 
-            fontWeight: '800', 
-            fontSize: '1.2rem',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', 
-            borderLeft: '6px solid #10b981',
-            backdropFilter: 'blur(10px)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px'
-          }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.95)', color: '#10b981', padding: '20px 30px', borderRadius: '12px', fontWeight: '800', fontSize: '1.2rem', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', borderLeft: '6px solid #10b981', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span style={{ fontSize: '1.5rem' }}>●</span> Authorized
           </div>
-          <div style={{ 
-            background: 'rgba(255, 255, 255, 0.95)', 
-            color: '#ef4444', 
-            padding: '20px 30px', 
-            borderRadius: '12px', 
-            fontWeight: '800', 
-            fontSize: '1.2rem',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', 
-            borderLeft: '6px solid #ef4444',
-            backdropFilter: 'blur(10px)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginLeft: '40px'
-          }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.95)', color: '#ef4444', padding: '20px 30px', borderRadius: '12px', fontWeight: '800', fontSize: '1.2rem', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', borderLeft: '6px solid #ef4444', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', gap: '12px', marginLeft: '40px' }}>
             <span style={{ fontSize: '1.5rem' }}>●</span> Blocked
           </div>
       </div>
     </section>
 
-    {/* SECTION 2: HOW DDR WORKS (Rest of the code remains the same as previous) */}
-    {/* ... [keep the process-section and bottom-cta code from before] ... */}
-  </div>
-);
-          
-          <div className="card" style={{ padding: '40px 20px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <div style={{ background: '#22d3ee', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>1</div>
-            <h3 style={{ marginBottom: '15px' }}>Decision Intake</h3>
-            <p style={{ fontSize: '0.9rem', color: '#4a5568' }}>Submit a regulatory or system decision for review.</p>
+    {/* SECTION 2: HOW DDR WORKS */}
+    <section className="process-section" style={{ padding: '100px 5%', backgroundColor: '#f8fafc', textAlign: 'center' }}>
+      <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '60px' }}>How DDR Works</h2>
+      <div className="grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', maxWidth: '1200px', margin: '0 auto' }}>
+        {[
+          { step: "1", title: "Decision Intake", desc: "Submit a regulatory or system decision for review." },
+          { step: "2", title: "DDR Evaluation", desc: "Defensibility thresholds are computed against governance rules." },
+          { step: "3", title: "Authorization Verdict", desc: "Authorized — entitlement issued. Not authorized — proof blocked." },
+          { step: "4", title: "Workflow Enforcement", desc: "Verdict propagates into downstream systems & audit records." }
+        ].map((item, idx) => (
+          <div key={idx} className="card" style={{ background: 'white', padding: '50px 30px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0', textAlign: 'center' }}>
+            <div style={{ background: '#22d3ee', color: 'white', width: '45px', height: '45px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 25px', fontWeight: '800', fontSize: '1.2rem' }}>
+              {item.step}
+            </div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: '#0f172a', marginBottom: '15px' }}>{item.title}</h3>
+            <p style={{ color: '#64748b', lineHeight: '1.6', fontSize: '1rem' }}>{item.desc}</p>
           </div>
-
-          <div className="card" style={{ padding: '40px 20px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <div style={{ background: '#22d3ee', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>2</div>
-            <h3 style={{ marginBottom: '15px' }}>DDR Evaluation</h3>
-            <p style={{ fontSize: '0.9rem', color: '#4a5568' }}>Defensibility thresholds are computed against governance rules.</p>
-          </div>
-
-          <div className="card" style={{ padding: '40px 20px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <div style={{ background: '#22d3ee', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>3</div>
-            <h3 style={{ marginBottom: '15px' }}>Authorization Verdict</h3>
-            <p style={{ fontSize: '0.9rem', color: '#4a5568' }}><strong>Authorized</strong> — entitlement issued.<br/><strong>Not authorized</strong> — proof blocked.</p>
-          </div>
-
-          <div className="card" style={{ padding: '40px 20px', textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
-            <div style={{ background: '#22d3ee', color: '#fff', width: '40px', height: '40px', borderRadius: '50%', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>4</div>
-            <h3 style={{ marginBottom: '15px' }}>Workflow Enforcement</h3>
-            <p style={{ fontSize: '0.9rem', color: '#4a5568' }}>Verdict propagates into downstream systems & audit records.</p>
-          </div>
-
-        </div>
+        ))}
       </div>
     </section>
 
-    {/* SECTION 3: BOTTOM CTA */}
-    <section className="cta-v2" style={{ padding: '100px 0', textAlign: 'center', backgroundColor: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
-       <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', color: '#0a1a36' }}>Start Deterministic Decision Review</h2>
-       <p className="lead" style={{ marginBottom: '40px', color: '#4a5568' }}>Free to assess. Proof generation requires authorization.</p>
-       <Link to="/ddr" className="button-primary" style={{ backgroundColor: '#f59e0b', color: '#000', padding: '15px 40px' }}>Start DDR Assessment →</Link>
+    {/* SECTION 3: BOTTOM REPEAT CTA */}
+    <section style={{ padding: '120px 5%', textAlign: 'center', backgroundImage: `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000')`, backgroundSize: 'cover', backgroundPosition: 'center', borderTop: '1px solid #e2e8f0' }}>
+      <h2 style={{ fontSize: '2.8rem', fontWeight: '800', color: '#0f172a', marginBottom: '20px' }}>Start Deterministic Decision Review</h2>
+      <p style={{ fontSize: '1.3rem', color: '#475569', marginBottom: '45px' }}>Free to assess. Proof generation requires authorization.</p>
+      <Link to="/ddr" className="button-primary" style={{ backgroundColor: '#f59e0b', color: '#000', padding: '20px 50px', fontSize: '1.2rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 'bold', display: 'inline-block' }}>
+        Start DDR Assessment →
+      </Link>
     </section>
   </div>
 );
