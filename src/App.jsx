@@ -7,7 +7,7 @@ import "./index.css";
 import DDRLayout from "./DDRLayout";
 import AuthorizationEntry from "./authorization/AuthorizationEntry";
 
-// DDR Step Components (you'll need to create these)
+// DDR Step Components
 import DDROverview from "./ddr/DDROverview";
 import DDRStart from "./ddr/DDRStart"; // This is your current Assessment component
 import DecisionContext from "./ddr/DecisionContext";
