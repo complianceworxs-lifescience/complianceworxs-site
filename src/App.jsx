@@ -299,7 +299,7 @@ const Home = () => {
       <section style={{
         position: 'relative',
         minHeight: '600px',
-        background: 'linear-gradient(90deg, rgba(11,31,42,0.78) 0%, rgba(30,142,138,0.22) 55%, rgba(255,255,255,0) 100%)',
+        background: 'transparent',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden'
