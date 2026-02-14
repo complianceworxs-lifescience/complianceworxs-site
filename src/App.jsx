@@ -311,10 +311,10 @@ const Home = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("/images/hero-compliance.jpg")',
+          backgroundImage: 'url("/images/Screenshot (15).png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 1.0,
+          opacity: 0.15,
           zIndex: 0
         }} />
 
@@ -339,13 +339,17 @@ const Home = () => {
               marginBottom: '24px',
               textShadow: '0 2px 4px rgba(0,0,0,0.1)'
             }}>
-              <p style={{
+              Authorize Proof Only When a Decision Can Be Defended
+            </h1>
+            <p style={{
               fontSize: '18px',
               color: 'rgba(255,255,255,0.95)',
               lineHeight: '1.6',
               marginBottom: '32px',
               textShadow: '0 1px 2px rgba(0,0,0,0.1)'
             }}>
+              Documented defensibility before proof exists.<br />
+              Proof is granted only after thresholds are met.
             </p>
             <Link to="/ddr" style={{
               display: 'inline-block',
@@ -913,3 +917,4 @@ function App() {
 }
 
 export default App;
+
