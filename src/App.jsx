@@ -299,7 +299,7 @@ const Home = () => {
       <section style={{
         position: 'relative',
         minHeight: '600px',
-        background: 'linear-gradient(90deg, rgba(11,31,42,0.85) 0%, rgba(11,31,42,0.55) 40%, rgba(255,255,255,0.05) 70%, rgba(255,255,255,0) 100%)',
+        background: 'linear-gradient(90deg, rgba(18,74,102,0.88) 0%, rgba(18,74,102,0.55) 38%, rgba(255,255,255,0.18) 62%, rgba(255,255,255,0) 100%)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden'
@@ -311,10 +311,10 @@ const Home = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=2000&q=80")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1581092919534-4e7f8a0f6c52?auto=format&fit=crop&w=2000&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.15,
+          opacity: 0.35,
           zIndex: 0
         }} />
 
