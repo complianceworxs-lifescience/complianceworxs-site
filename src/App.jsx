@@ -316,8 +316,7 @@ const Home = () => {
   backgroundPosition: 'center',
   opacity: 1.0,
   zIndex: 0
-}} />
-
+}} />   
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
@@ -328,23 +327,8 @@ const Home = () => {
           gridTemplateColumns: '1fr 1fr',
           gap: '64px',
           alignItems: 'center'
-        }}>
-          {/* Left Content */}
-         
-            <p style={{
-              fontSize: '18px',
-              color: 'rgba(255,255,255,0.95)',
-             lineHeight: '1.55',
-             marginBottom: '44px',
-              textShadow: '0 1px 2px rgba(0,0,0,0.1)'
-            }}>
-              Documented defensibility before proof exists.<br />
-              Proof is granted only after thresholds are met.
-            </p>
-            
-           
+        }}>       
           </div>
-
           {/* Right Content - Visual Element */}
           <div style={{
             display: 'flex',
