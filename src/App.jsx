@@ -314,7 +314,7 @@ const Home = () => {
   backgroundImage: 'url("/images/hero-compliance.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  opacity: 0.8,
+  opacity: 1.0,
   zIndex: 0
 }} />
 
@@ -330,18 +330,7 @@ const Home = () => {
           alignItems: 'center'
         }}>
           {/* Left Content */}
-          <div>
-            <h1 style={{
-              fontSize: '52px',
-              fontWeight: '800',
-              color: 'white',
-              lineHeight: '1.1',
-              letterSpacing: '-0.5px',
-             marginBottom: '36px',
-             textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-            }}>
-              Authorize Proof Only When a Decision Can Be Defended
-            </h1>
+         
             <p style={{
               fontSize: '18px',
               color: 'rgba(255,255,255,0.95)',
@@ -352,20 +341,8 @@ const Home = () => {
               Documented defensibility before proof exists.<br />
               Proof is granted only after thresholds are met.
             </p>
-            <Link to="/ddr" style={{
-              display: 'inline-block',
-              backgroundColor: '#F2B233',
-              color: '#0B1F2A',
-              padding: '14px 32px',
-              borderRadius: '6px',
-              textDecoration: 'none',
-              fontSize: '16px',
-              fontWeight: '600',
-              transition: 'all 0.2s',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-              Start Decision Defensibility Assessment →
-            </Link>
+            
+           
           </div>
 
           {/* Right Content - Visual Element */}
