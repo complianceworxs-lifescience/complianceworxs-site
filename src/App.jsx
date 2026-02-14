@@ -325,8 +325,8 @@ const Home = () => {
           position: 'relative',
           zIndex: 1,
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '64px',
+          gridTemplateColumns: '1fr', // Changed to single column to center content
+          justifyItems: 'start',
           alignItems: 'center'
         }}>
           {/* Left Content */}
@@ -335,7 +335,8 @@ const Home = () => {
             padding: '40px',
             borderRadius: '12px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
-            backdropFilter: 'blur(8px)'
+            backdropFilter: 'blur(8px)',
+            maxWidth: '600px'
           }}>
             <h1 style={{
               fontSize: '42px',
@@ -372,52 +373,6 @@ const Home = () => {
             }}>
               Start Decision Defensibility Assessment →
             </Link>
-          </div>
-
-          {/* Right Content - Visual Element */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <div style={{
-              backgroundColor: 'rgba(255,255,255,0.95)',
-              borderRadius: '12px',
-              padding: '32px',
-              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
-              maxWidth: '400px'
-            }}>
-              <div style={{
-                backgroundColor: '#F0FAFA',
-                border: '2px solid #1E8E8A',
-                borderRadius: '8px',
-                padding: '16px',
-                marginBottom: '16px'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <CheckCircle size={24} style={{ color: '#1E8E8A' }} />
-                  <span style={{ fontWeight: '600', fontSize: '16px', color: '#0B1F2A' }}>Defensibility Review</span>
-                </div>
-                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>
-                  Decision criteria evaluated before proof
-                </p>
-              </div>
-
-              <div style={{
-                backgroundColor: '#FEF8F0',
-                border: '2px solid #F2B233',
-                borderRadius: '8px',
-                padding: '16px'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <AlertTriangle size={24} style={{ color: '#F2B233' }} />
-                  <span style={{ fontWeight: '600', fontSize: '16px', color: '#0B1F2A' }}>Risk Flag Detected</span>
-                </div>
-                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>
-                  Threshold verification required
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
