@@ -376,9 +376,9 @@ const Home = () => {
           }}>
             <div style={{
               backgroundColor: 'rgba(255,255,255,0.95)',
-              borderRadius: '12px',
-              padding: '32px',
-              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
+              borderRadius: '10px',
+              padding: '28px',
+              boxShadow: '0 30px 60px rgba(0,0,0,0.18)',
               maxWidth: '400px'
             }}>
               <div style={{
