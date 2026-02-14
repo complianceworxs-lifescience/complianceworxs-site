@@ -316,7 +316,16 @@ const Home = () => {
   backgroundPosition: 'center',
   opacity: 1.0,
   zIndex: 0
-}} />   
+}} />   {/* Invisible Clickable Hotspot */}
+<Link to="/ddr" style={{
+  position: 'absolute',
+  top: '400px', // Adjust these values to align with the image button
+  left: '50px',
+  width: '320px',
+  height: '50px',
+  backgroundColor: 'transparent',
+  zIndex: 10
+}} />
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
