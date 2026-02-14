@@ -330,23 +330,30 @@ const Home = () => {
           alignItems: 'center'
         }}>
           {/* Left Content */}
-          <div>
+          <div style={{
+            backgroundColor: 'rgba(30, 142, 138, 0.85)',
+            padding: '40px',
+            borderRadius: '12px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+            backdropFilter: 'blur(8px)'
+          }}>
             <h1 style={{
               fontSize: '42px',
               fontWeight: '800',
-              color: '#003366', 
+              color: '#FFFFFF', 
               lineHeight: '1.2',
               marginBottom: '20px',
-              textShadow: '0px 1px 1px rgba(255,255,255,0.8)'
+              textShadow: '0px 2px 4px rgba(0,0,0,0.2)'
             }}>
               Authorize Proof Only When a Decision Can Be Defended
             </h1>
             <p style={{
               fontSize: '18px',
-              color: '#2D3748', 
+              color: '#FFFFFF', 
               lineHeight: '1.6',
               marginBottom: '32px',
-              fontWeight: '500'
+              fontWeight: '500',
+              textShadow: '0px 1px 2px rgba(0,0,0,0.2)'
             }}>
               Documented defensibility before proof exists.<br />
               Proof is granted only when thresholds are met.
