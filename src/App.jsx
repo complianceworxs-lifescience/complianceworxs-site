@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
++ import { HashRouter as Router, Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
 
 // Engine Imports
 import DDRLayout from "./DDRLayout";
