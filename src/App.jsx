@@ -311,7 +311,7 @@ const Home = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-1581092919534-4e7f8a0f6c52?auto=format&fit=crop&w=2000&q=80")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-7Nu4atuZN1U?auto=format&fit=crop&w=2000&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.35,
