@@ -334,7 +334,7 @@ const Home = () => {
             <h1 style={{
               fontSize: '48px',
               fontWeight: '700',
-              color: 'black',
+              color: 'deep navy',
               lineHeight: '1.15',
               marginBottom: '24px',
               textShadow: '0 2px 4px rgba(0,0,0,0.1)'
