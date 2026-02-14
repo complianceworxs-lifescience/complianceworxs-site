@@ -321,7 +321,7 @@ const Home = () => {
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '80px 24px',
+          padding: '110px 24px',
           position: 'relative',
           zIndex: 1,
           display: 'grid',
@@ -337,16 +337,16 @@ const Home = () => {
               color: 'white',
               lineHeight: '1.1',
               letterSpacing: '-0.5px',
-              marginBottom: '24px',
-              textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+             marginBottom: '36px',
+             textShadow: '0 2px 4px rgba(0,0,0,0.1)'
             }}>
               Authorize Proof Only When a Decision Can Be Defended
             </h1>
             <p style={{
               fontSize: '18px',
               color: 'rgba(255,255,255,0.95)',
-              lineHeight: '1.6',
-              marginBottom: '32px',
+             lineHeight: '1.55',
+             marginBottom: '44px',
               textShadow: '0 1px 2px rgba(0,0,0,0.1)'
             }}>
               Documented defensibility before proof exists.<br />
