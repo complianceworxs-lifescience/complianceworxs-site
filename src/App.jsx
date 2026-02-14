@@ -332,10 +332,11 @@ const Home = () => {
           {/* Left Content */}
           <div>
             <h1 style={{
-              fontSize: '48px',
-              fontWeight: '700',
+              fontSize: '52px',
+              fontWeight: '800',
               color: 'white',
-              lineHeight: '1.15',
+              lineHeight: '1.1',
+              letterSpacing: '-0.5px',
               marginBottom: '24px',
               textShadow: '0 2px 4px rgba(0,0,0,0.1)'
             }}>
