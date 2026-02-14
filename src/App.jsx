@@ -326,24 +326,7 @@ const Home = () => {
   backgroundColor: 'transparent',
   zIndex: 10
 }} />
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '110px 24px',
-          position: 'relative',
-          zIndex: 1,
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '64px',
-          alignItems: 'center'
-        }}>       
-          </div>
-          {/* Right Content - Visual Element */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
+        }}>
             <div style={{
               backgroundColor: 'rgba(255,255,255,0.95)',
               borderRadius: '10px',
