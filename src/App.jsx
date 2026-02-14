@@ -304,19 +304,19 @@ const Home = () => {
         alignItems: 'center',
         overflow: 'hidden'
       }}>
-        {/* Background Image Overlay */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-7Nu4atuZN1U?auto=format&fit=crop&w=2000&q=80")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.35,
-          zIndex: 0
-        }} />
+       {/* Background Image Overlay */}
+<div style={{
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundImage: 'url("/images/hero-compliance.jpg")',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  opacity: 0.8,
+  zIndex: 0
+}} />
 
         <div style={{
           maxWidth: '1200px',
