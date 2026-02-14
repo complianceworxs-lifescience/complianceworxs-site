@@ -299,39 +299,81 @@ const Home = () => {
       <section style={{
         position: 'relative',
         minHeight: '600px',
-        background: 'linear-gradient(90deg, rgba(18,74,102,0.88) 0%, rgba(18,74,102,0.55) 38%, rgba(255,255,255,0.18) 62%, rgba(255,255,255,0) 100%)',
+        background: 'linear-gradient(90deg, rgba(11,31,42,0.78) 0%, rgba(30,142,138,0.22) 55%, rgba(255,255,255,0) 100%)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden'
       }}>
-       {/* Background Image Overlay */}
-<div style={{
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundImage: 'url("/images/hero-compliance.jpg")',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  opacity: 1.0,
-  zIndex: 0
-}} />   {/* Invisible Clickable Hotspot */}
-<Link to="/ddr" style={{
-  position: 'absolute',
-  top: '400px', // Adjust these values to align with the image button
-  left: '50px',
-  width: '320px',
-  height: '50px',
-  backgroundColor: 'transparent',
-  zIndex: 10
-}} />
+        {/* Background Image Overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: url("/images/hero-compliance.jpg")
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 1.0,
+          zIndex: 0
+        }} />
+
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '80px 24px',
+          position: 'relative',
+          zIndex: 1,
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '64px',
+          alignItems: 'center'
         }}>
+          {/* Left Content */}
+          <div>
+            <h1 style={{
+              fontSize: '48px',
+              fontWeight: '700',
+              color: 'white',
+              lineHeight: '1.15',
+              marginBottom: '24px',
+              textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+            }}>
+              <p style={{
+              fontSize: '18px',
+              color: 'rgba(255,255,255,0.95)',
+              lineHeight: '1.6',
+              marginBottom: '32px',
+              textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+            }}>
+            </p>
+            <Link to="/ddr" style={{
+              display: 'inline-block',
+              backgroundColor: '#F2B233',
+              color: '#0B1F2A',
+              padding: '14px 32px',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              fontSize: '16px',
+              fontWeight: '600',
+              transition: 'all 0.2s',
+              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+            }}>
+              Start Decision Defensibility Assessment →
+            </Link>
+          </div>
+
+          {/* Right Content - Visual Element */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
             <div style={{
               backgroundColor: 'rgba(255,255,255,0.95)',
-              borderRadius: '10px',
-              padding: '28px',
-              boxShadow: '0 18px 36px rgba(0,0,0,0.16)',
+              borderRadius: '12px',
+              padding: '32px',
+              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
               maxWidth: '400px'
             }}>
               <div style={{
