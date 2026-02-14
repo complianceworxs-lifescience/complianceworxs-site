@@ -331,26 +331,27 @@ const Home = () => {
         }}>
           {/* Left Content */}
           <div>
-            <h1 style={{
-              fontSize: '48px',
-              fontWeight: '700',
-              color: 'deep navy',
-              lineHeight: '1.15',
-              marginBottom: '24px',
-              textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-            }}>
-              Authorize Proof Only When a Decision Can Be Defended
+<h1 style={{
+  fontSize: '42px',
+  fontWeight: '800',
+  color: '#003366', 
+  lineHeight: '1.2',
+  marginBottom: '20px',
+  textShadow: '0px 1px 1px rgba(255,255,255,0.8)'
+}}>
+  Authorize Proof Only When a Decision Can Be Defended
+</h1>
             </h1>
             <p style={{
-              fontSize: '18px',
-              color: 'rgba(255,255,255,0.95)',
-              lineHeight: '1.6',
-              marginBottom: '32px',
-              textShadow: '0 1px 2px rgba(0,0,0,0.1)'
-            }}>
-              Documented defensibility before proof exists.<br />
-              Proof is granted only after thresholds are met.
-            </p>
+  fontSize: '18px',
+  color: '#2D3748', 
+  lineHeight: '1.6',
+  marginBottom: '32px',
+  fontWeight: '500'
+}}>
+  Documented defensibility before proof exists.<br />
+  Proof is granted only when thresholds are met.
+</p>
             <Link to="/ddr" style={{
               display: 'inline-block',
               backgroundColor: '#F2B233',
