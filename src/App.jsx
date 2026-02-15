@@ -377,7 +377,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* HIGH FIDELITY AUTHORIZATION BAND (Matching Screenshot 10 Design) */}
+      {/* HIGH FIDELITY AUTHORIZATION BAND (Matching Screenshot 1) */}
       <section style={{ backgroundColor: '#eef3f7', padding: '96px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '48px' }}>
