@@ -802,12 +802,13 @@ const DDRPage = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#f8fafc',
-      padding: '48px 24px'
+      backgroundColor: '#ffffff'
     }}>
+      DDR Placeholder
+    </div>
+  );
+};
+
       <div style={{
         maxWidth: '600px',
         textAlign: 'center',
