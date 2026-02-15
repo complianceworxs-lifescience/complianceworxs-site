@@ -421,154 +421,240 @@ const Home = () => {
         </div>
       </section>
 
-      {/* REVISED TWO COLUMN SECTION (Matching Screenshot 1) */}
-      <section style={{
-        backgroundColor: 'white',
-        padding: '96px 24px',
-        backgroundImage: 'linear-gradient(to right, #ffffff 50%, #f8fafc 50%)'
+     {/* TWO COLUMN SECTION — MISSING RATIONALE (REPLACES 424–571 ONLY) */}
+<section style={{
+  backgroundColor: 'white',
+  padding: '96px 24px',
+  backgroundImage: 'linear-gradient(to right, #ffffff 50%, #f8fafc 50%)'
+}}>
+  <div style={{
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '80px'
+  }}>
+
+    {/* LEFT COLUMN — INSPECTION RISK */}
+    <div style={{ padding: '20px 0' }}>
+      <h3 style={{
+        fontSize: '32px',
+        fontWeight: 700,
+        color: '#0b1f2a',
+        marginBottom: '24px',
+        lineHeight: 1.2
+      }}>
+        Inspection Risk Increases<br />
+        When Rationale Is Missing
+      </h3>
+
+      <p style={{
+        fontSize: '16px',
+        color: '#475569',
+        marginBottom: '32px',
+        lineHeight: 1.6,
+        maxWidth: '520px'
+      }}>
+        Proof that exists without an auditable decision rationale is interpreted as
+        uncontrolled judgment during inspection.
+      </p>
+
+      {/* DECISION RECORD CARD */}
+      <div style={{
+        backgroundColor: '#ffffff',
+        border: '1px solid #e2e8f0',
+        borderRadius: '8px',
+        padding: '24px',
+        maxWidth: '460px',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.06)'
       }}>
         <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '80px'
+          fontSize: '13px',
+          fontWeight: 800,
+          color: '#0b1f2a',
+          borderBottom: '2px solid #0b1f2a',
+          paddingBottom: '8px',
+          marginBottom: '20px',
+          letterSpacing: '0.05em'
         }}>
-          {/* Left Column: Strategic Message */}
-          <div style={{ padding: '20px 0' }}>
-            <h3 style={{
-              fontSize: '32px',
-              fontWeight: '700',
-              color: '#0b1f2a',
-              marginBottom: '40px',
-              lineHeight: '1.2'
-            }}>
-              Documentation Does Not Equal Defensibility
-            </h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ 
-                  backgroundColor: '#eef2f6', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <CheckCircle size={20} style={{ color: '#2f8f8b' }} />
-                </div>
-                <p style={{ fontSize: '16px', color: '#475569', margin: 0, lineHeight: '1.6', fontWeight: '500' }}>
-                  Inspectors assess decisions, not document volume
-                </p>
-              </div>
-              
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ 
-                  backgroundColor: '#eef2f6', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <CheckCircle size={20} style={{ color: '#2f8f8b' }} />
-                </div>
-                <p style={{ fontSize: '16px', color: '#475569', margin: 0, lineHeight: '1.6', fontWeight: '500' }}>
-                  Proof without defensibility increases inspection risk
-                </p>
-              </div>
-              
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ 
-                  backgroundColor: '#eef2f6', 
-                  padding: '8px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <CheckCircle size={20} style={{ color: '#2f8f8b' }} />
-                </div>
-                <p style={{ fontSize: '16px', color: '#475569', margin: 0, lineHeight: '1.6', fontWeight: '500' }}>
-                  Most compliance failures begin with the wrong decision
-                </p>
-              </div>
-            </div>
+          DECISION RECORD
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Basis</span>
+          <CheckCircle size={14} style={{ color: '#2f8f8b' }} />
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Rationale</span>
+          <span style={{
+            fontSize: '12px',
+            fontWeight: 800,
+            color: '#ef4444'
+          }}>
+            MISSING
+          </span>
+        </div>
+
+        {/* RED FLAG */}
+        <div style={{
+          marginTop: '20px',
+          backgroundColor: '#fef2f2',
+          borderLeft: '4px solid #ef4444',
+          padding: '12px',
+          display: 'flex',
+          gap: '10px',
+          alignItems: 'center'
+        }}>
+          <div style={{
+            width: '20px',
+            height: '20px',
+            borderRadius: '50%',
+            backgroundColor: '#ef4444',
+            color: 'white',
+            fontSize: '12px',
+            fontWeight: 800,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            !
           </div>
+          <span style={{
+            fontSize: '13px',
+            color: '#991b1b',
+            fontWeight: 700
+          }}>
+            Audit finding: Evidence approved without documented rationale
+          </span>
+        </div>
+      </div>
+    </div>
 
-          {/* Right Column: Procedural Mechanism */}
-          <div style={{ padding: '20px 40px', position: 'relative' }}>
-            {/* Subtle Grid Pattern Overlay */}
-            <div style={{ 
-              position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-              backgroundImage: 'radial-gradient(#cbd5e1 0.5px, transparent 0.5px)',
-              backgroundSize: '24px 24px', opacity: 0.15, pointerEvents: 'none'
-            }} />
-            
-            <h3 style={{
-              fontSize: '32px',
-              fontWeight: '700',
-              color: '#0b1f2a',
-              marginBottom: '40px',
-              lineHeight: '1.2',
-              position: 'relative'
-            }}>
-              How the System Works
-            </h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', position: 'relative' }}>
-              {/* Vertical line connecting steps */}
-              <div style={{ 
-                position: 'absolute', left: '16px', top: '32px', bottom: '32px', 
-                width: '1px', borderLeft: '2px dotted #cbd5e1' 
-              }} />
+    {/* RIGHT COLUMN — PROCEDURAL MECHANISM (UNCHANGED STRUCTURE) */}
+    <div style={{ padding: '20px 40px', position: 'relative' }}>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'radial-gradient(#cbd5e1 0.5px, transparent 0.5px)',
+        backgroundSize: '24px 24px',
+        opacity: 0.15,
+        pointerEvents: 'none'
+      }} />
 
-              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '50%',
-                  backgroundColor: '#2f8f8b', color: 'white',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: '700', fontSize: '14px', flexShrink: 0, zIndex: 1,
-                  boxShadow: '0 0 0 4px #fff'
-                }}>1</div>
-                <div>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Assess the decision</h4>
-                  <p style={{ fontSize: '14px', color: '#64748b', margin: 0, lineHeight: '1.5' }}>Proof potential is evaluated against defensibility criteria</p>
-                </div>
-              </div>
+      <h3 style={{
+        fontSize: '32px',
+        fontWeight: 700,
+        color: '#0b1f2a',
+        marginBottom: '40px',
+        lineHeight: 1.2,
+        position: 'relative'
+      }}>
+        How the System Works
+      </h3>
 
-              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '50%',
-                  backgroundColor: '#f2b233', color: '#0b1f2a',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: '700', fontSize: '14px', flexShrink: 0, zIndex: 1,
-                  boxShadow: '0 0 0 4px #fff'
-                }}>◊</div>
-                <div style={{ backgroundColor: '#fef3c766', padding: '12px 16px', borderRadius: '4px', borderLeft: '4px solid #f2b233' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Authorize proof</h4>
-                  <p style={{ fontSize: '14px', color: '#64748b', margin: 0, lineHeight: '1.5' }}>Permission is granted only when thresholds are met</p>
-                </div>
-              </div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '32px',
+        position: 'relative'
+      }}>
+        <div style={{
+          position: 'absolute',
+          left: '16px',
+          top: '32px',
+          bottom: '32px',
+          width: '1px',
+          borderLeft: '2px dotted #cbd5e1'
+        }} />
 
-              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '50%',
-                  backgroundColor: '#64748b', color: 'white',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontWeight: '700', fontSize: '14px', flexShrink: 0, zIndex: 1,
-                  boxShadow: '0 0 0 4px #fff'
-                }}>×</div>
-                <div>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Block risk</h4>
-                  <p style={{ fontSize: '14px', color: '#64748b', margin: 0, lineHeight: '1.5' }}>Indefensible proof is prevented from existing</p>
-                </div>
-              </div>
-            </div>
+        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+          <div style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            backgroundColor: '#2f8f8b',
+            color: 'white',
+            fontWeight: 700,
+            fontSize: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1,
+            boxShadow: '0 0 0 4px #fff'
+          }}>1</div>
+          <div>
+            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0b1f2a' }}>
+              Assess the decision
+            </h4>
+            <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.5 }}>
+              Proof potential evaluated against defensibility criteria
+            </p>
           </div>
         </div>
-      </section>
+
+        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+          <div style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            backgroundColor: '#f2b233',
+            color: '#0b1f2a',
+            fontWeight: 700,
+            fontSize: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1,
+            boxShadow: '0 0 0 4px #fff'
+          }}>◊</div>
+          <div style={{
+            backgroundColor: '#fef3c7',
+            padding: '12px 16px',
+            borderRadius: '4px',
+            borderLeft: '4px solid #f2b233'
+          }}>
+            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0b1f2a' }}>
+              Authorize proof
+            </h4>
+            <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.5 }}>
+              Permission granted only when thresholds are met
+            </p>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+          <div style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            backgroundColor: '#64748b',
+            color: 'white',
+            fontWeight: 700,
+            fontSize: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1,
+            boxShadow: '0 0 0 4px #fff'
+          }}>×</div>
+          <div>
+            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0b1f2a' }}>
+              Block risk
+            </h4>
+            <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.5 }}>
+              Indefensible proof is prevented from existing
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* Who This Is For / What CW Never Does */}
       <section style={{
