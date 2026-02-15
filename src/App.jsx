@@ -571,204 +571,174 @@ const Home = () => {
           borderLeft: '2px dotted #cbd5e1'
         }} />
 
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: '#2f8f8b',
-            color: 'white',
-            fontWeight: 700,
-            fontSize: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1,
-            boxShadow: '0 0 0 4px #fff'
-          }}>1</div>
+       {/* Built for Professionals / Never Does – Screenshot 2 */}
+<section style={{ backgroundColor: '#f5f9fc', padding: '64px 24px' }}>
+  <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+    {/* Top panel */}
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1.1fr 0.9fr',
+      backgroundColor: '#ffffff',
+      borderRadius: '8px',
+      overflow: 'hidden',
+      boxShadow: '0 8px 24px rgba(15,23,42,0.06)',
+      marginBottom: '32px'
+    }}>
+
+      {/* Left – How CW Works */}
+      <div style={{ padding: '32px 36px' }}>
+        <h3 style={{
+          fontSize: '22px',
+          fontWeight: 700,
+          color: '#0b1f2a',
+          marginBottom: '20px'
+        }}>
+          How ComplianceWorxs Actually Works
+        </h3>
+
+        <div style={{ display: 'flex', gap: '24px' }}>
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0b1f2a' }}>
-              Assess the decision
-            </h4>
-            <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.5 }}>
-              Proof potential evaluated against defensibility criteria
+            <div style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              backgroundColor: '#1E8E8A',
+              color: '#ffffff',
+              fontWeight: 700,
+              fontSize: '13px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '8px'
+            }}>1</div>
+            <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>
+              Assess the decision<br />
+              <span style={{ color: '#64748b' }}>
+                Determine whether a regulatory decision can be defended
+              </span>
             </p>
           </div>
-        </div>
 
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: '#f2b233',
-            color: '#0b1f2a',
-            fontWeight: 700,
-            fontSize: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1,
-            boxShadow: '0 0 0 4px #fff'
-          }}>◊</div>
-          <div style={{
-            backgroundColor: '#fef3c7',
-            padding: '12px 16px',
-            borderRadius: '4px',
-            borderLeft: '4px solid #f2b233'
-          }}>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0b1f2a' }}>
-              Authorize proof
-            </h4>
-            <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.5 }}>
-              Permission granted only when thresholds are met
-            </p>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            backgroundColor: '#64748b',
-            color: 'white',
-            fontWeight: 700,
-            fontSize: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1,
-            boxShadow: '0 0 0 4px #fff'
-          }}>×</div>
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0b1f2a' }}>
-              Block risk
-            </h4>
-            <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.5 }}>
-              Indefensible proof is prevented from existing
+            <div style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              backgroundColor: '#e2e8f0',
+              color: '#0b1f2a',
+              fontWeight: 700,
+              fontSize: '13px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '8px'
+            }}>2</div>
+            <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>
+              Authorize proof<br />
+              <span style={{ color: '#64748b' }}>
+                Proof generation only when defensibility thresholds are met
+              </span>
             </p>
           </div>
         </div>
       </div>
+
+      {/* Right – Image */}
+      <div style={{
+        backgroundImage: 'url(/compliance-meeting.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }} />
     </div>
 
+    {/* Bottom cards */}
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '32px'
+    }}>
+
+      {/* Built for Professionals */}
+      <div style={{
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
+        padding: '28px',
+        boxShadow: '0 6px 18px rgba(15,23,42,0.05)'
+      }}>
+        <h4 style={{
+          fontSize: '18px',
+          fontWeight: 700,
+          color: '#0b1f2a',
+          marginBottom: '16px'
+        }}>
+          Built for Professionals <span style={{ color: '#64748b', fontWeight: 400 }}>Accountable at inspection</span>
+        </h4>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <CheckCircle size={18} style={{ color: '#1E8E8A' }} />
+            <span style={{ fontSize: '14px', color: '#475569' }}>
+              QA defensibility verdict
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <CheckCircle size={18} style={{ color: '#1E8E8A' }} />
+            <span style={{ fontSize: '14px', color: '#475569' }}>
+              Regulatory interpretation accountability
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <CheckCircle size={18} style={{ color: '#1E8E8A' }} />
+            <span style={{ fontSize: '14px', color: '#475569' }}>
+              Validation leaders defending system decisions
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Never Does */}
+      <div style={{
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
+        padding: '28px',
+        boxShadow: '0 6px 18px rgba(15,23,42,0.05)'
+      }}>
+        <h4 style={{
+          fontSize: '18px',
+          fontWeight: 700,
+          color: '#0b1f2a',
+          marginBottom: '16px'
+        }}>
+          What ComplianceWorxs Never Does
+        </h4>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <XCircle size={18} style={{ color: '#ef4444' }} />
+            <span style={{ fontSize: '14px', color: '#475569' }}>
+              No automated approvals
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <XCircle size={18} style={{ color: '#ef4444' }} />
+            <span style={{ fontSize: '14px', color: '#475569' }}>
+              No remediation advice
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <XCircle size={18} style={{ color: '#ef4444' }} />
+            <span style={{ fontSize: '14px', color: '#475569' }}>
+              No self-deciding AI
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-      {/* Who This Is For / What CW Never Does */}
-      <section style={{
-        backgroundColor: '#f8fafc',
-        padding: '64px 24px'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '64px'
-        }}>
-          {/* Who This Is For */}
-          <div>
-            <h3 style={{
-              fontSize: '28px',
-              fontWeight: '700',
-              color: '#1e293b',
-              marginBottom: '32px'
-            }}>
-              Who This Is For
-            </h3>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
-                }}>
-                  QA leaders accountable for inspection outcomes
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
-                }}>
-                  Validation leaders defending system matensibility decisions
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
-                }}>
-                  Executives signing decisions they must later defend
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* What ComplianceWorxs Never Does */}
-          <div>
-            <h3 style={{
-              fontSize: '28px',
-              fontWeight: '700',
-              color: '#1e293b',
-              marginBottom: '32px'
-            }}>
-              What ComplianceWorxs Never Does
-            </h3>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <XCircle size={24} style={{ color: '#64748b', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
-                }}>
-                  Does not authorize false proof
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <XCircle size={24} style={{ color: '#64748b', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
-                }}>
-                  Does not provide remediation advice
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <XCircle size={24} style={{ color: '#64748b', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
-                }}>
-                  Does not self-decide regulatory outcomes
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* What You Receive If Authorized */}
       <section style={{
