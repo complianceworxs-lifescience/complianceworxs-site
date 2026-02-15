@@ -797,7 +797,7 @@ const Home = () => {
     </div>
   );
 };
-
+</section>
 // Simple DDR placeholder
 const DDRPage = () => {
   return (
