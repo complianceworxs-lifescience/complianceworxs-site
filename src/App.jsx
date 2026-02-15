@@ -776,7 +776,7 @@ const Home = () => {
               Audit-ready rationale
             </div>
           </div>
-</section>
+
 
           <Link to="/ddr" style={{
             display: 'inline-block',
@@ -793,7 +793,7 @@ const Home = () => {
             Start Decision Defensibility Assessment →
           </Link>
         </div>
-      </section>
+   
     </div>
   );
 };
