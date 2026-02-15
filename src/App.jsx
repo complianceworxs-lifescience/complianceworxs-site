@@ -576,7 +576,7 @@ const Home = () => {
   <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
     {/* Top panel */}
-    <div style={{
+      <div style={{
       display: 'grid',
       gridTemplateColumns: '1.1fr 0.9fr',
       backgroundColor: '#ffffff',
