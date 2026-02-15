@@ -291,7 +291,7 @@ const MainLayout = ({ children }) => {
   );
 };
 
-// Home Component - Updated with Authorization Contract Segment
+// Home Component - Updated with high-fidelity Authorization Contract segment
 const Home = () => {
   return (
     <div>
@@ -377,74 +377,80 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Revised Authorization Contract Segment */}
-      <section style={{
-        backgroundColor: '#f8fafc',
-        padding: '80px 24px'
-      }}>
-        <div style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
-          <h2 style={{
-            fontSize: '32px',
-            fontWeight: '800',
-            color: '#0f172a',
-            marginBottom: '40px',
-            letterSpacing: '-0.02em'
-          }}>
+      {/* HIGH FIDELITY AUTHORIZATION BAND (Matching Screenshot 10) */}
+      <section style={{ backgroundColor: '#eef3f7', padding: '80px 24px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '40px' }}>
             Proof Is Authorized — Not Assumed
           </h2>
           
-          <div style={{
-            backgroundColor: 'white',
-            border: '1px solid #e2e8f0',
-            borderRadius: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '48px 24px',
-            marginBottom: '24px'
+          <div style={{ 
+            backgroundColor: 'white', 
+            borderRadius: '8px', 
+            border: '1px solid #e2e8f0', 
+            boxShadow: '0 10px 25px -5px rgba(0,0,0,0.05)', 
+            padding: '40px 32px 30px', 
+            overflow: 'hidden' 
           }}>
-            {/* Step 1 */}
-            <div style={{ flex: 1 }}>
-              <span style={{ display: 'block', fontWeight: '700', fontSize: '15px', color: '#1a202c', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>
-                Decision Evaluated
-              </span>
-              <span style={{ display: 'block', fontSize: '14px', color: '#64748b' }}>
-                Before documentation exists
-              </span>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              border: '1px solid #e2e8f0', 
+              borderRadius: '4px', 
+              overflow: 'hidden' 
+            }}>
+              
+              {/* Step 1 */}
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative' }}>
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#0b1f2a', position: 'absolute', left: 0 }} />
+                <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a', letterSpacing: '0.05em' }}>DECISION EVALUATED</div>
+                  <div style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>Before documentation exists</div>
+                </div>
+              </div>
+
+              {/* Chevron Divider */}
+              <div style={{ fontSize: '24px', color: '#cbd5e1', padding: '0 10px' }}>›</div>
+
+              {/* Step 2 */}
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative' }}>
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#2f8f8b', position: 'absolute', left: 0 }} />
+                <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a', letterSpacing: '0.05em' }}>DEFENSIBILITY VERIFIED</div>
+                  <div style={{ fontSize: '14px', color: '#2f8f8b', marginTop: '4px' }}>Thresholds enforced</div>
+                </div>
+              </div>
+
+              {/* Chevron Divider */}
+              <div style={{ fontSize: '24px', color: '#cbd5e1', padding: '0 10px' }}>›</div>
+
+              {/* Step 3 (Blocked State) */}
+              <div style={{ 
+                flex: 1.2, 
+                display: 'flex', 
+                alignItems: 'center', 
+                padding: '24px', 
+                position: 'relative', 
+                backgroundColor: '#fdf7ec' 
+              }}>
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#f2b233', position: 'absolute', left: 0 }} />
+                <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a', letterSpacing: '0.05em' }}>INDEFENSIBLE PROOF BLOCKED</div>
+                  <div style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>By system design</div>
+                </div>
+              </div>
+
             </div>
-
-            <div style={{ color: '#cbd5e1', fontSize: '24px', fontWeight: '300', padding: '0 20px' }}>›</div>
-
-            {/* Step 2 */}
-            <div style={{ flex: 1 }}>
-              <span style={{ display: 'block', fontWeight: '700', fontSize: '15px', color: '#1a202c', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>
-                Defensibility Verified
-              </span>
-              <span style={{ display: 'block', fontSize: '14px', color: '#64748b' }}>
-                Thresholds enforced
-              </span>
-            </div>
-
-            <div style={{ color: '#cbd5e1', fontSize: '24px', fontWeight: '300', padding: '0 20px' }}>›</div>
-
-            {/* Step 3 */}
-            <div style={{ flex: 1 }}>
-              <span style={{ display: 'block', fontWeight: '700', fontSize: '15px', color: '#1a202c', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>
-                Indefensible Proof Blocked
-              </span>
-              <span style={{ display: 'block', fontSize: '14px', color: '#64748b' }}>
-                By system design
-              </span>
+            
+            {/* Footnote with gradient lines */}
+            <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+              <div style={{ height: '1px', flex: 1, background: 'linear-gradient(to right, transparent, #e2e8f0)' }} />
+              <p style={{ fontSize: '13px', color: '#64748b' }}>
+                Documentation is produced only after a decision passes authorization.
+              </p>
+              <div style={{ height: '1px', flex: 1, background: 'linear-gradient(to left, transparent, #e2e8f0)' }} />
             </div>
           </div>
-          
-          <p style={{ fontSize: '14px', color: '#94a3b8', fontStyle: 'italic', margin: 0 }}>
-            “Documentation is produced only after a decision passes authorization.”
-          </p>
         </div>
       </section>
 
