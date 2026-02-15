@@ -325,7 +325,7 @@ const Home = () => {
           position: 'relative',
           zIndex: 1,
           display: 'grid',
-          gridTemplateColumns: '1fr',
+          gridTemplateColumns: '1fr', 
           justifyItems: 'start',
           alignItems: 'center'
         }}>
@@ -341,7 +341,7 @@ const Home = () => {
             <h1 style={{
               fontSize: '42px',
               fontWeight: '800',
-              color: '#FFFFFF',
+              color: '#FFFFFF', 
               lineHeight: '1.2',
               marginBottom: '20px',
               textShadow: '0px 2px 4px rgba(0,0,0,0.2)'
@@ -350,7 +350,7 @@ const Home = () => {
             </h1>
             <p style={{
               fontSize: '18px',
-              color: '#FFFFFF',
+              color: '#FFFFFF', 
               lineHeight: '1.6',
               marginBottom: '32px',
               fontWeight: '500',
@@ -377,265 +377,192 @@ const Home = () => {
         </div>
       </section>
 
-      {/* HIGH FIDELITY AUTHORIZATION BAND (Matching Screenshot 1) */}
-      <section style={{ backgroundColor: '#eef3f7', padding: '96px 24px' }}>
+      {/* Authorization Band (Previously Updated Section) */}
+      <section style={{ backgroundColor: '#eef3f7', padding: '80px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '48px' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '40px' }}>
             Proof Is Authorized — Not Assumed
           </h2>
-
-          <div style={{
-            backgroundColor: '#ffffff',
-            borderRadius: '10px',
-            border: '1px solid #e2e8f0',
-            boxShadow: '0 14px 34px rgba(15,23,42,0.10)',
-            padding: '44px 36px 32px'
+          <div style={{ 
+            backgroundColor: 'white', borderRadius: '8px', border: '1px solid #e2e8f0', 
+            boxShadow: '0 10px 25px -5px rgba(0,0,0,0.05)', padding: '40px 32px 30px', overflow: 'hidden' 
           }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'stretch',
-              border: '1px solid #e2e8f0',
-              borderRadius: '6px',
-              overflow: 'hidden'
-            }}>
-              {/* STEP 1 */}
-              <div style={{ flex: 1, padding: '28px', position: 'relative', display: 'flex', alignItems: 'center' }}>
-                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '6px', backgroundColor: '#0b1f2a' }} />
+            <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #e2e8f0', borderRadius: '4px', overflow: 'hidden' }}>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative' }}>
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#0b1f2a', position: 'absolute', left: 0 }} />
                 <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '0.08em', color: '#0b1f2a' }}>
-                    DECISION EVALUATED
-                  </div>
-                  <div style={{ fontSize: '14px', color: '#64748b', marginTop: '6px' }}>
-                    Before documentation exists
-                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a' }}>DECISION EVALUATED</div>
+                  <div style={{ fontSize: '14px', color: '#64748b' }}>Before documentation exists</div>
                 </div>
               </div>
-
-              <div style={{ fontSize: '26px', color: '#94a3b8', padding: '0 14px', display: 'flex', alignItems: 'center' }}>
-                ›
-              </div>
-
-              {/* STEP 2 */}
-              <div style={{ flex: 1, padding: '28px', position: 'relative', display: 'flex', alignItems: 'center' }}>
-                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '6px', backgroundColor: '#2f8f8b' }} />
+              <div style={{ fontSize: '24px', color: '#cbd5e1', padding: '0 10px' }}>›</div>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative' }}>
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#2f8f8b', position: 'absolute', left: 0 }} />
                 <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '0.08em', color: '#0b1f2a' }}>
-                    DEFENSIBILITY VERIFIED
-                  </div>
-                  <div style={{ fontSize: '14px', color: '#2f8f8b', marginTop: '6px' }}>
-                    Thresholds enforced
-                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a' }}>DEFENSIBILITY VERIFIED</div>
+                  <div style={{ fontSize: '14px', color: '#2f8f8b' }}>Thresholds enforced</div>
                 </div>
               </div>
-
-              <div style={{ fontSize: '26px', color: '#94a3b8', padding: '0 14px', display: 'flex', alignItems: 'center' }}>
-                ›
-              </div>
-
-              {/* STEP 3 */}
-              <div style={{ flex: 1.2, padding: '28px', position: 'relative', backgroundColor: '#fdf7ec', display: 'flex', alignItems: 'center' }}>
-                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '6px', backgroundColor: '#f2b233' }} />
+              <div style={{ fontSize: '24px', color: '#cbd5e1', padding: '0 10px' }}>›</div>
+              <div style={{ flex: 1.2, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative', backgroundColor: '#fdf7ec' }}>
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#f2b233', position: 'absolute', left: 0 }} />
                 <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
-                  <div style={{ fontSize: '12px', fontWeight: '800', letterSpacing: '0.08em', color: '#0b1f2a' }}>
-                    INDEFENSIBLE PROOF BLOCKED
-                  </div>
-                  <div style={{ fontSize: '14px', color: '#64748b', marginTop: '6px' }}>
-                    By system design
-                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a' }}>INDEFENSIBLE PROOF BLOCKED</div>
+                  <div style={{ fontSize: '14px', color: '#64748b' }}>By system design</div>
                 </div>
               </div>
             </div>
-
-            <div style={{ marginTop: '28px', display: 'flex', alignItems: 'center', gap: '14px' }}>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, #e2e8f0)' }} />
-              <p style={{ fontSize: '13px', color: '#64748b', margin: 0, fontStyle: 'italic' }}>
-                Documentation is produced only after a decision passes authorization.
-              </p>
-              <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, #e2e8f0)' }} />
+            <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+              <div style={{ height: '1px', flex: 1, background: 'linear-gradient(to right, transparent, #e2e8f0)' }} />
+              <p style={{ fontSize: '13px', color: '#64748b' }}>Documentation is produced only after a decision passes authorization.</p>
+              <div style={{ height: '1px', flex: 1, background: 'linear-gradient(to left, transparent, #e2e8f0)' }} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Two Column Section */}
+      {/* REVISED TWO COLUMN SECTION (Matching Screenshot 1) */}
       <section style={{
         backgroundColor: 'white',
-        padding: '64px 24px'
+        padding: '96px 24px',
+        backgroundImage: 'linear-gradient(to right, #ffffff 50%, #f8fafc 50%)'
       }}>
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: '64px'
+          gap: '80px'
         }}>
-          {/* Documentation Does Not Equal Defensibility */}
-          <div>
+          {/* Left Column: Strategic Message */}
+          <div style={{ padding: '20px 0' }}>
             <h3 style={{
-              fontSize: '28px',
+              fontSize: '32px',
               fontWeight: '700',
-              color: '#1e293b',
-              marginBottom: '32px'
+              color: '#0b1f2a',
+              marginBottom: '40px',
+              lineHeight: '1.2'
             }}>
               Documentation Does Not Equal Defensibility
             </h3>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <div style={{ 
+                  backgroundColor: '#eef2f6', 
+                  padding: '8px', 
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
+                  <CheckCircle size={20} style={{ color: '#2f8f8b' }} />
+                </div>
+                <p style={{ fontSize: '16px', color: '#475569', margin: 0, lineHeight: '1.6', fontWeight: '500' }}>
                   Inspectors assess decisions, not document volume
                 </p>
               </div>
-
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
+              
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <div style={{ 
+                  backgroundColor: '#eef2f6', 
+                  padding: '8px', 
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
+                  <CheckCircle size={20} style={{ color: '#2f8f8b' }} />
+                </div>
+                <p style={{ fontSize: '16px', color: '#475569', margin: 0, lineHeight: '1.6', fontWeight: '500' }}>
                   Proof without defensibility increases inspection risk
                 </p>
               </div>
-
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <CheckCircle size={24} style={{ color: '#1E8E8A', flexShrink: 0, marginTop: '2px' }} />
-                <p style={{
-                  fontSize: '15px',
-                  color: '#475569',
-                  margin: 0,
-                  lineHeight: '1.6'
+              
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                <div style={{ 
+                  backgroundColor: '#eef2f6', 
+                  padding: '8px', 
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
+                  <CheckCircle size={20} style={{ color: '#2f8f8b' }} />
+                </div>
+                <p style={{ fontSize: '16px', color: '#475569', margin: 0, lineHeight: '1.6', fontWeight: '500' }}>
                   Most compliance failures begin with the wrong decision
                 </p>
               </div>
             </div>
           </div>
 
-          {/* How the System Works */}
-          <div>
+          {/* Right Column: Procedural Mechanism */}
+          <div style={{ padding: '20px 40px', position: 'relative' }}>
+            {/* Subtle Grid Pattern Overlay */}
+            <div style={{ 
+              position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+              backgroundImage: 'radial-gradient(#cbd5e1 0.5px, transparent 0.5px)',
+              backgroundSize: '24px 24px', opacity: 0.15, pointerEvents: 'none'
+            }} />
+            
             <h3 style={{
-              fontSize: '28px',
+              fontSize: '32px',
               fontWeight: '700',
-              color: '#1e293b',
-              marginBottom: '32px'
+              color: '#0b1f2a',
+              marginBottom: '40px',
+              lineHeight: '1.2',
+              position: 'relative'
             }}>
               How the System Works
             </h3>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', position: 'relative' }}>
+              {/* Vertical line connecting steps */}
+              <div style={{ 
+                position: 'absolute', left: '16px', top: '32px', bottom: '32px', 
+                width: '1px', borderLeft: '2px dotted #cbd5e1' 
+              }} />
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
                 <div style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: '#1E8E8A',
-                  color: 'white',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: '700',
-                  fontSize: '16px',
-                  flexShrink: 0
-                }}>
-                  1
-                </div>
+                  width: '32px', height: '32px', borderRadius: '50%',
+                  backgroundColor: '#2f8f8b', color: 'white',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: '700', fontSize: '14px', flexShrink: 0, zIndex: 1,
+                  boxShadow: '0 0 0 4px #fff'
+                }}>1</div>
                 <div>
-                  <h4 style={{
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    color: '#1e293b',
-                    marginBottom: '4px'
-                  }}>
-                    Assess the decision
-                  </h4>
-                  <p style={{
-                    fontSize: '14px',
-                    color: '#64748b',
-                    margin: 0,
-                    lineHeight: '1.5'
-                  }}>
-                    Proof potential is evaluated against defensibility criteria
-                  </p>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Assess the decision</h4>
+                  <p style={{ fontSize: '14px', color: '#64748b', margin: 0, lineHeight: '1.5' }}>Proof potential is evaluated against defensibility criteria</p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
                 <div style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: '#F2B233',
-                  color: '#0B1F2A',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: '700',
-                  fontSize: '16px',
-                  flexShrink: 0
-                }}>
-                  ◊
-                </div>
-                <div>
-                  <h4 style={{
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    color: '#1e293b',
-                    marginBottom: '4px'
-                  }}>
-                    Authorize proof
-                  </h4>
-                  <p style={{
-                    fontSize: '14px',
-                    color: '#64748b',
-                    margin: 0,
-                    lineHeight: '1.5'
-                  }}>
-                    Permission is granted only when thresholds are met
-                  </p>
+                  width: '32px', height: '32px', borderRadius: '50%',
+                  backgroundColor: '#f2b233', color: '#0b1f2a',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: '700', fontSize: '14px', flexShrink: 0, zIndex: 1,
+                  boxShadow: '0 0 0 4px #fff'
+                }}>◊</div>
+                <div style={{ backgroundColor: '#fef3c766', padding: '12px 16px', borderRadius: '4px', borderLeft: '4px solid #f2b233' }}>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Authorize proof</h4>
+                  <p style={{ fontSize: '14px', color: '#64748b', margin: 0, lineHeight: '1.5' }}>Permission is granted only when thresholds are met</p>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
                 <div style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '50%',
-                  backgroundColor: '#64748b',
-                  color: 'white',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: '700',
-                  fontSize: '16px',
-                  flexShrink: 0
-                }}>
-                  ×
-                </div>
+                  width: '32px', height: '32px', borderRadius: '50%',
+                  backgroundColor: '#64748b', color: 'white',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: '700', fontSize: '14px', flexShrink: 0, zIndex: 1,
+                  boxShadow: '0 0 0 4px #fff'
+                }}>×</div>
                 <div>
-                  <h4 style={{
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    color: '#1e293b',
-                    marginBottom: '4px'
-                  }}>
-                    Block risk
-                  </h4>
-                  <p style={{
-                    fontSize: '14px',
-                    color: '#64748b',
-                    margin: 0,
-                    lineHeight: '1.5'
-                  }}>
-                    Indefensible proof is prevented from existing
-                  </p>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Block risk</h4>
+                  <p style={{ fontSize: '14px', color: '#64748b', margin: 0, lineHeight: '1.5' }}>Indefensible proof is prevented from existing</p>
                 </div>
               </div>
             </div>
