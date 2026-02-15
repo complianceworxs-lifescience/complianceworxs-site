@@ -291,7 +291,7 @@ const MainLayout = ({ children }) => {
   );
 };
 
-// Home Component - Redesigned to match screenshot
+// Home Component - Updated with Authorization Contract Segment
 const Home = () => {
   return (
     <div>
@@ -325,7 +325,7 @@ const Home = () => {
           position: 'relative',
           zIndex: 1,
           display: 'grid',
-          gridTemplateColumns: '1fr', // Changed to single column to center content
+          gridTemplateColumns: '1fr', 
           justifyItems: 'start',
           alignItems: 'center'
         }}>
@@ -377,83 +377,74 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ComplianceWorxs Is a Proof Authorization System */}
+      {/* Revised Authorization Contract Segment */}
       <section style={{
         backgroundColor: '#f8fafc',
-        padding: '64px 24px'
+        padding: '80px 24px'
       }}>
         <div style={{
-          maxWidth: '1200px',
+          maxWidth: '1000px',
           margin: '0 auto',
           textAlign: 'center'
         }}>
           <h2 style={{
-            fontSize: '36px',
-            fontWeight: '700',
-            color: '#1e293b',
-            marginBottom: '48px'
+            fontSize: '32px',
+            fontWeight: '800',
+            color: '#0f172a',
+            marginBottom: '40px',
+            letterSpacing: '-0.02em'
           }}>
-            ComplianceWorxs Is a Proof Authorization System
+            Proof Is Authorized — Not Assumed
           </h2>
           
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '16px',
-            maxWidth: '800px',
-            margin: '0 auto'
+            backgroundColor: 'white',
+            border: '1px solid #e2e8f0',
+            borderRadius: '4px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '48px 24px',
+            marginBottom: '24px'
           }}>
-            <div style={{
-              backgroundColor: 'white',
-              padding: '24px',
-              borderRadius: '8px',
-              textAlign: 'left',
-              border: '1px solid #e2e8f0'
-            }}>
-              <p style={{
-                fontSize: '16px',
-                color: '#475569',
-                margin: 0,
-                lineHeight: '1.6'
-              }}>
-                Regulatory decisions are evaluated before documentation exists
-              </p>
+            {/* Step 1 */}
+            <div style={{ flex: 1 }}>
+              <span style={{ display: 'block', fontWeight: '700', fontSize: '15px', color: '#1a202c', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>
+                Decision Evaluated
+              </span>
+              <span style={{ display: 'block', fontSize: '14px', color: '#64748b' }}>
+                Before documentation exists
+              </span>
             </div>
-            
-            <div style={{
-              backgroundColor: 'white',
-              padding: '24px',
-              borderRadius: '8px',
-              textAlign: 'left',
-              border: '1px solid #e2e8f0'
-            }}>
-              <p style={{
-                fontSize: '16px',
-                color: '#475569',
-                margin: 0,
-                lineHeight: '1.6'
-              }}>
-                Proof is authorized only after defensibility is verified
-              </p>
+
+            <div style={{ color: '#cbd5e1', fontSize: '24px', fontWeight: '300', padding: '0 20px' }}>›</div>
+
+            {/* Step 2 */}
+            <div style={{ flex: 1 }}>
+              <span style={{ display: 'block', fontWeight: '700', fontSize: '15px', color: '#1a202c', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>
+                Defensibility Verified
+              </span>
+              <span style={{ display: 'block', fontSize: '14px', color: '#64748b' }}>
+                Thresholds enforced
+              </span>
             </div>
-            
-            <div style={{
-              backgroundColor: 'white',
-              padding: '24px',
-              borderRadius: '8px',
-              textAlign: 'left',
-              border: '1px solid #e2e8f0'
-            }}>
-              <p style={{
-                fontSize: '16px',
-                color: '#475569',
-                margin: 0,
-                lineHeight: '1.6'
-              }}>
-                Indefensible proof is blocked by design.
-              </p>
+
+            <div style={{ color: '#cbd5e1', fontSize: '24px', fontWeight: '300', padding: '0 20px' }}>›</div>
+
+            {/* Step 3 */}
+            <div style={{ flex: 1 }}>
+              <span style={{ display: 'block', fontWeight: '700', fontSize: '15px', color: '#1a202c', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>
+                Indefensible Proof Blocked
+              </span>
+              <span style={{ display: 'block', fontSize: '14px', color: '#64748b' }}>
+                By system design
+              </span>
             </div>
           </div>
+          
+          <p style={{ fontSize: '14px', color: '#94a3b8', fontStyle: 'italic', margin: 0 }}>
+            “Documentation is produced only after a decision passes authorization.”
+          </p>
         </div>
       </section>
 
@@ -814,7 +805,7 @@ const Home = () => {
   );
 };
 
-// Simple DDR placeholder - replace with your actual DDRLayout
+// Simple DDR placeholder
 const DDRPage = () => {
   return (
     <div style={{
@@ -879,4 +870,3 @@ function App() {
 }
 
 export default App;
-
