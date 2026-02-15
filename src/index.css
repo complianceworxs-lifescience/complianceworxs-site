@@ -2091,3 +2091,62 @@ p {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* Authorization Contract Component Styles */
+.contract-container {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contract-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.contract-label {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1a202c;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contract-detail {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.contract-divider {
+  color: #cbd5e1;
+  font-size: 1.5rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+.contract-footer {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: -20px;
+  margin-bottom: 60px;
+}
+
+.contract-headline {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 30px;
+}
