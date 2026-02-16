@@ -652,32 +652,67 @@ const Home = () => {
           </div>
         </div>
       </section>
-// Simple DDR placeholder
+<Link to="/ddr" style={{
+            display: 'inline-block',
+            backgroundColor: '#F2B233',
+            color: '#0B1F2A',
+            padding: '14px 32px',
+            borderRadius: '6px',
+            textDecoration: 'none',
+            fontSize: '16px',
+            fontWeight: '600',
+            transition: 'all 0.2s',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+          }}>
+            Start Decision Defensibility Assessment →
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}; // This closes the Home component properly.
+
+// DDRPage is now its own standalone component, fixed for Vercel
 const DDRPage = () => {
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#ffffff'
+    <div style={{ 
+      minHeight: '100vh', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      backgroundColor: '#f8fafc', 
+      padding: '48px 24px' 
     }}>
-      DDR Placeholder
+      <div style={{ 
+        maxWidth: '600px', 
+        textAlign: 'center', 
+        backgroundColor: 'white', 
+        padding: '48px', 
+        borderRadius: '12px', 
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
+      }}>
+        <h1 style={{ fontSize: '32px', fontWeight: '700', color: '#1e293b', marginBottom: '16px' }}>
+          Decision Defensibility Review
+        </h1>
+        <p style={{ fontSize: '16px', color: '#64748b', marginBottom: '32px', lineHeight: '1.6' }}>
+          This is a placeholder for your DDR assessment flow.
+        </p>
+        <Link to="/" style={{ 
+          display: 'inline-block', 
+          backgroundColor: '#F2B233', 
+          color: '#0B1F2A', 
+          padding: '12px 24px', 
+          borderRadius: '6px', 
+          textDecoration: 'none', 
+          fontSize: '15px', 
+          fontWeight: '600' 
+        }}>
+          ← Back to Home
+        </Link>
+      </div>
     </div>
   );
 };
-
-      <div style={{
-        maxWidth: '600px',
-        textAlign: 'center',
-        backgroundColor: 'white',
-        padding: '48px',
-        borderRadius: '12px',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}>
-        <h1 style={{
-          fontSize: '32px',
-          fontWeight: '700',
-          color: '#1e293b',
-          marginBottom: '16px'
-        }}>
           Decision Defensibility Review
         </h1>
         <p style={{
