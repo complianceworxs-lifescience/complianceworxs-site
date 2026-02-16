@@ -726,24 +726,12 @@ const DDRPage = () => {
   );
 };
 
-// App Component
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        <Route path="/ddr" element={<DDRPage />} />
-      </Routes>
-    </Router>
-  );
-}
-}; // This closes the Home component at line 729
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+        
         {/* These routes connect your governed DDR spine */}
         <Route path="/ddr" element={<Navigate to="/ddr/assessment" />} />
         <Route path="/ddr/assessment" element={<FinalAssessment />} />
@@ -759,4 +747,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
