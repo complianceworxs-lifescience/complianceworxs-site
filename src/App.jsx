@@ -682,7 +682,7 @@ const Home = () => {
       </section>
     </div>
   );
-}; // This brace and semicolon MUST be here to close the Home component
+};
 
 // DDRPage is now a standalone component, fixed for Vercel
 const DDRPage = () => {
