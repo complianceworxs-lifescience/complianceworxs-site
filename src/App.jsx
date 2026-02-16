@@ -7,6 +7,7 @@ import EvidenceSet from './ddr/EvidenceSet';
 import ReviewTraceability from './ddr/ReviewTraceability';
 import DDRSummary from './ddr/DDRSummary';
 import DecisionOutcome from './ddr/DecisionOutcome';
+import Success from './ddr/Success';
 import Pricing from "./pages/Pricing";
 import IntelligenceStream from "./pages/IntelligenceStream";
 
@@ -752,12 +753,10 @@ function App() {
         <Route path="/ddr/traceability" element={<ReviewTraceability />} />
         <Route path="/ddr/summary" element={<DDRSummary />} />
         <Route path="/ddr/outcome" element={<DecisionOutcome />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/intelligence" element={<IntelligenceStream />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );
 }
 
-export default App;
-export default App;
+export default App; 
