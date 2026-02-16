@@ -576,7 +576,7 @@ const Home = () => {
         {/* Background Image with 0.1 Opacity */}
         <div style={{ 
           position: 'absolute', inset: 0, 
-          backgroundImage: 'url("/images/Screenshot (13).png")', 
+          backgroundImage: 'url("/images/Screenshot.png")',
           backgroundSize: 'cover', backgroundPosition: 'center',
           opacity: 0.1, zIndex: -1 
         }} />
