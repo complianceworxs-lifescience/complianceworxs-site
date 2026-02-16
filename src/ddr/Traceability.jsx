@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Traceability() {
+export default function ReviewTraceability() {
   const navigate = useNavigate();
 
   return (
@@ -31,7 +31,7 @@ export default function Traceability() {
           </p>
         </header>
 
-        {/* Traceability Matrix (UI Only) */}
+        {/* Traceability Matrix */}
         <div
           style={{
             background: "#FFFFFF",
