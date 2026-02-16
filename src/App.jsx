@@ -1,7 +1,3 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
-
-// Import your DDR components - comment out any that don't exist yet
 import FinalAssessment from './ddr/FinalAssessment';
 import DecisionContext from './ddr/DecisionContext';
 import RiskExposure from './ddr/RiskExposure';
@@ -647,12 +643,14 @@ const Home = () => {
   );
 };
 
-// App Component
+// App Component with all DDR routes
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+        
+        {/* DDR Assessment Routes */}
         <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
         <Route path="/ddr/assessment" element={<FinalAssessment />} />
         <Route path="/ddr/context" element={<DecisionContext />} />
@@ -668,4 +666,5 @@ function App() {
 }
 
 export default App;
+
 
