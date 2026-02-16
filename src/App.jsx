@@ -752,6 +752,8 @@ function App() {
         <Route path="/ddr/traceability" element={<ReviewTraceability />} />
         <Route path="/ddr/summary" element={<DDRSummary />} />
         <Route path="/ddr/outcome" element={<DecisionOutcome />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/intelligence" element={<IntelligenceStream />} />
       </Routes>
     </Router>
   );
