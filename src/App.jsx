@@ -665,55 +665,55 @@ const Home = () => {
             transition: 'all 0.2s',
             boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
           }}>
-            Start Decision Defensibility Assessment →
-          </Link>
-        </div>
-      </section>
-    </div>
-  );
-}; // This closes the Home component properly.
-
-// DDRPage is now its own standalone component (Lines 675+ in Screenshot 4)
-const DDRPage = () => {
-  return (
-    <div style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
-      backgroundColor: '#f8fafc', 
-      padding: '48px 24px' 
-    }}>
-      <div style={{ 
-        maxWidth: '600px', 
-        textAlign: 'center', 
-        backgroundColor: 'white', 
-        padding: '48px', 
-        borderRadius: '12px', 
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
-      }}>
-        <h1 style={{ fontSize: '32px', fontWeight: '700', color: '#1e293b', marginBottom: '16px' }}>
-          Decision Defensibility Review
-        </h1>
-        <p style={{ fontSize: '16px', color: '#64748b', marginBottom: '32px', lineHeight: '1.6' }}>
-          This is a placeholder for your DDR assessment flow.
-        </p>
-        <Link to="/" style={{ 
-          display: 'inline-block', 
-          backgroundColor: '#F2B233', 
-          color: '#0B1F2A', 
-          padding: '12px 24px', 
-          borderRadius: '6px', 
-          textDecoration: 'none', 
-          fontSize: '15px', 
-          fontWeight: '600' 
-        }}>
-          ← Back to Home
-        </Link>
-      </div>
-    </div>
-  );
-};
+            655|            Start Decision Defensibility Assessment →
+656|          </Link>
+657|        </div>
+658|      </section>
+659|    </div>
+660|  );
+661|}; // This brace and semicolon MUST be here to close the Home component
+662|
+663|// DDRPage is now a standalone component, fixed for Vercel
+664|const DDRPage = () => {
+665|  return (
+666|    <div style={{ 
+667|      minHeight: '100vh', 
+668|      display: 'flex', 
+669|      alignItems: 'center', 
+670|      justifyContent: 'center', 
+671|      backgroundColor: '#f8fafc', 
+672|      padding: '48px 24px' 
+673|    }}>
+674|      <div style={{ 
+675|        maxWidth: '600px', 
+676|        textAlign: 'center', 
+677|        backgroundColor: 'white', 
+678|        padding: '48px', 
+679|        borderRadius: '12px', 
+680|        boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
+681|      }}>
+682|        <h1 style={{ fontSize: '32px', fontWeight: '700', color: '#1e293b', marginBottom: '16px' }}>
+683|          Decision Defensibility Review
+684|        </h1>
+685|        <p style={{ fontSize: '16px', color: '#64748b', marginBottom: '32px', lineHeight: '1.6' }}>
+686|          This is a placeholder for your DDR assessment flow.
+687|        </p>
+688|        <Link to="/" style={{ 
+689|          display: 'inline-block', 
+690|          backgroundColor: '#F2B233', 
+691|          color: '#0B1F2A', 
+692|          padding: '12px 24px', 
+693|          borderRadius: '6px', 
+694|          textDecoration: 'none', 
+695|          fontSize: '15px', 
+696|          fontWeight: '600' 
+697|        }}>
+698|          ← Back to Home
+699|        </Link>
+700|      </div>
+701|    </div>
+702|  );
+703|};
       <div style={{ 
         maxWidth: '600px', 
         textAlign: 'center', 
