@@ -7,6 +7,9 @@ import EvidenceSet from './ddr/EvidenceSet';
 import ReviewTraceability from './ddr/ReviewTraceability';
 import DDRSummary from './ddr/DDRSummary';
 import DecisionOutcome from './ddr/DecisionOutcome';
+import Pricing from "./pages/Pricing";
+import IntelligenceStream from "./pages/IntelligenceStream";
+
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
