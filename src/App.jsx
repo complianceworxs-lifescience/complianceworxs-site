@@ -726,25 +726,4 @@ const DDRPage = () => {
   );
 };
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        
-        {/* These routes connect your governed DDR spine */}
-        <Route path="/ddr" element={<Navigate to="/ddr/assessment" />} />
-        <Route path="/ddr/assessment" element={<FinalAssessment />} />
-        <Route path="/ddr/context" element={<DecisionContext />} />
-        <Route path="/ddr/risk-exposure" element={<RiskExposure />} />
-        <Route path="/ddr/evidence" element={<EvidenceSet />} />
-        <Route path="/ddr/traceability" element={<ReviewTraceability />} />
-        <Route path="/ddr/summary" element={<DDRSummary />} />
-        <Route path="/ddr/outcome" element={<DecisionOutcome />} />
-        <Route path="/success" element={<Success />} />
-      </Routes>
-    </Router>
-  );
-}
-
 export default App;
