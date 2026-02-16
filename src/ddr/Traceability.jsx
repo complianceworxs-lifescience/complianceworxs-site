@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function EvidenceSet() {
+export default function Traceability() {
   const navigate = useNavigate();
 
   return (
@@ -24,14 +24,14 @@ export default function EvidenceSet() {
               marginBottom: "12px"
             }}
           >
-            Evidence Declaration
+            Review & Traceability
           </h1>
           <p style={{ fontSize: "15px", color: "#475467" }}>
-            Identify the evidence that supports this decision. No evaluation occurs here.
+            Map declared evidence to identified risk domains to establish the defensibility record.
           </p>
         </header>
 
-        {/* Evidence Types */}
+        {/* Traceability Matrix (UI Only) */}
         <div
           style={{
             background: "#FFFFFF",
@@ -49,44 +49,45 @@ export default function EvidenceSet() {
               marginBottom: "16px"
             }}
           >
-            Evidence Categories (select all that apply)
+            Evidence-to-Risk Mapping
           </h3>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "16px"
-            }}
-          >
-            {[
-              "Policies & SOPs",
-              "Validation Protocols",
-              "Test Scripts & Results",
-              "Training Records",
-              "Audit Trails & Logs",
-              "Change Control Records",
-              "Vendor Documentation",
-              "Risk Assessments"
-            ].map((label) => (
-              <label
-                key={label}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  fontSize: "14px",
-                  color: "#344054"
-                }}
-              >
-                <input type="checkbox" />
-                {label}
-              </label>
-            ))}
-          </div>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+            <thead>
+              <tr style={{ borderBottom: "2px solid #EAECF0", textAlign: "left" }}>
+                <th style={{ padding: "12px", color: "#667085" }}>Evidence Category</th>
+                <th style={{ padding: "12px", color: "#667085" }}>Target Risk Domain</th>
+                <th style={{ padding: "12px", color: "#667085" }}>Traceability Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { cat: "Policies & SOPs", risk: "Regulatory Compliance" },
+                { cat: "Validation Protocols", risk: "System Validation" },
+                { cat: "Audit Trails & Logs", risk: "Data Integrity" }
+              ].map((row, i) => (
+                <tr key={i} style={{ borderBottom: "1px solid #EAECF0" }}>
+                  <td style={{ padding: "16px 12px", fontWeight: "500" }}>{row.cat}</td>
+                  <td style={{ padding: "16px 12px" }}>{row.risk}</td>
+                  <td style={{ padding: "16px 12px" }}>
+                    <span style={{ 
+                      background: "#ECFDF3", 
+                      color: "#027A48", 
+                      padding: "4px 12px", 
+                      borderRadius: "16px",
+                      fontSize: "12px",
+                      fontWeight: "500"
+                    }}>
+                      Mapped
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        {/* Evidence Notes */}
+        {/* Attestation Block */}
         <div
           style={{
             background: "#FFFFFF",
@@ -104,15 +105,11 @@ export default function EvidenceSet() {
               marginBottom: "12px"
             }}
           >
-            Evidence Notes
+            Final Review Notes
           </h3>
-          <p style={{ fontSize: "14px", color: "#475467", marginBottom: "16px" }}>
-            Describe the location, status, or completeness of the declared evidence.
-          </p>
-
           <textarea
-            rows={6}
-            placeholder="Enter notes about evidence availability, ownership, or gaps…"
+            rows={4}
+            placeholder="Enter any final observations regarding the traceability or completeness of the record…"
             style={{
               width: "100%",
               borderRadius: "8px",
@@ -135,19 +132,16 @@ export default function EvidenceSet() {
             marginBottom: "40px"
           }}
         >
-          <strong style={{ color: "#0B1F2A", fontSize: "14px" }}>
-            Boundary Notice
-          </strong>
-          <p style={{ fontSize: "13px", color: "#475467", marginTop: "6px" }}>
-            Evidence is declared, not validated, at this stage. No sufficiency or quality
-            judgments are made here.
+          <p style={{ fontSize: "13px", color: "#475467", margin: 0, textAlign: "center" }}>
+            “Traceability links evidence to intent. This page formalizes the connection 
+            without evaluating the quality of the execution.”
           </p>
         </div>
 
         {/* Navigation */}
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button
-            onClick={() => navigate("/ddr/risk-exposure")}
+            onClick={() => navigate("/ddr/evidence")}
             style={{
               background: "transparent",
               border: "1px solid #D0D5DD",
@@ -157,11 +151,11 @@ export default function EvidenceSet() {
               cursor: "pointer"
             }}
           >
-            ← Back to Risk Exposure
+            ← Back to Evidence
           </button>
 
           <button
-            onClick={() => navigate("/ddr/traceability")}
+            onClick={() => navigate("/ddr/summary")}
             style={{
               background: "#004EEB",
               color: "#FFFFFF",
@@ -173,7 +167,7 @@ export default function EvidenceSet() {
               cursor: "pointer"
             }}
           >
-            Continue to Review & Traceability →
+            Generate Final DDR Summary →
           </button>
         </div>
       </div>
