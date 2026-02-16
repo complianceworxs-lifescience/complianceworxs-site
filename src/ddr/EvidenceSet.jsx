@@ -1,84 +1,183 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function EvidenceSet() {
   const navigate = useNavigate();
-  const [evidence, setEvidence] = useState([]);
-
-  const evidenceTypes = [
-    "Validation Protocol",
-    "Test Results",
-    "Risk Assessment",
-    "Training Records",
-    "Audit Trail",
-    "Change Control Records",
-    "SOPs",
-    "Vendor Qualification"
-  ];
-
-  const handleEvidenceToggle = (item) => {
-    if (evidence.includes(item)) {
-      setEvidence(evidence.filter(e => e !== item));
-    } else {
-      setEvidence([...evidence, item]);
-    }
-  };
-
-  const handleContinue = () => {
-    if (evidence.length === 0) {
-      alert("Please select at least one evidence type.");
-      return;
-    }
-    navigate("/ddr/risk");
-  };
 
   return (
-    <div className="ddr-page">
-      <div className="container">
-        <div className="assessment-card">
-          <h2>Step 3: Evidence Set</h2>
-          <p className="subtext">Document the evidence supporting this decision.</p>
+    <section
+      style={{
+        minHeight: "100vh",
+        background: "#F9FAFB",
+        padding: "96px 24px",
+        boxSizing: "border-box"
+      }}
+    >
+      <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        {/* Header */}
+        <header style={{ marginBottom: "48px" }}>
+          <h1
+            style={{
+              fontSize: "34px",
+              fontWeight: "600",
+              color: "#0B1F2A",
+              marginBottom: "12px"
+            }}
+          >
+            Evidence Declaration
+          </h1>
+          <p style={{ fontSize: "15px", color: "#475467" }}>
+            Identify the evidence that supports this decision. No evaluation occurs here.
+          </p>
+        </header>
 
-          <div className="panel panel-review" style={{ marginBottom: '24px', backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '15px', borderRadius: '8px' }}>
-            <h3 className="panel-title" style={{ color: '#FFB800' }}>Evidence Requirements</h3>
-            <p className="panel-body">
-              Select all documentation types that support your decision. The DDR engine requires 
-              a complete evidence trail before authorization can be granted.
-            </p>
-          </div>
+        {/* Evidence Types */}
+        <div
+          style={{
+            background: "#FFFFFF",
+            borderRadius: "12px",
+            padding: "32px",
+            boxShadow: "0 10px 28px rgba(0,0,0,0.06)",
+            marginBottom: "32px"
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "18px",
+              fontWeight: "600",
+              color: "#0B1F2A",
+              marginBottom: "16px"
+            }}
+          >
+            Evidence Categories (select all that apply)
+          </h3>
 
-          <div className="form-group">
-            <label>Available Evidence (select all that apply)</label>
-            <div className="checkbox-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '10px' }}>
-              {evidenceTypes.map((item) => (
-                <label key={item} className="checkbox-label" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <input 
-                    type="checkbox" 
-                    checked={evidence.includes(item)}
-                    onChange={() => handleEvidenceToggle(item)}
-                  /> {item}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {evidence.length > 0 && (
-            <div className="recommendation-alert" style={{ marginTop: '20px', padding: '15px', borderLeft: '4px solid #10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)' }}>
-              <p><strong>Evidence Captured:</strong></p>
-              <p>You have selected {evidence.length} evidence type(s). Ensure all documentation is complete and accessible for review.</p>
-            </div>
-          )}
-
-          <div className="cta-row" style={{ marginTop: '32px', display: 'flex', gap: '16px' }}>
-            <button onClick={() => navigate('/ddr/context')} className="button-secondary">
-              ← Back
-            </button>
-            <button onClick={handleContinue} className="button-primary">
-              Continue to Risk Assessment →
-            </button>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              gap: "16px"
+            }}
+          >
+            {[
+              "Policies & SOPs",
+              "Validation Protocols",
+              "Test Scripts & Results",
+              "Training Records",
+              "Audit Trails & Logs",
+              "Change Control Records",
+              "Vendor Documentation",
+              "Risk Assessments"
+            ].map((label) => (
+              <label
+                key={label}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  fontSize: "14px",
+                  color: "#344054"
+                }}
+              >
+                <input type="checkbox" />
+                {label}
+              </label>
+            ))}
           </div>
         </div>
+
+        {/* Evidence Notes */}
+        <div
+          style={{
+            background: "#FFFFFF",
+            borderRadius: "12px",
+            padding: "32px",
+            boxShadow: "0 10px 28px rgba(0,0,0,0.06)",
+            marginBottom: "32px"
+          }}
+        >
+          <h3
+            style={{
+              fontSize: "18px",
+              fontWeight: "600",
+              color: "#0B1F2A",
+              marginBottom: "12px"
+            }}
+          >
+            Evidence Notes
+          </h3>
+          <p style={{ fontSize: "14px", color: "#475467", marginBottom: "16px" }}>
+            Describe the location, status, or completeness of the declared evidence.
+          </p>
+
+          <textarea
+            rows={6}
+            placeholder="Enter notes about evidence availability, ownership, or gaps…"
+            style={{
+              width: "100%",
+              borderRadius: "8px",
+              border: "1px solid #D0D5DD",
+              padding: "12px",
+              fontSize: "14px",
+              fontFamily: "inherit",
+              resize: "vertical"
+            }}
+          />
+        </div>
+
+        {/* Boundary Notice */}
+        <div
+          style={{
+            border: "1px solid #D0D5DD",
+            borderRadius: "10px",
+            padding: "20px",
+            background: "#FFFFFF",
+            marginBottom: "40px"
+          }}
+        >
+          <strong style={{ color: "#0B1F2A", fontSize: "14px" }}>
+            Boundary Notice
+          </strong>
+          <p style={{ fontSize: "13px", color: "#475467", marginTop: "6px" }}>
+            Evidence is declared, not validated, at this stage. No sufficiency or quality
+            judgments are made here.
+          </p>
+        </div>
+
+        {/* Navigation */}
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <button
+            onClick={() => navigate("/ddr/risk")}
+            style={{
+              background: "transparent",
+              border: "1px solid #D0D5DD",
+              padding: "12px 20px",
+              borderRadius: "8px",
+              fontSize: "14px",
+              cursor: "pointer"
+            }}
+          >
+            ← Back to Risk Exposure
+          </button>
+
+          <button
+            onClick={() => navigate("/ddr/traceability")}
+            style={{
+              background: "#004EEB",
+              color: "#FFFFFF",
+              border: "none",
+              padding: "12px 24px",
+              borderRadius: "8px",
+              fontSize: "14px",
+              fontWeight: "600",
+              cursor: "pointer"
+            }}
+          >
+            Continue to Review & Traceability →
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
+
