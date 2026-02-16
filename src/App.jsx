@@ -388,7 +388,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Authorization Band (Previously Updated Section) */}
+      {/* Authorization Band */}
       <section style={{ backgroundColor: '#eef3f7', padding: '80px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '40px' }}>
@@ -432,157 +432,186 @@ const Home = () => {
         </div>
       </section>
 
-     {/* TWO COLUMN SECTION — MISSING RATIONALE (REPLACES 424–571 ONLY) */}
-<section style={{
-  backgroundColor: 'white',
-  padding: '96px 24px',
-  backgroundImage: 'linear-gradient(to right, #ffffff 50%, #f8fafc 50%)'
-}}>
-  <div style={{
-    maxWidth: '1200px',
-    margin: '0 auto',
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '80px'
-  }}>
-
-    {/* LEFT COLUMN — INSPECTION RISK */}
-    <div style={{ padding: '20px 0' }}>
-      <h3 style={{
-        fontSize: '32px',
-        fontWeight: 700,
-        color: '#0b1f2a',
-        marginBottom: '24px',
-        lineHeight: 1.2
-      }}>
-        Inspection Risk Increases<br />
-        When Rationale Is Missing
-      </h3>
-
-      <p style={{
-        fontSize: '16px',
-        color: '#475569',
-        marginBottom: '32px',
-        lineHeight: 1.6,
-        maxWidth: '520px'
-      }}>
-        Proof that exists without an auditable decision rationale is interpreted as
-        uncontrolled judgment during inspection.
-      </p>
-
-      {/* DECISION RECORD CARD */}
-      <div style={{
-        backgroundColor: '#ffffff',
-        border: '1px solid #e2e8f0',
-        borderRadius: '8px',
-        padding: '24px',
-        maxWidth: '460px',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.06)'
+      {/* TWO COLUMN SECTION — MISSING RATIONALE */}
+      <section style={{
+        backgroundColor: 'white',
+        padding: '96px 24px',
+        backgroundImage: 'linear-gradient(to right, #ffffff 50%, #f8fafc 50%)'
       }}>
         <div style={{
-          fontSize: '13px',
-          fontWeight: 800,
-          color: '#0b1f2a',
-          borderBottom: '2px solid #0b1f2a',
-          paddingBottom: '8px',
-          marginBottom: '20px',
-          letterSpacing: '0.05em'
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '80px'
         }}>
-          DECISION RECORD
-        </div>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-          <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Basis</span>
-          <CheckCircle size={14} style={{ color: '#2f8f8b' }} />
-        </div>
+          {/* LEFT COLUMN — INSPECTION RISK */}
+          <div style={{ padding: '20px 0' }}>
+            <h3 style={{
+              fontSize: '32px',
+              fontWeight: 700,
+              color: '#0b1f2a',
+              marginBottom: '24px',
+              lineHeight: 1.2
+            }}>
+              Inspection Risk Increases<br />
+              When Rationale Is Missing
+            </h3>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Rationale</span>
-          <span style={{
-            fontSize: '12px',
-            fontWeight: 800,
-            color: '#ef4444'
-          }}>
-            MISSING
-          </span>
-        </div>
+            <p style={{
+              fontSize: '16px',
+              color: '#475569',
+              marginBottom: '32px',
+              lineHeight: 1.6,
+              maxWidth: '520px'
+            }}>
+              Proof that exists without an auditable decision rationale is interpreted as
+              uncontrolled judgment during inspection.
+            </p>
 
-        {/* RED FLAG */}
-        <div style={{
-          marginTop: '20px',
-          backgroundColor: '#fef2f2',
-          borderLeft: '4px solid #ef4444',
-          padding: '12px',
-          display: 'flex',
-          gap: '10px',
-          alignItems: 'center'
-        }}>
-          <div style={{
-            width: '20px',
-            height: '20px',
-            borderRadius: '50%',
-            backgroundColor: '#ef4444',
-            color: 'white',
-            fontSize: '12px',
-            fontWeight: 800,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            !
+            {/* DECISION RECORD CARD */}
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '8px',
+              padding: '24px',
+              maxWidth: '460px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.06)'
+            }}>
+              <div style={{
+                fontSize: '13px',
+                fontWeight: 800,
+                color: '#0b1f2a',
+                borderBottom: '2px solid #0b1f2a',
+                paddingBottom: '8px',
+                marginBottom: '20px',
+                letterSpacing: '0.05em'
+              }}>
+                DECISION RECORD
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Basis</span>
+                <CheckCircle size={14} style={{ color: '#2f8f8b' }} />
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Rationale</span>
+                <span style={{
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  color: '#ef4444'
+                }}>
+                  MISSING
+                </span>
+              </div>
+
+              {/* RED FLAG */}
+              <div style={{
+                marginTop: '20px',
+                backgroundColor: '#fef2f2',
+                borderLeft: '4px solid #ef4444',
+                padding: '12px',
+                display: 'flex',
+                gap: '10px',
+                alignItems: 'center'
+              }}>
+                <div style={{
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ef4444',
+                  color: 'white',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  !
+                </div>
+                <span style={{
+                  fontSize: '13px',
+                  color: '#991b1b',
+                  fontWeight: 700
+                }}>
+                  Audit finding: Evidence approved without documented rationale
+                </span>
+              </div>
+            </div>
           </div>
-          <span style={{
-            fontSize: '13px',
-            color: '#991b1b',
-            fontWeight: 700
-          }}>
-            Audit finding: Evidence approved without documented rationale
-          </span>
+
+          {/* RIGHT COLUMN — PROCEDURAL MECHANISM */}
+          <div style={{ padding: '20px 40px', position: 'relative' }}>
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: 'radial-gradient(#cbd5e1 0.5px, transparent 0.5px)',
+              backgroundSize: '24px 24px',
+              opacity: 0.15,
+              pointerEvents: 'none'
+            }} />
+
+            <h3 style={{
+              fontSize: '32px',
+              fontWeight: 700,
+              color: '#0b1f2a',
+              marginBottom: '40px',
+              lineHeight: 1.2,
+              position: 'relative'
+            }}>
+              How the System Works
+            </h3>
+
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '32px',
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                left: '16px',
+                top: '32px',
+                bottom: '32px',
+                width: '1px',
+                borderLeft: '2px dotted #cbd5e1'
+              }} />
+
+              {/* ENFORCEMENT STEPS */}
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2f8f8b', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>✓</div>
+                <div>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Evaluate decision against defensibility criteria</h4>
+                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>Decision must be provably defensible</p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#f2b233', color: '#0b1f2a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>◊</div>
+                <div style={{ backgroundColor: '#fef3c7', padding: '16px', borderRadius: '4px', borderLeft: '4px solid #f2b233' }}>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Permit proof generation (threshold met)</h4>
+                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '800' }}>Permission is granted only when thresholds are met</p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#64748b', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>×</div>
+                <div>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Fail-closed: proof prohibited</h4>
+                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>If decision is not defensible, proof is blocked</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    {/* RIGHT COLUMN — PROCEDURAL MECHANISM (UNCHANGED STRUCTURE) */}
-    <div style={{ padding: '20px 40px', position: 'relative' }}>
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: 'radial-gradient(#cbd5e1 0.5px, transparent 0.5px)',
-        backgroundSize: '24px 24px',
-        opacity: 0.15,
-        pointerEvents: 'none'
-      }} />
-
-      <h3 style={{
-        fontSize: '32px',
-        fontWeight: 700,
-        color: '#0b1f2a',
-        marginBottom: '40px',
-        lineHeight: 1.2,
-        position: 'relative'
-      }}>
-        How the System Works
-      </h3>
-
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '32px',
-        position: 'relative'
-      }}>
-        <div style={{
-          position: 'absolute',
-          left: '16px',
-          top: '32px',
-          bottom: '32px',
-          width: '1px',
-          borderLeft: '2px dotted #cbd5e1'
-        }} />
-
-{/* REVISED TWO COLUMN SECTION (Screenshot 1 High Fidelity) */}
+      {/* REVISED TWO COLUMN SECTION */}
       <section style={{ position: 'relative', padding: '96px 24px', overflow: 'hidden' }}>
         {/* Background Image with 0.1 Opacity */}
         <div style={{ 
@@ -663,28 +692,29 @@ const Home = () => {
           </div>
         </div>
       </section>
-{/* This part finishes the Home component layout (Lines 655-673 in Screenshot 4) */}
-          <Link to="/ddr" style={{
-            display: 'inline-block',
-            backgroundColor: '#F2B233',
-            color: '#0B1F2A',
-            padding: '14px 32px',
-            borderRadius: '6px',
-            textDecoration: 'none',
-            fontSize: '16px',
-            fontWeight: '600',
-            transition: 'all 0.2s',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-          }}>
+
+      {/* Button Restore */}
+      <section style={{ padding: '80px 24px', textAlign: 'center' }}>
+        <Link to="/ddr" style={{
+          display: 'inline-block',
+          backgroundColor: '#F2B233',
+          color: '#0B1F2A',
+          padding: '14px 32px',
+          borderRadius: '6px',
+          textDecoration: 'none',
+          fontSize: '16px',
+          fontWeight: '600',
+          transition: 'all 0.2s',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+        }}>
           Start Decision Defensibility Assessment →
-</Link>
-        </div>
+        </Link>
       </section>
     </div>
   );
-};
+}; // Line 685: FIXED CLOSURE
 
-// DDRPage is now a standalone component, fixed for Vercel
+// DDRPage component restored with standalone status
 const DDRPage = () => {
   return (
     <div style={{ 
@@ -719,12 +749,14 @@ const DDRPage = () => {
           fontSize: '15px', 
           fontWeight: '600' 
         }}>
-         ← Back to Home
+          ← Back to Home
         </Link>
      </div>
     </div>
   );
 };
+
+// Main Router: NO CHANGES to UI, FIXED for Vercel
 function App() {
   return (
     <Router>
