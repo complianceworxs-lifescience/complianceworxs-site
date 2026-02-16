@@ -652,7 +652,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-<Link to="/ddr" style={{
+{/* This part finishes the Home component layout (Lines 655-673 in Screenshot 4) */}
+          <Link to="/ddr" style={{
             display: 'inline-block',
             backgroundColor: '#F2B233',
             color: '#0B1F2A',
@@ -672,7 +673,7 @@ const Home = () => {
   );
 }; // This closes the Home component properly.
 
-// DDRPage is now its own standalone component, fixed for Vercel
+// DDRPage is now its own standalone component (Lines 675+ in Screenshot 4)
 const DDRPage = () => {
   return (
     <div style={{ 
@@ -683,6 +684,36 @@ const DDRPage = () => {
       backgroundColor: '#f8fafc', 
       padding: '48px 24px' 
     }}>
+      <div style={{ 
+        maxWidth: '600px', 
+        textAlign: 'center', 
+        backgroundColor: 'white', 
+        padding: '48px', 
+        borderRadius: '12px', 
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
+      }}>
+        <h1 style={{ fontSize: '32px', fontWeight: '700', color: '#1e293b', marginBottom: '16px' }}>
+          Decision Defensibility Review
+        </h1>
+        <p style={{ fontSize: '16px', color: '#64748b', marginBottom: '32px', lineHeight: '1.6' }}>
+          This is a placeholder for your DDR assessment flow.
+        </p>
+        <Link to="/" style={{ 
+          display: 'inline-block', 
+          backgroundColor: '#F2B233', 
+          color: '#0B1F2A', 
+          padding: '12px 24px', 
+          borderRadius: '6px', 
+          textDecoration: 'none', 
+          fontSize: '15px', 
+          fontWeight: '600' 
+        }}>
+          ← Back to Home
+        </Link>
+      </div>
+    </div>
+  );
+};
       <div style={{ 
         maxWidth: '600px', 
         textAlign: 'center', 
