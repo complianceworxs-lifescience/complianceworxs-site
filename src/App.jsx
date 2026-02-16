@@ -1,5 +1,7 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+
+// Import your DDR components - comment out any that don't exist yet
 import FinalAssessment from './ddr/FinalAssessment';
 import DecisionContext from './ddr/DecisionContext';
 import RiskExposure from './ddr/RiskExposure';
@@ -8,9 +10,6 @@ import ReviewTraceability from './ddr/ReviewTraceability';
 import DDRSummary from './ddr/DDRSummary';
 import DecisionOutcome from './ddr/DecisionOutcome';
 import Success from './ddr/Success';
-import Pricing from "./pages/Pricing";
-import IntelligenceStream from "./pages/IntelligenceStream";
-
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
@@ -23,22 +22,6 @@ const CheckCircle = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
     <polyline points="22 4 12 14.01 9 11.01" />
-  </svg>
-);
-
-const XCircle = ({ size = 24, style }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
-    <circle cx="12" cy="12" r="10" />
-    <line x1="15" y1="9" x2="9" y2="15" />
-    <line x1="9" y1="9" x2="15" y2="15" />
-  </svg>
-);
-
-const AlertTriangle = ({ size = 24, style }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
-    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-    <line x1="12" y1="9" x2="12" y2="13" />
-    <line x1="12" y1="17" x2="12.01" y2="17" />
   </svg>
 );
 
@@ -189,7 +172,6 @@ const MainLayout = ({ children }) => {
             gap: '48px',
             marginBottom: '48px'
           }}>
-            {/* Company */}
             <div>
               <h3 style={{
                 fontSize: '16px',
@@ -208,7 +190,6 @@ const MainLayout = ({ children }) => {
               </p>
             </div>
 
-            {/* Governance */}
             <div>
               <h4 style={{
                 fontSize: '14px',
@@ -233,7 +214,6 @@ const MainLayout = ({ children }) => {
               </ul>
             </div>
 
-            {/* Intelligence */}
             <div>
               <h4 style={{
                 fontSize: '14px',
@@ -258,7 +238,6 @@ const MainLayout = ({ children }) => {
               </ul>
             </div>
 
-            {/* Legal & Procurement */}
             <div>
               <h4 style={{
                 fontSize: '14px',
@@ -283,7 +262,6 @@ const MainLayout = ({ children }) => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
           <div style={{
             borderTop: '1px solid rgba(255,255,255,0.1)',
             paddingTop: '24px',
@@ -310,22 +288,21 @@ const Home = () => {
       <section style={{
         position: 'relative',
         minHeight: '600px',
-        background: 'transparent',
+        background: 'linear-gradient(90deg, rgba(11,31,42,0.92) 0%, rgba(30,142,138,0.25) 55%, rgba(255,255,255,0) 100%)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden'
       }}>
-        {/* Background Image Overlay */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("/images/Screenshot (15).png")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 1.0,
+          opacity: 0.2,
           zIndex: 0
         }} />
 
@@ -334,34 +311,22 @@ const Home = () => {
           margin: '0 auto',
           padding: '80px 24px',
           position: 'relative',
-          zIndex: 1,
-          display: 'grid',
-          gridTemplateColumns: '1fr', 
-          justifyItems: 'start',
-          alignItems: 'center'
+          zIndex: 1
         }}>
-          {/* Left Content */}
-          <div style={{
-            backgroundColor: 'rgba(30, 142, 138, 0.85)',
-            padding: '40px',
-            borderRadius: '12px',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
-            backdropFilter: 'blur(8px)',
-            maxWidth: '600px'
-          }}>
+          <div style={{ maxWidth: '650px' }}>
             <h1 style={{
-              fontSize: '42px',
+              fontSize: '48px',
               fontWeight: '800',
-              color: '#FFFFFF', 
-              lineHeight: '1.2',
-              marginBottom: '20px',
-              textShadow: '0px 2px 4px rgba(0,0,0,0.2)'
+              color: '#FFFFFF',
+              lineHeight: '1.15',
+              marginBottom: '24px',
+              textShadow: '0px 2px 4px rgba(0,0,0,0.3)'
             }}>
               Authorize Proof Only When a Decision Can Be Defended
             </h1>
             <p style={{
-              fontSize: '18px',
-              color: '#FFFFFF', 
+              fontSize: '20px',
+              color: '#FFFFFF',
               lineHeight: '1.6',
               marginBottom: '32px',
               fontWeight: '500',
@@ -374,13 +339,13 @@ const Home = () => {
               display: 'inline-block',
               backgroundColor: '#F2B233',
               color: '#0B1F2A',
-              padding: '14px 32px',
+              padding: '16px 36px',
               borderRadius: '6px',
               textDecoration: 'none',
               fontSize: '16px',
-              fontWeight: '600',
+              fontWeight: '700',
               transition: 'all 0.2s',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+              boxShadow: '0 4px 12px rgba(242, 178, 51, 0.4)'
             }}>
               Start Decision Defensibility Assessment →
             </Link>
@@ -391,12 +356,15 @@ const Home = () => {
       {/* Authorization Band */}
       <section style={{ backgroundColor: '#eef3f7', padding: '80px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '40px' }}>
+          <h2 style={{ fontSize: '32px', fontWeight: '700', color: '#0b1f2a', marginBottom: '40px' }}>
             Proof Is Authorized — Not Assumed
           </h2>
-          <div style={{ 
-            backgroundColor: 'white', borderRadius: '8px', border: '1px solid #e2e8f0', 
-            boxShadow: '0 10px 25px -5px rgba(0,0,0,0.05)', padding: '40px 32px 30px', overflow: 'hidden' 
+          <div style={{
+            backgroundColor: 'white',
+            borderRadius: '8px',
+            border: '1px solid #e2e8f0',
+            boxShadow: '0 10px 25px -5px rgba(0,0,0,0.05)',
+            padding: '40px 32px 30px'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #e2e8f0', borderRadius: '4px', overflow: 'hidden' }}>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative' }}>
@@ -408,10 +376,10 @@ const Home = () => {
               </div>
               <div style={{ fontSize: '24px', color: '#cbd5e1', padding: '0 10px' }}>›</div>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', padding: '24px', position: 'relative' }}>
-                <div style={{ width: '8px', height: '48px', backgroundColor: '#2f8f8b', position: 'absolute', left: 0 }} />
+                <div style={{ width: '8px', height: '48px', backgroundColor: '#1E8E8A', position: 'absolute', left: 0 }} />
                 <div style={{ paddingLeft: '24px', textAlign: 'left' }}>
                   <div style={{ fontSize: '13px', fontWeight: '800', color: '#0b1f2a' }}>DEFENSIBILITY VERIFIED</div>
-                  <div style={{ fontSize: '14px', color: '#2f8f8b' }}>Thresholds enforced</div>
+                  <div style={{ fontSize: '14px', color: '#1E8E8A' }}>Thresholds enforced</div>
                 </div>
               </div>
               <div style={{ fontSize: '24px', color: '#cbd5e1', padding: '0 10px' }}>›</div>
@@ -432,7 +400,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TWO COLUMN SECTION — MISSING RATIONALE */}
+      {/* Two Column Section */}
       <section style={{
         backgroundColor: 'white',
         padding: '96px 24px',
@@ -445,8 +413,6 @@ const Home = () => {
           gridTemplateColumns: '1fr 1fr',
           gap: '80px'
         }}>
-
-          {/* LEFT COLUMN — INSPECTION RISK */}
           <div style={{ padding: '20px 0' }}>
             <h3 style={{
               fontSize: '32px',
@@ -470,7 +436,6 @@ const Home = () => {
               uncontrolled judgment during inspection.
             </p>
 
-            {/* DECISION RECORD CARD */}
             <div style={{
               backgroundColor: '#ffffff',
               border: '1px solid #e2e8f0',
@@ -493,7 +458,7 @@ const Home = () => {
 
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
                 <span style={{ fontSize: '13px', color: '#64748b' }}>Decision Basis</span>
-                <CheckCircle size={14} style={{ color: '#2f8f8b' }} />
+                <CheckCircle size={14} style={{ color: '#1E8E8A' }} />
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -507,7 +472,6 @@ const Home = () => {
                 </span>
               </div>
 
-              {/* RED FLAG */}
               <div style={{
                 marginTop: '20px',
                 backgroundColor: '#fef2f2',
@@ -542,7 +506,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN — PROCEDURAL MECHANISM */}
           <div style={{ padding: '20px 40px', position: 'relative' }}>
             <div style={{
               position: 'absolute',
@@ -582,28 +545,80 @@ const Home = () => {
                 borderLeft: '2px dotted #cbd5e1'
               }} />
 
-              {/* ENFORCEMENT STEPS */}
               <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2f8f8b', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>✓</div>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#1E8E8A',
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '700',
+                  fontSize: '14px',
+                  zIndex: 1
+                }}>✓</div>
                 <div>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Evaluate decision against defensibility criteria</h4>
-                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>Decision must be provably defensible</p>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>
+                    Evaluate decision against defensibility criteria
+                  </h4>
+                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>
+                    Decision must be provably defensible
+                  </p>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#f2b233', color: '#0b1f2a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>◊</div>
-                <div style={{ backgroundColor: '#fef3c7', padding: '16px', borderRadius: '4px', borderLeft: '4px solid #f2b233' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Permit proof generation (threshold met)</h4>
-                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '800' }}>Permission is granted only when thresholds are met</p>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#F2B233',
+                  color: '#0B1F2A',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '700',
+                  fontSize: '14px',
+                  zIndex: 1
+                }}>◊</div>
+                <div style={{
+                  backgroundColor: '#fef3c7',
+                  padding: '16px',
+                  borderRadius: '4px',
+                  borderLeft: '4px solid #f2b233'
+                }}>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>
+                    Permit proof generation (threshold met)
+                  </h4>
+                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '800' }}>
+                    Permission is granted only when thresholds are met
+                  </p>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#64748b', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>×</div>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#64748b',
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '700',
+                  fontSize: '14px',
+                  zIndex: 1
+                }}>×</div>
                 <div>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Fail-closed: proof prohibited</h4>
-                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>If decision is not defensible, proof is blocked</p>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>
+                    Fail-closed: proof prohibited
+                  </h4>
+                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>
+                    If decision is not defensible, proof is blocked
+                  </p>
                 </div>
               </div>
             </div>
@@ -611,160 +626,34 @@ const Home = () => {
         </div>
       </section>
 
-      {/* REVISED TWO COLUMN SECTION */}
-      <section style={{ position: 'relative', padding: '96px 24px', overflow: 'hidden' }}>
-        {/* Background Image with 0.1 Opacity */}
-        <div style={{ 
-          position: 'absolute', inset: 0, 
-        backgroundImage: 'url("/images/screenshot-13.png")',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-          opacity: 0.1, zIndex: -1 
-        }} />
-        
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px' }}>
-          
-          {/* Left Column: Strategic Message & Decision Card */}
-          <div style={{ padding: '20px 0' }}>
-            <h2 style={{ fontSize: '32px', fontWeight: '700', color: '#0b1f2a', marginBottom: '24px', lineHeight: '1.2' }}>
-              Why Documentation Fails —<br />
-              and What the System Enforces Instead
-            </h2>
-            <p style={{ fontSize: '18px', color: '#0b1f2a', fontWeight: '600', marginBottom: '16px' }}>
-              Compliance failures originate at the decision layer — not the documentation layer.
-            </p>
-            <p style={{ fontSize: '16px', color: '#475569', marginBottom: '40px', lineHeight: '1.6' }}>
-              Inspection risk increases when proof exists without an auditable decision rationale.
-            </p>
-
-            {/* Decision Record Visual Metaphor */}
-            <div style={{ backgroundColor: '#fff', padding: '32px', borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', position: 'relative', maxWidth: '450px' }}>
-               <div style={{ fontSize: '14px', fontWeight: '700', borderBottom: '2px solid #0b1f2a', paddingBottom: '8px', marginBottom: '20px', color: '#0b1f2a' }}>Decision Record</div>
-               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '4px' }}>
-                    <span style={{ fontSize: '12px', color: '#64748b' }}>Decision Basis</span>
-                    <CheckCircle size={14} style={{ color: '#2f8f8b' }} />
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '4px' }}>
-                    <span style={{ fontSize: '12px', color: '#64748b' }}>Decision Rationale</span>
-                    <span style={{ color: '#ef4444', fontSize: '11px', fontWeight: '800', letterSpacing: '0.05em' }}>[ MISSING RATIONALE ]</span>
-                  </div>
-               </div>
-               {/* Audit Finding Warning Badge */}
-               <div style={{ marginTop: '24px', backgroundColor: '#fef2f2', borderLeft: '4px solid #ef4444', padding: '12px', display: 'flex', gap: '10px', alignItems: 'center' }}>
-                  <div style={{ backgroundColor: '#ef4444', color: 'white', width: '20px', height: '20px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold' }}>!</div>
-                  <span style={{ fontSize: '13px', color: '#991b1b', fontWeight: '700' }}>Audit finding: Evidence approved without documented basis</span>
-               </div>
-            </div>
-          </div>
-
-          {/* Right Column: Enforcement Mechanism Schematic */}
-          <div style={{ padding: '20px 40px', position: 'relative', backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: '12px', backdropFilter: 'blur(4px)' }}>
-            <h3 style={{ fontSize: '28px', fontWeight: '700', color: '#0b1f2a', marginBottom: '40px' }}>What the System Enforces</h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', position: 'relative' }}>
-              {/* Vertical Schematic Connector */}
-              <div style={{ position: 'absolute', left: '16px', top: '32px', bottom: '32px', width: '2px', borderLeft: '2px dotted #cbd5e1' }} />
-
-              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2f8f8b', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>✓</div>
-                <div>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Evaluate decision against defensibility criteria</h4>
-                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>Decision must be provably defensible</p>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#f2b233', color: '#0b1f2a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>◊</div>
-                <div style={{ backgroundColor: '#fef3c7', padding: '16px', borderRadius: '4px', borderLeft: '4px solid #f2b233' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Permit proof generation (threshold met)</h4>
-                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '800' }}>Permission is granted only when thresholds are met</p>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#64748b', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '14px', zIndex: 1 }}>×</div>
-                <div>
-                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#0b1f2a', marginBottom: '4px' }}>Fail-closed: proof prohibited</h4>
-                  <p style={{ fontSize: '14px', color: '#0b1f2a', margin: 0, fontWeight: '700' }}>If decision is not defensible, proof is blocked</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Button Restore */}
-      <section style={{ padding: '80px 24px', textAlign: 'center' }}>
+      {/* CTA Section */}
+      <section style={{ padding: '80px 24px', textAlign: 'center', backgroundColor: 'white' }}>
         <Link to="/ddr" style={{
           display: 'inline-block',
           backgroundColor: '#F2B233',
           color: '#0B1F2A',
-          padding: '14px 32px',
+          padding: '16px 36px',
           borderRadius: '6px',
           textDecoration: 'none',
           fontSize: '16px',
-          fontWeight: '600',
+          fontWeight: '700',
           transition: 'all 0.2s',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+          boxShadow: '0 4px 12px rgba(242, 178, 51, 0.4)'
         }}>
           Start Decision Defensibility Assessment →
         </Link>
       </section>
     </div>
   );
-}; // Line 685: FIXED CLOSURE
-
-// DDRPage component restored with standalone status
-const DDRPage = () => {
-  return (
-    <div style={{ 
-      minHeight: '100vh', 
-     display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
-      backgroundColor: '#f8fafc', 
-      padding: '48px 24px' 
-    }}>
-      <div style={{ 
-        maxWidth: '600px', 
-        textAlign: 'center', 
-        backgroundColor: 'white', 
-        padding: '48px', 
-       borderRadius: '12px', 
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
-      }}>
-        <h1 style={{ fontSize: '32px', fontWeight: '700', color: '#1e293b', marginBottom: '16px' }}>
-          Decision Defensibility Review
-        </h1>
-        <p style={{ fontSize: '16px', color: '#64748b', marginBottom: '32px', lineHeight: '1.6' }}>
-          This is a placeholder for your DDR assessment flow.
-        </p>
-        <Link to="/" style={{ 
-         display: 'inline-block', 
-          backgroundColor: '#F2B233', 
-         color: '#0B1F2A', 
-         padding: '12px 24px', 
-          borderRadius: '6px', 
-          textDecoration: 'none', 
-          fontSize: '15px', 
-          fontWeight: '600' 
-        }}>
-          ← Back to Home
-        </Link>
-     </div>
-    </div>
-  );
 };
 
-// Main Router: NO CHANGES to UI, FIXED for Vercel
+// App Component
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        
-        {/* These routes connect your governed DDR spine */}
-        <Route path="/ddr" element={<Navigate to="/ddr/assessment" />} />
+        <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
         <Route path="/ddr/assessment" element={<FinalAssessment />} />
         <Route path="/ddr/context" element={<DecisionContext />} />
         <Route path="/ddr/risk-exposure" element={<RiskExposure />} />
