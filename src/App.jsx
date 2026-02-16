@@ -1,5 +1,12 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, Outlet, Navigate } from 'react-router-dom';
+import FinalAssessment from './ddr/FinalAssessment';
+import DecisionContext from './ddr/DecisionContext';
+import RiskExposure from './ddr/RiskExposure';
+import EvidenceSet from './ddr/EvidenceSet';
+import ReviewTraceability from './ddr/ReviewTraceability';
+import DDRSummary from './ddr/DDRSummary';
+import DecisionOutcome from './ddr/DecisionOutcome';
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
