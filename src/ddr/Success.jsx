@@ -24,13 +24,14 @@ export default function Success() {
               style={{
                 fontSize: "34px",
                 fontWeight: "600",
-                marginBottom: "12px"
+                marginBottom: "12px",
+                color: "#027A48" // Subtle shift to Green to signal successful payment
               }}
             >
-              Record Locked
+              Payment Successful
             </h1>
             <p style={{ fontSize: "16px", color: "#475467" }}>
-              The Decision Defensibility Record has been finalized and sealed.
+              Your Authorization Record and Evidence Index have been unlocked.
             </p>
           </header>
 
@@ -41,7 +42,8 @@ export default function Success() {
               border: "1px solid #EAECF0",
               borderRadius: "12px",
               padding: "32px",
-              marginBottom: "32px"
+              marginBottom: "32px",
+              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
             }}
           >
             <h3
@@ -51,13 +53,13 @@ export default function Success() {
                 marginBottom: "16px"
               }}
             >
-              Authorization Confirmation
+              Transaction & Authorization Confirmation
             </h3>
 
             <p style={{ fontSize: "15px", color: "#344054", lineHeight: "1.6" }}>
-              This decision has completed the Deterministic Decision Review (DDR)
-              process. The record is immutable and audit-defensible. No further
-              changes can be made.
+              The Deterministic Decision Review (DDR) process is now complete. You now have full 
+              access to the immutable record and the finalized evidence set. A receipt and a digital 
+              copy of the sealed record have been dispatched to your email.
             </p>
 
             <div
@@ -65,15 +67,15 @@ export default function Success() {
                 marginTop: "24px",
                 padding: "20px",
                 borderRadius: "8px",
-                background: "#F2F4F7",
-                border: "1px solid #EAECF0"
+                background: "#ECFDF3", // Success Green tint
+                border: "1px solid #D1FADF"
               }}
             >
-              <div style={{ fontSize: "13px", color: "#667085", marginBottom: "6px" }}>
-                Record Status
+              <div style={{ fontSize: "13px", color: "#067647", marginBottom: "6px", fontWeight: "700" }}>
+                Current Status
               </div>
               <div style={{ fontSize: "16px", fontWeight: "600", color: "#027A48" }}>
-                Locked · Immutable · Audit-Ready
+                Paid · Locked · Immutable · Audit-Ready
               </div>
             </div>
           </div>
@@ -90,8 +92,8 @@ export default function Success() {
             }}
           >
             <p style={{ fontSize: "14px", color: "#475467", margin: 0 }}>
-              This confirmation represents the final state of the DDR lifecycle.
-              Any future changes require initiation of a new decision record.
+              This record represents the final validated state of the DDR lifecycle. 
+              The evidence index is now preserved for regulatory inspection.
             </p>
           </div>
 
@@ -112,7 +114,7 @@ export default function Success() {
                 boxShadow: "0 4px 12px rgba(16,24,40,0.2)"
               }}
             >
-              Return to Home
+              Go to Dashboard
             </button>
 
             <button
@@ -127,7 +129,7 @@ export default function Success() {
                 cursor: "pointer"
               }}
             >
-              Start a New Decision
+              Start New Assessment
             </button>
           </div>
         </div>
