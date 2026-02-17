@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
+export const AuthContext = React.createContext();
+
 // Import DDR components - Vite will resolve .jsx/.js automatically
 import FinalAssessment from './ddr/FinalAssessment.jsx';
 import DecisionContext from './ddr/DecisionContext.jsx';
@@ -177,6 +179,44 @@ const MainLayout = ({ children }) => {
             marginBottom: '48px'
           }}>
             <div>
+              
+              // src/App.jsx
+export default function App() {
+  const [identity, setIdentity] = useState(null);
+    useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
+      callback: (response) => {
+        const payload = JSON.parse(atob(response.credential.split('.')[1]));
+        setIdentity(payload.email);
+        localStorage.setItem('cw_identity', payload.email);
+        window.location.href = '/access'; 
+      },
+      auto_select: true 
+    });
+
+    const savedIdentity = localStorage.getItem('cw_identity');
+    if (savedIdentity) setIdentity(savedIdentity);
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ identity, setIdentity }}>
+      {/* Rest of your existing return block... */}
+
+  return (
+    <AuthContext.Provider value={{ identity, setIdentity }}> 
+      {/* Existing Router and MainLayout logic follows */}
+      <Router>
+        <MainLayout>
+           <Routes>
+             {/* Your existing routes */}
+           </Routes>
+        </MainLayout>
+      </Router>
+    </AuthContext.Provider>
+  );
+}
               <h3 style={{
                 fontSize: '16px',
                 fontWeight: '700',
