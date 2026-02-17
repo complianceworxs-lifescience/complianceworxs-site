@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
-// Import DDR components - Centralized in the /ddr folder
+// Import DDR components - Vite will resolve .jsx/.js automatically
 import FinalAssessment from './ddr/FinalAssessment.jsx';
 import DecisionContext from './ddr/DecisionContext.jsx';
 import RiskExposure from './ddr/RiskExposure.jsx';
@@ -9,7 +9,7 @@ import EvidenceSet from './ddr/EvidenceSet.jsx';
 import ReviewTraceability from './ddr/ReviewTraceability.jsx';
 import DDRSummary from './ddr/DDRSummary.jsx';
 import DecisionOutcome from './ddr/DecisionOutcome.jsx';
-import Success from './ddr/Success.jsx'; // Pointing to your new location
+import Success from './ddr/Success.jsx';
 
 // Import Root Pages
 import Pricing from './Pricing.jsx';
