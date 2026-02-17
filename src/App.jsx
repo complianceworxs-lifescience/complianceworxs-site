@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
 export const AuthContext = React.createContext();
@@ -16,6 +16,7 @@ import Success from './ddr/Success.jsx';
 // Import Root Pages
 import Pricing from './Pricing.jsx';
 import Intelligence from './Intelligence.jsx';
+import AccessPage from './ddr/Access.jsx'; // Context: Added for the identity redirect
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
@@ -132,14 +133,14 @@ const MainLayout = ({ children }) => {
             }}>
               Security
             </a>
-            <a href="#access" style={{
+            <Link to="/access" style={{ // Changed to Link to match routing
               color: '#475569',
               textDecoration: 'none',
               fontSize: '15px',
               fontWeight: '500'
             }}>
               Access
-            </a>
+            </Link>
             <Link to="/ddr" style={{
               backgroundColor: '#F2B233',
               color: '#0B1F2A',
@@ -179,44 +180,6 @@ const MainLayout = ({ children }) => {
             marginBottom: '48px'
           }}>
             <div>
-              
-              // src/App.jsx
-export default function App() {
-  const [identity, setIdentity] = useState(null);
-    useEffect(() => {
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
-      callback: (response) => {
-        const payload = JSON.parse(atob(response.credential.split('.')[1]));
-        setIdentity(payload.email);
-        localStorage.setItem('cw_identity', payload.email);
-        window.location.href = '/access'; 
-      },
-      auto_select: true 
-    });
-
-    const savedIdentity = localStorage.getItem('cw_identity');
-    if (savedIdentity) setIdentity(savedIdentity);
-  }, []);
-
-  return (
-    <AuthContext.Provider value={{ identity, setIdentity }}>
-      {/* Rest of your existing return block... */}
-
-  return (
-    <AuthContext.Provider value={{ identity, setIdentity }}> 
-      {/* Existing Router and MainLayout logic follows */}
-      <Router>
-        <MainLayout>
-           <Routes>
-             {/* Your existing routes */}
-           </Routes>
-        </MainLayout>
-      </Router>
-    </AuthContext.Provider>
-  );
-}
               <h3 style={{
                 fontSize: '16px',
                 fontWeight: '700',
@@ -692,25 +655,49 @@ const Home = () => {
 };
 
 // App Component
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        <Route path="/pricing" element={<MainLayout><Pricing /></MainLayout>} />
-        <Route path="/intelligence" element={<MainLayout><Intelligence /></MainLayout>} />
+export default function App() {
+  const [identity, setIdentity] = useState(null);
 
-        <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
-        <Route path="/ddr/assessment" element={<FinalAssessment />} />
-        <Route path="/ddr/context" element={<DecisionContext />} />
-        <Route path="/ddr/risk-exposure" element={<RiskExposure />} />
-        <Route path="/ddr/evidence" element={<EvidenceSet />} />
-        <Route path="/ddr/traceability" element={<ReviewTraceability />} />
-        <Route path="/ddr/summary" element={<DDRSummary />} />
-        <Route path="/ddr/outcome" element={<DecisionOutcome />} />
-        <Route path="/success" element={<Success />} />
-      </Routes>
-    </Router>
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
+      callback: (response) => {
+        const payload = JSON.parse(atob(response.credential.split('.')[1]));
+        setIdentity(payload.email);
+        localStorage.setItem('cw_identity', payload.email);
+        window.location.href = '/access'; 
+      },
+      auto_select: true 
+    });
+
+    const savedIdentity = localStorage.getItem('cw_identity');
+    if (savedIdentity) setIdentity(savedIdentity);
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ identity, setIdentity }}>
+      <Router>
+        <MainLayout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/intelligence" element={<Intelligence />} />
+            <Route path="/access" element={<AccessPage />} /> {/* Route added for Identity First flow */}
+
+            <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
+            <Route path="/ddr/assessment" element={<FinalAssessment />} />
+            <Route path="/ddr/context" element={<DecisionContext />} />
+            <Route path="/ddr/risk-exposure" element={<RiskExposure />} />
+            <Route path="/ddr/evidence" element={<EvidenceSet />} />
+            <Route path="/ddr/traceability" element={<ReviewTraceability />} />
+            <Route path="/ddr/summary" element={<DDRSummary />} />
+            <Route path="/ddr/outcome" element={<DecisionOutcome />} />
+            <Route path="/success" element={<Success />} />
+          </Routes>
+        </MainLayout>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
