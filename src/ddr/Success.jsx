@@ -25,13 +25,13 @@ export default function Success() {
                 fontSize: "34px",
                 fontWeight: "600",
                 marginBottom: "12px",
-                color: "#027A48" // Subtle shift to Green to signal successful payment
+                color: "#027A48" 
               }}
             >
-              Payment Successful
+              Decision Authorization Issued
             </h1>
             <p style={{ fontSize: "16px", color: "#475467" }}>
-              Your Authorization Record and Evidence Index have been unlocked.
+              Your Decision Authorization Record has been formally issued and timestamped based on the completed assessment and DDR outcome.
             </p>
           </header>
 
@@ -53,13 +53,13 @@ export default function Success() {
                 marginBottom: "16px"
               }}
             >
-              Transaction & Authorization Confirmation
+              Issuance Confirmation
             </h3>
 
             <p style={{ fontSize: "15px", color: "#344054", lineHeight: "1.6" }}>
+              This record reflects the authorization state of the decision at the time it was made. 
               The Deterministic Decision Review (DDR) process is now complete. You now have full 
-              access to the immutable record and the finalized evidence set. A receipt and a digital 
-              copy of the sealed record have been dispatched to your email.
+              access to the immutable record and the finalized evidence set.
             </p>
 
             <div
@@ -75,7 +75,7 @@ export default function Success() {
                 Current Status
               </div>
               <div style={{ fontSize: "16px", fontWeight: "600", color: "#027A48" }}>
-                Paid · Locked · Immutable · Audit-Ready
+                Issued · Locked · Immutable · Audit-Ready
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function Success() {
           >
             <p style={{ fontSize: "14px", color: "#475467", margin: 0 }}>
               This record represents the final validated state of the DDR lifecycle. 
-              The evidence index is now preserved for regulatory inspection.
+              You may now retain this record for internal review or audit purposes.
             </p>
           </div>
 
