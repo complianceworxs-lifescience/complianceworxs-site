@@ -642,6 +642,20 @@ const Home = () => {
     </div>
   );
 };
+const Intelligence = () => {
+  return (
+    <MainLayout>
+      <section style={{ padding: '96px 24px', maxWidth: '1200px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: 800, color: '#0b1f2a', marginBottom: '24px' }}>
+          Intelligence Stream
+        </h1>
+        <p style={{ fontSize: '18px', color: '#475569', maxWidth: '720px' }}>
+          Continuous regulatory signals, system decisions, and authorization insights.
+        </p>
+      </section>
+    </MainLayout>
+  );
+};
 
 // App Component
 function App() {
@@ -650,6 +664,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/intelligence" element={<Intelligence />} />
 
         <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
         <Route path="/ddr/assessment" element={<FinalAssessment />} />
