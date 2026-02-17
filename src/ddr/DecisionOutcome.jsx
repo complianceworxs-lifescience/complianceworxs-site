@@ -80,16 +80,31 @@ export default function DecisionOutcome() {
             />
           </div>
 
-          <div className="cta-row" style={{ marginTop: '32px', display: 'flex', gap: '16px' }}>
-            <button onClick={() => navigate('/ddr/risk')} className="button-secondary">
-              ← Back
-            </button>
-            <button onClick={handleContinue} className="button-primary">
-              Continue to Review →
-            </button>
-          </div>
+        import React from "react";
+import MainLayout from "../App";
+
+export default function Success() {
+  return (
+    <MainLayout>
+      <section style={{ padding: "96px 24px", textAlign: "center", background: "#F9FAFB", minHeight: "600px" }}>
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <h1 style={{ fontSize: "32px", fontWeight: "800", color: "#027A48", marginBottom: "16px" }}>
+            Payment Successful
+          </h1>
+          <p style={{ fontSize: "18px", color: "#475467", marginBottom: "12px" }}>
+            You now have full access to your immutable Authorization Record and Evidence Index.
+          </p>
+          <p style={{ fontSize: "16px", color: "#667085", marginBottom: "32px" }}>
+            A copy of your record and receipt has been sent to your email.
+          </p>
+          <button 
+            onClick={() => window.location.href = '/'}
+            style={{ background: "#101828", color: "#FFF", padding: "12px 24px", borderRadius: "6px", border: "none", fontWeight: "600" }}
+          >
+            Return to Dashboard
+          </button>
         </div>
-      </div>
-    </div>
+      </section>
+    </MainLayout>
   );
 }
