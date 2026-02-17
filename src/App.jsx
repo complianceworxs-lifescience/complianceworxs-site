@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
-// Import DDR components - Vite will resolve .jsx/.js automatically
+// Import DDR components - Centralized in the /ddr folder
 import FinalAssessment from './ddr/FinalAssessment.jsx';
 import DecisionContext from './ddr/DecisionContext.jsx';
 import RiskExposure from './ddr/RiskExposure.jsx';
@@ -9,7 +9,11 @@ import EvidenceSet from './ddr/EvidenceSet.jsx';
 import ReviewTraceability from './ddr/ReviewTraceability.jsx';
 import DDRSummary from './ddr/DDRSummary.jsx';
 import DecisionOutcome from './ddr/DecisionOutcome.jsx';
-import Success from './ddr/Success'; // Remove the .jsx
+import Success from './ddr/Success.jsx'; // Pointing to your new location
+
+// Import Root Pages
+import Pricing from './Pricing.jsx';
+import Intelligence from './Intelligence.jsx';
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
@@ -647,44 +651,14 @@ const Home = () => {
   );
 };
 
-const Pricing = () => {
-  return (
-    <MainLayout>
-      <section style={{ padding: '96px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '36px', fontWeight: 800, color: '#0b1f2a', marginBottom: '24px' }}>
-          Pricing
-        </h1>
-        <p style={{ fontSize: '18px', color: '#475569', maxWidth: '720px' }}>
-          Transparent access to authorization-grade compliance intelligence.
-        </p>
-      </section>
-    </MainLayout>
-  );
-};
-
-const Intelligence = () => {
-  return (
-    <MainLayout>
-      <section style={{ padding: '96px 24px', maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '36px', fontWeight: 800, color: '#0b1f2a', marginBottom: '24px' }}>
-          Intelligence Stream
-        </h1>
-        <p style={{ fontSize: '18px', color: '#475569', maxWidth: '720px' }}>
-          Continuous regulatory signals, system decisions, and authorization insights.
-        </p>
-      </section>
-    </MainLayout>
-  );
-};
-
 // App Component
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/intelligence" element={<Intelligence />} />
+        <Route path="/pricing" element={<MainLayout><Pricing /></MainLayout>} />
+        <Route path="/intelligence" element={<MainLayout><Intelligence /></MainLayout>} />
 
         <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
         <Route path="/ddr/assessment" element={<FinalAssessment />} />
