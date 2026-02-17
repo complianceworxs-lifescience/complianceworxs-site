@@ -16,7 +16,7 @@ import Success from './ddr/Success.jsx';
 // Import Root Pages
 import Pricing from './Pricing.jsx';
 import Intelligence from './Intelligence.jsx';
-import AccessPage from './ddr/Access.jsx'; // Context: Added for the identity redirect
+import AccessPage from './ddr/Access.jsx'; 
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
@@ -101,46 +101,11 @@ const MainLayout = ({ children }) => {
           </Link>
 
           <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-            <Link to="/" style={{
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
-            }}>
-              Overview
-            </Link>
-            <Link to="/pricing" style={{
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
-            }}>
-              Pricing
-            </Link>
-            <Link to="/intelligence" style={{
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
-            }}>
-              Intelligence Stream
-            </Link>
-            <a href="#security" style={{
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
-            }}>
-              Security
-            </a>
-            <Link to="/access" style={{ // Changed to Link to match routing
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
-            }}>
-              Access
-            </Link>
+            <Link to="/" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>Overview</Link>
+            <Link to="/pricing" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>Pricing</Link>
+            <Link to="/intelligence" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>Intelligence Stream</Link>
+            <a href="#security" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>Security</a>
+            <Link to="/access" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>Access</Link>
             <Link to="/ddr" style={{
               backgroundColor: '#F2B233',
               color: '#0B1F2A',
@@ -168,11 +133,7 @@ const MainLayout = ({ children }) => {
         color: 'white',
         padding: '48px 0 24px'
       }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 24px'
-        }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
@@ -180,39 +141,15 @@ const MainLayout = ({ children }) => {
             marginBottom: '48px'
           }}>
             <div>
-              <h3 style={{
-                fontSize: '16px',
-                fontWeight: '700',
-                marginBottom: '16px',
-                letterSpacing: '0.5px'
-              }}>
-                COMPLIANCEWORKXS
-              </h3>
-              <p style={{
-                fontSize: '13px',
-                lineHeight: '1.6',
-                opacity: '0.85'
-              }}>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '16px', letterSpacing: '0.5px' }}>COMPLIANCEWORKXS</h3>
+              <p style={{ fontSize: '13px', lineHeight: '1.6', opacity: '0.85' }}>
                 A promised compliance partner that performs proofs insights, shift towards an ecosystem of verifiable, defendible.
               </p>
             </div>
 
             <div>
-              <h4 style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                marginBottom: '16px',
-                color: 'white'
-              }}>
-                Governance
-              </h4>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                fontSize: '13px',
-                lineHeight: '2'
-              }}>
+              <h4 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '16px', color: 'white' }}>Governance</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '13px', lineHeight: '2' }}>
                 <li style={{ opacity: '0.85' }}>Quality measures</li>
                 <li style={{ opacity: '0.85' }}>Analysis of reg duty and story automated</li>
                 <li style={{ opacity: '0.85' }}>Audit admin files</li>
@@ -222,21 +159,8 @@ const MainLayout = ({ children }) => {
             </div>
 
             <div>
-              <h4 style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                marginBottom: '16px',
-                color: 'white'
-              }}>
-                Intelligence
-              </h4>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                fontSize: '13px',
-                lineHeight: '2'
-              }}>
+              <h4 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '16px', color: 'white' }}>Intelligence</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '13px', lineHeight: '2' }}>
                 <li style={{ opacity: '0.85' }}>Regulatory Feedeals</li>
                 <li style={{ opacity: '0.85' }}>Hire Monty of investment</li>
                 <li style={{ opacity: '0.85' }}>Workflow dynamics</li>
@@ -246,21 +170,8 @@ const MainLayout = ({ children }) => {
             </div>
 
             <div>
-              <h4 style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                marginBottom: '16px',
-                color: 'white'
-              }}>
-                Legal & Procurement
-              </h4>
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                fontSize: '13px',
-                lineHeight: '2'
-              }}>
+              <h4 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '16px', color: 'white' }}>Legal & Procurement</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '13px', lineHeight: '2' }}>
                 <li style={{ opacity: '0.85' }}>Buyer FAQ</li>
                 <li style={{ opacity: '0.85' }}>Procd Rectie INAC</li>
                 <li style={{ opacity: '0.85' }}>Regulatory Byproduct</li>
@@ -654,36 +565,37 @@ const Home = () => {
   );
 };
 
-// App Component
+// App Component (Updated with Google Identity sub and auto_select: false)
 export default function App() {
-  const [identity, setIdentity] = useState(null);
+  const [sub, setSub] = useState(null);
 
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
       client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
+      auto_select: false, // Explicitly disabled
       callback: (response) => {
         const payload = JSON.parse(atob(response.credential.split('.')[1]));
-        setIdentity(payload.email);
-        localStorage.setItem('cw_identity', payload.email);
-        window.location.href = '/access'; 
-      },
-      auto_select: true 
+        const googleSub = payload.sub; // Identity based on Google sub
+        setSub(googleSub);
+        localStorage.setItem('cw_sub', googleSub);
+        // Manual continuation from Access surface - no auto-redirect
+      }
     });
 
-    const savedIdentity = localStorage.getItem('cw_identity');
-    if (savedIdentity) setIdentity(savedIdentity);
+    const savedSub = localStorage.getItem('cw_sub');
+    if (savedSub) setSub(savedSub);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ identity, setIdentity }}>
+    <AuthContext.Provider value={{ sub, setSub }}>
       <Router>
         <MainLayout>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/intelligence" element={<Intelligence />} />
-            <Route path="/access" element={<AccessPage />} /> {/* Route added for Identity First flow */}
+            <Route path="/access" element={<AccessPage />} />
 
             <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
             <Route path="/ddr/assessment" element={<FinalAssessment />} />
