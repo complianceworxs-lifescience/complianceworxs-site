@@ -12,7 +12,21 @@ export default function DecisionOutcome() {
           <h2>Step 5: Decision Outcome</h2>
           <p className="subtext">Document the defendable decision and its justification.</p>
 
-          {/* Form Fields for Decision, Justification, and Approver */}
+          {/* PRESERVED: Decision Authority Panel */}
+          <div className="panel panel-authorized" style={{ 
+            marginBottom: '24px', 
+            backgroundColor: 'rgba(255, 184, 0, 0.05)', 
+            padding: '20px', 
+            borderRadius: '8px',
+            borderLeft: '4px solid #FFB800'
+          }}>
+            <h3 className="panel-title" style={{ color: '#FFB800' }}>Decision Authority</h3>
+            <p className="panel-body">
+              This is the critical moment: your decision must be defendable under regulatory scrutiny. 
+              The DDR engine will verify logic consistency before allowing authorization.
+            </p>
+          </div>
+
           <div className="form-group">
             <label>Decision</label>
             <select value={decision} onChange={(e) => setDecision(e.target.value)}>
@@ -30,7 +44,7 @@ export default function DecisionOutcome() {
               value={justification}
               onChange={(e) => setJustification(e.target.value)}
               rows="6"
-              style={{ width: '100%', padding: '12px', borderRadius: '6px', background: 'rgba(255,255,255,0.05)', color: '#fff' }}
+              style={{ width: '100%', padding: '12px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.2)', backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#fff' }}
             />
           </div>
 
@@ -44,8 +58,8 @@ export default function DecisionOutcome() {
             />
           </div>
 
-          {/* THE MONEY MOMENT - REPLACES ALL PREVIOUS NAVIGATION */}
-          <div style={{ textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px' }}>
+          {/* NEW: Monetization Button */}
+          <div style={{ textAlign: 'center', borderTop: '1px solid #eee', paddingTop: '32px' }}>
              <button
                 onClick={() => window.location.href = 'https://buy.stripe.com/your_live_link_here'}
                 disabled={!decision || justification.length < 100 || !approver}
