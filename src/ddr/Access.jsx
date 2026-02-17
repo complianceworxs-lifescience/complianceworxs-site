@@ -1,75 +1,97 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../App';
 
-export default function AccessPage({ userEmail, issuedRecord }) {
-  const navigate = useNavigate();
+export default function Access() {
+  const { identity } = useContext(AuthContext);
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    // Entitlement Check: Only run if identity (email) is resolved
+    if (identity) {
+      // This is where you will eventually fetch from your DB using the email
+      // For now, it checks if a record was just issued in this session
+      const issued = localStorage.getItem('cw_last_issued');
+      if (issued) {
+        setRecords([JSON.parse(issued)]);
+      }
+    }
+  }, [identity]);
+
+  // Guard: If no identity, show minimal auth prompt
+  if (!identity) {
+    return (
+      <div style={{ padding: '100px 24px', textAlign: 'center', fontFamily: 'Inter, sans-serif' }}>
+        <h2 style={{ color: '#0B1F2A' }}>Access Restricted</h2>
+        <p style={{ color: '#64748b' }}>Please sign in with Google to view your issued records.</p>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ background: "#F9FAFB", minHeight: "100vh", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
-      <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-        
-        {/* Status Block — Mandatory */}
-        <div style={{ marginBottom: "48px", borderBottom: "1px solid #EAECF0", paddingBottom: "24px" }}>
-          <div style={{ fontSize: "14px", fontWeight: "700", color: "#027A48", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            Access Status: Active
-          </div>
-          <div style={{ fontSize: "16px", color: "#667085", marginTop: "4px" }}>
-            Signed in as: {userEmail}
-          </div>
-        </div>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '60px 24px', fontFamily: 'Inter, sans-serif' }}>
+      {/* Status Block - Grounding the identity immediately */}
+      <div style={{ borderBottom: '1px solid #e5e7eb', paddingBottom: '24px', marginBottom: '40px' }}>
+        <h2 style={{ fontSize: '24px', color: '#027A48', margin: 0 }}>Access Status: Active</h2>
+        <p style={{ color: '#667085', marginTop: '4px' }}>Signed in as: <strong>{identity}</strong></p>
+      </div>
 
-        {/* Primary Section — Issued Records */}
-        <section style={{ marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "18px", fontWeight: "600", color: "#101828", marginBottom: "20px" }}>
-            Issued Decision Records
-          </h2>
-          
-          {issuedRecord ? (
-            <div style={{ background: "#FFFFFF", border: "1px solid #EAECF0", borderRadius: "8px", padding: "20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      {/* Issued Records Section */}
+      <section>
+        <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#0B1F2A', marginBottom: '20px' }}>
+          Issued Authorization Records
+        </h3>
+        
+        {records.length > 0 ? (
+          records.map((record, index) => (
+            <div key={index} style={{ 
+              border: '1px solid #e2e8f0', 
+              borderRadius: '8px', 
+              padding: '24px',
+              backgroundColor: '#f8fafc',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}>
               <div>
-                <div style={{ fontWeight: "600", color: "#101828" }}>Decision Authorization Record</div>
-                <div style={{ fontSize: "14px", color: "#667085" }}>Status: Issued · {issuedRecord.timestamp}</div>
+                <div style={{ fontWeight: '700', color: '#0B1F2A' }}>Decision Authorization Record</div>
+                <div style={{ fontSize: '13px', color: '#64748b' }}>Status: Issued · {new Date().toLocaleDateString()}</div>
               </div>
-              <button onClick={() => navigate('/record/view')} style={{ color: "#027A48", fontWeight: "600", background: "none", border: "none", cursor: "pointer" }}>
-                View Record
+              <button style={{ 
+                padding: '10px 20px', 
+                backgroundColor: '#0B1F2A', 
+                color: 'white', 
+                borderRadius: '4px',
+                border: 'none',
+                fontWeight: '600',
+                cursor: 'pointer'
+              }}>
+                Download PDF
               </button>
             </div>
-          ) : (
-            <div style={{ color: "#667085", fontSize: "15px", fontStyle: "italic" }}>
-              No authorization records have been issued for this account.
-            </div>
-          )}
-        </section>
+          ))
+        ) : (
+          <div style={{ padding: '40px', textAlign: 'center', border: '2px dashed #e2e8f0', borderRadius: '12px' }}>
+            <p style={{ color: '#64748b', margin: 0 }}>No authorization records have been issued for this account.</p>
+          </div>
+        )}
+      </section>
 
-        {/* Actions Section — Contextual */}
-        <section style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <button 
-            onClick={() => navigate('/ddr/assessment')}
-            style={{ width: "100%", background: "#101828", color: "#FFF", padding: "14px", borderRadius: "6px", fontWeight: "600", border: "none", cursor: "pointer" }}
-          >
-            Start New Assessment
-          </button>
-          
-          {/* Conditional: Unpaid Outcome exists */}
-          {!issuedRecord && (
-             <div style={{ textAlign: "center" }}>
-               <button 
-                 onClick={() => window.location.href = 'https://buy.stripe.com/link'}
-                 style={{ width: "100%", background: "#F2B233", color: "#0B1F2A", padding: "14px", borderRadius: "6px", fontWeight: "700", border: "none", cursor: "pointer", marginBottom: "8px" }}
-               >
-                 Issue Authorization Record
-               </button>
-               <span style={{ fontSize: "12px", color: "#667085" }}>
-                 Formal issuance required to retain this decision as a defensible record.
-               </span>
-             </div>
-          )}
-        </section>
-
-        {/* Footer — Minimal */}
-        <footer style={{ marginTop: "80px", borderTop: "1px solid #EAECF0", paddingTop: "24px", textAlign: "center", fontSize: "13px", color: "#98A2B3" }}>
-          Privacy · Terms · <span style={{ cursor: "pointer", textDecoration: "underline" }} onClick={() => console.log('Sign Out')}>Sign out</span>
-        </footer>
+      {/* Primary Action */}
+      <div style={{ marginTop: '40px' }}>
+        <button 
+          onClick={() => window.location.href = '/ddr'}
+          style={{ 
+            backgroundColor: '#F2B233', 
+            color: '#0B1F2A', 
+            padding: '12px 32px', 
+            borderRadius: '6px', 
+            border: 'none', 
+            fontWeight: '700',
+            cursor: 'pointer'
+          }}
+        >
+          Start New Assessment
+        </button>
       </div>
     </div>
   );
