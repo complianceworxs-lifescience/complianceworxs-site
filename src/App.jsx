@@ -9,7 +9,7 @@ import EvidenceSet from './ddr/EvidenceSet.jsx';
 import ReviewTraceability from './ddr/ReviewTraceability.jsx';
 import DDRSummary from './ddr/DDRSummary.jsx';
 import DecisionOutcome from './ddr/DecisionOutcome.jsx';
-import Success from './ddr/success.jsx';
+import Success from './ddr/Success'; // Remove the .jsx
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
