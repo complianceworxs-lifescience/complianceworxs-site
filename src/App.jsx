@@ -101,14 +101,11 @@ const MainLayout = ({ children }) => {
               fontWeight: '500'
             }}>
               Overview
+            <Link to="/pricing" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>
+            Pricing
             </Link>
-            <a href="#pricing" style={{
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
             }}>
-              Pricing
+              
             </a>
             <a href="#intelligence" style={{
               color: '#475569',
@@ -118,11 +115,10 @@ const MainLayout = ({ children }) => {
             }}>
               Intelligence Stream
             </a>
-            <a href="#security" style={{
-              color: '#475569',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: '500'
+            <Link to="/intelligence" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>
+  Intelligence Stream
+</Link>
+
             }}>
               Security
             </a>
@@ -653,6 +649,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+        <Route path="/pricing" element={<Pricing />} />
+
         <Route path="/ddr" element={<Navigate to="/ddr/assessment" replace />} />
         <Route path="/ddr/assessment" element={<FinalAssessment />} />
         <Route path="/ddr/context" element={<DecisionContext />} />
