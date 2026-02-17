@@ -1,86 +1,73 @@
-import React, { useState } from "react";
+import React from "react";
+import MainLayout from "../App";
 
 export default function DecisionOutcome() {
-  const [decision, setDecision] = useState("");
-  const [justification, setJustification] = useState("");
-  const [approver, setApprover] = useState("");
-
   return (
-    <div className="ddr-page">
-      <div className="container">
-        <div className="assessment-card">
-          <h2>Step 5: Decision Outcome</h2>
-          <p className="subtext">Document the defendable decision and its justification.</p>
+    <MainLayout>
+      <div style={{ background: "#F9FAFB", minHeight: "80vh", padding: "80px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+          
+          {/* A. Outcome Status */}
+          <header style={{ marginBottom: "48px" }}>
+            <div style={{ 
+              display: "inline-block", 
+              padding: "8px 16px", 
+              borderRadius: "20px", 
+              background: "#FEF0C7", 
+              color: "#B54708", 
+              fontWeight: "700",
+              fontSize: "14px",
+              marginBottom: "16px",
+              textTransform: "uppercase"
+            }}>
+              Decision Status: Conditional Authorization
+            </div>
+            <h1 style={{ fontSize: "36px", fontWeight: "800", color: "#101828", marginBottom: "16px" }}>
+              Evaluation Complete
+            </h1>
+            <p style={{ fontSize: "18px", color: "#475467" }}>
+              This decision carries regulatory exposure under the evaluated conditions.
+            </p>
+          </header>
 
-          {/* PRESERVED: Decision Authority Panel */}
-          <div className="panel panel-authorized" style={{ 
-            marginBottom: '24px', 
-            backgroundColor: 'rgba(255, 184, 0, 0.05)', 
-            padding: '20px', 
-            borderRadius: '8px',
-            borderLeft: '4px solid #FFB800'
+          {/* B. Context (Authorization Required) */}
+          <div style={{ 
+            background: "#FFFFFF", 
+            border: "1px solid #EAECF0", 
+            borderRadius: "12px", 
+            padding: "40px", 
+            marginBottom: "40px",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.03)"
           }}>
-            <h3 className="panel-title" style={{ color: '#FFB800' }}>Decision Authority</h3>
-            <p className="panel-body">
-              This is the critical moment: your decision must be defendable under regulatory scrutiny. 
-              The DDR engine will verify logic consistency before allowing authorization.
+            <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "12px" }}>
+              Authorization Required
+            </h2>
+            <p style={{ fontSize: "16px", color: "#475467", margin: 0 }}>
+              To retain this decision as a defensible record, formal authorization must be issued.
             </p>
           </div>
 
-          <div className="form-group">
-            <label>Decision</label>
-            <select value={decision} onChange={(e) => setDecision(e.target.value)}>
-              <option value="">Select decision outcome</option>
-              <option value="approve">Approve - No Exceptions</option>
-              <option value="approve-conditional">Approve - With Conditions</option>
-              <option value="defer">Defer - Additional Evidence Required</option>
-              <option value="reject">Reject - Does Not Meet Requirements</option>
-            </select>
-          </div>
-
-          <div className="form-group" style={{ marginTop: '20px' }}>
-            <label>Justification (minimum 100 characters)</label>
-            <textarea 
-              value={justification}
-              onChange={(e) => setJustification(e.target.value)}
-              rows="6"
-              style={{ width: '100%', padding: '12px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.2)', backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#fff' }}
-            />
-          </div>
-
-          <div className="form-group" style={{ marginTop: '20px', marginBottom: '40px' }}>
-            <label>Approver / Decision Owner</label>
-            <input 
-              type="text"
-              value={approver}
-              onChange={(e) => setApprover(e.target.value)}
-              style={{ width: '100%', padding: '12px', borderRadius: '6px' }}
-            />
-          </div>
-
-          {/* NEW: Monetization Button */}
-          <div style={{ textAlign: 'center', borderTop: '1px solid #eee', paddingTop: '32px' }}>
-             <button
-                onClick={() => window.location.href = 'https://buy.stripe.com/your_live_link_here'}
-                disabled={!decision || justification.length < 100 || !approver}
-                style={{
-                  backgroundColor: '#F2B233',
-                  color: '#0B1F2A',
-                  padding: '20px 40px',
-                  borderRadius: '8px',
-                  border: 'none',
-                  fontSize: '18px',
-                  fontWeight: '800',
-                  cursor: 'pointer',
-                  width: '100%',
-                  opacity: (!decision || justification.length < 100 || !approver) ? 0.5 : 1
-                }}
-              >
-                Generate Authorization Record →
-              </button>
-          </div>
+          {/* C. Action (The Only Action) */}
+          <button
+            onClick={() => window.location.href = 'https://buy.stripe.com/your_live_link_here'}
+            style={{
+              backgroundColor: "#F2B233",
+              color: "#0B1F2A",
+              padding: "20px 48px",
+              borderRadius: "8px",
+              border: "none",
+              fontSize: "20px",
+              fontWeight: "800",
+              cursor: "pointer",
+              width: "100%",
+              boxShadow: "0 4px 15px rgba(242, 178, 51, 0.4)",
+              transition: "transform 0.1s"
+            }}
+          >
+            Issue Authorization Record — $499
+          </button>
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 }
