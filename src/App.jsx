@@ -101,24 +101,28 @@ const MainLayout = ({ children }) => {
               fontWeight: '500'
             }}>
               Overview
-            <Link to="/pricing" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>
-            Pricing
             </Link>
+            <Link to="/pricing" style={{
+              color: '#475569',
+              textDecoration: 'none',
+              fontSize: '15px',
+              fontWeight: '500'
             }}>
-              
-            </a>
-            <a href="#intelligence" style={{
+              Pricing
+            </Link>
+            <Link to="/intelligence" style={{
               color: '#475569',
               textDecoration: 'none',
               fontSize: '15px',
               fontWeight: '500'
             }}>
               Intelligence Stream
-            </a>
-            <Link to="/intelligence" style={{ color: '#475569', textDecoration: 'none', fontSize: '15px', fontWeight: '500' }}>
-  Intelligence Stream
-</Link>
-
+            </Link>
+            <a href="#security" style={{
+              color: '#475569',
+              textDecoration: 'none',
+              fontSize: '15px',
+              fontWeight: '500'
             }}>
               Security
             </a>
@@ -642,6 +646,22 @@ const Home = () => {
     </div>
   );
 };
+
+const Pricing = () => {
+  return (
+    <MainLayout>
+      <section style={{ padding: '96px 24px', maxWidth: '1200px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: 800, color: '#0b1f2a', marginBottom: '24px' }}>
+          Pricing
+        </h1>
+        <p style={{ fontSize: '18px', color: '#475569', maxWidth: '720px' }}>
+          Transparent access to authorization-grade compliance intelligence.
+        </p>
+      </section>
+    </MainLayout>
+  );
+};
+
 const Intelligence = () => {
   return (
     <MainLayout>
