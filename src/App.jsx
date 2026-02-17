@@ -303,7 +303,7 @@ const Home = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("/images/Screenshot (15).png")'
+          backgroundImage: 'url("/images/Screenshot (15).png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.2,
