@@ -1,19 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function DecisionOutcome() {
-  const navigate = useNavigate();
   const [decision, setDecision] = useState("");
   const [justification, setJustification] = useState("");
   const [approver, setApprover] = useState("");
-
-  const handleContinue = () => {
-    if (!decision || !justification || !approver) {
-      alert("Please complete all decision outcome fields.");
-      return;
-    }
-    navigate("/ddr/traceability");
-  };
 
   return (
     <div className="ddr-page">
@@ -22,20 +12,7 @@ export default function DecisionOutcome() {
           <h2>Step 5: Decision Outcome</h2>
           <p className="subtext">Document the defendable decision and its justification.</p>
 
-          <div className="panel panel-authorized" style={{ 
-            marginBottom: '24px', 
-            backgroundColor: 'rgba(255, 184, 0, 0.05)', 
-            padding: '20px', 
-            borderRadius: '8px',
-            borderLeft: '4px solid #FFB800'
-          }}>
-            <h3 className="panel-title" style={{ color: '#FFB800' }}>Decision Authority</h3>
-            <p className="panel-body">
-              This is the critical moment: your decision must be defendable under regulatory scrutiny. 
-              The DDR engine will verify logic consistency before allowing authorization.
-            </p>
-          </div>
-
+          {/* Form Fields for Decision, Justification, and Approver */}
           <div className="form-group">
             <label>Decision</label>
             <select value={decision} onChange={(e) => setDecision(e.target.value)}>
@@ -53,58 +30,43 @@ export default function DecisionOutcome() {
               value={justification}
               onChange={(e) => setJustification(e.target.value)}
               rows="6"
-              placeholder="Provide a detailed regulatory justification for this decision..."
-              style={{
-                width: '100%',
-                padding: '12px',
-                borderRadius: '6px',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                color: '#fff',
-                fontFamily: 'inherit',
-                fontSize: '1rem'
-              }}
+              style={{ width: '100%', padding: '12px', borderRadius: '6px', background: 'rgba(255,255,255,0.05)', color: '#fff' }}
             />
-            <small style={{ color: justification.length < 100 ? '#FFB800' : '#10b981' }}>
-              {justification.length} / 100 characters minimum
-            </small>
           </div>
 
-          <div className="form-group" style={{ marginTop: '20px' }}>
+          <div className="form-group" style={{ marginTop: '20px', marginBottom: '40px' }}>
             <label>Approver / Decision Owner</label>
             <input 
               type="text"
               value={approver}
               onChange={(e) => setApprover(e.target.value)}
-              placeholder="Name and role of decision authority"
+              style={{ width: '100%', padding: '12px', borderRadius: '6px' }}
             />
           </div>
 
-        import React from "react";
-import MainLayout from "../App";
-
-export default function Success() {
-  return (
-    <MainLayout>
-      <section style={{ padding: "96px 24px", textAlign: "center", background: "#F9FAFB", minHeight: "600px" }}>
-        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <h1 style={{ fontSize: "32px", fontWeight: "800", color: "#027A48", marginBottom: "16px" }}>
-            Payment Successful
-          </h1>
-          <p style={{ fontSize: "18px", color: "#475467", marginBottom: "12px" }}>
-            You now have full access to your immutable Authorization Record and Evidence Index.
-          </p>
-          <p style={{ fontSize: "16px", color: "#667085", marginBottom: "32px" }}>
-            A copy of your record and receipt has been sent to your email.
-          </p>
-          <button 
-            onClick={() => window.location.href = '/'}
-            style={{ background: "#101828", color: "#FFF", padding: "12px 24px", borderRadius: "6px", border: "none", fontWeight: "600" }}
-          >
-            Return to Dashboard
-          </button>
+          {/* THE MONEY MOMENT - REPLACES ALL PREVIOUS NAVIGATION */}
+          <div style={{ textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px' }}>
+             <button
+                onClick={() => window.location.href = 'https://buy.stripe.com/your_live_link_here'}
+                disabled={!decision || justification.length < 100 || !approver}
+                style={{
+                  backgroundColor: '#F2B233',
+                  color: '#0B1F2A',
+                  padding: '20px 40px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  fontSize: '18px',
+                  fontWeight: '800',
+                  cursor: 'pointer',
+                  width: '100%',
+                  opacity: (!decision || justification.length < 100 || !approver) ? 0.5 : 1
+                }}
+              >
+                Generate Authorization Record →
+              </button>
+          </div>
         </div>
-      </section>
-    </MainLayout>
+      </div>
+    </div>
   );
 }
