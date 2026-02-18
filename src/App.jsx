@@ -564,11 +564,18 @@ const Home = () => {
   );
 };
 
-// App Component (FIXED SYNTAX)
+// App Component
 export default function App() {
   const [sub, setSub] = useState(null);
 
   useEffect(() => {
+    // Restore session from localStorage first
+    const savedSub = localStorage.getItem('cw_sub');
+    if (savedSub) {
+      setSub(savedSub);
+    }
+
+    // Initialize Google Identity Services if available
     /* global google */
     if (window.google && google.accounts) {
       google.accounts.id.initialize({
@@ -582,9 +589,6 @@ export default function App() {
         }
       });
     }
-    
-    const savedSub = localStorage.getItem('cw_sub');
-    if (savedSub) setSub(savedSub);
   }, []);
 
   return (
@@ -612,7 +616,6 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
-
 
 
 
