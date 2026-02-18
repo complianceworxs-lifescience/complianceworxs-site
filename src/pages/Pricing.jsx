@@ -7,8 +7,9 @@ export default function Pricing() {
 
   return (
     <MainLayout>
-      <main style={{ background: "#F9FAFB", color: "#101828" }}>
-        {/* HERO - Updated copy & padding */}
+      <main style={{ background: "#F9FAFB", color: "#101828", fontFamily: "Inter, sans-serif" }}>
+        
+        {/* 1. HERO SECTION */}
         <section
           style={{
             background: "linear-gradient(180deg, #0B3A4A 0%, #062B36 100%)",
@@ -17,63 +18,71 @@ export default function Pricing() {
             color: "#FFFFFF"
           }}
         >
-          <h1 style={{ fontSize: "40px", fontWeight: 600, marginBottom: 12 }}>
+          <h1 style={{ fontSize: "48px", fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>
             Get Full Compliance Intelligence
           </h1>
-          <p style={{ fontSize: "16px", opacity: 0.9 }}>
+          <p style={{ fontSize: "18px", opacity: 0.9, maxWidth: "700px", margin: "0 auto 8px" }}>
             Enterprise-grade compliance for complex regulatory environments.
-            <br />
+          </p>
+          <p style={{ fontSize: "18px", fontWeight: 500, color: "#12B76A" }}>
             Turn compliance gaps into defensible proof
           </p>
         </section>
 
-        {/* PLANS SECTION */}
-        <section style={{ padding: "72px 24px" }}>
-          {/* MONTHLY / ANNUAL TOGGLE (Visual Only) */}
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, marginBottom: 48 }}>
-            <span style={{ fontWeight: 600, color: "#101828" }}>Monthly</span>
-            <div style={{ 
-              width: 44, 
-              height: 24, 
-              background: "#EAECF0", 
-              borderRadius: 12, 
-              position: "relative",
-              cursor: "pointer"
-            }}>
-              <div style={{ 
-                width: 18, 
-                height: 18, 
-                background: "#FFFFFF", 
-                borderRadius: "50%", 
-                position: "absolute", 
-                top: 3, 
-                left: 3,
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
-              }} />
-            </div>
-            <span style={{ color: "#475467" }}>Annual</span>
+        {/* 2. MONTHLY/ANNUAL TOGGLE */}
+        <section style={{ padding: "48px 24px 0", textAlign: "center" }}>
+          <div style={{ 
+            display: "inline-flex", 
+            alignItems: "center", 
+            background: "#FFFFFF", 
+            padding: "4px", 
+            borderRadius: "8px", 
+            border: "1px solid #EAECF0",
+            boxShadow: "0 1px 2px rgba(16,24,40,0.05)" 
+          }}>
+            <button style={{ 
+              padding: "8px 16px", 
+              borderRadius: "6px", 
+              background: "#F2F4F7", 
+              border: "none", 
+              fontWeight: 600, 
+              fontSize: "14px",
+              cursor: "pointer" 
+            }}>Monthly</button>
+            <button style={{ 
+              padding: "8px 16px", 
+              borderRadius: "6px", 
+              background: "transparent", 
+              border: "none", 
+              fontWeight: 600, 
+              fontSize: "14px",
+              color: "#475467",
+              cursor: "pointer" 
+            }}>Annual</button>
             <span style={{ 
+              marginLeft: "8px", 
+              marginRight: "8px",
               background: "#ECFDF3", 
               color: "#027A48", 
               padding: "2px 8px", 
-              borderRadius: 16, 
-              fontSize: 12, 
+              borderRadius: "16px", 
+              fontSize: "12px", 
               fontWeight: 600 
-            }}>
-              Save 20%
-            </span>
+            }}>Save 20%</span>
           </div>
+        </section>
 
-          <div
-            style={{
-              maxWidth: 1100,
-              margin: "0 auto",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 24,
-              alignItems: "start"
-            }}
-          >
+        {/* 3. PLAN CARDS (3-COLUMN HIERARCHY) */}
+        <section style={{ padding: "48px 24px 72px" }}>
+          <div style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "0", /* Using 0 gap and padding to control hierarchy overlap if needed */
+            alignItems: "center"
+          }}>
+            
             {/* STANDARD */}
             <PlanCard
               title="Standard Authorization"
@@ -89,7 +98,7 @@ export default function Pricing() {
               ]}
             />
 
-            {/* PROFESSIONAL - MOST POPULAR */}
+            {/* PROFESSIONAL (CENTER CARD - DOMINANT) */}
             <PlanCard
               highlighted
               badge="MOST POPULAR"
@@ -116,7 +125,7 @@ export default function Pricing() {
               price="$899"
               subtitle="Organization-wide governance for inspection-grade decisions"
               button="Request Enterprise Authorization"
-              buttonStyle={{ background: "#101828" }}
+              isEnterprise
               onClick={() => navigate("/assessment")}
               features={[
                 "All Professional capabilities",
@@ -131,27 +140,17 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* COMPARE TABLE - Updated styling */}
-        <section style={{ padding: "48px 24px" }}>
-          <h2 style={{ textAlign: "center", marginBottom: 32 }}>
-            Compare Plans
-          </h2>
-
-          <div style={{ maxWidth: 1100, margin: "0 auto", overflowX: "auto" }}>
-            <table
-              style={{
-                width: "100%",
-                borderCollapse: "collapse",
-                background: "#FFFFFF",
-                border: "1px solid #EAECF0"
-              }}
-            >
+        {/* 5. COMPARE TABLE (CLEANUP) */}
+        <section style={{ padding: "48px 24px", background: "#FFFFFF" }}>
+          <h2 style={{ textAlign: "center", marginBottom: "40px", fontSize: "32px" }}>Compare Plans</h2>
+          <div style={{ maxWidth: "1000px", margin: "0 auto", overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
-                <tr style={{ background: "#F9FAFB" }}>
+                <tr style={{ background: "#F9FAFB", borderBottom: "1px solid #EAECF0" }}>
                   <Th>Feature</Th>
-                  <Th style={{ textAlign: "center" }}>Standard</Th>
-                  <Th style={{ textAlign: "center" }}>Professional</Th>
-                  <Th style={{ textAlign: "center" }}>Enterprise</Th>
+                  <Th align="center">Standard</Th>
+                  <Th align="center">Professional</Th>
+                  <Th align="center">Enterprise</Th>
                 </tr>
               </thead>
               <tbody>
@@ -172,11 +171,11 @@ export default function Pricing() {
                   ["Email support", true, true, true],
                   ["Priority support", false, true, true]
                 ].map(([label, s, p, e], i) => (
-                  <tr key={i} style={{ borderTop: "1px solid #EAECF0" }}>
+                  <tr key={i} style={{ borderBottom: "1px solid #EAECF0" }}>
                     <Td>{label}</Td>
-                    <Td style={{ textAlign: "center" }}>{s ? "✓" : "×"}</Td>
-                    <Td style={{ textAlign: "center" }}>{p ? "✓" : "×"}</Td>
-                    <Td style={{ textAlign: "center" }}>{e ? "✓" : "×"}</Td>
+                    <Td align="center">{s ? "✓" : "×"}</Td>
+                    <Td align="center">{p ? "✓" : "×"}</Td>
+                    <Td align="center">{e ? "✓" : "×"}</Td>
                   </tr>
                 ))}
               </tbody>
@@ -184,27 +183,16 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* TRUST STRIP & FINAL CTA */}
-        <section
-          style={{
-            background: "linear-gradient(180deg, #0B3A4A 0%, #062B36 100%)",
-            padding: "72px 24px",
-            textAlign: "center",
-            color: "#FFFFFF"
-          }}
-        >
-          {/* Trust Strip */}
+        {/* 6. TRUST STRIP & FINAL CTA */}
+        <section style={{ padding: "80px 24px", textAlign: "center", background: "#F9FAFB" }}>
           <div style={{ 
             display: "flex", 
             justifyContent: "center", 
-            gap: "40px", 
-            flexWrap: "wrap", 
-            marginBottom: "64px",
-            opacity: 0.8,
-            fontSize: "14px",
-            fontWeight: 500,
-            borderBottom: "1px solid rgba(255,255,255,0.1)",
-            paddingBottom: "40px"
+            gap: "48px", 
+            marginBottom: "64px", 
+            color: "#475467", 
+            fontWeight: 600,
+            fontSize: "14px" 
           }}>
             <span>21 CFR Part 11 Ready</span>
             <span>GAMP 5 Validated</span>
@@ -212,26 +200,20 @@ export default function Pricing() {
             <span>99.9% Uptime</span>
           </div>
 
-          <h2 style={{ marginBottom: 12 }}>
-            Ready to Make Your Compliance Defensible?
-          </h2>
-          <p style={{ opacity: 0.9, marginBottom: 32 }}>
-            Start your 14-day free trial today. No credit card required.
-          </p>
-
-          <div style={{ display: "flex", justifyContent: "center", gap: 16 }}>
-            <button
-              onClick={() => navigate("/assessment")}
-              style={PrimaryBtn}
-            >
-              Start Free Assessment →
-            </button>
-            <button
-              onClick={() => navigate("/assessment")}
-              style={SecondaryBtn}
-            >
-              Start 14-Day Free Trial →
-            </button>
+          <div style={{ 
+            background: "linear-gradient(180deg, #0B3A4A 0%, #062B36 100%)", 
+            padding: "64px 32px", 
+            borderRadius: "24px", 
+            maxWidth: "1100px", 
+            margin: "0 auto", 
+            color: "#FFFFFF" 
+          }}>
+            <h2 style={{ fontSize: "36px", marginBottom: "16px" }}>Ready to Make Your Compliance Defensible?</h2>
+            <p style={{ opacity: 0.8, marginBottom: "32px" }}>Start your 14-day free trial today. No credit card required.</p>
+            <div style={{ display: "flex", justifyContent: "center", gap: "16px" }}>
+              <button style={{ ...PrimaryBtn, background: "#12B76A" }} onClick={() => navigate("/assessment")}>Start Free Assessment →</button>
+              <button style={{ ...SecondaryBtn }} onClick={() => navigate("/assessment")}>Start 14-Day Free Trial →</button>
+            </div>
           </div>
         </section>
       </main>
@@ -241,66 +223,49 @@ export default function Pricing() {
 
 /* ---------- Components ---------- */
 
-function PlanCard({
-  title,
-  subtitle,
-  price,
-  features,
-  button,
-  onClick,
-  highlighted,
-  badge,
-  buttonStyle
-}) {
+function PlanCard({ title, subtitle, price, features, button, onClick, highlighted, badge, isEnterprise }) {
   return (
-    <div
-      style={{
-        background: "#FFFFFF",
-        borderRadius: 12,
-        padding: 32,
-        border: highlighted ? "3px solid #12B76A" : "1px solid #D0D5DD",
-        boxShadow: highlighted ? "0 24px 48px -12px rgba(16, 24, 40, 0.18)" : "0 4px 6px -2px rgba(16, 24, 40, 0.03)",
-        position: "relative",
-        zIndex: highlighted ? 2 : 1
-      }}
-    >
+    <div style={{
+      background: "#FFFFFF",
+      padding: highlighted ? "48px 32px" : "32px",
+      borderRadius: "16px",
+      border: highlighted ? "3px solid #12B76A" : "1px solid #EAECF0",
+      boxShadow: highlighted ? "0 20px 48px rgba(16,24,40,0.2)" : "0 4px 12px rgba(16,24,40,0.05)",
+      position: "relative",
+      zIndex: highlighted ? 2 : 1,
+      transform: highlighted ? "scale(1.05)" : "scale(1)",
+    }}>
       {badge && (
-        <div
-          style={{
-            position: "absolute",
-            top: -14,
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "#12B76A",
-            color: "#FFFFFF",
-            padding: "4px 16px",
-            borderRadius: 12,
-            fontSize: 12,
-            fontWeight: 700,
-            letterSpacing: "0.5px"
-          }}
-        >
-          {badge}
-        </div>
+        <div style={{
+          position: "absolute",
+          top: "-12px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: "#12B76A",
+          color: "#FFFFFF",
+          padding: "4px 12px",
+          borderRadius: "12px",
+          fontSize: "12px",
+          fontWeight: 700
+        }}>{badge}</div>
       )}
-
-      <h3 style={{ marginBottom: 8, fontSize: "20px" }}>{title}</h3>
-      <p style={{ color: "#475467", fontSize: 14, marginBottom: 24, lineHeight: "1.5", minHeight: "42px" }}>
-        {subtitle}
-      </p>
-      <div style={{ fontSize: 36, fontWeight: 600, marginBottom: 24 }}>
-        {price}
-        <span style={{ fontSize: 14, color: "#475467", fontWeight: 400 }}>/month</span>
+      <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>{title}</h3>
+      <p style={{ color: "#475467", fontSize: "14px", marginBottom: "24px", minHeight: "40px" }}>{subtitle}</p>
+      <div style={{ fontSize: "48px", fontWeight: 700, marginBottom: "24px" }}>
+        {price}<span style={{ fontSize: "16px", color: "#475467", fontWeight: 400 }}>/mo</span>
       </div>
-
-      <button onClick={onClick} style={{ ...PrimaryBtn, ...buttonStyle, width: "100%" }}>
+      <button onClick={onClick} style={{
+        ...PrimaryBtn,
+        width: "100%",
+        background: isEnterprise ? "#101828" : "#12B76A",
+        marginBottom: "32px"
+      }}>
         {button}
       </button>
-
-      <ul style={{ marginTop: 32, paddingLeft: 0, listStyle: "none" }}>
+      <ul style={{ listStyle: "none", padding: 0, margin: 0, textAlign: "left" }}>
         {features.map((f, i) => (
-          <li key={i} style={{ marginBottom: 12, fontSize: 14, display: "flex", gap: 8 }}>
-            <span style={{ color: "#12B76A" }}>✓</span> {f}
+          <li key={i} style={{ fontSize: "14px", marginBottom: "12px", display: "flex", alignItems: "flex-start", gap: "10px" }}>
+            <span style={{ color: "#12B76A", fontWeight: "bold" }}>✓</span> {f}
           </li>
         ))}
       </ul>
@@ -308,35 +273,31 @@ function PlanCard({
   );
 }
 
-/* ---------- Styles ---------- */
-
-const Th = ({ children, style }) => (
-  <th style={{ padding: "12px 16px", textAlign: "left", fontSize: 14, fontWeight: 600, color: "#475467", ...style }}>
-    {children}
-  </th>
+const Th = ({ children, align = "left" }) => (
+  <th style={{ padding: "12px 16px", textAlign: align, fontSize: "14px", color: "#475467", fontWeight: 600 }}>{children}</th>
 );
 
-const Td = ({ children, style }) => (
-  <td style={{ padding: "12px 16px", fontSize: 14, color: "#475467", ...style }}>{children}</td>
+const Td = ({ children, align = "left" }) => (
+  <td style={{ padding: "12px 16px", textAlign: align, fontSize: "14px", color: "#475467" }}>{children}</td>
 );
 
 const PrimaryBtn = {
-  background: "#12B76A",
-  color: "#FFFFFF",
+  padding: "12px 24px",
+  borderRadius: "8px",
   border: "none",
-  padding: "12px 20px",
-  borderRadius: 8,
+  color: "#FFFFFF",
   fontWeight: 600,
-  cursor: "pointer",
-  transition: "all 0.2s"
+  fontSize: "16px",
+  cursor: "pointer"
 };
 
 const SecondaryBtn = {
+  padding: "12px 24px",
+  borderRadius: "8px",
+  border: "none",
   background: "#FDB022",
   color: "#101828",
-  border: "none",
-  padding: "12px 20px",
-  borderRadius: 8,
   fontWeight: 600,
+  fontSize: "16px",
   cursor: "pointer"
 };
