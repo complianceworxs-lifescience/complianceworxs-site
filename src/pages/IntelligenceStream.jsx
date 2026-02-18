@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "./App";
+import MainLayout from "../App";
 
 export default function IntelligenceStream() {
   const navigate = useNavigate();
