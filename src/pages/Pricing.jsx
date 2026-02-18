@@ -301,4 +301,4 @@ const SecondaryBtn = {
   fontSize: "16px",
   cursor: "pointer"
 };
-export default App; // Ensure no characters or symbols exist after this line
+export default Pricing;
