@@ -564,24 +564,28 @@ const Home = () => {
   );
 };
 
-// App Component (Updated with Google Identity sub and auto_select: false)
+// App Component (FIXED SYNTAX)
 export default function App() {
   const [sub, setSub] = useState(null);
 
   useEffect(() => {
-  /* global google */
-  // This 'if' statement is the safety wrapper
-  if (window.google && google.accounts) {
-    google.accounts.id.initialize({
-      client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
-      auto_select: false,
-      callback: (response) => {
-        const payload = JSON.parse(atob(response.credential.split('.')[1]));
-        const googleSub = payload.sub;
-        setSub(googleSub);
-        localStorage.setItem('cw_sub', googleSub);
-  }
-
+    /* global google */
+    if (window.google && google.accounts) {
+      google.accounts.id.initialize({
+        client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
+        auto_select: false,
+        callback: (response) => {
+          const payload = JSON.parse(atob(response.credential.split('.')[1]));
+          const googleSub = payload.sub;
+          setSub(googleSub);
+          localStorage.setItem('cw_sub', googleSub);
+        }
+      });
+    }
+    
+    const savedSub = localStorage.getItem('cw_sub');
+    if (savedSub) setSub(savedSub);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ sub, setSub }}>
@@ -608,7 +612,6 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
-
 
 
 
