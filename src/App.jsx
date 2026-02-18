@@ -581,17 +581,7 @@ export default function App() {
         setSub(googleSub);
         localStorage.setItem('cw_sub', googleSub);
   }
-});
-} // 
 
-// 
- const savedSub = localStorage.getItem('cw_sub');
-  if (savedSub) setSub(savedSub);
-}, []); // 
-
-    const savedSub = localStorage.getItem('cw_sub');
-    if (savedSub) setSub(savedSub);
-  }, []);
 
   return (
     <AuthContext.Provider value={{ sub, setSub }}>
