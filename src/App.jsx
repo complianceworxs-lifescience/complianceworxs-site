@@ -580,14 +580,14 @@ export default function App() {
         const googleSub = payload.sub;
         setSub(googleSub);
         localStorage.setItem('cw_sub', googleSub);
-      }
-    });
   }
-  
-  // Keep your existing logic for the saved sub below
-  const savedSub = localStorage.getItem('cw_sub');
+});
+} // 
+
+// 
+ const savedSub = localStorage.getItem('cw_sub');
   if (savedSub) setSub(savedSub);
-}, []);
+}, []); // This is the ONLY time you should have this closing mark
 
     const savedSub = localStorage.getItem('cw_sub');
     if (savedSub) setSub(savedSub);
