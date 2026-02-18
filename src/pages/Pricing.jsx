@@ -2,7 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "./App";
 
-export default function Pricing() {
+// 1. Define the Pricing component (No 'default' here if you export at the bottom)
+function Pricing() {
   const navigate = useNavigate();
 
   return (
@@ -72,18 +73,16 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* 3. PLAN CARDS (3-COLUMN HIERARCHY) */}
+        {/* 3. PLAN CARDS */}
         <section style={{ padding: "48px 24px 72px" }}>
           <div style={{
             maxWidth: "1200px",
             margin: "0 auto",
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "0", /* Using 0 gap and padding to control hierarchy overlap if needed */
+            gap: "0",
             alignItems: "center"
           }}>
-            
-            {/* STANDARD */}
             <PlanCard
               title="Standard Authorization"
               price="$299"
@@ -98,7 +97,6 @@ export default function Pricing() {
               ]}
             />
 
-            {/* PROFESSIONAL (CENTER CARD - DOMINANT) */}
             <PlanCard
               highlighted
               badge="MOST POPULAR"
@@ -119,7 +117,6 @@ export default function Pricing() {
               ]}
             />
 
-            {/* ENTERPRISE */}
             <PlanCard
               title="Enterprise Authorization"
               price="$899"
@@ -140,7 +137,7 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* 5. COMPARE TABLE (CLEANUP) */}
+        {/* 5. COMPARE TABLE */}
         <section style={{ padding: "48px 24px", background: "#FFFFFF" }}>
           <h2 style={{ textAlign: "center", marginBottom: "40px", fontSize: "32px" }}>Compare Plans</h2>
           <div style={{ maxWidth: "1000px", margin: "0 auto", overflowX: "auto" }}>
@@ -185,29 +182,14 @@ export default function Pricing() {
 
         {/* 6. TRUST STRIP & FINAL CTA */}
         <section style={{ padding: "80px 24px", textAlign: "center", background: "#F9FAFB" }}>
-          <div style={{ 
-            display: "flex", 
-            justifyContent: "center", 
-            gap: "48px", 
-            marginBottom: "64px", 
-            color: "#475467", 
-            fontWeight: 600,
-            fontSize: "14px" 
-          }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: "48px", marginBottom: "64px", color: "#475467", fontWeight: 600, fontSize: "14px" }}>
             <span>21 CFR Part 11 Ready</span>
             <span>GAMP 5 Validated</span>
             <span>SOC 2 Compliant</span>
             <span>99.9% Uptime</span>
           </div>
 
-          <div style={{ 
-            background: "linear-gradient(180deg, #0B3A4A 0%, #062B36 100%)", 
-            padding: "64px 32px", 
-            borderRadius: "24px", 
-            maxWidth: "1100px", 
-            margin: "0 auto", 
-            color: "#FFFFFF" 
-          }}>
+          <div style={{ background: "linear-gradient(180deg, #0B3A4A 0%, #062B36 100%)", padding: "64px 32px", borderRadius: "24px", maxWidth: "1100px", margin: "0 auto", color: "#FFFFFF" }}>
             <h2 style={{ fontSize: "36px", marginBottom: "16px" }}>Ready to Make Your Compliance Defensible?</h2>
             <p style={{ opacity: 0.8, marginBottom: "32px" }}>Start your 14-day free trial today. No credit card required.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: "16px" }}>
@@ -221,7 +203,7 @@ export default function Pricing() {
   );
 }
 
-/* ---------- Components ---------- */
+/* ---------- Sub-Components (Not Exported) ---------- */
 
 function PlanCard({ title, subtitle, price, features, button, onClick, highlighted, badge, isEnterprise }) {
   return (
@@ -236,30 +218,16 @@ function PlanCard({ title, subtitle, price, features, button, onClick, highlight
       transform: highlighted ? "scale(1.05)" : "scale(1)",
     }}>
       {badge && (
-        <div style={{
-          position: "absolute",
-          top: "-12px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          background: "#12B76A",
-          color: "#FFFFFF",
-          padding: "4px 12px",
-          borderRadius: "12px",
-          fontSize: "12px",
-          fontWeight: 700
-        }}>{badge}</div>
+        <div style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%)", background: "#12B76A", color: "#FFFFFF", padding: "4px 12px", borderRadius: "12px", fontSize: "12px", fontWeight: 700 }}>
+          {badge}
+        </div>
       )}
       <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>{title}</h3>
       <p style={{ color: "#475467", fontSize: "14px", marginBottom: "24px", minHeight: "40px" }}>{subtitle}</p>
       <div style={{ fontSize: "48px", fontWeight: 700, marginBottom: "24px" }}>
         {price}<span style={{ fontSize: "16px", color: "#475467", fontWeight: 400 }}>/mo</span>
       </div>
-      <button onClick={onClick} style={{
-        ...PrimaryBtn,
-        width: "100%",
-        background: isEnterprise ? "#101828" : "#12B76A",
-        marginBottom: "32px"
-      }}>
+      <button onClick={onClick} style={{ ...PrimaryBtn, width: "100%", background: isEnterprise ? "#101828" : "#12B76A", marginBottom: "32px" }}>
         {button}
       </button>
       <ul style={{ listStyle: "none", padding: 0, margin: 0, textAlign: "left" }}>
@@ -281,24 +249,8 @@ const Td = ({ children, align = "left" }) => (
   <td style={{ padding: "12px 16px", textAlign: align, fontSize: "14px", color: "#475467" }}>{children}</td>
 );
 
-const PrimaryBtn = {
-  padding: "12px 24px",
-  borderRadius: "8px",
-  border: "none",
-  color: "#FFFFFF",
-  fontWeight: 600,
-  fontSize: "16px",
-  cursor: "pointer"
-};
+const PrimaryBtn = { padding: "12px 24px", borderRadius: "8px", border: "none", color: "#FFFFFF", fontWeight: 600, fontSize: "16px", cursor: "pointer" };
+const SecondaryBtn = { padding: "12px 24px", borderRadius: "8px", border: "none", background: "#FDB022", color: "#101828", fontWeight: 600, fontSize: "16px", cursor: "pointer" };
 
-const SecondaryBtn = {
-  padding: "12px 24px",
-  borderRadius: "8px",
-  border: "none",
-  background: "#FDB022",
-  color: "#101828",
-  fontWeight: 600,
-  fontSize: "16px",
-  cursor: "pointer"
-};
+// ONLY ONE EXPORT DEFAULT PER FILE
 export default Pricing;
