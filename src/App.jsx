@@ -220,7 +220,7 @@ const Home = () => {
           backgroundImage: 'url("/images/Screenshot (15).png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: .8,
+          opacity: .3,
           zIndex: 0
         }} />
 
