@@ -569,18 +569,25 @@ export default function App() {
   const [sub, setSub] = useState(null);
 
   useEffect(() => {
-    /* global google */
+  /* global google */
+  // This 'if' statement is the safety wrapper
+  if (window.google && google.accounts) {
     google.accounts.id.initialize({
       client_id: "270255439527-pijimscv9d92m92m0iqlk3ivh30g57sc.apps.googleusercontent.com",
-      auto_select: false, // Explicitly disabled
+      auto_select: false,
       callback: (response) => {
         const payload = JSON.parse(atob(response.credential.split('.')[1]));
-        const googleSub = payload.sub; // Identity based on Google sub
+        const googleSub = payload.sub;
         setSub(googleSub);
         localStorage.setItem('cw_sub', googleSub);
-        // Manual continuation from Access surface - no auto-redirect
       }
     });
+  }
+  
+  // Keep your existing logic for the saved sub below
+  const savedSub = localStorage.getItem('cw_sub');
+  if (savedSub) setSub(savedSub);
+}, []);
 
     const savedSub = localStorage.getItem('cw_sub');
     if (savedSub) setSub(savedSub);
