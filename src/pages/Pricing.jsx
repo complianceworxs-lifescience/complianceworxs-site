@@ -4,12 +4,19 @@ import MainLayout from "../App";
 
 /**
  * Pricing Page
- * Enterprise 3-column hierarchy
- * Visual-only annual toggle
+ * Corrected logic for Annual Toggle and Component Export.
+ * UI/UX maintained with 3-column hierarchy.
  */
 function Pricing() {
   const navigate = useNavigate();
   const [isAnnual, setIsAnnual] = useState(false);
+
+  // Dynamic pricing calculation (20% discount applied to annual)
+  const prices = {
+    standard: isAnnual ? "$239" : "$299",
+    professional: isAnnual ? "$399" : "$499",
+    enterprise: isAnnual ? "$719" : "$899"
+  };
 
   return (
     <MainLayout>
@@ -35,7 +42,7 @@ function Pricing() {
           </p>
         </section>
 
-        {/* BILLING TOGGLE (VISUAL ONLY) */}
+        {/* BILLING TOGGLE */}
         <section style={{ padding: "48px 24px 0", textAlign: "center" }}>
           <div style={toggleWrap}>
             <button onClick={() => setIsAnnual(false)} style={toggleBtn(!isAnnual)}>
@@ -48,12 +55,13 @@ function Pricing() {
           </div>
         </section>
 
-        {/* PLANS */}
+        {/* PLANS GRID */}
         <section style={{ padding: "48px 24px 72px" }}>
           <div style={planGrid}>
             <PlanCard
               title="Standard Authorization"
-              price="$299"
+              price={prices.standard}
+              period={isAnnual ? "/yr" : "/mo"}
               subtitle="Access core compliance assessment and basic authorization"
               button="Start with Standard"
               onClick={() => navigate("/assessment")}
@@ -69,7 +77,8 @@ function Pricing() {
               highlighted
               badge="MOST POPULAR"
               title="Professional Authorization"
-              price="$499"
+              price={prices.professional}
+              period={isAnnual ? "/yr" : "/mo"}
               subtitle="Turn compliance gaps into defensible, inspection-ready proof"
               button="Activate Professional Authorization"
               onClick={() => navigate("/assessment")}
@@ -88,7 +97,8 @@ function Pricing() {
             <PlanCard
               isEnterprise
               title="Enterprise Authorization"
-              price="$899"
+              price={prices.enterprise}
+              period={isAnnual ? "/yr" : "/mo"}
               subtitle="Organization-wide governance for inspection-grade decisions"
               button="Request Enterprise Authorization"
               onClick={() => navigate("/assessment")}
@@ -108,7 +118,6 @@ function Pricing() {
         {/* COMPARE TABLE */}
         <section style={{ padding: "48px 24px", background: "#FFFFFF" }}>
           <h2 style={{ textAlign: "center", marginBottom: 40 }}>Compare Plans</h2>
-
           <div style={{ maxWidth: 1000, margin: "0 auto", overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
@@ -144,7 +153,7 @@ function Pricing() {
 
           <div style={ctaBox}>
             <h2>Ready to Make Your Compliance Defensible?</h2>
-            <p>No credit card required.</p>
+            <p style={{ opacity: 0.9, marginBottom: 32 }}>No credit card required.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: 16 }}>
               <button style={primaryBtn} onClick={() => navigate("/assessment")}>
                 Start Free Assessment →
@@ -156,16 +165,17 @@ function Pricing() {
           </div>
         </section>
       </main>
-    </MainLayout>
+    </LayoutAdjuster>
   );
 }
 
-/* ---------- Components ---------- */
+/* ---------- Sub-Components ---------- */
 
 function PlanCard({
   title,
   subtitle,
   price,
+  period,
   features,
   button,
   onClick,
@@ -176,28 +186,33 @@ function PlanCard({
   return (
     <div style={cardStyle(highlighted)}>
       {badge && <div style={badgeStyle}>{badge}</div>}
-      <h3>{title}</h3>
-      <p style={{ color: "#475467" }}>{subtitle}</p>
-      <div style={{ fontSize: 48, fontWeight: 700 }}>
+      <h3 style={{ fontSize: "20px", marginBottom: 12 }}>{title}</h3>
+      <p style={{ color: "#475467", fontSize: "14px", marginBottom: 24, minHeight: "42px" }}>{subtitle}</p>
+      <div style={{ fontSize: 48, fontWeight: 700, marginBottom: 24 }}>
         {price}
-        <span style={{ fontSize: 16, color: "#475467" }}>/mo</span>
+        <span style={{ fontSize: 16, color: "#475467", fontWeight: 400 }}>{period}</span>
       </div>
       <button
         onClick={onClick}
-        style={{ ...primaryBtn, background: isEnterprise ? "#101828" : "#12B76A", width: "100%" }}
+        style={{ ...primaryBtn, background: isEnterprise ? "#101828" : "#12B76A", width: "100%", marginBottom: 32 }}
       >
         {button}
       </button>
-      <ul style={{ padding: 0, marginTop: 24, listStyle: "none" }}>
+      <ul style={{ padding: 0, margin: 0, listStyle: "none", textAlign: "left" }}>
         {features.map((f, i) => (
-          <li key={i} style={{ marginBottom: 10 }}>
-            ✓ {f}
+          <li key={i} style={{ marginBottom: 12, fontSize: "14px", display: "flex", gap: 8 }}>
+            <span style={{ color: "#12B76A" }}>✓</span> {f}
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
+// Visual Wrapper to prevent Layout Shift
+const LayoutAdjuster = ({ children }) => (
+  <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
+);
 
 /* ---------- Helpers & Styles ---------- */
 
@@ -220,11 +235,11 @@ const rows = [
 ];
 
 const Th = ({ children, align = "left" }) => (
-  <th style={{ padding: 12, textAlign: align }}>{children}</th>
+  <th style={{ padding: "16px 12px", textAlign: align, borderBottom: "1px solid #EAECF0", color: "#475467", fontWeight: 600 }}>{children}</th>
 );
 
 const Td = ({ children, align = "left" }) => (
-  <td style={{ padding: 12, textAlign: align }}>{children}</td>
+  <td style={{ padding: "16px 12px", textAlign: align, borderBottom: "1px solid #EAECF0", color: "#475467" }}>{children}</td>
 );
 
 const planGrid = {
@@ -232,70 +247,85 @@ const planGrid = {
   margin: "0 auto",
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gap: 24
+  gap: 24,
+  alignItems: "stretch"
 };
 
 const cardStyle = highlighted => ({
   background: "#FFFFFF",
-  padding: highlighted ? 48 : 32,
+  padding: highlighted ? "48px 32px" : "32px",
   borderRadius: 16,
   border: highlighted ? "3px solid #12B76A" : "1px solid #EAECF0",
   boxShadow: highlighted
     ? "0 20px 48px rgba(16,24,40,0.2)"
     : "0 4px 12px rgba(16,24,40,0.05)",
-  transform: highlighted ? "scale(1.05)" : "none"
+  transform: highlighted ? "scale(1.05)" : "none",
+  position: "relative",
+  zIndex: highlighted ? 10 : 1,
+  display: "flex",
+  flexDirection: "column",
+  transition: "all 0.3s ease"
 });
 
 const badgeStyle = {
   position: "absolute",
-  top: -12,
+  top: -14,
   left: "50%",
   transform: "translateX(-50%)",
   background: "#12B76A",
   color: "#FFF",
-  padding: "4px 12px",
-  borderRadius: 12,
+  padding: "4px 16px",
+  borderRadius: 20,
   fontSize: 12,
-  fontWeight: 700
+  fontWeight: 700,
+  whiteSpace: "nowrap"
 };
 
 const toggleWrap = {
   display: "inline-flex",
   background: "#FFF",
   padding: 4,
-  borderRadius: 8,
-  border: "1px solid #EAECF0"
+  borderRadius: 10,
+  border: "1px solid #EAECF0",
+  boxShadow: "0 1px 2px rgba(16,24,40,0.05)"
 };
 
 const toggleBtn = active => ({
-  padding: "8px 16px",
+  padding: "10px 24px",
   border: "none",
+  borderRadius: 6,
   background: active ? "#F2F4F7" : "transparent",
+  color: active ? "#101828" : "#475467",
   fontWeight: 600,
-  cursor: "pointer"
+  cursor: "pointer",
+  transition: "all 0.2s"
 });
 
 const saveBadge = {
-  marginLeft: 8,
+  marginLeft: 12,
+  alignSelf: "center",
   background: "#ECFDF3",
   color: "#027A48",
-  padding: "2px 8px",
-  borderRadius: 12,
+  padding: "4px 10px",
+  borderRadius: 16,
   fontSize: 12,
-  fontWeight: 600
+  fontWeight: 600,
+  marginRight: 4
 };
 
 const trustStrip = {
   display: "flex",
   justifyContent: "center",
-  gap: 40,
-  marginBottom: 48,
-  fontWeight: 600
+  gap: 48,
+  marginBottom: 64,
+  fontWeight: 600,
+  color: "#475467",
+  flexWrap: "wrap"
 };
 
 const ctaBox = {
   background: "linear-gradient(180deg, #0B3A4A 0%, #062B36 100%)",
-  padding: 64,
+  padding: "64px 32px",
   borderRadius: 24,
   color: "#FFF",
   maxWidth: 1100,
@@ -303,13 +333,15 @@ const ctaBox = {
 };
 
 const primaryBtn = {
-  padding: "12px 24px",
+  padding: "14px 28px",
   borderRadius: 8,
   border: "none",
   color: "#FFF",
   fontWeight: 600,
   cursor: "pointer",
-  background: "#12B76A"
+  background: "#12B76A",
+  fontSize: "16px",
+  transition: "background 0.2s"
 };
 
 const secondaryBtn = {
