@@ -14,8 +14,8 @@ import Success from './ddr/Success.jsx';
 
 // Import Root Pages
 import Pricing from './Pricing.jsx';
-import Intelligence from './Intelligence.jsx';
-import AccessPage from './ddr/Access.jsx'; 
+import Intelligence from './pages/IntelligenceStream.jsx';
+import AccessPage from './SecureAccess.jsx';
 
 // Inline SVG Icon Components
 const Shield = ({ size = 24 }) => (
