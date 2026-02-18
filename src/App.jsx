@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-ro
 
 export const AuthContext = React.createContext();
 
-// Import DDR components - Vite will resolve .jsx/.js automatically
 import FinalAssessment from './ddr/FinalAssessment.jsx';
 import DecisionContext from './ddr/DecisionContext.jsx';
 import RiskExposure from './ddr/RiskExposure.jsx';
