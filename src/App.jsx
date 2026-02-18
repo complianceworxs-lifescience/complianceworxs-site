@@ -186,7 +186,7 @@ const MainLayout = ({ children }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             fontSize: '13px',
-            opacity: '0.75'
+            opacity: '1.0'
           }}>
             <div>© ComplianceWorxs. All rights reserved</div>
             <div>+1 (203) 538-0107</div>
