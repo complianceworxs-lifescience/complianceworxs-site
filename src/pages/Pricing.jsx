@@ -1,4 +1,4 @@
-// ✅ PRICING v2 — Replace your existing Pricing.jsx with this file entirely.
+// ✅ PRICING v3 — forced redeploy.
 // No MainLayout import. Layout is handled by App.jsx's router.
 // If you see this comment in your source, the correct file is loaded.
 
