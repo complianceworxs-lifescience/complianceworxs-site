@@ -11,6 +11,41 @@ function Pricing() {
   const navigate = useNavigate();
   const [isAnnual, setIsAnnual] = useState(false);
 
+  // Stripe Checkout Logic
+  const startCheckout = async (plan) => {
+    let priceId = "";
+
+    // Mapping based on your Stripe API IDs
+    if (plan === "standard") {
+      priceId = isAnnual 
+        ? "price_1T2CqLBcdOgm3yGBgkzh3DIj" 
+        : "price_1T2ChRBcdOgm3yGBrDlQ3aae";
+    } else if (plan === "professional") {
+      priceId = isAnnual 
+        ? "price_1T2CvKBcdOgm3yGBErHxH3LD" 
+        : "price_1So0zJBcdOgm3yGBwEAnkXZc";
+    } else if (plan === "enterprise") {
+      priceId = isAnnual 
+        ? "price_1T2CzPBcdOgm3yGBwXpAnnNr" 
+        : "price_1T2CjhBcdOgm3yGB8mMML2ou";
+    }
+
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId })
+      });
+
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      console.error("Checkout error:", err);
+    }
+  };
+
   // Dynamic pricing calculation (20% discount applied to annual)
   const prices = {
     standard: isAnnual ? "$239" : "$299",
@@ -64,7 +99,7 @@ function Pricing() {
               period={isAnnual ? "/yr" : "/mo"}
               subtitle="Access core compliance assessment and basic authorization"
               button="Start with Standard"
-              onClick={() => navigate("/assessment")}
+              onClick={() => startCheckout("standard")}
               features={[
                 "Decision Defensibility Assessment results",
                 "Basic compliance reporting",
@@ -81,7 +116,7 @@ function Pricing() {
               period={isAnnual ? "/yr" : "/mo"}
               subtitle="Turn compliance gaps into defensible, inspection-ready proof"
               button="Activate Professional Authorization"
-              onClick={() => navigate("/assessment")}
+              onClick={() => startCheckout("professional")}
               features={[
                 "All Standard capabilities",
                 "Decision lineage & evidence index",
@@ -101,7 +136,7 @@ function Pricing() {
               period={isAnnual ? "/yr" : "/mo"}
               subtitle="Organization-wide governance for inspection-grade decisions"
               button="Request Enterprise Authorization"
-              onClick={() => navigate("/assessment")}
+              onClick={() => startCheckout("enterprise")}
               features={[
                 "All Professional capabilities",
                 "Multi-decision governance",
