@@ -587,7 +587,7 @@ export default function App() {
 // 
  const savedSub = localStorage.getItem('cw_sub');
   if (savedSub) setSub(savedSub);
-}, []); // This is the ONLY time you should have this closing mark
+}, []); // 
 
     const savedSub = localStorage.getItem('cw_sub');
     if (savedSub) setSub(savedSub);
